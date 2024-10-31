@@ -66,60 +66,60 @@ const BannerSection = () => {
           </div>
         </div>
         <div className="w-full h-80 bg-[#D2F2FD]">
-            <div className="w-full h-1/2 bg-green-300 flex justify-center items-end">
+            <div className="w-full h-1/2  flex justify-center items-end">
               <h1 className='text-3xl font-inter font-semibold '>Register As</h1>
             </div>
-            <div className="w-full h-1/2 bg-green-500 flex items-center justify-center">
-             <div className="w-10/12 h-16 bg-yellow-200 grid grid-cols-4 gap-4">
-              <div className="w-6/4 h-full bg-violet-200 flex justify-center items-center ">
-              <div className="w-24 h-16 bg-white">
-                <img src="" alt="" className='w-full h-full object-cover' />
+            <div className="w-full h-1/2  flex items-center justify-center">
+             <div className="w-10/12 h-16  grid grid-cols-4 gap-4">
+              <div className="w-6/4 h-full bg-[#5B297E] flex justify-center items-center ">
+              <div className="w-24 h-16  p-2">
+                <img src="\images\5c8ebda60eceeb30e56e59c34a37afb6.png" alt="" className='w-full h-full object-cover' />
               </div>
-              <div className="w-full h-full bg-gray-200">
-                <div className="w-full h-6 bg-yellow-700">
-                    <h1 className='font-inter font-semibold text-md text-black'>This is heading</h1>
+              <div className="w-full h-full ">
+                <div className="w-full h-6 ">
+                    <h1 className='font-inter font-semibold text-md text-white'>Transporter</h1>
                 </div>
-                <div className="w-full h-10 bg-blue-700">
-                    <h1 className='font-inter  text-sm text-black'>this is small topic about this </h1>
-                </div>
-              </div>
-              </div>
-              <div className="w-6/4 h-full bg-violet-200 flex ">
-              <div className="w-24 h-16 bg-white">
-                <img src="" alt="" className='w-full h-full object-cover' />
-              </div>
-              <div className="w-full h-full bg-gray-200">
-                <div className="w-full h-6 bg-yellow-700">
-                    <h1 className='font-inter font-semibold text-md text-black'>This is heading</h1>
-                </div>
-                <div className="w-full h-10 bg-blue-700">
-                    <h1 className='font-inter  text-sm text-black'>this is small topic about this </h1>
+                <div className="w-full h-10 ">
+                    <h1 className='font-inter text-xs text-white'>Register as transporter if you have idle trucks available. </h1>
                 </div>
               </div>
               </div>
-              <div className="w-6/4 h-full bg-violet-200 flex ">
-              <div className="w-24 h-16 bg-white">
-                <img src="" alt="" className='w-full h-full object-cover' />
+              <div className="w-6/4 h-full bg-[#5B297E] flex ">
+              <div className="w-24 h-16  p-2">
+                <img src="\images\3b3263d27fa208417968091550d93d98.png" alt="" className='w-full h-full object-cover' />
               </div>
-              <div className="w-full h-full bg-gray-200">
-                <div className="w-full h-6 bg-yellow-700">
-                    <h1 className='font-inter font-semibold text-md text-black'>This is heading</h1>
+              <div className="w-full h-full ">
+                <div className="w-full h-6 ">
+                    <h1 className='font-inter font-semibold text-md text-white'>Agent/Broker</h1>
                 </div>
-                <div className="w-full h-10 bg-blue-700">
-                    <h1 className='font-inter  text-sm text-black'>this is small topic about this </h1>
+                <div className="w-full h-10 ">
+                    <h1 className='font-inter  text-xs text-white'>Register as transporter if you have idle trucks available. </h1>
                 </div>
               </div>
               </div>
-              <div className="w-6/4 h-full bg-violet-200 flex ">
-              <div className="w-24 h-16 bg-white">
-                <img src="" alt="" className='w-full h-full object-cover' />
+              <div className="w-6/4 h-full bg-[#5B297E] flex ">
+              <div className="w-24 h-16 p-2">
+                <img src="\images\65ceb99559230cdf0da1520dde5e8224.png" alt="" className='w-full h-full object-cover' />
               </div>
-              <div className="w-full h-full bg-gray-200">
-                <div className="w-full h-6 bg-yellow-700">
-                    <h1 className='font-inter font-semibold text-md text-black'>This is heading</h1>
+              <div className="w-full h-full ">
+                <div className="w-full h-6 ">
+                    <h1 className='font-inter font-semibold text-md text-white'>Customer/Shipper</h1>
                 </div>
-                <div className="w-full h-10 bg-blue-700">
-                    <h1 className='font-inter  text-sm text-black'>this is small topic about this </h1>
+                <div className="w-full h-10 ">
+                    <h1 className='font-inter  text-xs text-white'>Register as transporter if you have idle trucks available. </h1>
+                </div>
+              </div>
+              </div>
+              <div className="w-6/4 h-full bg-[#5B297E] flex ">
+              <div className="w-24 h-16 p-2">
+                <img src="\images\5501a91ebf31912b64b8e8e809e132d1.png" alt="" className='w-full h-full object-cover' />
+              </div>
+              <div className="w-full h-full ">
+                <div className="w-full h-6 ">
+                    <h1 className='font-inter font-semibold text-md text-white'>Driver</h1>
+                </div>
+                <div className="w-full h-10 ">
+                    <h1 className='font-inter  text-xs text-white'>Register as transporter if you have idle trucks available. </h1>
                 </div>
               </div>
               </div>
