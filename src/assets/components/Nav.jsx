@@ -1,4 +1,5 @@
 import React from 'react'
+import BannerSection from './BannerSection'
 
 const Nav = () => {
   return (
@@ -44,7 +45,7 @@ const Nav = () => {
           </div>
         </div>
       </div>
-      
+      <BannerSection/>
     </div>
   )
 }
