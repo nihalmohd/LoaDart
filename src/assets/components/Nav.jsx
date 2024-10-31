@@ -3,7 +3,7 @@ import BannerSection from './BannerSection'
 
 const Nav = () => {
   return (
-    <div>
+    <div >
       <div className="w-full h-16 shadow-md flex justify-center items-center">
         <div className="w-10/12 h-12  flex justify-between items-center gap-1">
           <div className="w-3/12 h-full  flex justify-end items-end  ">
@@ -45,7 +45,10 @@ const Nav = () => {
           </div>
         </div>
       </div>
+      <div className="w-full h-full mt-3">
+
       <BannerSection/>
+      </div>
     </div>
   )
 }
