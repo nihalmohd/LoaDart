@@ -1,50 +1,75 @@
 import React from "react";
 
+import { FaPhoneAlt } from "react-icons/fa";
+import { CiMail } from "react-icons/ci";
+import { AiOutlineFacebook } from "react-icons/ai";
+import { AiOutlineInstagram } from "react-icons/ai";
+import { CiLinkedin } from "react-icons/ci";
+import { CiTwitter } from "react-icons/ci";
+
+
+
+
 const Footer = () => {
   return (
+    
     <footer
-      className="bg-black text-white p-5 lg:p-10 flex flex-wrap justify-between items-center text-sm"
+      className="bg-black text-white p-5 lg:p-10 flex flex-wrap justify-center items-center text-sm"
     >
-      {/* Left Section */}
-      <div className="flex-1 min-w-[200px] mb-5">
-        <h2 className="font-bold text-lg">LeoDart</h2>
-        <p>Global Trade Service</p>
-        <p>GSTIN: 123QWRE56789</p>
-        <p>📞 +91 987654321</p>
-        <p>📧 contact@leodart.com</p>
-      </div>
 
-      {/* Center Section */}
-      <div className="flex-1 min-w-[200px] mb-5">
-        <ul className="list-none p-0 space-y-2">
-          <li>About</li>
-          <li>Marketplace</li>
-          <li>FAQ</li>
-        </ul>
-      </div>
+        <div className="w-11/12 h-full  flex flex-wrap justify-between items-center">
+  
+              <div className="flex-1 min-w-[200px] space-y-3 mb-5 ml-10">
+                  <h2 className="font-bold text-lg">LeoDart</h2>
+                  <p>Global Trade Service</p>
+                  <p>GSTIN: 123QWRE56789</p>
+                  <p className="flex"><span className="text-white mt-1 mr-1"><FaPhoneAlt /></span> +91 987654321</p>
+                  <p className="flex"><span className="text-white mt-1 mr-1 text-lg"><CiMail /></span> contact@leodart.com</p>
+              </div>
 
-      {/* Social Media and App Store Icons */}
-      <div className="flex-1 min-w-[200px] mb-5">
-        <p>Follow Us</p>
-        <div className="flex space-x-3 my-3">
-          {/* Placeholder for Social Media Icons */}
-          <span className="bg-gray-700 w-6 h-6 inline-block"></span>
-          <span className="bg-gray-700 w-6 h-6 inline-block"></span>
-          <span className="bg-gray-700 w-6 h-6 inline-block"></span>
-          <span className="bg-gray-700 w-6 h-6 inline-block"></span>
-        </div>
-        <p>Download On</p>
-        <div className="flex space-x-2 mt-2">
-          {/* Placeholder for App Store Buttons */}
-          <span className="bg-gray-700 w-24 h-10 inline-block"></span>
-          <span className="bg-gray-700 w-24 h-10 inline-block"></span>
-        </div>
-      </div>
+     
+              <div className="flex-1 min-w-[200px] mb-5 ml-32">
+                  <ul className="list-none p-0 space-y-2">
+                      <li>About</li>
+                      <li>Marketplace</li>
+                      <li>FAQ</li>
+                      <li>
+                          <p>Follow Us</p>
+                          <div className="flex space-x-8 my-3">
+
+                              <span className=" w-6 h-6 inline-block text-2xl"><AiOutlineFacebook /></span>
+                              <span className=" w-6 h-6 inline-block text-2xl"><AiOutlineInstagram /></span>
+                              <span className=" w-6 h-6 inline-block text-2xl"><CiLinkedin /></span>
+                              <span className=" w-6 h-6 inline-block text-2xl"><CiTwitter /></span>
+                          </div>
+
+                      </li>
+                  </ul>
+              </div>
+
+     
+              <div className="flex-1 min-w-[200px] mb-5 ml-32 ">
+
+                  <p>Download On</p>
+                  <div className=" w-40 h-40  mt-2 ">
+
+                      <span className="bg-gray-700 w-36 h-12 inline-block">
+                          <img src="\images\Screenshot 2024-11-01 115313.png" alt="" className="w-full h-full object-cover" />
+                      </span>
+                      <span className="bg-gray-700 w-36 h-12 inline-block">
+                          <img src="\images\Screenshot 2024-11-01 115358.png" alt="" className="w-full h-full object-cover" />
+
+                      </span>
+                  </div>
+              </div>
+
+          </div>
+      
 
       {/* Bottom Section */}
-      <div className="w-full border-t border-gray-700 pt-5 flex justify-between items-center mt-5 text-xs">
+      <div className="w-full border-t border-gray-700 pt-5 flex justify-between items-center mt-5 text-xs mr-16 ml-20">
         <p>© 2024 LeoDart. All Rights Reserved.</p>
-        <div className="flex space-x-3">
+        <div className="flex space-x-2">
           <p>Privacy Policy</p>
           <p>Terms & Conditions</p>
         </div>

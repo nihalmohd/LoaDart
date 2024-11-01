@@ -34,19 +34,24 @@ const BannerSection = () => {
     return (
       <div className="font-sans bg-white   ">
         <div className="w-full h-52  relative flex justify-between ">
-          <div className="w-[500px] h-auto absolute ml-24 mt-7  ">
-            <div className="w-[350px] h-36 absolute flex justify-center items-center z-20 ">
+        <div className="w-[500px] h-auto absolute ml-24 mt-7">
+            <div className="w-[350px] h-36 absolute flex justify-center items-center z-20">
               <h2 className="text-5xl font-semibold mb-4 text-black">
                 Choose Lorries for Your Loads
               </h2>
             </div>
-            <div className="w-[500px] h-full flex justify-center pt-4 pr-10 ">
-              <div className="w-3/4 h-52 relative flex flex-col items-center ">
-                <img
-                  src="\images\a8d7829696c1729ec57f623c6f9cab21.png"
-                  alt="Truck"
-                  className="relative z-10 flex-none"
-                />
+            <div className="w-[500px] h-full flex justify-center pt-4 pr-10">
+              <div className="w-3/4 h-52 relative flex flex-col items-center">
+                {/* Image Container */}
+                <div className="relative w-full h-full flex justify-center items-center">
+                  <img
+                    src="/images/a8d7829696c1729ec57f623c6f9cab21.png"
+                    alt="Truck"
+                    className="relative z-10 flex-none"
+                  />
+                  {/* Centered Red Bar Overlay */}
+                  <div className="absolute top-1/2 transform -translate-y-1/2 w-full h-10 bg-red-400 z-20"></div>
+                </div>
               </div>
             </div>
           </div>
