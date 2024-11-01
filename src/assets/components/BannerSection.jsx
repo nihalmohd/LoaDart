@@ -6,24 +6,31 @@ import 'slick-carousel/slick/slick-theme.css';
 
 
 const images = [
-    '/images/5d6c0fcb34d93c24b296b77ea6b54f8b.png',
-    '/images/6adda6a4f6b86bb8d24399cd0782e7b7.png',
-    '/images/a82aaeda5d038912a13d81dc0ca3a4a1.png',
-    '/images/c6d9e0b945affbe94efba26aa6c9fc78.png',
-  ];
+  '/images/5d6c0fcb34d93c24b296b77ea6b54f8b.png',
+  '/images/6adda6a4f6b86bb8d24399cd0782e7b7.png',
+  '/images/a82aaeda5d038912a13d81dc0ca3a4a1.png',
+  '/images/c6d9e0b945affbe94efba26aa6c9fc78.png',
+];
+
+const buttonLabels = [
+  'Register as Transporter',
+  'Become a Driver',
+  'Join as Fleet Manager',
+  'Sign Up as Partner',
+];
 const BannerSection = () => {
 
-    const settings = {
-        
-        infinite: true,       // Infinite looping
-        speed: 500,           // Transition speed in milliseconds
-        slidesToShow: 1,      // Number of slides to show at once
-        slidesToScroll: 1,    // Number of slides to scroll at a time
-        autoplay: true,       // Enable autoplay
-        autoplaySpeed: 2000,  // Time between slides in milliseconds
-        cssEase: "ease-in-out",
-        arrows: false,  
-      };
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    cssEase: "ease-in-out",
+    arrows: false,
+  };
+
     return (
       <div className="font-sans bg-white   ">
         <div className="w-full h-52  relative flex justify-between ">
@@ -44,26 +51,24 @@ const BannerSection = () => {
             </div>
           </div>
           <div className="w-1/2 h-60 bg-transparent "></div>
-          <div className="w-1/2 h-80  flex justify-center items-center relative">
-            <div className="w-2/4 h-72  rounded-md overflow-hidden relative ">
-              {" "}
-              <Slider {...settings}>
-                {images.map((image, index) => (
-                  <div key={index} className="h-full">
-                    <img
-                      src={image}
-                      alt={`Slide ${index}`}
-                      className="w-full h-72 object-cover"
-                    />
-                  </div>
-                ))}
-              </Slider>
-    
-              <button className="absolute bottom-3 left-10  w-3/4 h-10 bg-[#5B297E] text-white rounded-md shadow-md hover:bg-white hover:text-[#5B297E] font-inter">
-                Register as Transporter
+          <div className="w-1/2 h-80 flex justify-center items-center relative">
+      <div className="w-2/4 h-72 rounded-md overflow-hidden relative">
+        <Slider {...settings}>
+          {images.map((image, index) => (
+            <div key={index} className="h-full relative">
+              <img
+                src={image}
+                alt={`Slide ${index}`}
+                className="w-full h-72 object-cover"
+              />
+              <button className="absolute bottom-3 left-10 w-3/4 h-10 bg-[#5B297E] text-white rounded-md shadow-md hover:bg-white hover:text-[#5B297E] font-inter">
+                {buttonLabels[index]}
               </button>
             </div>
-          </div>
+          ))}
+        </Slider>
+      </div>
+    </div>
         </div>
         <div className="w-full h-80 bg-[#D2F2FD]">
             <div className="w-full h-1/2  flex justify-center items-end">
@@ -127,10 +132,7 @@ const BannerSection = () => {
             </div>
         </div>
 
-
-        <div className="flex justify-center items-center">
           <VideoSection />
-        </div>
       </div>
     );
 }

@@ -47,8 +47,8 @@ const Nav = () => {
       </div>
       <div className="w-full h-full mt-3">
 
-      <BannerSection/>
       </div>
+      <BannerSection/>
     </div>
   )
 }

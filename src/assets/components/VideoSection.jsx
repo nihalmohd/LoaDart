@@ -1,7 +1,10 @@
 import React from 'react'
+import FAQSection from './FAQSection'
 
 const VideoSection = () => {
   return (
+    <div  >
+      <div className='flex justify-center items-center'>
     <section className="bg-white w-10/12 mt-14 pb-6">
   <h2 className="text-center text-3xl font-semibold text-purple-800 mb-6">
     Have doubts? Watch our Tutorials!
@@ -117,6 +120,10 @@ const VideoSection = () => {
     </div>
   </div>
 </section>
+    </div>
+  <FAQSection/>
+      </div>
+
 
   )
 }
