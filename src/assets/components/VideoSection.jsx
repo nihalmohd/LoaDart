@@ -10,7 +10,7 @@ const VideoSection = () => {
     Have doubts? Watch our Tutorials!
   </h2>
   
-  <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 px-6 md:px-12">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 md:px-12">
     {/* Video 1 */}
     <div className="p-4 rounded-lg text-center">
       <div className="relative h-40 bg-gray-300 rounded-md mb-4 flex items-center justify-center">

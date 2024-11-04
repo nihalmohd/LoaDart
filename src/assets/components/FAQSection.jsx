@@ -12,7 +12,7 @@ const FAQSection = () => {
   <div className="absolute inset-0 bg-gray-200 opacity-65"></div>
   
 
-  <div className="w-10/12 h-full relative z-10">
+  <div className="lg:w-10/12 md:11/12 h-full relative p-4 z-10">
     <div className="w-full h-16 mt-3 flex items-center">
       <h1 className="font-inter text-2xl text-[#5B297E] font-semibold">Frequently asked questions</h1>
     </div>

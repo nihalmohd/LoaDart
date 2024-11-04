@@ -28,7 +28,7 @@ const Footer = () => {
               </div>
 
      
-              <div className="flex-1 min-w-[200px] mb-5 ml-32">
+              <div className="flex-1 min-w-[200px] lg:mb-5 ml-32">
                   <ul className="list-none p-0 space-y-2">
                       <li>About</li>
                       <li>Marketplace</li>
@@ -48,10 +48,10 @@ const Footer = () => {
               </div>
 
      
-              <div className="flex-1 min-w-[200px] mb-5 ml-32 ">
+              <div className="flex-1   min-w-[200px] lg:mb-5 ml-32 ">
 
                   <p>Download On</p>
-                  <div className=" w-40 h-40  mt-2 ">
+                  <div className=" lg:w-40 h-40  mt-2 md:flex lg:flex-none gap-3 ">
 
                       <span className="bg-gray-700 w-36 h-12 inline-block">
                           <img src="\images\Screenshot 2024-11-01 115313.png" alt="" className="w-full h-full object-cover" />
