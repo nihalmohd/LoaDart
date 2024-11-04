@@ -50,7 +50,7 @@ const Footer = () => {
      
               <div className="flex-1   min-w-[200px] lg:mb-5 md:ml-32 ">
 
-                  <p>Download On</p>
+                  <p className="md:hidden lg:flex">Download On</p>
                   <div className=" lg:w-40 lg:h-40  mt-2 flex lg:flex-col ">
 
                       <span className="w-36 h-12 inline-block">
