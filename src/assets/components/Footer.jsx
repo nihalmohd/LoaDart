@@ -19,7 +19,7 @@ const Footer = () => {
 
         <div className="w-11/12 h-full  flex flex-wrap justify-between items-center">
   
-              <div className="flex-1 min-w-[200px] space-y-3 mb-5 ml-10">
+              <div className="flex-1 min-w-[200px] space-y-3 mb-5 md:ml-10">
                   <h2 className="font-bold text-lg">LeoDart</h2>
                   <p>Global Trade Service</p>
                   <p>GSTIN: 123QWRE56789</p>
@@ -28,14 +28,14 @@ const Footer = () => {
               </div>
 
      
-              <div className="flex-1 min-w-[200px] lg:mb-5 ml-32">
+              <div className="flex-1 min-w-[200px] lg:mb-5 md:ml-32">
                   <ul className="list-none p-0 space-y-2">
                       <li>About</li>
                       <li>Marketplace</li>
                       <li>FAQ</li>
                       <li>
                           <p>Follow Us</p>
-                          <div className="flex space-x-8 my-3">
+                          <div className="flex  space-x-3 md:space-x-8 my-3">
 
                               <span className=" w-6 h-6 inline-block text-2xl"><AiOutlineFacebook /></span>
                               <span className=" w-6 h-6 inline-block text-2xl"><AiOutlineInstagram /></span>
@@ -48,15 +48,15 @@ const Footer = () => {
               </div>
 
      
-              <div className="flex-1   min-w-[200px] lg:mb-5 ml-32 ">
+              <div className="flex-1   min-w-[200px] lg:mb-5 md:ml-32 ">
 
                   <p>Download On</p>
                   <div className=" lg:w-40 lg:h-40  mt-2 flex lg:flex-col ">
 
-                      <span className="bg-gray-700 w-36 h-12 inline-block">
+                      <span className="w-36 h-12 inline-block">
                           <img src="\images\Screenshot 2024-11-01 115313.png" alt="" className="w-full h-full object-cover" />
                       </span>
-                      <span className="bg-gray-700 w-36 h-12 inline-block">
+                      <span className=" w-36 h-12 inline-block">
                           <img src="\images\Screenshot 2024-11-01 115358.png" alt="" className="w-full h-full object-cover" />
 
                       </span>
@@ -67,7 +67,7 @@ const Footer = () => {
       
 
       {/* Bottom Section */}
-      <div className="w-full border-t border-gray-700 pt-5 flex justify-between items-center mt-5 text-xs mr-16 ml-20">
+      <div className="w-full border-t border-gray-700 pt-5 flex justify-between items-center mt-5 text-xs md:mr-16 md:ml-20">
         <p>© 2024 LeoDart. All Rights Reserved.</p>
         <div className="flex space-x-2">
           <p>Privacy Policy</p>

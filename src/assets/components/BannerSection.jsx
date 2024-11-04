@@ -33,10 +33,29 @@ const BannerSection = () => {
 
     return (
       <div className="font-sans bg-white   ">
-        <div className="w-full h-52  lg:relative lg:flex justify-between ">
-        <div className="w-auto h-auto lg:absolute ml-24 mt-7">
-            <div className="w-atuo h-36 absolute flex justify-center items-center z-20">
-              <h2 className="text-5xl font-semibold mb-4 text-black">
+
+<div className="w-full h-72 md:hidden md:rounded-md overflow-hidden relative ">
+        <Slider {...settings}>
+          {images.map((image, index) => (
+            <div key={index} className="h-full relative">
+              <img
+                src={image}
+                alt={`Slide ${index}`}
+                className="w-full h-72 object-cover"
+              />
+              <button className="absolute bottom-3 left-10 w-3/4 h-10 bg-[#5B297E] text-white rounded-md shadow-md hover:bg-white hover:text-[#5B297E] font-inter">
+                {buttonLabels[index]}
+              </button>
+            </div>
+          ))}
+        </Slider>
+      </div>
+        <div className="w-full h-52   lg:relative md:flex justify-between mb-1 md:mb-0 ">
+
+          
+        <div className="w-auto h-auto lg:absolute md:ml-12 lg:ml-24 mt-7">
+            <div className="w-atuo h-36 absolute md:flex justify-center items-center z-20 hidden ">
+              <h2 className="text-3xl md:text-5xl font-semibold mb-4 text-black">
                 Choose Lorries for Your Loads
               </h2>
             </div>
@@ -82,12 +101,12 @@ const BannerSection = () => {
       </div>
     </div>
         </div>
-        <div className="w-full h-80 bg-[#D2F2FD]">
+        <div className="w-full md:h-80 bg-[#D2F2FD] p-5 md:p-0">
             <div className="w-full md:h-1/3 lg:h-1/2  flex justify-center items-end">
               <h1 className='text-3xl font-inter font-semibold '>Register As</h1>
             </div>
-            <div className="w-full h-1/2  flex items-center justify-center">
-             <div className="w-10/12 h-auto  grid grid-cols-4 gap-4">
+            <div className="w-full h-1/2  flex items-center justify-center mt-2">
+             <div className="w-10/12 h-auto  grid grid-cols-2 md:grid-cols-4 gap-4">
               <div className="lg:w-6/4 h-auto bg-[#5B297E] lg:flex justify-center items-center ">
               <div className="w-24  h-16 md:ml-7 lg:ml-0 p-2">
                 <img src="\images\5c8ebda60eceeb30e56e59c34a37afb6.png" alt="" className='w-full h-full object-cover' />

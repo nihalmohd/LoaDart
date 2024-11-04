@@ -52,10 +52,10 @@ const Nav = () => {
           </div>
         </div>
       </div>
-      <div className="w-full h-full mt-3">
+      <div className="w-full h-full md:mt-3">
 
-      </div>
       <BannerSection/>
+      </div>
     </div>
   )
 }
