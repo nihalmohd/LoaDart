@@ -108,10 +108,10 @@ const BannerSection = () => {
             <div className="w-full h-1/2  flex items-center justify-center mt-2">
              <div className="w-10/12 h-auto  grid grid-cols-2 md:grid-cols-4 gap-4">
               <div className="lg:w-6/4 h-auto bg-[#5B297E] lg:flex justify-center items-center rounded-md md:rounded-none shadow-lg md:shadow-none ">
-              <div className="w-24  h-16 md:ml-7 lg:ml-0 p-2">
-                <img src="\images\5c8ebda60eceeb30e56e59c34a37afb6.png" alt="" className='w-full h-full object-cover' />
+              <div className="w-24  h-20 md:ml-7 lg:ml-0 p-2">
+                <img src="\images\5c8ebda60eceeb30e56e59c34a37afb6.png" alt="" className='w-fit h-fit object-cover' />
               </div>
-              <div className="w-full h-full ">
+              <div className="w-full h-full mt-2 ">
                 <div className="w-full  lg:h-6 ml-1 lg:ml-0 ">
                     <h1 className='font-inter font-semibold md:text-sm lg:text-md text-white'>Transporter</h1>
                 </div>
@@ -121,10 +121,10 @@ const BannerSection = () => {
               </div>
               </div>
               <div className="w-6/4 h-full bg-[#5B297E] lg:flex rounded-md md:rounded-none shadow-lg md:shadow-none ">
-              <div className="w-24 h-16 md:ml-7 lg:ml-0 p-2">
-                <img src="\images\3b3263d27fa208417968091550d93d98.png" alt="" className='w-full h-full object-cover' />
+              <div className="w-24 h-20 md:ml-7 lg:ml-0 p-2">
+                <img src="\images\3b3263d27fa208417968091550d93d98.png" alt="" className='w-fit h-fit object-cover' />
               </div>
-              <div className="w-full h-full ">
+              <div className="w-full h-full mt-2 ">
                 <div className="w-full lg:h-6 ml-1 lg:ml-0 ">
                     <h1 className='font-inter font-semibold md:text-sm lg:text-md text-white'>Agent/Broker</h1>
                 </div>
@@ -134,10 +134,10 @@ const BannerSection = () => {
               </div>
               </div>
               <div className="w-6/4 h-full bg-[#5B297E] lg:flex rounded-md md:rounded-none shadow-lg md:shadow-none ">
-              <div className="w-24 h-16 md:ml-7 lg:ml-0 p-2">
-                <img src="\images\65ceb99559230cdf0da1520dde5e8224.png" alt="" className='w-full h-full object-cover' />
+              <div className="w-24 h-20 md:ml-7 lg:ml-0 p-2">
+                <img src="\images\65ceb99559230cdf0da1520dde5e8224.png" alt="" className='w-fit h-fit object-cover' />
               </div>
-              <div className="w-full h-full ">
+              <div className="w-full h-full mt-2 ">
                 <div className="w-full lg:h-6 ml-1 lg:ml-0 ">
                     <h1 className='font-inter font-semibold md:text-sm lg:text-md text-white'>Customer/Shipper</h1>
                 </div>
@@ -147,10 +147,10 @@ const BannerSection = () => {
               </div>
               </div>
               <div className="w-6/4 h-full bg-[#5B297E] lg:flex rounded-md md:rounded-none shadow-lg md:shadow-none ">
-              <div className="w-24 h-16 md:ml-7 lg:ml-0 p-2">
-                <img src="\images\5501a91ebf31912b64b8e8e809e132d1.png" alt="" className='w-full h-full object-cover' />
+              <div className="w-24 h-20 md:ml-7 lg:ml-0 p-2">
+                <img src="\images\5501a91ebf31912b64b8e8e809e132d1.png" alt="" className='w-fit h-fit object-cover' />
               </div>
-              <div className="w-full h-full ">
+              <div className="w-full h-full mt-2 ">
                 <div className="w-full lg:h-6 ml-1 lg:ml-0">
                     <h1 className='font-inter font-semibold md:text-sm lg:text-md text-white'>Driver</h1>
                 </div>
