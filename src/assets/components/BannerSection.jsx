@@ -54,12 +54,12 @@ const BannerSection = () => {
 
           
         <div className="w-auto h-auto lg:absolute md:ml-12 lg:ml-24 mt-7">
-            <div className="w-atuo h-36 absolute md:flex justify-center items-center z-20 hidden ">
-              <h2 className="text-3xl md:text-5xl font-semibold mb-4 text-black">
+            <div className="w-atuo h-36 absolute md:flex justify-center items-center z-20 p-3 text-center  ">
+              <h2 className="text-4xl md:text-5xl font-semibold mb-4 text-black">
                 Choose Lorries for Your Loads
               </h2>
             </div>
-            <div className="w-[500px] h-full flex justify-center pt-4 pr-10">
+            <div className= " md:w-[500px] h-full flex justify-center pt-9 pr-10">
               <div className="w-3/4 h-52 relative flex flex-col items-center">
                 
                 <div className="relative w-full h-full flex justify-center items-center">
@@ -101,13 +101,13 @@ const BannerSection = () => {
       </div>
     </div>
         </div>
-        <div className="w-full md:h-80 bg-[#D2F2FD] p-5 md:p-0">
+        <div className="w-full md:h-80 bg-[#D2F2FD] p-5  md:p-0">
             <div className="w-full md:h-1/3 lg:h-1/2  flex justify-center items-end">
               <h1 className='text-3xl font-inter font-semibold '>Register As</h1>
             </div>
             <div className="w-full h-1/2  flex items-center justify-center mt-2">
              <div className="w-10/12 h-auto  grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="lg:w-6/4 h-auto bg-[#5B297E] lg:flex justify-center items-center ">
+              <div className="lg:w-6/4 h-auto bg-[#5B297E] lg:flex justify-center items-center rounded-md md:rounded-none shadow-lg md:shadow-none ">
               <div className="w-24  h-16 md:ml-7 lg:ml-0 p-2">
                 <img src="\images\5c8ebda60eceeb30e56e59c34a37afb6.png" alt="" className='w-full h-full object-cover' />
               </div>
@@ -120,7 +120,7 @@ const BannerSection = () => {
                 </div>
               </div>
               </div>
-              <div className="w-6/4 h-full bg-[#5B297E] lg:flex ">
+              <div className="w-6/4 h-full bg-[#5B297E] lg:flex rounded-md md:rounded-none shadow-lg md:shadow-none ">
               <div className="w-24 h-16 md:ml-7 lg:ml-0 p-2">
                 <img src="\images\3b3263d27fa208417968091550d93d98.png" alt="" className='w-full h-full object-cover' />
               </div>
@@ -133,7 +133,7 @@ const BannerSection = () => {
                 </div>
               </div>
               </div>
-              <div className="w-6/4 h-full bg-[#5B297E] lg:flex ">
+              <div className="w-6/4 h-full bg-[#5B297E] lg:flex rounded-md md:rounded-none shadow-lg md:shadow-none ">
               <div className="w-24 h-16 md:ml-7 lg:ml-0 p-2">
                 <img src="\images\65ceb99559230cdf0da1520dde5e8224.png" alt="" className='w-full h-full object-cover' />
               </div>
@@ -146,7 +146,7 @@ const BannerSection = () => {
                 </div>
               </div>
               </div>
-              <div className="w-6/4 h-full bg-[#5B297E] lg:flex ">
+              <div className="w-6/4 h-full bg-[#5B297E] lg:flex rounded-md md:rounded-none shadow-lg md:shadow-none ">
               <div className="w-24 h-16 md:ml-7 lg:ml-0 p-2">
                 <img src="\images\5501a91ebf31912b64b8e8e809e132d1.png" alt="" className='w-full h-full object-cover' />
               </div>
