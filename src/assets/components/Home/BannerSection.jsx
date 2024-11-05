@@ -69,7 +69,7 @@ const BannerSection = () => {
               <img
                 src={image}
                 alt={`Slide ${index}`}
-                className="w-full h-72 object-cover"
+                className="w-full h-72 object-cover object-[75%]"
               />
               <button
                 className="absolute bottom-3 left-10 w-3/4 h-10 bg-[#5B297E] text-white rounded-md shadow-md hover:bg-white hover:text-[#5B297E] font-inter"
