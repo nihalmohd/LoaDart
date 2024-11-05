@@ -13,7 +13,7 @@ const VideoSection = () => {
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 md:px-12">
     {/* Video 1 */}
     <div className="p-4 rounded-lg text-center">
-      <div className="relative h-40 bg-gray-300 rounded-md mb-4 flex items-center justify-center">
+      <div className="relative h-40 bg-gray-900 rounded-md mb-4 flex items-center justify-center">
         <img
           src="\images\479075e7044c8a4a58f8a6034f0cbaf0.png"
           alt="How it works - English"
@@ -31,7 +31,7 @@ const VideoSection = () => {
 
     {/* Video 2 */}
     <div className="p-4 rounded-lg text-center">
-      <div className="relative h-40 bg-gray-300 rounded-md mb-4 flex items-center justify-center">
+      <div className="relative h-40 bg-gray-900 rounded-md mb-4 flex items-center justify-center">
         <img
           src="\images\479075e7044c8a4a58f8a6034f0cbaf0.png"
           alt="How it works - Hindi"
@@ -49,7 +49,7 @@ const VideoSection = () => {
 
     {/* Video 3 */}
     <div className="p-4 rounded-lg text-center">
-      <div className="relative h-40 bg-gray-300 rounded-md mb-4 flex items-center justify-center">
+      <div className="relative h-40 bg-gray-900 rounded-md mb-4 flex items-center justify-center">
         <img
           src="\images\345b209a09490fc094743c44b554580b.png"
           alt="How to register as Driver"
@@ -67,7 +67,7 @@ const VideoSection = () => {
 
     {/* Video 4 */}
     <div className="p-4 rounded-lg text-center">
-      <div className="relative h-40 bg-gray-300 rounded-md mb-4 flex items-center justify-center">
+      <div className="relative h-40 bg-gray-900 rounded-md mb-4 flex items-center justify-center">
         <img
           src="\images\9d3f1146f91e8ec5c53c7002ea762ffe.png"
           alt="How to book a Truck"
@@ -85,7 +85,7 @@ const VideoSection = () => {
 
     {/* Video 5 */}
     <div className="p-4 rounded-lg text-center">
-      <div className="relative h-40 bg-gray-300 rounded-md mb-4 flex items-center justify-center border">
+      <div className="relative h-40 bg-gray-900 rounded-md mb-4 flex items-center justify-center border">
         <img
           src="\images\4c5cebdbed0f4791c174b0dc933c84bc.png"
           alt="How to register as Broker"
@@ -103,7 +103,7 @@ const VideoSection = () => {
 
     {/* Video 6 */}
     <div className="p-4 rounded-lg text-center ">
-      <div className="relative h-40 bg-gray-300 rounded-md mb-4 flex items-center justify-center">
+      <div className="relative h-40 bg-gray-900 rounded-md mb-4 flex items-center justify-center">
         <img
           src="\images\4c5cebdbed0f4791c174b0dc933c84bc.png"
           alt="How to earn money with LoaDart"

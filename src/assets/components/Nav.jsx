@@ -12,11 +12,11 @@ const Nav = () => {
   return (
     <div>
       
-      <div className="w-full h-16 shadow-md flex justify-center items-center">
-        <div className="w-[390px] md:w-10/12 h-12 flex md:justify-between md:items-center gap-1 ">
+      <div className="w-full h-14 shadow-md md:flex justify-center items-center">
+        <div className="w-full lg:w-10/12 h-12 flex md:justify-between md:items-center gap-1  ">
           
           <div className="w-3/12 h-full flex justify-end items-end">
-            <div className="w-[55px] h-[41px] flex justify-end items-end">
+            <div className="w-[70px] h-[40px] flex justify-end items-end">
               <img src="/images/ab6aaab828b7c3f0ef708693166c9def.png" className="w-full h-full hidden lg:flex" alt="Logo" />
             </div>
             <div className="w-72 md:w-80 h-full">
@@ -27,18 +27,18 @@ const Nav = () => {
           </div>
 
          
-          <div className="hidden w-9/12 h-full md:flex justify-end items-center">
-            <div className="w-10/12 h-8 flex gap-4 items-center">
+          <div className="hidden w-9/12 h-full lg:flex justify-end items-center  ml-3 ">
+            <div className="w-10/12 h-6 flex gap-2 justify-end  items-center ">
               <div className="w-1/12 h-10 flex justify-start items-center">
-                <h1 className="text-[13px] font-inter font-medium text-black">About</h1>
+                <h1 className="text-xs font-inter font-semibold text-black">About</h1>
               </div>
-              <div className="w-2/12 h-10 flex justify-start items-center">
-                <h1 className="text-[13px] font-inter text-black">Marketplace</h1>
+              <div className="w-2/12 h-10 flex justify-center items-center">
+                <h1 className="text-xs font-inter  font-semibold text-black">Marketplace</h1>
               </div>
               <div className="w-1/12 h-10 flex justify-center items-center">
-                <h1 className="text-[13px] font-inter text-black">Contact</h1>
+                <h1 className="text-xs font-inter  font-semibold text-black">Contact</h1>
               </div>
-              <div className="w-6/12 h-10 flex gap-1">
+              <div className="w-2/6 h-8 flex  ">
                 <div className="w-1/2 h-full flex justify-center items-center">
                   <img src="/images/Screenshot 2024-10-31 002925.png" className="w-fit h-fit" alt="Icon 1" />
                 </div>
@@ -46,14 +46,14 @@ const Nav = () => {
                   <img src="/images/Screenshot 2024-10-31 001830.png" className="w-fit h-fit" alt="Icon 2" />
                 </div>
               </div>
-              <button className="w-2/12 h-10 bg-[#5B297E] rounded-md">
-                <h1 className="text-[13px] font-inter text-white">Sign In</h1>
+              <button className="w-2/12 h-8 bg-[#5B297E] rounded-md shadow-sm">
+                <h1 className="text-xs font-semibold font-inter text-white">Sign In</h1>
               </button>
             </div>
           </div>
 
          
-          <div className="w-full h-full md:hidden flex justify-end items-center">
+          <div className="w-full h-full lg:hidden flex justify-end items-center">
             <button onClick={toggleMenu} className="w-12 h-12 flex justify-center items-center">
               <h1 className="text-4xl"><IoMdMenu /></h1>
             </button>
@@ -62,7 +62,7 @@ const Nav = () => {
       </div>
 
      
-      <div className="w-full h-full md:mt-3">
+      <div className="w-full h-full lg:mt-3">
         <BannerSection />
       </div>
 
