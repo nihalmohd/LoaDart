@@ -3,7 +3,7 @@ import React from 'react'
 const Broker = () => {
   return (
     <div>
-        <div className="w-[520px] h-[320px] bg-white rounded-md flex relative z-50 overflow-hidden">
+        <div className="md:w-[520px] md:h-[320px] bg-white rounded-md md:flex relative z-50 overflow-hidden">
         <div className="w-[272px] h-full rounded-s-md overflow-y-hidden">
         <img 
       src="/images/c6d9e0b945affbe94efba26aa6c9fc78.png" 
@@ -19,7 +19,7 @@ const Broker = () => {
             </div>
           </div>
             <form action="">
-          <div className="w-full h-36 flex justify-center items-center ">
+          <div className="w-full md:h-36 flex justify-center items-center ">
               <div className="w-full h-16 flex justify-center items-center ml-2">
                 <div className="w-full h-5 bg-gray ml-3 ">
                   <h1 className='text-[10px] font-inter text-[#6B7280] '>Mobile Number <span className='text-red-400'>*</span></h1>
