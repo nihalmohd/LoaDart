@@ -13,10 +13,10 @@ const images = [
 ];
 
 const buttonLabels = [
-  'Register as Transporter',
-  'Become a Driver',
-  'Join as Fleet Manager',
-  'Sign Up as Partner',
+  'Register as Shipper',
+  'Register as Driver',
+  'Register as Transpoter',
+  'Register as Broker',
 ];
 const BannerSection = () => {
 

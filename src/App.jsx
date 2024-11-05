@@ -1,9 +1,15 @@
 import React from 'react'
 import Home from './assets/pages/Home'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const App = () => {
   return (
-<Home/>
+    <Router>
+      <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
   )
 }
 
