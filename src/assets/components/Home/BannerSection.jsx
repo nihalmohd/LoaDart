@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import VideoSection from './VideoSection'
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Transpoter from '../Signup/Transpoter';
+import Modal from '../Modal/Modal';
+
+import Driver from '../Signup/Driver';
+import Broker from '../Signup/Broker';
+import Shipper from '../Signup/Shipper';
 
 
 const images = [
@@ -19,6 +25,20 @@ const buttonLabels = [
   'Register as Broker',
 ];
 const BannerSection = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedSignup, setSelectedSignup] = useState(null);
+
+
+  const openModal = (signupType) => {
+    setSelectedSignup(signupType);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedSignup(null);
+  };
+
 
   const settings = {
     infinite: true,
@@ -32,8 +52,16 @@ const BannerSection = () => {
   };
 
     return (
+     
     <div className="font-sans bg-white   ">
-
+      <Modal isOpen={isModalOpen} closeModal={closeModal}>
+        {/* Render the selected sign-up page in the modal */}
+        {selectedSignup === 'Shipper' && <Shipper />}
+        {selectedSignup === 'Driver' && <Driver />}
+        {selectedSignup === 'Transpoter' && <Transpoter />}
+        {selectedSignup === 'Broker' && <Broker />}
+      </Modal>
+        
       <div className="w-full h-72 lg:hidden lg:rounded-md overflow-hidden relative  ">
         <Slider {...settings}>
           {images.map((image, index) => (
@@ -43,7 +71,10 @@ const BannerSection = () => {
                 alt={`Slide ${index}`}
                 className="w-full h-72 object-cover"
               />
-              <button className="absolute bottom-3 left-10 w-3/4 h-10 bg-[#5B297E] text-white rounded-md shadow-md hover:bg-white hover:text-[#5B297E] font-inter">
+              <button
+                className="absolute bottom-3 left-10 w-3/4 h-10 bg-[#5B297E] text-white rounded-md shadow-md hover:bg-white hover:text-[#5B297E] font-inter"
+                onClick={() => openModal(buttonLabels[index].split(' ')[2])} 
+              >
                 {buttonLabels[index]}
               </button>
             </div>
@@ -92,9 +123,12 @@ const BannerSection = () => {
                     alt={`Slide ${index}`}
                     className="w-full h-72 object-cover"
                   />
-                  <button className="absolute bottom-3 left-10 w-3/4 h-10 bg-[#5B297E] text-white rounded-md shadow-md hover:bg-white hover:text-[#5B297E] font-inter">
-                    {buttonLabels[index]}
-                  </button>
+                   <button
+                className="absolute bottom-3 left-10 w-3/4 h-10 bg-[#5B297E] text-white rounded-md shadow-md hover:bg-white hover:text-[#5B297E] font-inter"
+                onClick={() => openModal(buttonLabels[index].split(' ')[2])} 
+              >
+                {buttonLabels[index]}
+              </button>
                 </div>
               ))}
             </Slider>
@@ -162,8 +196,8 @@ const BannerSection = () => {
           </div>
         </div>
       </div>
-
       <VideoSection />
+
     </div>
   );
 }
