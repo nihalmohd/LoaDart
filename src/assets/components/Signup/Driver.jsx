@@ -7,7 +7,7 @@ const Driver = () => {
         <div className="w-[272px] h-full rounded-s-md overflow-y-hidden">
         <img 
       src="/images/6adda6a4f6b86bb8d24399cd0782e7b7.png" 
-      className="w-full h-full object-cover  object-[75%]" 
+      className="w-full h-full object-cover  ]" 
       alt="Driver" 
     />
         </div>
@@ -18,7 +18,7 @@ const Driver = () => {
              <h1 className='font-inter text-[13px] '>Sign In As <span className='font-semibold text-[purple]'>Driver</span></h1>
             </div>
           </div>
-            <form action="">
+          
           <div className="w-full md:h-36 flex justify-center items-center ">
               <div className="w-full h-16 flex justify-center items-center ml-2">
                 <div className="w-full h-5 bg-gray ml-3 ">
@@ -32,7 +32,7 @@ const Driver = () => {
                 </div>
               </div>
           </div>
-            </form>
+           
           <div className="w-full h-20  mt-4 flex justify-center items-end ">
             <h1 className='text-[11px] font-inter text-[#6B7280] text-center'>By continuing, I accept TCP - LoaDart’s <span className='underline'>Terms and Conditions </span>&<span className='underline'>Privacy Policy’</span> </h1>
           </div>

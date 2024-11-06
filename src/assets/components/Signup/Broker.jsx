@@ -18,7 +18,7 @@ const Broker = () => {
              <h1 className='font-inter text-[13px] '>Sign In As <span className='font-semibold text-[purple]'>Broker</span></h1>
             </div>
           </div>
-            <form action="">
+            
           <div className="w-full md:h-36 flex justify-center items-center ">
               <div className="w-full h-16 flex justify-center items-center ml-2">
                 <div className="w-full h-5 bg-gray ml-3 ">
@@ -32,8 +32,8 @@ const Broker = () => {
                 </div>
               </div>
           </div>
-            </form>
-          <div className="w-full h-20  mt-4 flex justify-center items-end ">
+            
+          <div className="w-full h-20  mt-4 flex justify-center items-end ml-2 md:ml-0">
             <h1 className='text-[11px] font-inter text-[#6B7280] text-center'>By continuing, I accept TCP - LoaDart’s <span className='underline'>Terms and Conditions </span>&<span className='underline'>Privacy Policy’</span> </h1>
           </div>
         </div>
