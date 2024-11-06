@@ -1,6 +1,23 @@
 import React from 'react'
 
 const Broker = () => {
+  const [IsProceeded,setIsproceeded]=useState(false)
+  const [Mobilenumber,setMobileNumber] = useState()
+  const [otp, setOtp] = useState(new Array(4).fill(""));
+
+
+  const handleChange = (element, index) => {
+      const value = element.value.replace(/[^0-9]/g, ''); 
+      if (value.length > 1) return;
+
+      const newOtp = [...otp];
+      newOtp[index] = value;
+      setOtp(newOtp);
+
+      if (value && element.nextSibling) {
+          element.nextSibling.focus();
+      }
+  };
   return (
     <div>
         <div className="md:w-[520px] md:h-[320px] bg-white rounded-md md:flex relative z-50 overflow-hidden">
