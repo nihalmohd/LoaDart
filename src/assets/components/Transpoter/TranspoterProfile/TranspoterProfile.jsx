@@ -1,6 +1,8 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const TranspoterProfile = () => {
+    const navigate = useNavigate()
   return (
     <div>
         <div className="w-full md:h-screen bg-[#000000BF] flex justify-center items-center">
@@ -55,7 +57,7 @@ const TranspoterProfile = () => {
                             </div>
                             <div className="w-full h-full mt-1 ">
                                 <div className="w-full h-full flex justify-center items-center">
-                                <button className='w-full h-7 bg-[#5B297E]  text-white text-xs font-inter rounded-sm' >Proceed</button>
+                                <button className='w-full h-7 bg-[#5B297E]  text-white text-xs font-inter rounded-sm' onClick={()=>{navigate("/Transpoter/Dashboard")}} >Proceed</button>
                                 </div>
                             </div>
                           </div>
