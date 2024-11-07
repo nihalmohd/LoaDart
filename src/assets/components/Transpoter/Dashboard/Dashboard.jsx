@@ -3,7 +3,7 @@ import Sidebar from '../../Sidebar/Sidebar'
 
 const Dashboard = () => {
   return (
-    <div>
+    <div >
         <Sidebar/>
         
     </div>

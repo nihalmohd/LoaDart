@@ -26,7 +26,7 @@ function Sidebar() {
     return (
         <div className='flex'>
 
-        <div className="w-64 h-full bg-white shadow-lg flex flex-col items-center py-6">
+        <div className=" fixed top-0 left-0 w-[260px] h-full bg-white shadow-lg flex flex-col items-center  z-50 py-6 border-2  overflow-y-scroll overflow-x-hidden  ">
          
             <div className="w-9/12 h-full flex justify-end items-end">
                 <div className="w-[100px] h-[35px] flex justify-end items-end">
@@ -187,7 +187,7 @@ function Sidebar() {
             </nav>
            
         </div>
-        <div className="w-full h-screen ">
+        <div className="w-full h-screen flex justify-end ">
              <Topbuttons/>
         </div>
         </div>
