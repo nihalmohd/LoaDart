@@ -1,4 +1,5 @@
 import React from 'react'
+import DashTable from './DashTable'
 
 const DashMoreDetails = () => {
   return (
@@ -22,7 +23,7 @@ const DashMoreDetails = () => {
                 </div>
             </div>
         </div>
-            <div className="w-full h-auto  flex gap-2 p-2 ml-2 mt-5">
+            <div className="w-full h-auto  flex gap-2 p-3 ml-2 mt-5 ">
                 <div className="w-5/12 h-full ">
                 <div className="w-full h-10  flex items-center">
                     <h1 className='font-inter font-semibold text-xl'>Find what you need</h1>
@@ -76,7 +77,9 @@ const DashMoreDetails = () => {
                      </div>
                 </div>
                 </div>
-                {/* <div className="w-7/12 h-96 bg-yellow-200"></div> */}
+                <div className="w-8/12 h-96 ">
+                 <DashTable/>
+                </div>
             </div>
     </div>
   )
