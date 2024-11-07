@@ -8,6 +8,8 @@ import { LuLogOut } from "react-icons/lu";
 import { RxUpdate } from "react-icons/rx";
 import { MdOutlineRoute } from "react-icons/md";
 
+import Topbuttons from '../Transpoter/Dashboard/Topbuttons';
+
 function Sidebar() {
     const [isTrucksOpen, setIsTrucksOpen] = useState(false);
     const [activeItem, setActiveItem] = useState(null);
@@ -22,6 +24,8 @@ function Sidebar() {
     };
 
     return (
+        <div className='flex'>
+
         <div className="w-64 h-full bg-white shadow-lg flex flex-col items-center py-6">
          
             <div className="w-9/12 h-full flex justify-end items-end">
@@ -51,56 +55,56 @@ function Sidebar() {
                 <a
                     href="#"
                     onClick={() => handleMenuItemClick('Dashboard')}
-                    className={`flex items-center space-x-2 ${activeItem === 'Dashboard' ? 'text-purple-600' : 'text-gray-700'} hover:text-purple-600`}
+                    className={`flex items-center space-x-2 ${activeItem === 'Dashboard' ? 'text-[#5B297E]' : 'text-gray-700'} hover:text-[#5B297E]`}
                 >
                     <div className="p-2">
                         <AiOutlineHome />
                     </div>
-                    <span className="font-inter">Dashboard</span>
+                    <span className="font-inter font-semibold text-sm">Dashboard</span>
                 </a>
 
                 <a
                     href="#"
                     onClick={() => handleMenuItemClick('Schedule')}
-                    className={`flex items-center space-x-2 ${activeItem === 'Schedule' ? 'text-purple-600' : 'text-gray-700'} hover:text-purple-600`}
+                    className={`flex items-center space-x-2 ${activeItem === 'Schedule' ? 'text-[#5B297E]' : 'text-gray-700'} hover:text-[#5B297E]`}
                 >
                     <div className="p-2">
                         <AiOutlineClockCircle />
                     </div>
-                    <span className="font-inter">Schedule</span>
+                    <span className="font-inter font-semibold text-sm">Schedule</span>
                 </a>
 
                 <a
                     href="#"
                     onClick={() => handleMenuItemClick('Trip Requests')}
-                    className={`flex items-center space-x-2 ${activeItem === 'Trip Requests' ? 'text-purple-600' : 'text-gray-700'} hover:text-purple-600`}
+                    className={`flex items-center space-x-2 ${activeItem === 'Trip Requests' ? 'text-[#5B297E]' : 'text-gray-700'} hover:text-[#5B297E]`}
                 >
                     <div className="p-2">
                         <MdOutlineRoute />
                     </div>
-                    <span className="font-inter">Trip Requests</span>
+                    <span className="font-inter font-semibold text-sm">Trip Requests</span>
                 </a>
 
                 <a
                     href="#"
                     onClick={() => handleMenuItemClick('Profile')}
-                    className={`flex items-center space-x-2 ${activeItem === 'Profile' ? 'text-purple-600' : 'text-gray-700'} hover:text-purple-600`}
+                    className={`flex items-center space-x-2 ${activeItem === 'Profile' ? 'text-[#5B297E]' : 'text-gray-700'} hover:text-[#5B297E]`}
                 >
                     <div className="p-2">
                         <AiOutlineUser />
                     </div>
-                    <span className="font-inter">Profile</span>
+                    <span className="font-inter font-semibold text-sm">Profile</span>
                 </a>
 
                 <a
                     href="#"
                     onClick={() => handleMenuItemClick('Loads')}
-                    className={`flex items-center space-x-2 ${activeItem === 'Loads' ? 'text-purple-600' : 'text-gray-700'} hover:text-purple-600`}
+                    className={`flex items-center space-x-2 ${activeItem === 'Loads' ? 'text-[#5B297E]' : 'text-gray-700'} hover:text-[#5B297E]`}
                 >
-                    <div className="p-2">
+                    <div className="p-2 ">
                         <IoCubeOutline />
                     </div>
-                    <span className="font-inter">Loads</span>
+                    <span className="font-inter font-semibold text-sm">Loads</span>
                 </a>
 
                 
@@ -110,18 +114,18 @@ function Sidebar() {
                             toggleTrucks();
                             handleMenuItemClick('Trucks');
                         }}
-                        className={`flex items-center space-x-2 ${activeItem === 'Trucks' ? 'text-purple-600' : 'text-gray-700'} hover:text-purple-600 cursor-pointer`}
+                        className={`flex items-center space-x-2 ${activeItem === 'Trucks' ? 'text-[#5B297E]' : 'text-gray-700'} hover:text-[#5B297E] cursor-pointer`}
                     >
-                        <div className="p-2 text-purple-600">
+                        <div className="p-2 ">
                             <HiOutlineTruck />
                         </div>
-                        <span className="font-semibold">Trucks</span>
+                        <span className="font-semibold font-inter text-sm">Trucks</span>
                     </div>
                     {isTrucksOpen && (
                         <div className="pl-10 text-gray-600 space-y-1">
-                            <a href="#" className="hover:text-purple-600">Search Truck</a>
-                            <a href="#" className="hover:text-purple-600">Your Trucks</a>
-                            <a href="#" className="hover:text-purple-600">Post Truck</a>
+                            <a href="#" className="hover:text-[#5B297E]">Search Truck</a>
+                            <a href="#" className="hover:text-[#5B297E]">Your Trucks</a>
+                            <a href="#" className="hover:text-[#5B297E]">Post Truck</a>
                         </div>
                     )}
                 </div>
@@ -129,58 +133,63 @@ function Sidebar() {
                 <a
                     href="#"
                     onClick={() => handleMenuItemClick('Marketplace')}
-                    className={`flex items-center space-x-2 ${activeItem === 'Marketplace' ? 'text-purple-600' : 'text-gray-700'} hover:text-purple-600`}
+                    className={`flex items-center space-x-2 ${activeItem === 'Marketplace' ? 'text-[#5B297E]' : 'text-gray-700'} hover:text-[#5B297E]`}
                 >
                     <div className="p-2">
                         <LiaStoreAltSolid />
                     </div>
-                    <span>Marketplace</span>
+                    <span className=' font-inter font-semibold text-sm'>Marketplace</span>
                 </a>
 
                 <a
                     href="#"
                     onClick={() => handleMenuItemClick('Upgrade Membership')}
-                    className={`flex items-center space-x-2 ${activeItem === 'Upgrade Membership' ? 'text-purple-600' : 'text-gray-700'} hover:text-purple-600`}
+                    className={`flex items-center space-x-2 ${activeItem === 'Upgrade Membership' ? 'text-[#5B297E]' : 'text-gray-700'} hover:text-[#5B297E]`}
                 >
                     <div className="p-2">
                         <RxUpdate />
                     </div>
-                    <span>Upgrade Membership</span>
+                    <span className=' font-inter font-semibold text-sm'>Upgrade Membership</span>
                 </a>
 
                 <a
                     href="#"
                     onClick={() => handleMenuItemClick('Help')}
-                    className={`flex items-center space-x-2 ${activeItem === 'Help' ? 'text-purple-600' : 'text-gray-700'} hover:text-purple-600`}
+                    className={`flex items-center space-x-2 ${activeItem === 'Help' ? 'text-[#5B297E]' : 'text-gray-700'} hover:text-[#5B297E]`}
                 >
                     <div className="p-2">
                         <AiOutlineQuestionCircle />
                     </div>
-                    <span>Help</span>
+                    <span className=' font-inter font-semibold text-sm'>Help</span>
                 </a>
 
                 <a
                     href="#"
                     onClick={() => handleMenuItemClick('Feedback')}
-                    className={`flex items-center space-x-2 ${activeItem === 'Feedback' ? 'text-purple-600' : 'text-gray-700'} hover:text-purple-600`}
+                    className={`flex items-center space-x-2 ${activeItem === 'Feedback' ? 'text-[#5B297E]' : 'text-gray-700'} hover:text-[#5B297E]`}
                 >
                     <div className="p-2">
                         <BiMessageError />
                     </div>
-                    <span>Feedback</span>
+                    <span className=' font-inter font-semibold text-sm'>Feedback</span>
                 </a>
 
                 <a
                     href="#"
                     onClick={() => handleMenuItemClick('Logout')}
-                    className={`flex items-center space-x-2 ${activeItem === 'Logout' ? 'text-purple-600' : 'text-gray-700'} hover:text-purple-600`}
+                    className={`flex items-center space-x-2 ${activeItem === 'Logout' ? 'text-[#5B297E]' : 'text-gray-700'} hover:text-[#5B297E]`}
                 >
                     <div className="p-2">
                         <LuLogOut />
                     </div>
-                    <span>Logout</span>
+                    <span className=' font-inter font-semibold text-sm'>Logout</span>
                 </a>
             </nav>
+           
+        </div>
+        <div className="w-full h-screen ">
+             <Topbuttons/>
+        </div>
         </div>
     );
 }
