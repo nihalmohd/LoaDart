@@ -13,7 +13,7 @@ const DashMoreDetails = () => {
                     <h1 className='font-inter text-[#5B297E] text-lg '>Earned so far</h1>
                   </div>
                   <div className="w-full h-14  flex justify-center items-center">
-                    <button className='w-10/12 h-10 bg-[#5B297E] rounded-full'>view more detials</button>
+                    <button className='w-10/12 h-10 bg-[#5B297E] rounded-full text-white'>View more detials</button>
                   </div>
                 </div>
 
