@@ -8,7 +8,7 @@ import { LuLogOut } from "react-icons/lu";
 import { RxUpdate } from "react-icons/rx";
 import { MdOutlineRoute } from "react-icons/md";
 
-import Topbuttons from '../Transpoter/Dashboard/Topbuttons';
+import Topbuttons from '../Dashboard/Topbuttons';
 import ScheduleButton from '../Schedule/ScheduleButton';
 
 function Sidebar() {
