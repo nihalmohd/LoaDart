@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
 import { HiOutlineTruck } from 'react-icons/hi';
 import { IoCubeOutline } from "react-icons/io5";
+import ScheduleLoadTable from './Load/ScheduleLoadTable';
+import ScheduleTruckTable from './Truck/ScheduleTruckTable';
 
 const ScheduleButton = () => {
     const [selectedDiv, setSelectedDiv] = useState("left");
 
     return (
         <div className="w-full h-auto flex justify-center items-center">
-            <div className="w-11/12 h-screen">
+            <div className="w-11/12 h-auto ">
                 <div className="w-full h-10 flex-col items-end">
                     <h1 className="font-inter font-semibold text-[#5B297E] text-lg mt-5">Schedule</h1>
                 </div>
-                <div className="w-full h-36 flex justify-center items-center">
+                <div className="w-full h-24 flex justify-center items-center">
                     <div className="w-full h-20 flex">
                     
                         <div
-                            className={`w-1/2 h-full flex justify-center items-center ${selectedDiv === 'left' ? 'bg-[#5B297E]' : 'bg-transparent border-2 border-black'}`}
+                            className={`w-1/2 h-16 flex justify-center items-center ${selectedDiv === 'left' ? 'bg-[#5B297E]' : 'bg-transparent border border-black'}`}
                             onClick={() => setSelectedDiv('left')}
                         >
                             <div className="w-48 h-10  flex">
@@ -42,7 +44,7 @@ const ScheduleButton = () => {
 
                        
                         <div
-                            className={`w-1/2 h-full flex justify-center items-center ${selectedDiv === 'right' ? 'bg-[#5B297E]' : 'bg-transparent border-2 border-black'}`}
+                            className={`w-1/2 h-16 flex justify-center items-center ${selectedDiv === 'right' ? 'bg-[#5B297E]' : 'bg-transparent border border-black'}`}
                             onClick={() => setSelectedDiv('right')}
                         >
                             <div className="w-48 h-10  flex">
@@ -67,6 +69,10 @@ const ScheduleButton = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className="w-full h-auto mb-10 ">
+                    {selectedDiv === 'left' && <ScheduleLoadTable />}
+                    {selectedDiv === 'right' && <ScheduleTruckTable />}
                 </div>
             </div>
         </div>

@@ -48,8 +48,8 @@ const DataTracking = () => {
                           <p className="text-sm font-medium text-white">Trucks</p>
                           <HiOutlineTruck className="text-white mr-4 text-xl" />
                           <div className="w-full">
-                              <div className="w-full  h-2 rounded-full mt-1">
-                                  <div className="bg-teal-200 h-2 rounded-full w-4/5"></div> {/* 80% width */}
+                              <div className="w-full bg-gray-300 h-2 rounded-full mt-1">
+                                  <div className="bg-teal-200 h-2 rounded-full w-1/12"></div> {/* 80% width */}
                               </div>
                           </div>
                       </div>
