@@ -9,10 +9,11 @@ import { RxUpdate } from "react-icons/rx";
 import { MdOutlineRoute } from "react-icons/md";
 
 import Topbuttons from '../Transpoter/Dashboard/Topbuttons';
+import ScheduleButton from '../Schedule/ScheduleButton';
 
 function Sidebar() {
     const [isTrucksOpen, setIsTrucksOpen] = useState(false);
-    const [activeItem, setActiveItem] = useState(null);
+    const [activeItem, setActiveItem] = useState('Dashboard');
 
 
     const toggleTrucks = () => {
@@ -187,8 +188,11 @@ function Sidebar() {
             </nav>
            
         </div>
-        <div className="w-full h-screen flex justify-end ">
-             <Topbuttons/>
+        <div className="flex-grow h-full ml-[260px] bg-gray-100 overflow-auto ">
+
+                {activeItem === 'Dashboard' && <Topbuttons />}
+                {activeItem === 'Schedule' && <ScheduleButton/>}
+                {/* {activeItem === 'Trip Requests' && <TripRequestsComponent />} */}
         </div>
         </div>
     );
