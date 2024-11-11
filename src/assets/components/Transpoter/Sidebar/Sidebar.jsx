@@ -10,6 +10,7 @@ import { MdOutlineRoute } from "react-icons/md";
 
 import Topbuttons from '../Dashboard/Topbuttons';
 import ScheduleButton from '../Schedule/ScheduleButton';
+import TripRequestButtons from '../TripRequest/TripRequestButtons';
 
 function Sidebar() {
     const [isTrucksOpen, setIsTrucksOpen] = useState(false);
@@ -188,11 +189,11 @@ function Sidebar() {
             </nav>
            
         </div>
-        <div className="flex-grow h-full ml-[260px] bg-gray-100 overflow-auto ">
+        <div className="flex-grow h-full ml-[260px]  overflow-auto ">
 
                 {activeItem === 'Dashboard' && <Topbuttons />}
                 {activeItem === 'Schedule' && <ScheduleButton/>}
-                {/* {activeItem === 'Trip Requests' && <TripRequestsComponent />} */}
+                {activeItem === 'Trip Requests' && <TripRequestButtons />}
         </div>
         </div>
     );
