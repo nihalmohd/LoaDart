@@ -5,6 +5,7 @@ const TranspoterProfile = () => {
     const navigate = useNavigate()
   return (
     <div>
+      {/* <div>Transporter profle</div> */}
         <div className="w-full md:h-screen bg-[#000000BF] flex justify-center items-center">
           
         <div className=" w-full h-full md:w-[550px] md:h-[320px] md:flex rounded-md">

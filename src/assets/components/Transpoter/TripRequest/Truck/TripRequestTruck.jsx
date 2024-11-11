@@ -24,10 +24,14 @@ const TripRequesTruck = () => {
         </h3>
     <div className="flex items-center ">
       <div className="w-full h-full flex justify-center ml-2">
+      <div className="w-3 h-3 bg-[#4BA454] flex justify-center items-center mt-[5px]">
       <h1 className=''>
-          <FaStar className="text-green-500 " />
+          <FaStar className="text-white text-[10px]" />
       </h1>
-          <span className="ml-1 text-gray-600 font-medium text-xs ">4.8</span>
+
+      </div>
+
+          <span className="ml-1 text-gray-600 font-medium text-xs mt-1 ">4.8</span>
 
       </div>
           

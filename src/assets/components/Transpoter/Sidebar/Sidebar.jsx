@@ -11,14 +11,20 @@ import { MdOutlineRoute } from "react-icons/md";
 import Topbuttons from '../Dashboard/Topbuttons';
 import ScheduleButton from '../Schedule/ScheduleButton';
 import TripRequestButtons from '../TripRequest/TripRequestButtons';
+import TransporterProfileDetails from '../TranspoterProfile/TransporterProfileDetails';
 
 function Sidebar() {
     const [isTrucksOpen, setIsTrucksOpen] = useState(false);
+    const [isProfilesOpen, setIsProfilesOpen] = useState(false);
     const [activeItem, setActiveItem] = useState('Dashboard');
 
 
     const toggleTrucks = () => {
         setIsTrucksOpen(!isTrucksOpen);
+    };
+
+    const toggleProfile = () => {
+        setIsProfilesOpen(!isProfilesOpen);
     };
 
     const handleMenuItemClick = (item) => {
@@ -87,16 +93,28 @@ function Sidebar() {
                     <span className="font-inter font-semibold text-sm">Trip Requests</span>
                 </a>
 
-                <a
-                    href="#"
-                    onClick={() => handleMenuItemClick('Profile')}
-                    className={`flex items-center space-x-2 ${activeItem === 'Profile' ? 'text-[#5B297E]' : 'text-gray-700'} hover:text-[#5B297E]`}
-                >
-                    <div className="p-2">
-                        <AiOutlineUser />
+                <div className="flex flex-col space-y-1">
+                    <div
+                        onClick={() => {
+                            toggleProfile();
+                            handleMenuItemClick('Profile');
+                        }}
+                        className={`flex items-center space-x-2 ${activeItem === 'Profile' ? 'text-[#5B297E]' : 'text-gray-700'} hover:text-[#5B297E] cursor-pointer`}
+                    >
+                        <div className="p-2 ">
+                            <AiOutlineUser />
+                        </div>
+                        <span className="font-semibold font-inter text-sm">Profile</span>
                     </div>
-                    <span className="font-inter font-semibold text-sm">Profile</span>
-                </a>
+                    {isProfilesOpen && (
+                        <div className="pl-10 text-gray-600 space-y-2 ">
+                            <a href="#" className="hover:text-[#5B297E] font-inter text-sm flex justify-center items-center text-gray-700 font-semibold " >Basic Details <span></span></a>
+                            <a href="#" className="hover:text-[#5B297E] font-inter text-sm flex justify-center items-center text-gray-700 font-semibold">Upload Details</a>
+                            
+                        </div>
+                    )}
+                </div>
+
 
                 <a
                     href="#"
@@ -108,6 +126,8 @@ function Sidebar() {
                     </div>
                     <span className="font-inter font-semibold text-sm">Loads</span>
                 </a>
+
+                
 
                 
                 <div className="flex flex-col space-y-1">
@@ -125,9 +145,9 @@ function Sidebar() {
                     </div>
                     {isTrucksOpen && (
                         <div className="pl-10 text-gray-600 space-y-1">
-                            <a href="#" className="hover:text-[#5B297E]">Search Truck</a>
-                            <a href="#" className="hover:text-[#5B297E]">Your Trucks</a>
-                            <a href="#" className="hover:text-[#5B297E]">Post Truck</a>
+                            <a href="#" className="hover:text-[#5B297E] font-inter text-sm  flex justify-center items-center text-gray-700 font-semibold">Search Truck</a>
+                            <a href="#" className="hover:text-[#5B297E] font-inter text-sm  flex justify-center items-center text-gray-700 font-semibold">Your Trucks</a>
+                            <a href="#" className="hover:text-[#5B297E] font-inter text-sm  flex justify-center items-center text-gray-700 font-semibold">Post Truck</a>
                         </div>
                     )}
                 </div>
@@ -194,6 +214,7 @@ function Sidebar() {
                 {activeItem === 'Dashboard' && <Topbuttons />}
                 {activeItem === 'Schedule' && <ScheduleButton/>}
                 {activeItem === 'Trip Requests' && <TripRequestButtons />}
+                {activeItem === 'Profile' && <TransporterProfileDetails />}
         </div>
         </div>
     );
