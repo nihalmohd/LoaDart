@@ -30,7 +30,6 @@ function Sidebar() {
     const handleMenuItemClick = (item) => {
         setActiveItem(item);
     };
-
     return (
         <div className='flex'>
 
@@ -46,8 +45,6 @@ function Sidebar() {
                     </div>
                 </div>
             </div>
-
-           
             <div className="flex flex-col items-center mb-8 mt-6">
                 <img
                     src="\images\e79560b9ae8865c9906e28d4a695c379.png"
