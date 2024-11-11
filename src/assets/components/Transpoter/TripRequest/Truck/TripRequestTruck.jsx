@@ -16,7 +16,7 @@ const TripRequesTruck = () => {
   <div className="w-full h-64 border border-black mt-5 rounded-lg shadow-md">
 
     <div className="w-full h-28 bg-red-200 rounded-t-md ">
-      <img src="\images\Screenshot 2024-11-11 130820.png" className='w-full h-full object-cover ' alt="" />
+      <img src="\images\Screenshot 2024-11-11 130820.png" className='w-full h-full object-cover rounded-t-md ' alt="" />
     </div>
     <div className="w-11/12 h-9 border-b border-[#BC89E0] flex p-2 gap-2 ml-2">
     <h3 className="text-[#5B297E] text-xs font-bold ">
@@ -30,7 +30,7 @@ const TripRequesTruck = () => {
           <span className="ml-1 text-gray-600 font-medium text-xs ">4.8</span>
 
       </div>
-          {/* Profile Images */}
+          
           <div className="flex ml-3">
             <img
               src="\images\89fff541e7be716b2438ee7422206a3c.png"
@@ -56,7 +56,7 @@ const TripRequesTruck = () => {
           <span className="ml-2 text-black text-[15px]">Kozhikode, Malappuram, Thrissur</span>
         </div>
 
-        {/* Weight */}
+        
         <p className=" mt-1 ml-2 text-[10px] text-black">Wt: 40T</p>
     </div>
 
