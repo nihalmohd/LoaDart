@@ -36,7 +36,7 @@ const TripRequestButtons = () => {
                                             selectedDiv === 'right' ? 'text-[#747474]' : 'text-white'
                                         }`}
                                     >
-                                        Load
+                                        Loads
                                     </h1>
                                 </div>
                             </div>
@@ -63,7 +63,7 @@ const TripRequestButtons = () => {
                                             selectedDiv === 'left' ? 'text-[#747474]' : 'text-white'
                                         }`}
                                     >
-                                        Truck
+                                        Trucks
                                     </h1>
                                 </div>
                             </div>
