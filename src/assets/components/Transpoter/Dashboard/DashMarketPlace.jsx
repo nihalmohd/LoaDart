@@ -1,10 +1,80 @@
 import React from 'react'
-import { TbEyeFilled } from "react-icons/tb";
+
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { MdCalendarToday } from "react-icons/md";
+import { IoMdSearch } from "react-icons/io";
 
 const DashMarketPlace = () => {
   return (
     <div>
-        <div className="w-full h-full  grid grid-cols-3 gap-4 relative pl-4 pt-2 mt-5 mb-10"  >
+           <div className="w-full flex items-center justify-center gap-6 p-4 flex-wrap ">
+     
+      <div className="flex flex-col">
+        <label className="text-[10px] text-gray-500 mb-1 ml-2">Add pickup location</label>
+        <div className="flex items-center gap-2 w-60 h-10 bg-gray-100 border border-gray-300 rounded-md px-3">
+          <FaMapMarkerAlt className="text-green-500" />
+          <input
+            type="text"
+            placeholder="Ernakulam"
+            className="w-full bg-gray-100 outline-none"
+          />
+        </div>
+      </div>
+
+     
+      <div className="flex flex-col">
+        <label className="text-[10px] text-gray-500 mb-1 ml-2">Add delivery location</label>
+        <div className="flex items-center gap-2 w-60 h-10 bg-gray-100 border border-gray-300 rounded-md px-3">
+          <FaMapMarkerAlt className="text-red-500" />
+          <input
+            type="text"
+            placeholder="Kozhikode"
+            className="w-full bg-gray-100 outline-none"
+          />
+        </div>
+      </div>
+
+      
+      <div className="flex flex-col">
+        <label className="text-[10px] text-gray-500 mb-1 ml-2">Date</label>
+        <div className="flex items-center gap-2 w-60 h-10 bg-gray-100 border border-gray-300 rounded-md px-3">
+          <input
+            type="text"
+            placeholder="14-10-2024 - 16-10-2024"
+            className="w-full bg-gray-100 outline-none"
+          />
+          <MdCalendarToday className="text-gray-500" />
+        </div>
+      </div>
+
+     
+      <div className="flex flex-col">
+        <label className="text-[10px] text-gray-500 mb-1 ml-2">Weight Capacity</label>
+        <input
+          type="text"
+          placeholder="Enter weight capacity"
+          className="w-60 h-10 bg-gray-100 border border-gray-300 rounded-md px-3 outline-none"
+        />
+      </div>
+
+     
+      <div className="flex flex-col">
+        <label className="text-[10px] text-gray-500 mb-1 ml-2">Trucks</label>
+        <input
+          type="text"
+          placeholder="Enter number of trucks"
+          className="w-60 h-10 bg-gray-100 border border-gray-300 rounded-md px-3 outline-none"
+        />
+      </div>
+      <button className="w-28 h-10 bg-[#5B297E] text-white rounded-md flex items-center justify-center gap-2 mt-5">
+        <span><IoMdSearch /></span>
+        Search
+      </button>
+
+     
+    </div>
+        <div className="w-full h-full  grid grid-cols-3 gap-4 relative pl-4 pt-2 mt-2 mb-10"  >
+       
         <div className="w-full h-44 border border-black mt-5 rounded-lg shadow-md ">
           <div className="w-full h-14  border-b border-[##BC89E0] ">
             <div className="w-full h-full  flex">
