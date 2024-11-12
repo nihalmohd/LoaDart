@@ -50,22 +50,27 @@ const DashMarketPlace = () => {
      
       <div className="flex flex-col">
         <label className="text-[10px] text-gray-500 mb-1 ml-2">Weight Capacity</label>
-        <input
-          type="text"
-          placeholder="Enter weight capacity"
-          className="w-60 h-10 bg-gray-100 border border-gray-300 rounded-md px-3 outline-none"
-        />
+        <select className="w-60 h-10 bg-gray-100 border border-gray-300 rounded-md px-3 outline-none text-gray-500">
+          <option value="">Select weight capacity</option>
+          <option value="500kg">500 kg</option>
+          <option value="1000kg">1000 kg</option>
+          <option value="1500kg">1500 kg</option>
+          <option value="2000kg">2000 kg</option>
+        </select>
       </div>
 
      
       <div className="flex flex-col">
         <label className="text-[10px] text-gray-500 mb-1 ml-2">Trucks</label>
-        <input
-          type="text"
-          placeholder="Enter number of trucks"
-          className="w-60 h-10 bg-gray-100 border border-gray-300 rounded-md px-3 outline-none"
-        />
+        <select className="w-60 h-10 bg-gray-100 border border-gray-300 rounded-md px-3 outline-none text-gray-500">
+          <option value="">Select number of trucks</option>
+          <option value="1">1 Truck</option>
+          <option value="2">2 Trucks</option>
+          <option value="3">3 Trucks</option>
+          <option value="4">4 Trucks</option>
+        </select>
       </div>
+      
       <button className="w-28 h-10 bg-[#5B297E] text-white rounded-md flex items-center justify-center gap-2 mt-5">
         <span><IoMdSearch /></span>
         Search
