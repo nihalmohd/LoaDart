@@ -75,6 +75,11 @@ const DataTracking = () => {
                   </div>
               </div>
           </div>
+          <div className="w-full h-20 bg-red-400 flex items-end">
+            <div className="w-4/12 h-full bg-yellow-200 flex justify-center items-end">
+              <h1 className='' > Marketplace</h1>
+            </div>
+          </div>
           <DashMarketPlace/>
     </div>
   )

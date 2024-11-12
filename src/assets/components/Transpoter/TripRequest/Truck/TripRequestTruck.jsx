@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaEye, FaMapMarkerAlt, FaStar } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaStar } from 'react-icons/fa';
 import { TbEyeFilled } from "react-icons/tb";
 
 const TripRequesTruck = () => {
