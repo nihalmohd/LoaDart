@@ -4,7 +4,7 @@ import DashTable from './DashTable'
 const DashMoreDetails = () => {
   return (
     <div>
-        <div className="w-full h-60  mt-2 flex justify-center items-center p-2 ">
+        {/* <div className="w-full h-60  mt-2 flex justify-center items-center p-2 ">
             <div className="w-full h-52 rounded-md border border-black flex">
                 <div className="w-3/12 h-full ">
                   <div className="w-full h-1/2 flex items-end pl-4">
@@ -22,8 +22,8 @@ const DashMoreDetails = () => {
                    <img src="\images\a4971eec5d96cf72041a5d776efe6b97.png" className='object-cover w-full h-full overflow-hidden' alt="" />
                 </div>
             </div>
-        </div>
-            <div className="w-full h-auto  flex gap-2 p-3 ml-2 mt-5 ">
+        </div> */}
+            {/* <div className="w-full h-auto  flex gap-2 p-3 ml-2 mt-5 ">
                 <div className="w-5/12 h-full ">
                 <div className="w-full h-10  flex items-center">
                     <h1 className='font-inter font-semibold text-xl'>Find what you need</h1>
@@ -43,8 +43,8 @@ const DashMoreDetails = () => {
                         <img src="\images\1eb87030adf0a602e59c778ec3faf375.png" alt="" />
                       </div>
                      </div>
-                </div>
-                <div className="w-full h-28  mt-2 rounded-md flex shadow-md">
+                </div> */}
+                {/* <div className="w-full h-28  mt-2 rounded-md flex shadow-md">
                     <div className="w-4 h-full rounded-s-md bg-[#5CBCBA]"></div>
                     <div className="w-8/12 h-full bg-[#F5F4F4] pl-4 ">
                       <div className="w-full h-14  flex justify-start items-end">
@@ -78,9 +78,9 @@ const DashMoreDetails = () => {
                 </div>
                 </div>
                 <div className="w-8/12 h-96 ">
-                 <DashTable/>
-                </div>
-            </div>
+                 {/* <DashTable/> */}
+                {/* </div> */}
+            {/* </div>  */}
     </div>
   )
 }

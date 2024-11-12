@@ -2,6 +2,7 @@ import React from 'react'
 import { HiOutlineTruck } from 'react-icons/hi';
 import { IoCubeOutline } from "react-icons/io5";
 import DashMoreDetails from './DashMoreDetails';
+import DashMarketPlace from './DashMarketPlace';
 
 
 const DataTracking = () => {
@@ -74,7 +75,7 @@ const DataTracking = () => {
                   </div>
               </div>
           </div>
-          <DashMoreDetails/>
+          <DashMarketPlace/>
     </div>
   )
 }

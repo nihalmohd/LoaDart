@@ -1,15 +1,10 @@
 import React from 'react'
 import { TbEyeFilled } from "react-icons/tb";
 
-const TripRequesLoad = () => {
+const DashMarketPlace = () => {
   return (
     <div>
-      <div className="w-full h-auto  grid grid-cols-3 relative" >
-          <div className="w-4/12 h-10 absolute flex justify-end items-center ml-2">
-            <div className="w-6 h-6 bg-red-600  rounded-full flex justify-center items-center">
-              <h1 className='font-inter text-sm text-white'>2</h1>
-            </div>
-          </div>
+        <div className="w-full h-full  grid grid-cols-3 relative bg-red-300 pl-4 pt-2 mt-5"  >
         <div className="w-full h-44 border border-black mt-5 rounded-lg shadow-md ">
           <div className="w-full h-14  border-b border-[##BC89E0]">
             <div className="w-full h-full  ">
@@ -53,4 +48,4 @@ const TripRequesLoad = () => {
   )
 }
 
-export default TripRequesLoad
+export default DashMarketPlace
