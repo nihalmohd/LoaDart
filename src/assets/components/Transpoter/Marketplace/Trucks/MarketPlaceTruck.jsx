@@ -15,7 +15,7 @@ const MarketPlaceTruck = () => {
       <img src="\images\Screenshot 2024-11-11 130820.png" className='w-full h-full object-cover rounded-t-md ' alt="" />
     </div>
     <div className="w-11/12 h-9 border-b border-[#BC89E0] flex p-1 gap-2 ml-2 ">
-    <h3 className="text-[#5B297E] text-xs font-bold mt-1">
+    <h3 className="text-[#5B297E] text-[10px] font-bold mt-1">
           Flatbed Truck, <span className='text-black font-normal'>KL 07 AX 1234</span> 
         </h3>
     <div className="flex items-center ">
@@ -88,7 +88,7 @@ const MarketPlaceTruck = () => {
   <img src="\images\Screenshot 2024-11-11 130820.png" className='w-full h-full object-cover rounded-t-md ' alt="" />
 </div>
 <div className="w-11/12 h-9 border-b border-[#BC89E0] flex p-1 gap-2 ml-2">
-<h3 className="text-[#5B297E] text-xs font-bold  mt-1">
+<h3 className="text-[#5B297E] text-[10px] font-bold  mt-1">
       Flatbed Truck, <span className='text-black font-normal'>KL 07 AX 1234</span> 
     </h3>
 <div className="flex items-center ">
@@ -161,7 +161,7 @@ const MarketPlaceTruck = () => {
   <img src="\images\Screenshot 2024-11-11 130820.png" className='w-full h-full object-cover rounded-t-md ' alt="" />
 </div>
 <div className="w-11/12 h-9 border-b border-[#BC89E0] flex p-1 gap-2 ml-2">
-<h3 className="text-[#5B297E] text-xs font-bold mt-1">
+<h3 className="text-[#5B297E] text-[10px] font-bold mt-1">
       Flatbed Truck, <span className='text-black font-normal'>KL 07 AX 1234</span> 
     </h3>
 <div className="flex items-center ">
@@ -234,7 +234,7 @@ const MarketPlaceTruck = () => {
   <img src="\images\Screenshot 2024-11-11 130820.png" className='w-full h-full object-cover rounded-t-md ' alt="" />
 </div>
 <div className="w-11/12 h-9 border-b border-[#BC89E0] flex p-1 gap-2 ml-2">
-<h3 className="text-[#5B297E] text-xs font-bold mt-1">
+<h3 className="text-[#5B297E] text-[10px] font-bold mt-1">
       Flatbed Truck, <span className='text-black font-normal'>KL 07 AX 1234</span> 
     </h3>
 <div className="flex items-center ">
@@ -307,7 +307,7 @@ const MarketPlaceTruck = () => {
   <img src="\images\Screenshot 2024-11-11 130820.png" className='w-full h-full object-cover rounded-t-md ' alt="" />
 </div>
 <div className="w-11/12 h-9 border-b border-[#BC89E0] flex p-1 gap-2 ml-2">
-<h3 className="text-[#5B297E] text-xs font-bold mt-1 ">
+<h3 className="text-[#5B297E] text-[10px] font-bold mt-1 ">
       Flatbed Truck, <span className='text-black font-normal'>KL 07 AX 1234</span> 
     </h3>
 <div className="flex items-center ">
@@ -380,7 +380,7 @@ const MarketPlaceTruck = () => {
   <img src="\images\Screenshot 2024-11-11 130820.png" className='w-full h-full object-cover rounded-t-md ' alt="" />
 </div>
 <div className="w-11/12 h-9 border-b border-[#BC89E0] flex p-1 gap-2 ml-2">
-<h3 className="text-[#5B297E] text-xs font-bold mt-1">
+<h3 className="text-[#5B297E] text-[10px] font-bold mt-1">
       Flatbed Truck, <span className='text-black font-normal'>KL 07 AX 1234</span> 
     </h3>
 <div className="flex items-center ">

@@ -7,7 +7,7 @@ import { IoMdSearch } from "react-icons/io";
 const DashMarketPlace = () => {
   return (
     <div>
-           <div className="w-full flex items-center justify-center gap-6 p-4 flex-wrap ">
+           <div className="w-full flex items-center justify-center gap-6 p-2 flex-wrap ">
      
       <div className="flex flex-col">
         <label className="text-[10px] text-gray-500 mb-1 ml-2">Add pickup location</label>
