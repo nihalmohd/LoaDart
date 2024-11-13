@@ -1,81 +1,121 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { MdCalendarToday } from "react-icons/md";
 import { IoMdSearch } from "react-icons/io";
 
 const MarketPlaceLoads = () => {
+    const [numTrucks, setNumTrucks] = useState(2);
+    const handleTruckChange = (value) => {
+      setNumTrucks((prev) => Math.max(1, prev + value));
+    };
   return (
     <div>
-          <div className="w-full flex items-center justify-center gap-6 p-2 flex-wrap ">
-              <div className="flex flex-col">
-                  <label className="text-[10px] text-gray-500 mb-1 ml-2">Add pickup location</label>
-                  <div className="flex items-center gap-2 w-60 h-10 bg-gray-100 border border-gray-300 rounded-md px-3">
-                      <FaMapMarkerAlt className="text-green-500" />
+          <div className="w-full max-w-2xl p-4 space-y-4">
+              <div className="w-full h-20 grid grid-cols-2 gap-10">
+
+                  <div className=" flex flex-col">
+                      <label className="text-xs font-medium text-gray-400 mb-1">Pickup Location<span className='text-red-600'>*</span></label>
                       <input
                           type="text"
                           placeholder="Ernakulam"
-                          className="w-full bg-gray-100 outline-none"
+                          className="w-full h-10 border-b border-gray-300 outline-none placeholder:text-black"
                       />
                   </div>
-              </div>
 
-
-              <div className="flex flex-col">
-                  <label className="text-[10px] text-gray-500 mb-1 ml-2">Add delivery location</label>
-                  <div className="flex items-center gap-2 w-60 h-10 bg-gray-100 border border-gray-300 rounded-md px-3">
-                      <FaMapMarkerAlt className="text-red-500" />
+                  {/* Delivery Location */}
+                  <div className="flex flex-col">
+                      <label className="text-xs font-medium text-gray-400 mb-1">Delivery Location<span className='text-red-600'>*</span></label>
                       <input
                           type="text"
                           placeholder="Kozhikode"
-                          className="w-full bg-gray-100 outline-none"
+                          className="w-full h-10 border-b border-gray-300 outline-none placeholder:text-black"
                       />
                   </div>
               </div>
+              <div className="w-full h-20 grid grid-cols-2 gap-10">
 
+                  {/* Pickup Location */}
 
-              <div className="flex flex-col">
-                  <label className="text-[10px] text-gray-500 mb-1 ml-2">Date</label>
-                  <div className="flex items-center gap-2 w-60 h-10 bg-gray-100 border border-gray-300 rounded-md px-3 text-gray-500">
+                  <div className="w-full flex flex-col">
+                      <label className="text-xs font-medium text-gray-400 mb-1">Pickup Date<span className='text-red-600'>*</span></label>
+                      <div className="flex items-center border-b border-gray-300">
+                          <input
+                              type="text"
+                              placeholder="18-10-2024"
+                              className="w-full h-10 outline-none placeholder:text-black"
+                          />
+                          <MdCalendarToday className="text-gray-500" />
+                      </div>
+                  </div>
+
+                  {/* Material */}
+                  <div className="w-full flex flex-col">
+                      <label className="text-xs font-medium text-gray-400 mb-1">Material<span className='text-red-600'>*</span></label>
                       <input
-                          type="date"
-                          placeholder="14-10-2024 - 16-10-2024"
-                          className="w-full bg-gray-100 outline-none"
+                          type="text"
+                          placeholder="Frozen food"
+                          className="w-full h-10 border-b border-gray-300 outline-none placeholder:text-black"
                       />
-                      {/* <MdCalendarToday className="text-gray-500" /> */}
                   </div>
               </div>
 
+              {/* Weight */}
+              {/* Pickup Date */}
+              <div className="md:flex justify-between ">
 
-              <div className="flex flex-col">
-                  <label className="text-[10px] text-gray-500 mb-1 ml-2">Weight Capacity</label>
-                  <select className="w-60 h-10 bg-gray-100 border border-gray-300 rounded-md px-3 outline-none text-gray-500">
-                      <option value="">Select weight capacity</option>
-                      <option value="500kg">500 kg</option>
-                      <option value="1000kg">1000 kg</option>
-                      <option value="1500kg">1500 kg</option>
-                      <option value="2000kg">2000 kg</option>
-                  </select>
+                  <div className="w-full h-full ">
+                      <label className="text-xs font-medium text-gray-600 ">Weight <span className='text-red-600'>*</span></label>
+                      <div className="flex gap-2">
+                          {["<1T", "1-3T", "3-5T", "5-10T", "10-20T", ">20T"].map((weight, index) => (
+                              <button
+                                  key={index}
+                                  className="px-3 py-1 border  border-black text-black rounded-full text-sm hover:bg-[#5B297E] hover:text-white transition"
+                              >
+                                  {weight}
+                              </button>
+                          ))}
+                      </div>
+                  </div>
+                  <div className="flex flex-col mt-5 md:mt-0">
+                      <label className="text-xs font-medium text-gray-600 mb-2">No of Trucks<span className='text-red-600'>*</span></label>
+                      <div className="flex items-center gap-2">
+                          <button
+                              onClick={() => handleTruckChange(-1)}
+                              className="w-10 h-10 bg-[#5B297E] text-white rounded-md flex items-center justify-center text-xl"
+                          >
+                              -
+                          </button>
+                          <span className="text-xl">{numTrucks}</span>
+                          <button
+                              onClick={() => handleTruckChange(1)}
+                              className="w-10 h-10 bg-[#5B297E] text-white rounded-md flex items-center justify-center text-xl"
+                          >
+                              +
+                          </button>
+                      </div>
+                  </div>
               </div>
 
+              {/* Number of Trucks */}
 
+              {/* Preferred Trucks */}
               <div className="flex flex-col">
-                  <label className="text-[10px] text-gray-500 mb-1 ml-2">Trucks</label>
-                  <select className="w-60 h-10 bg-gray-100 border border-gray-300 rounded-md px-3 outline-none text-gray-500">
-                      <option value="">Select number of trucks</option>
-                      <option value="1">1 Truck</option>
-                      <option value="2">2 Trucks</option>
-                      <option value="3">3 Trucks</option>
-                      <option value="4">4 Trucks</option>
-                  </select>
-              </div>
-
-              <button className="w-28 h-10 bg-[#5B297E] text-white rounded-md flex items-center justify-center gap-2 mt-5">
-                  <span><IoMdSearch /></span>
-                  Search
-              </button>
-       </div>
-       <div className="w-full h-full  grid grid-cols-3 gap-4 relative pl-4 pt-2 mt-2 mb-10"  >
+        <label className="text-xs font-medium text-gray-600 mb-2">
+          Preferred Truck Types<span className="text-red-600">*</span>
+        </label>
+        <select className="w-full h-10 border-b border-gray-300  px-3 text-gray-700 focus:outline-none">
+          <option value="">Select a truck type</option>
+          <option value="Container">Container</option>
+          <option value="Trailer">Trailer</option>
+          <option value="Truck">Truck</option>
+          <option value="HYVA">HYVA</option>
+          <option value="LCV">LCV</option>
+          <option value="Tanker">Tanker</option>
+        </select>
+      </div>
+          </div>
+       <div className="w-full h-full  md:grid grid-cols-3 gap-4 relative pl-4 pt-2 mt-2 mb-10"  >
       
        <div className="w-full h-44 border border-black mt-5 rounded-lg shadow-md ">
          <div className="w-full h-14  border-b border-[##BC89E0] ">
