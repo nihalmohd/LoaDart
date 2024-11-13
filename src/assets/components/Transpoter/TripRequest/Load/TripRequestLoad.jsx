@@ -41,7 +41,7 @@ const TripRequesLoad = () => {
             </div>
             <div className="w-full h-[55px] bg-[#D9D9D9] rounded-b-md  ">
               <div className="w-full h-full  rounded-b-md flex">
-              <div className="w-[120px] h-8 bg-white mt-3 ml-4  flex  justify-center items-center font-inter text-sm text-black rounded-sm shadow   ">View bill  <span className='ml-2 mt-1 text-lg'><TbEyeFilled /></span> </div>
+              <div className="w-[120px] h-8 bg-white mt-3 ml-4  flex  justify-center items-center font-inter text-sm text-black rounded-sm shadow   ">View Bids  <span className='ml-2 mt-1 text-lg'><TbEyeFilled /></span> </div>
               <div className="w-[140px] h-8 bg-[#5B297E] mt-3 ml-3 flex  justify-center items-center font-inter text-sm text-white rounded-sm shadow ">Suggusted Truck</div>        
               </div>
             </div>

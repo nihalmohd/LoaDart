@@ -37,13 +37,13 @@ const DashMarketPlace = () => {
       
       <div className="flex flex-col">
         <label className="text-[10px] text-gray-500 mb-1 ml-2">Date</label>
-        <div className="flex items-center gap-2 w-60 h-10 bg-gray-100 border border-gray-300 rounded-md px-3">
+        <div className="flex items-center gap-2 w-60 h-10 bg-gray-100 border border-gray-300 rounded-md px-3 text-gray-500">
           <input
-            type="text"
+            type="date"
             placeholder="14-10-2024 - 16-10-2024"
             className="w-full bg-gray-100 outline-none"
           />
-          <MdCalendarToday className="text-gray-500" />
+          {/* <MdCalendarToday className="text-gray-500" /> */}
         </div>
       </div>
 
