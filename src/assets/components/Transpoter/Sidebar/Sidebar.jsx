@@ -113,8 +113,8 @@ function Sidebar() {
                     </div>
                     {isProfilesOpen && (
                         <div className="pl-10 text-gray-600 space-y-2 ">
-                            <a href="#" className="hover:text-[#5B297E] font-inter text-sm flex justify-center items-center text-gray-700 font-semibold " >Basic Details <span></span></a>
-                            <a href="#" className="hover:text-[#5B297E] font-inter text-sm flex justify-center items-center text-gray-700 font-semibold">Upload Details</a>
+                            <a href="#" className="hover:text-[#5B297E] font-inter text-sm flex justify-start text-start items-center text-gray-700 font-semibold " >Basic Details <span></span></a>
+                            <a href="#" className="hover:text-[#5B297E] font-inter text-sm flex justify-start text-start items-center text-gray-700 font-semibold">Upload Details</a>
                             
                         </div>
                     )}
@@ -139,13 +139,13 @@ function Sidebar() {
                             onClick={() => {
                             handleMenuItemClick('Loads');
                             }}
-                            href="#" className="hover:text-[#5B297E] font-inter text-sm flex justify-center items-center text-gray-700 font-semibold " >Search Loads <span></span></a>
+                            href="#" className="hover:text-[#5B297E] font-inter text-sm flex justify-start text-start items-center text-gray-700 font-semibold " >Search Loads <span></span></a>
                             <a
                             onClick={() => {
                             
                             handleMenuItemClick('Your Loads');
                             }}
-                            href="#" className="hover:text-[#5B297E] font-inter text-sm flex justify-center items-center text-gray-700 font-semibold">Your Loads</a>
+                            href="#" className="hover:text-[#5B297E] font-inter text-sm flex justify-start text-start items-center text-gray-700 font-semibold">Your Loads</a>
                             
                         </div>
                     )}
@@ -167,8 +167,8 @@ function Sidebar() {
                     </div>
                     {isTrucksOpen && (
                         <div className="pl-10 text-gray-600 space-y-1">
-                            <a href="#" className="hover:text-[#5B297E] font-inter text-sm  flex justify-center items-center text-gray-700 font-semibold">Search Truck</a>
-                            <a href="#" className="hover:text-[#5B297E] font-inter text-sm  flex justify-center items-center text-gray-700 font-semibold">Your Trucks</a>
+                            <a href="#" className="hover:text-[#5B297E] font-inter text-sm  flex justify-start text-start items-center text-gray-700 font-semibold">Search Truck</a>
+                            <a href="#" className="hover:text-[#5B297E] font-inter text-sm  flex justify-start  text-start items-center  text-gray-700 font-semibold">Your Trucks</a>
                         </div>
                     )}
                 </div>
