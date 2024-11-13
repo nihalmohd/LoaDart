@@ -1,10 +1,11 @@
 import React from 'react'
-import DashMarketPlace from '../Dashboard/DashMarketPlace'
+import MarketPlaceLoads from '../Marketplace/Loads/MarketPlaceLoads'
+
 
 const SearchLoads = () => {
   return (
     <div>
-          <div className="w-11/12 h-screen ">
+          <div className="w-11/12 h-auto  ">
               <div className="w-full h-10  flex items-end">
                   <div className="w-4/12  h-10 ">
                       <div className="w-full h-10 flex-col items-end ml-4">
@@ -13,7 +14,7 @@ const SearchLoads = () => {
                   </div>
               </div>
 
-              <DashMarketPlace/>
+              <MarketPlaceLoads/>
           </div>
     </div>
   )

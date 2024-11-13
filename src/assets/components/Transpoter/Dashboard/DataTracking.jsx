@@ -1,8 +1,7 @@
 import React from 'react'
 import { HiOutlineTruck } from 'react-icons/hi';
 import { IoCubeOutline } from "react-icons/io5";
-import DashMoreDetails from './DashMoreDetails';
-import DashMarketPlace from './DashMarketPlace';
+
 import MarketPlaceTopButtons from '../Marketplace/MarketPlaceTopButtons';
 
 
