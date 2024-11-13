@@ -13,10 +13,14 @@ import ScheduleButton from '../Schedule/ScheduleButton';
 import TripRequestButtons from '../TripRequest/TripRequestButtons';
 import TransporterProfileDetails from '../TranspoterProfile/TransporterProfileDetails';
 import MarketPlaceTopButtons from '../Marketplace/MarketPlaceTopButtons';
+import SearchLoads from '../Loads/SearchLoads';
+import YourLoads from '../Loads/YourLoads';
 
 function Sidebar() {
     const [isTrucksOpen, setIsTrucksOpen] = useState(false);
     const [isProfilesOpen, setIsProfilesOpen] = useState(false);
+    const [isTruck, setIsTruck] = useState(false);
+    const [isLoad, setIsLoad] = useState(false);
     const [activeItem, setActiveItem] = useState('Dashboard');
 
 
@@ -26,6 +30,9 @@ function Sidebar() {
 
     const toggleProfile = () => {
         setIsProfilesOpen(!isProfilesOpen);
+    };
+    const toggleLoads = () => {
+        setIsLoad(!isLoad);
     };
 
     const handleMenuItemClick = (item) => {
@@ -113,19 +120,36 @@ function Sidebar() {
                     )}
                 </div>
 
-
-                <a
-                    href="#"
-                    onClick={() => handleMenuItemClick('Loads')}
-                    className={`flex items-center space-x-2 ${activeItem === 'Loads' ? 'text-[#5B297E]' : 'text-gray-700'} hover:text-[#5B297E]`}
-                >
-                    <div className="p-2 ">
-                        <IoCubeOutline />
+                <div className="flex flex-col space-y-1">
+                    <div
+                        onClick={() => {
+                            toggleLoads();
+                            handleMenuItemClick('Loads');
+                        }}
+                        className={`flex items-center space-x-2 ${activeItem === 'Loads' ? 'text-[#5B297E]' : 'text-gray-700'} hover:text-[#5B297E] cursor-pointer`}
+                    >
+                        <div className="p-2 ">
+                            <IoCubeOutline />
+                        </div>
+                        <span className="font-semibold font-inter text-sm">Loads</span>
                     </div>
-                    <span className="font-inter font-semibold text-sm">Loads</span>
-                </a>
-
-                
+                    {isLoad && (
+                        <div className="pl-10 text-gray-600 space-y-2 ">
+                            <a 
+                            onClick={() => {
+                            handleMenuItemClick('Loads');
+                            }}
+                            href="#" className="hover:text-[#5B297E] font-inter text-sm flex justify-center items-center text-gray-700 font-semibold " >Search Loads <span></span></a>
+                            <a
+                            onClick={() => {
+                            
+                            handleMenuItemClick('Your Loads');
+                            }}
+                            href="#" className="hover:text-[#5B297E] font-inter text-sm flex justify-center items-center text-gray-700 font-semibold">Your Loads</a>
+                            
+                        </div>
+                    )}
+                </div>
 
                 
                 <div className="flex flex-col space-y-1">
@@ -214,6 +238,8 @@ function Sidebar() {
                 {activeItem === 'Trip Requests' && <TripRequestButtons />}
                 {activeItem === 'Profile' && <TransporterProfileDetails />}
                 {activeItem === 'Marketplace' && <MarketPlaceTopButtons />}
+                {activeItem === 'Loads' && <SearchLoads />}
+                {activeItem === 'Your Loads' && <YourLoads />}
         </div>
         </div>
     );

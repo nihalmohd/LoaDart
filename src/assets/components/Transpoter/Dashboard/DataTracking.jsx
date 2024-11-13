@@ -3,6 +3,7 @@ import { HiOutlineTruck } from 'react-icons/hi';
 import { IoCubeOutline } from "react-icons/io5";
 import DashMoreDetails from './DashMoreDetails';
 import DashMarketPlace from './DashMarketPlace';
+import MarketPlaceTopButtons from '../Marketplace/MarketPlaceTopButtons';
 
 
 const DataTracking = () => {
@@ -75,12 +76,8 @@ const DataTracking = () => {
                   </div>
               </div>
           </div>
-          <div className="w-full h-20  flex items-end">
-            <div className="w-4/12 h-full flex  items-end ml-5">
-              <h1 className='text-[#5B297E] font-inter font-semibold text-xl' > Marketplace</h1>
-            </div>
-          </div>
-          <DashMarketPlace/>
+         
+          <MarketPlaceTopButtons/>
     </div>
   )
 }
