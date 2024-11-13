@@ -68,14 +68,13 @@ const Nav = () => {
 
       
       <div
-        className={`fixed inset-0 z-40 bg-black bg-opacity-50 transform ${
-          menuOpen ? 'translate-x-0' : 'translate-x-full'
-        } transition-transform duration-500 ease-in-out`}
+        className={`fixed inset-0 z-40 bg-black bg-opacity-50 transform ${menuOpen ? 'translate-x-0' : 'translate-x-full'
+          } transition-transform duration-500 ease-in-out`}
         onClick={toggleMenu}
       >
         <div
           className="absolute top-0 right-0 w-64 h-full bg-white shadow-lg p-5"
-          onClick={(e) => e.stopPropagation()} 
+          onClick={(e) => e.stopPropagation()}
         >
           <h2 className="text-xl font-semibold mb-4">Menu</h2>
           <ul>
@@ -84,11 +83,11 @@ const Nav = () => {
             <li className="mb-3 text-gray-700">Contact</li>
             <li className="mb-3 text-gray-700">Sign In</li>
             <li className="mb-3 text-gray-700"><div className="w-1/2 h-full flex justify-center items-center">
-                  <img src="/images/Screenshot 2024-10-31 002925.png" className="w-fit h-fit" alt="Icon 1" />
-                </div></li>
+              <img src="/images/Screenshot 2024-10-31 002925.png" className="w-fit h-fit" alt="Icon 1" />
+            </div></li>
             <li className="mb-3 text-gray-700"><div className="w-1/2 h-full flex justify-center items-center">
-                  <img src="/images/Screenshot 2024-10-31 001830.png" className="w-fit h-fit" alt="Icon 2" />
-                </div></li>
+              <img src="/images/Screenshot 2024-10-31 001830.png" className="w-fit h-fit" alt="Icon 2" />
+            </div></li>
           </ul>
         </div>
       </div>

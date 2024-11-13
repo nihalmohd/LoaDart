@@ -141,7 +141,7 @@ const BannerSection = () => {
         </div>
         <div className="w-full md:h-1/2 lg:h-40  flex items-center justify-center md:mt-2 lg:mt-0  ">
           <div className="w-10/12 h-auto  grid grid-cols-2 md:grid-cols-4 ">
-            <div className="lg:w-11/12 lg:h-20 bg-[#5B297E] lg:flex justify-center items-center rounded-md md:rounded-none shadow-lg md:shadow-none hover:cursor-pointer " onClick={() => openModal('Transpoter')}>
+            <div className="w-11/12 lg:h-20 bg-[#5B297E] lg:flex rounded-md md:rounded-none shadow-lg md:shadow-none hover:cursor-pointer " onClick={() => openModal('Transpoter')}>
               <div className="w-24  h-20 md:ml-7 lg:ml-0 p-2">
                 <img src="\images\5c8ebda60eceeb30e56e59c34a37afb6.png" alt="" className='w-fit h-fit object-cover' />
               </div>
@@ -167,7 +167,7 @@ const BannerSection = () => {
                 </div>
               </div>
             </div>
-            <div className="w-11/12 lg:h-20 bg-[#5B297E] lg:flex rounded-md md:rounded-none shadow-lg md:shadow-none hover:cursor-pointer "onClick={() => openModal('Shipper')}>
+            <div className="w-11/12 lg:h-20 bg-[#5B297E] lg:flex rounded-md md:rounded-none shadow-lg md:shadow-none hover:cursor-pointer mt-4 lg:mt-0 "onClick={() => openModal('Shipper')}>
               <div className="w-24 h-20 md:ml-7 lg:ml-0 p-2">
                 <img src="\images\65ceb99559230cdf0da1520dde5e8224.png" alt="" className='w-fit h-fit object-cover' />
               </div>
@@ -180,7 +180,7 @@ const BannerSection = () => {
                 </div>
               </div>
             </div>
-            <div className="w-11/12 lg:h-20 bg-[#5B297E] lg:flex rounded-md md:rounded-none shadow-lg md:shadow-none hover:cursor-pointer"onClick={() => openModal('Driver')}>
+            <div className="w-11/12 lg:h-20 bg-[#5B297E] lg:flex rounded-md md:rounded-none shadow-lg md:shadow-none hover:cursor-pointer mt-4 lg:mt-0"onClick={() => openModal('Driver')}>
               <div className="w-24 h-20 md:ml-7 lg:ml-0 p-2">
                 <img src="\images\5501a91ebf31912b64b8e8e809e132d1.png" alt="" className='w-fit h-fit object-cover' />
               </div>

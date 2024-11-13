@@ -1,16 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { IoIosNotifications } from "react-icons/io";
 import { FaPlus } from "react-icons/fa6";
 import DataTracking from './DataTracking';
+import { IoMdMenu } from "react-icons/io";
+import Sidebar from '../Sidebar/Sidebar';
 
 const Topbuttons = () => {
+
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+    const toggleSidebar = () => {
+      setIsSidebarOpen(!isSidebarOpen);
+    };
   return (
-    <div>
+    <div className='relative'>
      <div className="md:w-11/12 h-auto  ">
     <div className="w-full md:h-24 flex justify-between items-center">
-      <div className="w-full md:w-3/12 h-10  flex justify-between items-center ml-3 bg-red-200 ">
+      <div className="w-full md:w-3/12 h-10  flex justify-between items-center pl-3  ">
         <h1 className='flex justify-center items-center text-lg font-inter font-semibold'>Hello, John <span className='ml-3 text-[#5B297E] text-xl flex relative'> <IoIosNotifications /> <div className="w-3 h-3 bg-red-500 rounded-full ml-3 absolute text-white text-xs text-center flex justify-center items-center">3</div></span></h1>
-           div.w-
+        <div className="w-20 h-full lg:hidden flex justify-end items-center pr-2">
+            <button onClick={toggleSidebar} className="w-12 h-12 flex justify-center items-center">
+              <h1 className="text-3xl"><IoMdMenu /></h1> 
+            </button>
+          </div>
       </div>
             <div className="w-6/12 h-10 hidden md:grid grid-cols-4 gap-2 pt-3 ">
                 <div className="w-full h-5  flex justify-center items-center ">
@@ -81,6 +93,22 @@ const Topbuttons = () => {
               </div>
     <DataTracking/>
     </div>
+    <div
+  className={`fixed top-0 right-0 h-full bg-white shadow-lg transform ${
+    isSidebarOpen ? 'translate-x-0' : 'translate-x-full'
+  } transition-transform duration-300 w-64 z-50`}
+>
+  {/* <Sidebar /> */}
+</div>
+
+{/* Overlay */}
+{isSidebarOpen && (
+  <div
+    onClick={toggleSidebar}
+    className="fixed inset-0 bg-black opacity-50 z-40"
+  ></div>
+)}
+
     </div>
   )
 }

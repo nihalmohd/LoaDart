@@ -101,19 +101,19 @@ const MarketPlaceLoads = () => {
 
               {/* Preferred Trucks */}
               <div className="flex flex-col">
-        <label className="text-xs font-medium text-gray-600 mb-2">
-          Preferred Truck Types<span className="text-red-600">*</span>
-        </label>
-        <select className="w-full h-10 border-b border-gray-300  px-3 text-gray-700 focus:outline-none">
-          <option value="">Select a truck type</option>
-          <option value="Container">Container</option>
-          <option value="Trailer">Trailer</option>
-          <option value="Truck">Truck</option>
-          <option value="HYVA">HYVA</option>
-          <option value="LCV">LCV</option>
-          <option value="Tanker">Tanker</option>
-        </select>
-      </div>
+                  <label className="text-xs font-medium text-gray-600 mb-2">
+                      Preferred Truck Types<span className="text-red-600">*</span>
+                  </label>
+                  <select className="w-full h-10 border-b border-gray-300  px-3 text-gray-700 focus:outline-none">
+                      <option value="">Select a truck type</option>
+                      <option value="Container">Container</option>
+                      <option value="Trailer">Trailer</option>
+                      <option value="Truck">Truck</option>
+                      <option value="HYVA">HYVA</option>
+                      <option value="LCV">LCV</option>
+                      <option value="Tanker">Tanker</option>
+                  </select>
+              </div>
           </div>
        <div className="w-full h-full  md:grid grid-cols-3 gap-4 relative pl-4 pt-2 mt-2 mb-10"  >
       

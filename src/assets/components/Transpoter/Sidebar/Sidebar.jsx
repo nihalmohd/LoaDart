@@ -39,7 +39,7 @@ function Sidebar() {
         setActiveItem(item);
     };
     return (
-        <div className='flex'>
+        <div className='md:flex'>
 
         <div className=" fixed top-0 left-0 w-[260px] h-full bg-white shadow-lg md:flex flex-col items-center  z-50 py-6 border-2  overflow-y-scroll overflow-x-hidden  hidden ">
          
