@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import DashMarketPlace from '../Dashboard/DashMarketPlace';
 import { HiOutlineTruck } from 'react-icons/hi';
 import { IoCubeOutline } from "react-icons/io5";
 import MarketPlaceTruck from './Trucks/MarketPlaceTruck';
+import MarketPlaceLoads from './Loads/MarketPlaceLoads';
 
 const MarketPlaceTopButtons = () => {
     const [selectedDiv, setSelectedDiv] = useState("left");
@@ -71,7 +71,7 @@ const MarketPlaceTopButtons = () => {
                       </div>
                   </div>
                   <div className="w-full h-auto mb-10 ">
-                      {selectedDiv === 'left' && <DashMarketPlace />}
+                      {selectedDiv === 'left' && <MarketPlaceLoads/>}
                       {selectedDiv === 'right' && <MarketPlaceTruck />}
                   </div>
               </div>

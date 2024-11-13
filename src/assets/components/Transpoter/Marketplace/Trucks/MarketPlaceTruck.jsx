@@ -1,13 +1,80 @@
 import React from 'react'
 import {  FaMapMarkerAlt, FaStar } from 'react-icons/fa';
-import { TbEyeFilled } from "react-icons/tb";
+import { IoMdSearch } from "react-icons/io";
 
 const MarketPlaceTruck = () => {
   return (
     <div>
-      
-      <div className="w-full h-screen grid grid-cols-3 gap-4 relative">
+      <div className="w-full flex items-center justify-center gap-6 p-2 flex-wrap ">
+              <div className="flex flex-col">
+                  <label className="text-[10px] text-gray-500 mb-1 ml-2">Add pickup location</label>
+                  <div className="flex items-center gap-2 w-60 h-10 bg-gray-100 border border-gray-300 rounded-md px-3">
+                      <FaMapMarkerAlt className="text-green-500" />
+                      <input
+                          type="text"
+                          placeholder="Ernakulam"
+                          className="w-full bg-gray-100 outline-none"
+                      />
+                  </div>
+              </div>
 
+
+              <div className="flex flex-col">
+                  <label className="text-[10px] text-gray-500 mb-1 ml-2">Add delivery location</label>
+                  <div className="flex items-center gap-2 w-60 h-10 bg-gray-100 border border-gray-300 rounded-md px-3">
+                      <FaMapMarkerAlt className="text-red-500" />
+                      <input
+                          type="text"
+                          placeholder="Kozhikode"
+                          className="w-full bg-gray-100 outline-none"
+                      />
+                  </div>
+              </div>
+
+
+              <div className="flex flex-col">
+                  <label className="text-[10px] text-gray-500 mb-1 ml-2">Date</label>
+                  <div className="flex items-center gap-2 w-60 h-10 bg-gray-100 border border-gray-300 rounded-md px-3 text-gray-500">
+                      <input
+                          type="date"
+                          placeholder="14-10-2024 - 16-10-2024"
+                          className="w-full bg-gray-100 outline-none"
+                      />
+                      {/* <MdCalendarToday className="text-gray-500" /> */}
+                  </div>
+              </div>
+
+
+              <div className="flex flex-col">
+                  <label className="text-[10px] text-gray-500 mb-1 ml-2">Weight Capacity</label>
+                  <select className="w-60 h-10 bg-gray-100 border border-gray-300 rounded-md px-3 outline-none text-gray-500">
+                      <option value="">Select weight capacity</option>
+                      <option value="500kg">500 kg</option>
+                      <option value="1000kg">1000 kg</option>
+                      <option value="1500kg">1500 kg</option>
+                      <option value="2000kg">2000 kg</option>
+                  </select>
+              </div>
+
+
+              <div className="flex flex-col">
+                  <label className="text-[10px] text-gray-500 mb-1 ml-2">Trucks</label>
+                  <select className="w-60 h-10 bg-gray-100 border border-gray-300 rounded-md px-3 outline-none text-gray-500">
+                      <option value="">Select number of trucks</option>
+                      <option value="1">1 Truck</option>
+                      <option value="2">2 Trucks</option>
+                      <option value="3">3 Trucks</option>
+                      <option value="4">4 Trucks</option>
+                  </select>
+              </div>
+
+              <button className="w-28 h-10 bg-[#5B297E] text-white rounded-md flex items-center justify-center gap-2 mt-5">
+                  <span><IoMdSearch /></span>
+                  Search
+              </button>
+       </div>
+      <div className="w-full h-screen grid grid-cols-3 gap-4 relative">
+         
 
   <div className="w-full h-64 border border-black mt-5 rounded-lg shadow-md">
 
