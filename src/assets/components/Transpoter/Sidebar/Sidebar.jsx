@@ -41,9 +41,9 @@ function Sidebar() {
     return (
         <div className='flex'>
 
-        <div className=" fixed top-0 left-0 w-[260px] h-full bg-white shadow-lg flex flex-col items-center  z-50 py-6 border-2  overflow-y-scroll overflow-x-hidden  ">
+        <div className=" fixed top-0 left-0 w-[260px] h-full bg-white shadow-lg md:flex flex-col items-center  z-50 py-6 border-2  overflow-y-scroll overflow-x-hidden  hidden ">
          
-            <div className="w-9/12 h-full flex justify-end items-end">
+            <div className="w-9/12 h-10 flex justify-end items-end  ">
                 <div className="w-[100px] h-[35px] flex justify-end items-end">
                     <img src="/images/ab6aaab828b7c3f0ef708693166c9def.png" className="w-full h-full object-cover" alt="Logo" />
                 </div>
@@ -169,7 +169,6 @@ function Sidebar() {
                         <div className="pl-10 text-gray-600 space-y-1">
                             <a href="#" className="hover:text-[#5B297E] font-inter text-sm  flex justify-center items-center text-gray-700 font-semibold">Search Truck</a>
                             <a href="#" className="hover:text-[#5B297E] font-inter text-sm  flex justify-center items-center text-gray-700 font-semibold">Your Trucks</a>
-                            <a href="#" className="hover:text-[#5B297E] font-inter text-sm  flex justify-center items-center text-gray-700 font-semibold">Post Truck</a>
                         </div>
                     )}
                 </div>
@@ -231,7 +230,7 @@ function Sidebar() {
             </nav>
            
         </div>
-        <div className="flex-grow h-full ml-[260px]  overflow-auto ">
+        <div className="flex-grow h-full lg:ml-[260px]  overflow-auto ">
 
                 {activeItem === 'Dashboard' && <Topbuttons />}
                 {activeItem === 'Schedule' && <ScheduleButton/>}

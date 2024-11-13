@@ -8,7 +8,7 @@ import MarketPlaceTopButtons from '../Marketplace/MarketPlaceTopButtons';
 const DataTracking = () => {
   return (
     <div>
-          <div className="w-full h-60 grid grid-cols-3 gap-5 p-3">
+          <div className="w-full h-auto grid md:grid-cols-3 grid-cols-1 gap-5 p-3">
               <div className="w-full h-full bg-[#5B297E] rounded-md">
                   <div className="w-full h-10  flex justify-center items-center">
                       <h1 className='font-inter font-semibold text-sm text-white '>Profile</h1>
