@@ -6,14 +6,14 @@ import { FaPlus } from "react-icons/fa6";
 const YourLoads = () => {
   return (
     <div className='p-3'>
-       <div className="w-full h-16  flex items-center ">
-                  <div className="w-11/12  h-10 ">
-                      <div className="w-full h-10 flex justify-between items-end ml-4">
-                          <h1 className="font-inter font-semibold text-[#5B297E] text-lg mt-5">Your Loads</h1>
-                          <button className="w-28 h-6 bg-[#5B297E] flex justify-center items-center rounded-sm text-white text-xs mb-2"><FaPlus />Add Load</button>
-                      </div>
-                  </div>
-              </div>
+      <div className="w-full h-16  flex items-center ">
+        <div className="w-11/12  h-10 ">
+          <div className="w-full h-10 flex justify-between items-end ml-4">
+            <h1 className="font-inter font-semibold text-[#5B297E] text-lg mt-5">Your Loads</h1>
+            <button className="w-28 h-6 bg-[#5B297E] flex justify-center items-center rounded-sm text-white text-xs mb-2"><FaPlus />Add Load</button>
+          </div>
+        </div>
+      </div>
       <div className="w-full h-auto  grid md:grid-cols-3 grid-cols-1 gap-5 relative" >
         <div className=" w-full md:w-4/12 h-10 absolute flex justify-end items-center  ">
           <div className="w-6 h-6 bg-red-600  rounded-full flex justify-center items-center">

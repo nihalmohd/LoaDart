@@ -10,110 +10,110 @@ const MarketPlaceTruck = () => {
     };
   return (
     <div>
-     <div className="w-full max-w-2xl p-4 space-y-4">
-              <div className="w-full h-20 grid grid-cols-2 gap-10">
+      <div className="w-full max-w-2xl p-4 space-y-4">
+        <div className="w-full h-20 grid grid-cols-2 gap-10">
 
-                  <div className=" flex flex-col">
-                      <label className="text-xs font-medium text-gray-400 mb-1">Pickup Location<span className='text-red-600'>*</span></label>
-                      <input
-                          type="text"
-                          placeholder="Ernakulam"
-                          className="w-full h-10 border-b border-gray-300 outline-none placeholder:text-black"
-                      />
-                  </div>
-
-                  {/* Delivery Location */}
-                  <div className="flex flex-col">
-                      <label className="text-xs font-medium text-gray-400 mb-1">Delivery Location<span className='text-red-600'>*</span></label>
-                      <input
-                          type="text"
-                          placeholder="Kozhikode"
-                          className="w-full h-10 border-b border-gray-300 outline-none placeholder:text-black"
-                      />
-                  </div>
-              </div>
-              <div className="w-full h-20 grid grid-cols-2 gap-10">
-
-                  {/* Pickup Location */}
-
-                  <div className="w-full flex flex-col">
-                      <label className="text-xs font-medium text-gray-400 mb-1">Pickup Date<span className='text-red-600'>*</span></label>
-                      <div className="flex items-center border-b border-gray-300">
-                          <input
-                              type="text"
-                              placeholder="18-10-2024"
-                              className="w-full h-10 outline-none placeholder:text-black"
-                          />
-                          <MdCalendarToday className="text-gray-500" />
-                      </div>
-                  </div>
-
-                  {/* Material */}
-                  <div className="w-full flex flex-col">
-                      <label className="text-xs font-medium text-gray-400 mb-1">Material<span className='text-red-600'>*</span></label>
-                      <input
-                          type="text"
-                          placeholder="Frozen food"
-                          className="w-full h-10 border-b border-gray-300 outline-none placeholder:text-black"
-                      />
-                  </div>
-              </div>
-
-              {/* Weight */}
-              {/* Pickup Date */}
-              <div className="md:flex justify-between ">
-
-                  <div className="w-full h-full ">
-                      <label className="text-xs font-medium text-gray-600 ">Weight <span className='text-red-600'>*</span></label>
-                      <div className="flex gap-2">
-                          {["<1T", "1-3T", "3-5T", "5-10T", "10-20T", ">20T"].map((weight, index) => (
-                              <button
-                                  key={index}
-                                  className="px-3 py-1 border  border-black text-black rounded-full text-sm hover:bg-[#5B297E] hover:text-white transition"
-                              >
-                                  {weight}
-                              </button>
-                          ))}
-                      </div>
-                  </div>
-                  <div className="flex flex-col mt-5 md:mt-0">
-                      <label className="text-xs font-medium text-gray-600 mb-2">No of Trucks<span className='text-red-600'>*</span></label>
-                      <div className="flex items-center gap-2">
-                          <button
-                              onClick={() => handleTruckChange(-1)}
-                              className="w-10 h-10 bg-[#5B297E] text-white rounded-md flex items-center justify-center text-xl"
-                          >
-                              -
-                          </button>
-                          <span className="text-xl">{numTrucks}</span>
-                          <button
-                              onClick={() => handleTruckChange(1)}
-                              className="w-10 h-10 bg-[#5B297E] text-white rounded-md flex items-center justify-center text-xl"
-                          >
-                              +
-                          </button>
-                      </div>
-                  </div>
-              </div>
-
-              {/* Number of Trucks */}
-
-              {/* Preferred Trucks */}
-              <div className="flex flex-col">
-                  <label className="text-xs font-medium text-gray-600 mb-2">
-                      Preferred Truck Types<span className="text-red-600">*</span>
-                  </label>
-                  <select className="w-full h-10 border-b border-gray-300  px-3 text-gray-700 focus:outline-none">
-                      <option value="">Select a truck type</option>
-                      <option value="Container">Container</option>
-                      <option value="Trailer">Trailer</option>
-                      <option value="Truck">Truck</option>
-                      <option value="HYVA">HYVA</option>
-                      <option value="LCV">LCV</option>
-                      <option value="Tanker">Tanker</option>
-                  </select>
-              </div>
+          <div className=" flex flex-col">
+            <label className="text-xs font-medium text-gray-400 mb-1">Pickup Location<span className='text-red-600'>*</span></label>
+            <input
+              type="text"
+              placeholder="Ernakulam"
+              className="w-full h-10 border-b border-gray-300 outline-none placeholder:text-black"
+            />
           </div>
+
+          {/* Delivery Location */}
+          <div className="flex flex-col">
+            <label className="text-xs font-medium text-gray-400 mb-1">Delivery Location<span className='text-red-600'>*</span></label>
+            <input
+              type="text"
+              placeholder="Kozhikode"
+              className="w-full h-10 border-b border-gray-300 outline-none placeholder:text-black"
+            />
+          </div>
+        </div>
+        <div className="w-full h-20 grid grid-cols-2 gap-10">
+
+          {/* Pickup Location */}
+
+          <div className="w-full flex flex-col">
+            <label className="text-xs font-medium text-gray-400 mb-1">Pickup Date<span className='text-red-600'>*</span></label>
+            <div className="flex items-center border-b border-gray-300">
+              <input
+                type="text"
+                placeholder="18-10-2024"
+                className="w-full h-10 outline-none placeholder:text-black"
+              />
+              <MdCalendarToday className="text-gray-500" />
+            </div>
+          </div>
+
+          {/* Material */}
+          <div className="w-full flex flex-col">
+            <label className="text-xs font-medium text-gray-400 mb-1">Material<span className='text-red-600'>*</span></label>
+            <input
+              type="text"
+              placeholder="Frozen food"
+              className="w-full h-10 border-b border-gray-300 outline-none placeholder:text-black"
+            />
+          </div>
+        </div>
+
+        {/* Weight */}
+        {/* Pickup Date */}
+        <div className="md:flex justify-between ">
+
+          <div className="w-full h-full ">
+            <label className="text-xs font-medium text-gray-600 ">Weight <span className='text-red-600'>*</span></label>
+            <div className="flex gap-2">
+              {["<1T", "1-3T", "3-5T", "5-10T", "10-20T", ">20T"].map((weight, index) => (
+                <button
+                  key={index}
+                  className="px-3 py-1 border  border-black text-black rounded-full text-sm hover:bg-[#5B297E] hover:text-white transition"
+                >
+                  {weight}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="flex flex-col mt-5 md:mt-0">
+            <label className="text-xs font-medium text-gray-600 mb-2">No of Trucks<span className='text-red-600'>*</span></label>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => handleTruckChange(-1)}
+                className="w-10 h-10 bg-[#5B297E] text-white rounded-md flex items-center justify-center text-xl"
+              >
+                -
+              </button>
+              <span className="text-xl">{numTrucks}</span>
+              <button
+                onClick={() => handleTruckChange(1)}
+                className="w-10 h-10 bg-[#5B297E] text-white rounded-md flex items-center justify-center text-xl"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Number of Trucks */}
+
+        {/* Preferred Trucks */}
+        <div className="flex flex-col">
+          <label className="text-xs font-medium text-gray-600 mb-2">
+            Preferred Truck Types<span className="text-red-600">*</span>
+          </label>
+          <select className="w-full h-10 border-b border-gray-300  px-3 text-gray-700 focus:outline-none">
+            <option value="">Select a truck type</option>
+            <option value="Container">Container</option>
+            <option value="Trailer">Trailer</option>
+            <option value="Truck">Truck</option>
+            <option value="HYVA">HYVA</option>
+            <option value="LCV">LCV</option>
+            <option value="Tanker">Tanker</option>
+          </select>
+        </div>
+      </div>
       <div className="w-full h-screen grid grid-cols-3 gap-4 relative">
          
 

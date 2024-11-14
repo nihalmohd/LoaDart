@@ -20,7 +20,7 @@ const Footer = () => {
         <div className="w-11/12 h-full  flex flex-wrap justify-between items-center">
   
               <div className="flex-1 min-w-[200px] space-y-3 mb-5 md:ml-10">
-                  <h2 className="font-bold text-lg">LeoDart</h2>
+                  <h2 className="font-bold text-lg">LoaDart</h2>
                   <p>Global Trade Service</p>
                   <p>GSTIN: 123QWRE56789</p>
                   <p className="flex"><span className="text-white mt-1 mr-1"><FaPhoneAlt /></span> +91 987654321</p>

@@ -15,6 +15,8 @@ import TransporterProfileDetails from '../TranspoterProfile/TransporterProfileDe
 import MarketPlaceTopButtons from '../Marketplace/MarketPlaceTopButtons';
 import SearchLoads from '../Loads/SearchLoads';
 import YourLoads from '../Loads/YourLoads';
+import SearchTruck from '../Truck/SearchTruck';
+import YourTruck from '../Truck/YourTruck';
 
 function Sidebar() {
     const [isTrucksOpen, setIsTrucksOpen] = useState(false);
@@ -167,8 +169,8 @@ function Sidebar() {
                     </div>
                     {isTrucksOpen && (
                         <div className="pl-10 text-gray-600 space-y-1">
-                            <a href="#" className="hover:text-[#5B297E] font-inter text-sm  flex justify-start text-start items-center text-gray-700 font-semibold">Search Truck</a>
-                            <a href="#" className="hover:text-[#5B297E] font-inter text-sm  flex justify-start  text-start items-center  text-gray-700 font-semibold">Your Trucks</a>
+                            <a href="#" className="hover:text-[#5B297E] font-inter text-sm  flex justify-start text-start items-center text-gray-700 font-semibold" onClick={()=>{handleMenuItemClick('Trucks')} }>Search Truck</a>
+                            <a href="#" className="hover:text-[#5B297E] font-inter text-sm  flex justify-start  text-start items-center  text-gray-700 font-semibold" onClick={()=>{handleMenuItemClick('Your Truck')} }>Your Trucks</a>
                         </div>
                     )}
                 </div>
@@ -239,6 +241,8 @@ function Sidebar() {
                 {activeItem === 'Marketplace' && <MarketPlaceTopButtons />}
                 {activeItem === 'Loads' && <SearchLoads />}
                 {activeItem === 'Your Loads' && <YourLoads />}
+                {activeItem === 'Trucks' && <SearchTruck />}
+                {activeItem === 'Your Truck' && <YourTruck />}
         </div>
         </div>
     );
