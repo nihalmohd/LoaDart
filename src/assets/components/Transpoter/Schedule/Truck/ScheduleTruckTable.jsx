@@ -4,6 +4,38 @@ const ScheduleTruckTable = () => {
   return (
     <div>
         <div className="w-full  mx-auto r">
+        <div className="w-full h-20  grid grid-cols-4 gap-3">
+                <div className="w-full h-10 border-2 border-[#5B297E] rounded-md mt-5 felx justify-center items-center">
+                    <select name="" id="" className='bg-transparent w-full h-full flex justify-center items-center focus:outline-none '>
+                    <option value="Last Day">Last Day</option>
+                    <option value="Last 15 Days">Last 15 Days</option>
+                    <option value="Last 30 Days">Last 30 Days</option>
+                    <option value="Last Quater">Last Quater</option>
+                    <option value="Last Year">Last Year</option>
+                    </select>
+                </div>
+                <div className="w-full h-10 border-2 border-[#5B297E] rounded-md mt-5 felx justify-center items-center">
+                    <select name="" id="" className='bg-transparent w-full h-full flex justify-center items-center focus:outline-none '>
+                    <option value="">Vehicle Registration</option>
+                    <option value="">KL 07 AX  1234 5678 90 ABC</option>
+                         
+                    </select>
+                </div>
+                <div className="w-full h-10 border-2 border-[#5B297E] rounded-md mt-5 felx justify-center items-center">
+                    <select name="" id="" className='bg-transparent w-full h-full flex justify-center items-center focus:outline-none '>
+                    <option value="">Pick Up Location</option>
+                    <option value="Erankulam">Eranakulam</option>
+
+                    </select>
+                </div>
+                <div className="w-full h-10 border-2 border-[#5B297E] rounded-md mt-5 felx justify-center items-center">
+                    <select name="" id="" className='bg-transparent w-full h-full flex justify-center items-center focus:outline-none '>
+                    <option value="">Delivery location</option>
+                    <option value="Kozhikode">Kozhikode</option>
+         
+                    </select>
+                </div>
+            </div>
               <div className="w-full h-full flex justify-center items-center">
 
                   <table className="min-w-full border border-gray-200 rounded-sm overflow-hidden ">
