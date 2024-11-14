@@ -54,13 +54,46 @@ const MarketPlaceTruck = () => {
               Materials<span className="text-red-600">*</span>
             </label>
             <select className="w-full h-10 border-b border-gray-300 text-black focus:outline-none">
-              <option value="">Select a truck type</option>
+              <option value="">Select a cargo type</option>
+              <option value="Auto Parts">Auto Parts</option>
+              <option value="Bardana Jute">Bardana Jute</option>
+              <option value="Building materials">Building materials</option>
+              <option value="Cement">Cement</option>
+              <option value="Chemicals">Chemicals</option>
+              <option value="Coal and Ash">Coal and Ash</option>
               <option value="Container">Container</option>
-              <option value="Trailer">Trailer</option>
-              <option value="Truck">Truck</option>
-              <option value="HYVA">HYVA</option>
-              <option value="LCV">LCV</option>
-              <option value="Tanker">Tanker</option>
+              <option value="Cotten">Cotten</option>
+              <option value="Cotton Seed">Cotton Seed</option>
+              <option value="Electronics Consumer Durables">Electronics Consumer Durables</option>
+              <option value="Fertilizers">Fertilizers</option>
+              <option value="Fruits and Vegetables">Fruits and Vegetables</option>
+              <option value="Furniture and Wood Products">Furniture and Wood Products</option>
+              <option value="House Hold Goods">House Hold Goods</option>
+              <option value="Industrial Equipments">Industrial Equipments</option>
+              <option value="Iron Sheets or Bars or Scraps">Iron Sheets or Bars or Scraps</option>
+              <option value="Liquids in Drums">Liquids in Drums</option>
+              <option value="Liquids or Oil">Liquids or Oil</option>
+              <option value="Machinery new">Machinery new</option>
+              <option value="Machinery old">Machinery old</option>
+              <option value="Medicals">Medicals</option>
+              <option value="Metals">Metals</option>
+              <option value="Mill Jute Oil">Mill Jute Oil</option>
+              <option value="others">Others</option>
+              <option value="Packaging & Containers">Packaging & Containers</option>
+              <option value="Packed Food">Packed Food</option>
+              <option value="Pen">Pen</option>
+              <option value="Plastic">Plastic</option>
+              <option value="Plastic Pipes Or Other products">Plastic Pipes Or Other Products</option>
+              <option value="Powder Bages">Powder Bags</option>
+              <option value="Printed Books or Paper Rolls">Printed Books or Paper Rolls</option>
+              <option value="Refrigerated goods">Refrigerated Goods</option>
+              <option value="Rice or wheat or Agriculture Products">Rice, Wheat, or Agriculture Products</option>
+              <option value="Scrap">Scrap</option>
+              <option value="Spices">Spices</option>
+              <option value="Textails">Textiles</option>
+              <option value="Tyre and Rubber Products">Tyre and Rubber Products</option>
+              <option value="Vehicles or Car">Vehicles or Car</option>
+
             </select>
           </div>
         </div>
@@ -71,13 +104,22 @@ const MarketPlaceTruck = () => {
               Weight<span className="text-red-600">*</span>
             </label>
             <select className="w-full h-10 border-b border-gray-300   text-black focus:outline-none">
-              <option value="">Select a truck type</option>
-              <option value="Container">Container</option>
-              <option value="Trailer">Trailer</option>
-              <option value="Truck">Truck</option>
-              <option value="HYVA">HYVA</option>
-              <option value="LCV">LCV</option>
-              <option value="Tanker">Tanker</option>
+              <option value="">Select weight capacity</option>
+              <option value="Above 40 MT">Above 40 MT</option>
+              <option value="Above 30 MT">Above 30 MT</option>
+              <option value="Upto 28 MT">Upto 28 MT</option>
+              <option value="Upto 25 MT">Upto 25 MT</option>
+              <option value="Upto 20 MT">Upto 20 MT</option>
+              <option value="Upto 17 MT">Upto 17 MT</option>
+              <option value="Upto 15 MT">Upto 15 MT</option>
+              <option value="Upto 12 MT">Upto 12 MT</option>
+              <option value="Upto 9 MT">Upto 9 MT</option>
+              <option value="Upto 7 MT">Upto 7 MT</option>
+              <option value="Upto 5 MT">Upto 5 MT</option>
+              <option value="Upto 3 MT">Upto 3 MT</option>
+              <option value="Upto 1 MT">Upto 1 MT</option>
+              <option value="Below 1 MT">Below 1 MT</option>
+
             </select>
           </div>
           <div className="flex flex-col">
