@@ -40,41 +40,59 @@ const MarketPlaceTruck = () => {
             <label className="text-xs font-medium text-gray-400 mb-1">Pickup Date<span className='text-red-600'>*</span></label>
             <div className="flex items-center border-b border-gray-300">
               <input
-                type="text"
+                type="Date"
                 placeholder="18-10-2024"
                 className="w-full h-10 outline-none placeholder:text-black"
               />
-              <MdCalendarToday className="text-gray-500" />
+              {/* <MdCalendarToday className="text-gray-500" /> */}
             </div>
           </div>
 
           {/* Material */}
-          <div className="w-full flex flex-col">
-            <label className="text-xs font-medium text-gray-400 mb-1">Material<span className='text-red-600'>*</span></label>
-            <input
-              type="text"
-              placeholder="Frozen food"
-              className="w-full h-10 border-b border-gray-300 outline-none placeholder:text-black"
-            />
+          <div className="flex flex-col">
+            <label className="text-xs font-medium text-gray-600 mb-2">
+              Materials<span className="text-red-600">*</span>
+            </label>
+            <select className="w-full h-10 border-b border-gray-300 text-black focus:outline-none">
+              <option value="">Select a truck type</option>
+              <option value="Container">Container</option>
+              <option value="Trailer">Trailer</option>
+              <option value="Truck">Truck</option>
+              <option value="HYVA">HYVA</option>
+              <option value="LCV">LCV</option>
+              <option value="Tanker">Tanker</option>
+            </select>
           </div>
         </div>
+        <div className="w-full h-16 grid grid-cols-3 gap-20">
 
-        {/* Weight */}
-        {/* Pickup Date */}
-        <div className="md:flex justify-between ">
-
-          <div className="w-full h-full ">
-            <label className="text-xs font-medium text-gray-600 ">Weight <span className='text-red-600'>*</span></label>
-            <div className="flex gap-2">
-              {["<1T", "1-3T", "3-5T", "5-10T", "10-20T", ">20T"].map((weight, index) => (
-                <button
-                  key={index}
-                  className="px-3 py-1 border  border-black text-black rounded-full text-sm hover:bg-[#5B297E] hover:text-white transition"
-                >
-                  {weight}
-                </button>
-              ))}
-            </div>
+          <div className="flex flex-col">
+            <label className="text-xs font-medium text-gray-600 mb-2">
+              Weight<span className="text-red-600">*</span>
+            </label>
+            <select className="w-full h-10 border-b border-gray-300   text-black focus:outline-none">
+              <option value="">Select a truck type</option>
+              <option value="Container">Container</option>
+              <option value="Trailer">Trailer</option>
+              <option value="Truck">Truck</option>
+              <option value="HYVA">HYVA</option>
+              <option value="LCV">LCV</option>
+              <option value="Tanker">Tanker</option>
+            </select>
+          </div>
+          <div className="flex flex-col">
+            <label className="text-xs font-medium text-gray-600 mb-2">
+              Preferred Truck Types<span className="text-red-600">*</span>
+            </label>
+            <select className="w-full h-10 border-b border-gray-300 text-black  focus:outline-none">
+              <option value="">Select a truck type</option>
+              <option value="Container">Container</option>
+              <option value="Trailer">Trailer</option>
+              <option value="Truck">Truck</option>
+              <option value="HYVA">HYVA</option>
+              <option value="LCV">LCV</option>
+              <option value="Tanker">Tanker</option>
+            </select>
           </div>
           <div className="flex flex-col mt-5 md:mt-0">
             <label className="text-xs font-medium text-gray-600 mb-2">No of Trucks<span className='text-red-600'>*</span></label>
@@ -95,23 +113,8 @@ const MarketPlaceTruck = () => {
             </div>
           </div>
         </div>
-
-        {/* Number of Trucks */}
-
-        {/* Preferred Trucks */}
-        <div className="flex flex-col">
-          <label className="text-xs font-medium text-gray-600 mb-2">
-            Preferred Truck Types<span className="text-red-600">*</span>
-          </label>
-          <select className="w-full h-10 border-b border-gray-300  px-3 text-gray-700 focus:outline-none">
-            <option value="">Select a truck type</option>
-            <option value="Container">Container</option>
-            <option value="Trailer">Trailer</option>
-            <option value="Truck">Truck</option>
-            <option value="HYVA">HYVA</option>
-            <option value="LCV">LCV</option>
-            <option value="Tanker">Tanker</option>
-          </select>
+        <div className="w-full h-full flex justify-end items-center mt-2">
+          <button className='w-3/12  h-8  border border-[#5B297E] text-white bg-[#5B297E] rounded-md font-inter flex justify-center items-center text-sm   shadow-sm'>Submit</button>
         </div>
       </div>
       <div className="w-full h-screen grid grid-cols-3 gap-4 relative">
