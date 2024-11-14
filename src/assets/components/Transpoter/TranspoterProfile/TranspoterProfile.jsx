@@ -9,7 +9,7 @@ const TranspoterProfile = () => {
         <div className="w-full md:h-screen bg-[#000000BF] flex justify-center items-center">
           
         <div className=" w-full h-full md:w-[550px] md:h-[320px] md:flex rounded-md">
-            <div className="md:w-1/2 h-full bg-[#5B297E] flex justify-center items-center rounded-s-md">
+            <div className="md:w-1/2 h-full bg-[#5B297E] flex justify-center items-center rounded-s-md ">
               <div className="md:w-5/6  md:h-36 flex justify-center items-center ">
                 <img src="\images\76821fd48380d92216f8bb5fbebfc5c6.gif" className='w-full h-full object-cover' alt="" />
               </div>
