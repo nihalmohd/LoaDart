@@ -14,27 +14,7 @@ const ScheduleTruckTable = () => {
                     <option value="Last Year">Last Year</option>
                     </select>
                 </div>
-                <div className="w-full h-10 border-2 border-[#5B297E] rounded-md mt-5 felx justify-center items-center">
-                    <select name="" id="" className='bg-transparent w-full h-full flex justify-center items-center focus:outline-none '>
-                    <option value="">Vehicle Registration</option>
-                    <option value="">KL 07 AX  1234 5678 90 ABC</option>
-                         
-                    </select>
-                </div>
-                <div className="w-full h-10 border-2 border-[#5B297E] rounded-md mt-5 felx justify-center items-center">
-                    <select name="" id="" className='bg-transparent w-full h-full flex justify-center items-center focus:outline-none '>
-                    <option value="">Pick Up Location</option>
-                    <option value="Erankulam">Eranakulam</option>
-
-                    </select>
-                </div>
-                <div className="w-full h-10 border-2 border-[#5B297E] rounded-md mt-5 felx justify-center items-center">
-                    <select name="" id="" className='bg-transparent w-full h-full flex justify-center items-center focus:outline-none '>
-                    <option value="">Delivery location</option>
-                    <option value="Kozhikode">Kozhikode</option>
-         
-                    </select>
-                </div>
+               
             </div>
               <div className="w-full h-full flex justify-center items-center">
 
