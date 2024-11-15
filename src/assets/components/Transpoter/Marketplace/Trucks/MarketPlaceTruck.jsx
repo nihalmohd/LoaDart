@@ -10,7 +10,7 @@ const MarketPlaceTruck = () => {
     };
   return (
     <div>
-      <div className="w-full max-w-2xl p-4 space-y-4">
+      <div className="w-full  p-4 space-y-4 ">
         <div className="w-full h-20 grid grid-cols-2 gap-10">
 
           <div className=" flex flex-col">
@@ -97,7 +97,7 @@ const MarketPlaceTruck = () => {
             </select>
           </div>
         </div>
-        <div className="w-full h-16 grid grid-cols-3 gap-20">
+        <div className="w-full h-16 grid md:grid-cols-3 grid-cols-2  gap-20">
 
           <div className="flex flex-col">
             <label className="text-xs font-medium text-gray-600 mb-2">
@@ -122,53 +122,60 @@ const MarketPlaceTruck = () => {
 
             </select>
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col relative">
             <label className="text-xs font-medium text-gray-600 mb-2">
               Preferred Truck Types<span className="text-red-600">*</span>
             </label>
-            <select className="w-full h-10 border-b border-gray-300 text-black  focus:outline-none">
-            <option value="">Select a truck type</option>
-              <option value="Canter Jumbo">Canter Jumbo</option>
-              <option value="Canters 17feet / 4 Wheel">Canters 17feet / 4 Wheel</option>
-              <option value="Canters 17feet / 6 Wheel">Canters 17feet / 6 Wheel</option>
-              <option value="Canters 3MT / 4 Wheel">Canters 3MT / 4 Wheel</option>
-              <option value="Car Carrier (Close Body)">Car Carrier (Close Body)</option>
-              <option value="Car Carrier (Open Body)">Car Carrier (Open Body)</option>
-              <option value="Container Close Body 40 Feet">Container Close Body 40 Feet</option>
-              <option value="Container Close Body 32 Feet">Container Close Body 32 Feet</option>
-              <option value="Container Close Body 20 Feet">Container Close Body 20 Feet</option>
-              <option value="Container Trucks">Container Trucks</option>
-              <option value="Container Close Body 24 Feet">Container Close Body 24 Feet</option>
-              <option value="Flat Bed Trailers 32 Feet">Flat Bed Trailers 32 Feet</option>
-              <option value="Flat Bed Trailers 40 Feet">Flat Bed Trailers 40 Feet</option>
-              <option value="Hydraulic Trailers">Hydraulic Trailers</option>
-              <option value="LCV (Light Commercial Vehicle)">LCV (Light Commercial Vehicle)</option>
-              <option value="Low Bed Trailer">Low Bed Trailer</option>
-              <option value="Multi Axle Trailer">Multi Axle Trailer</option>
-              <option value="Over Dimensional Cargo Truck">Over Dimensional Cargo Truck</option>
-              <option value="Pick Up">Pick Up</option>
-              <option value="Refrigerated / AC Containers">Refrigerated / AC Containers</option>
-              <option value="Scooter Body Trucks">Scooter Body Trucks</option>
-              <option value="Semi Low Bed Trailer">Semi Low Bed Trailer</option>
-              <option value="Tanker Truck (12 Wheel)">Tanker Truck (12 Wheel)</option>
-              <option value="Tanker Truck (14 Wheel)">Tanker Truck (14 Wheel)</option>
-              <option value="Tanker Truck 10 Wheel">Tanker Truck 10 Wheel</option>
-              <option value="Tanker Truck 6 Wheel">Tanker Truck 6 Wheel</option>
-              <option value="Tata 407 2.5MT / 4 Wheel">Tata 407 2.5MT / 4 Wheel</option>
-              <option value="Trailer 28MT 18 Wheel">Trailer 28MT 18 Wheel</option>
-              <option value="Trailer 4923">Trailer 4923</option>
-              <option value="Truck 32MT / 16 wheel">Truck 32MT / 16 wheel</option>
-              <option value="Truck 25MT / 14 Wheel">Truck 25MT / 14 Wheel</option>
-              <option value="Truck 21MT / 12 wheel">Truck 21MT / 12 wheel</option>
-              <option value="Truck 20MT / 12 Wheel">Truck 20MT / 12 Wheel</option>
-              <option value="Truck 16MT / 10 Wheel">Truck 16MT / 10 Wheel</option>
-              <option value="Truck 15MT / 10 Wheel">Truck 15MT / 10 Wheel</option>
-              <option value="Truck 9MT / 6 Wheel">Truck 9MT / 6 Wheel</option>
-              <option value="Vehicle/ Car Carrier">Vehicle/ Car Carrier</option>
-
-            </select>
+            <div className="relative">
+              <select className="w-full h-10 border-b border-gray-300 text-black focus:outline-none appearance-none">
+                <option value="">Select a truck type</option>
+                <option value="Canter Jumbo">Canter Jumbo</option>
+                <option value="Canters 17feet / 4 Wheel">Canters 17feet / 4 Wheel</option>
+                <option value="Canters 17feet / 6 Wheel">Canters 17feet / 6 Wheel</option>
+                <option value="Canters 3MT / 4 Wheel">Canters 3MT / 4 Wheel</option>
+                <option value="Car Carrier (Close Body)">Car Carrier (Close Body)</option>
+                <option value="Car Carrier (Open Body)">Car Carrier (Open Body)</option>
+                <option value="Container Close Body 40 Feet">Container Close Body 40 Feet</option>
+                <option value="Container Close Body 32 Feet">Container Close Body 32 Feet</option>
+                <option value="Container Close Body 20 Feet">Container Close Body 20 Feet</option>
+                <option value="Container Trucks">Container Trucks</option>
+                <option value="Container Close Body 24 Feet">Container Close Body 24 Feet</option>
+                <option value="Flat Bed Trailers 32 Feet">Flat Bed Trailers 32 Feet</option>
+                <option value="Flat Bed Trailers 40 Feet">Flat Bed Trailers 40 Feet</option>
+                <option value="Hydraulic Trailers">Hydraulic Trailers</option>
+                <option value="LCV (Light Commercial Vehicle)">LCV (Light Commercial Vehicle)</option>
+                <option value="Low Bed Trailer">Low Bed Trailer</option>
+                <option value="Multi Axle Trailer">Multi Axle Trailer</option>
+                <option value="Over Dimensional Cargo Truck">Over Dimensional Cargo Truck</option>
+                <option value="Pick Up">Pick Up</option>
+                <option value="Refrigerated / AC Containers">Refrigerated / AC Containers</option>
+                <option value="Scooter Body Trucks">Scooter Body Trucks</option>
+                <option value="Semi Low Bed Trailer">Semi Low Bed Trailer</option>
+                <option value="Tanker Truck (12 Wheel)">Tanker Truck (12 Wheel)</option>
+                <option value="Tanker Truck (14 Wheel)">Tanker Truck (14 Wheel)</option>
+                <option value="Tanker Truck 10 Wheel">Tanker Truck 10 Wheel</option>
+                <option value="Tanker Truck 6 Wheel">Tanker Truck 6 Wheel</option>
+                <option value="Tata 407 2.5MT / 4 Wheel">Tata 407 2.5MT / 4 Wheel</option>
+                <option value="Trailer 28MT 18 Wheel">Trailer 28MT 18 Wheel</option>
+                <option value="Trailer 4923">Trailer 4923</option>
+                <option value="Truck 32MT / 16 wheel">Truck 32MT / 16 wheel</option>
+                <option value="Truck 25MT / 14 Wheel">Truck 25MT / 14 Wheel</option>
+                <option value="Truck 21MT / 12 wheel">Truck 21MT / 12 wheel</option>
+                <option value="Truck 20MT / 12 Wheel">Truck 20MT / 12 Wheel</option>
+                <option value="Truck 16MT / 10 Wheel">Truck 16MT / 10 Wheel</option>
+                <option value="Truck 15MT / 10 Wheel">Truck 15MT / 10 Wheel</option>
+                <option value="Truck 9MT / 6 Wheel">Truck 9MT / 6 Wheel</option>
+                <option value="Vehicle/ Car Carrier">Vehicle/ Car Carrier</option>
+              </select>
+              <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </div>
+            </div>
           </div>
-          <div className="flex flex-col mt-5 md:mt-0">
+
+          <div className="hidden md:flex flex-col mt-5 md:mt-0">
             <label className="text-xs font-medium text-gray-600 mb-2">No of Trucks<span className='text-red-600'>*</span></label>
             <div className="flex items-center gap-2">
               <button
@@ -187,9 +194,35 @@ const MarketPlaceTruck = () => {
             </div>
           </div>
         </div>
-        <div className="w-full h-full flex justify-end items-center mt-2">
-          <button className='w-3/12  h-8  border border-[#5B297E] text-white bg-[#5B297E] rounded-md font-inter flex justify-center items-center text-sm   shadow-sm'>Submit</button>
+
+
+
+
+
+        <div className="w-full h-full md:flex md:justify-center md:items-center mt-2">
+          <div className="md:hidden flex flex-col mt-5 md:mt-0">
+            <label className="text-xs font-medium text-gray-600 mb-2">No of Trucks<span className='text-red-600'>*</span></label>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => handleTruckChange(-1)}
+                className="w-10 h-10 bg-[#5B297E] text-white rounded-md flex items-center justify-center text-xl"
+              >
+                -
+              </button>
+              <span className="text-xl">{numTrucks}</span>
+              <button
+                onClick={() => handleTruckChange(1)}
+                className="w-10 h-10 bg-[#5B297E] text-white rounded-md flex items-center justify-center text-xl"
+              >
+                +
+              </button>
+            </div>
+          </div>
+
+          <button className='w-5/12  h-10 mt-3 md:mt-0  border border-[#5B297E] text-white bg-[#5B297E] rounded-sm font-inter flex justify-center items-center text-sm   shadow-md'>Submit</button>
         </div>
+
+
       </div>
       <div className="w-full h-screen grid grid-cols-3 gap-4 relative">
          

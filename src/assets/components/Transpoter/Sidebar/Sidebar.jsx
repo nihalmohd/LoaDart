@@ -15,8 +15,8 @@ import TransporterProfileDetails from '../TranspoterProfile/TransporterProfileDe
 import MarketPlaceTopButtons from '../Marketplace/MarketPlaceTopButtons';
 import SearchLoads from '../Loads/SearchLoads';
 import YourLoads from '../Loads/YourLoads';
-import SearchTruck from '../../Truck/SearchTruck';
-import YourTruck from '../../Truck/YourTruck';
+import SearchTruck from '../Truck/SearchTruck';
+import YourTruck from '../Truck/YourTruck';
 
 function Sidebar() {
     const [isTrucksOpen, setIsTrucksOpen] = useState(false);
