@@ -17,6 +17,7 @@ import SearchLoads from '../Loads/SearchLoads';
 import YourLoads from '../Loads/YourLoads';
 import SearchTruck from '../Truck/SearchTruck';
 import YourTruck from '../Truck/YourTruck';
+import UpgradeMembership from '../UpgradeMembership/UpgradeMembership';
 
 function Sidebar() {
     const [isTrucksOpen, setIsTrucksOpen] = useState(false);
@@ -243,6 +244,7 @@ function Sidebar() {
                 {activeItem === 'Your Loads' && <YourLoads />}
                 {activeItem === 'Trucks' && <SearchTruck />}
                 {activeItem === 'Your Truck' && <YourTruck />}
+                {activeItem === 'Upgrade Membership' && <UpgradeMembership />}
         </div>
         </div>
     );
