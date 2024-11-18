@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
 
-import { FaMapMarkerAlt } from "react-icons/fa";
-import { MdCalendarToday } from "react-icons/md";
-import { IoMdSearch } from "react-icons/io";
 
 const MarketPlaceLoads = () => {
     const [numTrucks, setNumTrucks] = useState(2);

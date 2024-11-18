@@ -12,13 +12,13 @@ const TransporterProfileDetails = () => {
                       <h1 className="font-inter font-semibold text-[#5B297E] text-lg mt-5">Profile</h1>
                   </div>
                   <div className="w-full h-44 flex justify-center items-center  rounded-sm border border-black">
-                      <div className="w-full h-full flex">
-                            <div className="w-2/12 h-full  flex justify-center items-center">
+                      <div className="w-full h-full ml-4  md:m-0 flex">
+                            <div className="md:w-2/12 h-full  flex justify-center items-center">
                                 <div className="w-28 h-28  rounded-full">
                                     <img src="\images\e79560b9ae8865c9906e28d4a695c379.png" className='w-full h-full object-cover rounded-full object-[15%]' alt="" />
                                 </div>
                             </div>
-                            <div className="w-4/12 h-full  flex justify-center items-center">
+                            <div className=" w-5/12 md:w-4/12 h-full  flex justify-center items-center ml-2 md:ml-0">
                                 <div className="w-full h-16 ">
                                     <div className="w-full h-8 ">
                                         <h1 className='font-inter font-semibold text-base text-black'>John Newman</h1>
@@ -109,7 +109,7 @@ const TransporterProfileDetails = () => {
                                     </div>
                                     <div className="w-5/12 h-8  flex justify-center ">
                                     <div className="w-4/12 h-8  flex  justify-between ">
-                                    <div className="w-5 h-5 bg-[#5B297E] mt-2 flex justify-center items-center text-white rounded-sm shadow"><TbEyeFilled  /></div>
+                                    <div className="w-5 h-5 bg-[#5B297E] mt-2 flex justify-center items-center text-white rounded-sm shadow mr-2 md:mr-0"><TbEyeFilled  /></div>
                                     <div className="w-5 h-5 bg-[#5B297E] mt-2 flex justify-center items-center text-white rounded-sm shadow"><GoDownload /></div> 
                                     </div>
                                     </div>
@@ -120,7 +120,7 @@ const TransporterProfileDetails = () => {
                                     </div>
                                     <div className="w-5/12 h-8  flex justify-center ">
                                     <div className="w-4/12 h-8 flex justify-between ">
-                                        <div className="w-5 h-5 bg-[#5B297E] mt-2 flex justify-center items-center text-white rounded-sm shadow"><TbEyeFilled  /></div>
+                                        <div className="w-5 h-5 bg-[#5B297E] mt-2 flex justify-center items-center text-white rounded-sm shadow mr-2 md:mr-0"><TbEyeFilled  /></div>
                                         <div className="w-5 h-5 bg-[#5B297E] mt-2 flex justify-center items-center text-white rounded-sm shadow"><GoDownload /></div> 
                                     </div>
                                        

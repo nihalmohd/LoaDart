@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import {  FaMapMarkerAlt, FaStar } from 'react-icons/fa';
-import { IoMdSearch } from "react-icons/io";
-import { MdCalendarToday } from "react-icons/md";
+import { FaStar } from 'react-icons/fa';
+
 
 const MarketPlaceTruck = () => {
     const [numTrucks, setNumTrucks] = useState(2);
@@ -224,7 +223,7 @@ const MarketPlaceTruck = () => {
 
 
       </div>
-      <div className="w-full h-screen grid grid-cols-3 gap-4 relative">
+      <div className="w-full h-screen grid grid-cols-1 md:grid-cols-3 gap-4 relative">
          
 
   <div className="w-full h-64 border border-black mt-5 rounded-lg shadow-md">

@@ -258,7 +258,7 @@ function Sidebar() {
          
            
         </div>
-        <div className="flex-grow h-full lg:ml-[260px]  overflow-auto ">
+        <div className="flex-grow h-full md:ml-[260px]  overflow-hidden ">
 
                 {activeItem === 'Dashboard' && <Topbuttons />}
                 {activeItem === 'Schedule' && <ScheduleButton/>}
