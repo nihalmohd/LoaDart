@@ -19,6 +19,9 @@ import SearchTruck from '../Truck/SearchTruck';
 import YourTruck from '../Truck/YourTruck';
 import UpgradeMembership from '../UpgradeMembership/UpgradeMembership';
 import Help from '../Help/Help';
+import { IoMdMenu } from "react-icons/io";
+import { FaArrowLeft } from "react-icons/fa";
+
 
 function Sidebar() {
     const [isTrucksOpen, setIsTrucksOpen] = useState(false);
@@ -26,6 +29,7 @@ function Sidebar() {
     const [isTruck, setIsTruck] = useState(false);
     const [isLoad, setIsLoad] = useState(false);
     const [activeItem, setActiveItem] = useState('Dashboard');
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
 
     const toggleTrucks = () => {
@@ -42,12 +46,30 @@ function Sidebar() {
     const handleMenuItemClick = (item) => {
         setActiveItem(item);
     };
+    const handleSlidbar = ()=>{
+        setIsSidebarOpen(!isSidebarOpen)
+    } 
+    console.log(isSidebarOpen);
+    
     return (
         <div className='md:flex'>
+            <div className=" md:hidden w-full h-10 flex justify-end items-center ">
+            <div className="w-full h-full lg:hidden flex justify-end  items-center pr-2  ">
+                          <button className="w-12 h-12 flex justify-center items-center " onClick={()=>{handleSlidbar()}}>
+                              <h1 className="text-3xl"><IoMdMenu /></h1>
+                          </button>
+             </div>                 
+            </div>
 
-        <div className=" fixed top-0 left-0 w-[260px] h-full bg-white shadow-lg md:flex flex-col items-center  z-50 py-6 border-2  overflow-y-scroll overflow-x-hidden  hidden ">
-         
-            <div className="w-9/12 h-10 flex justify-end items-end  ">
+        <div className={`fixed top-0 left-0 h-full bg-white shadow-lg transform ${isSidebarOpen ? 'translate-x-0 ' : '-translate-x-full'} transition-transform duration-300 w-[260px] md:flex flex-col items-center z-50 md:py-6 border-2 overflow-y-scroll overflow-x-hidden `}
+
+        >
+            <div className="md:hidden flex w-full h-10">
+                <div className="w-10 h-10  flex justify-center items-center" onClick={()=>{handleSlidbar()}}>
+                    <h1 className=' text-xl font-bold font-inter text-black'><FaArrowLeft /></h1>
+                </div>
+            </div>
+            <div className="md:ml-0 ml-10 w-9/12 h-10 flex justify-end items-end ">
                 <div className="w-[100px] h-[35px] flex justify-end items-end">
                     <img src="/images/ab6aaab828b7c3f0ef708693166c9def.png" className="w-full h-full object-cover" alt="Logo" />
                 </div>
@@ -232,6 +254,8 @@ function Sidebar() {
                     <span className=' font-inter font-semibold text-sm'>Logout</span>
                 </a>
             </nav>
+                   
+         
            
         </div>
         <div className="flex-grow h-full lg:ml-[260px]  overflow-auto ">

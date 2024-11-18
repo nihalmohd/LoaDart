@@ -21,7 +21,7 @@ const ScheduleButton = () => {
                             onClick={() => setSelectedDiv('left')}
                         >
                             <div className="w-48 h-10  flex">
-                                <div className="w-10 h-10  flex justify-center items-center">
+                                <div className="w-1/2 h-10  flex justify-end items-center">
                                     <h1
                                         className={`font-inter text-lg ${
                                             selectedDiv === 'right' ? 'text-[#747474]' : 'text-white'
@@ -48,7 +48,7 @@ const ScheduleButton = () => {
                             onClick={() => setSelectedDiv('right')}
                         >
                             <div className="w-48 h-10  flex">
-                                <div className="w-10 h-10  flex justify-center items-center">
+                                <div className="w-1/2 h-10  flex justify-end items-center">
                                     <h1
                                         className={`font-inter text-lg ${
                                             selectedDiv === 'left' ? 'text-[#747474]' : 'text-white'
