@@ -18,20 +18,20 @@ const UpgradeMembership = () => {
                   <div className="w-full h-20 flex  items-end">
 
 
-                      <div className=" md:text-[10px] sm:text-[10px] font-bold mb-3 text-[#FFFFFF]">EXPIRE IN</div>
-                      <div className="text-2xl sm:text-4xl font-bold mb-4 ml-1 text-[#FFFFFF]">05 DAYS</div>
+                      <div className=" text-[10px] sm:text-[10px] font-bold mb-3 text-[#FFFFFF]">EXPIRE IN</div>
+                      <div className="text-2xl sm:text-2xl font-bold mb-4 ml-1 text-[#FFFFFF]">05 DAYS</div>
                   </div>
 
-                  <div className="w-full h-10 flex justify-between items-center gap-3">
-                      <div className="w-10/12 h-4 sm:h-6 bg-[#E66442] rounded-full overflow-hidden">
+                  <div className="w-full h-10 md:flex justify-between items-center gap-3">
+                      <div className="md:w-10/12 h-4 sm:h-6 bg-[#E66442] rounded-full overflow-hidden">
                           <div className="bg-[#FFFFFF] h-full w-4/5 rounded-lg"></div>
                       </div>
-                      <button className="bg-[#FFFFFF] text-orange-500 font-semibold py-2 px-4 rounded-md text-center text-sm w-2/12 sm:w-auto">
+                      <button className="bg-[#FFFFFF]  text-orange-500 font-semibold py-2 px-4 rounded-md text-center text-sm mt-2 md:mt-0 md:w-2/12 w-auto">
                           Upgrade Now
                       </button>
                   </div>
               </div>
-              <div className="w-full h-auto  p-3 grid md:grid-cols-3 grid-cols-1  gap-3  px-20 md:px-0 md:ml-3 mt-5 mb-10 ">
+              <div className="w-full h-auto  p-3  grid md:grid-cols-3 grid-cols-1  gap-3  px-16 md:px-0 md:ml-3 mt-5 mb-10 ">
                   <div
                       className="flex flex-col items-center bg-white shadow-lg rounded-sm p-3 w-72 border border-black"
                       

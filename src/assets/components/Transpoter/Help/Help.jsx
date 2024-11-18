@@ -15,11 +15,11 @@ const Help = () => {
                 <div className='flex  items-center'>
                     <section className="bg-white w-full pb-6">
                         <div className="w-full   flex justify-between items-end  ">
-                            <h2 className="text-start md:ml-5 text-3xl font-semibold text-[#5B297E] mb-4">
+                            <h2 className="text-start ml-3 md:ml-5 text-3xl font-semibold text-[#5B297E] mb-4">
                                 Have doubts? Watch our Tutorials!
                             </h2>
 
-                            <h2 className=" w-2/12 flex justify-end items-end text-start md:ml-5  text-[10px] md:text-xs font-semibold text-[#5B297E] underline  md:mr-4 font-inter hover:cursor-pointer ">
+                            <h2 className=" w-2/12 flex justify-center md:justify-end items-end text-start md:ml-5  text-[10px] md:text-xs font-semibold text-[#5B297E] underline  md:mr-4 font-inter hover:cursor-pointer ">
                                 View All
                             </h2>
                         </div>
