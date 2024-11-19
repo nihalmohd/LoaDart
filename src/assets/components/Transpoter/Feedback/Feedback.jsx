@@ -19,8 +19,7 @@ const Feedback = () => {
                 </div>
                 
                 <div
-      className="w-full h-auto flex flex-col items-center p-6"
-    //   
+      className="w-full h-auto flex flex-col items-center p-6"  
     >
   
       <textarea
