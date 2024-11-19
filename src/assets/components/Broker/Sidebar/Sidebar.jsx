@@ -13,6 +13,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import Topbuttons from '../Dashboard/Topbuttons';
 import MarketPlaceTopButtons from '../MarketPlace/MarketPlaceTopButtons';
 import ScheduleButton from '../Schedule/ScheduleButton';
+import TripRequestButton from '../TripRequest/TripRequestButton';
 
 const Sidebar = () => {
     const [isTrucksOpen, setIsTrucksOpen] = useState(false);
@@ -252,7 +253,7 @@ const Sidebar = () => {
 
                 {activeItem === 'Dashboard' && <Topbuttons />}
                 {activeItem === 'Schedule' && <ScheduleButton/>}
-                {/* {activeItem === 'Trip Requests' && <TripRequestButtons />} */}
+                {activeItem === 'Trip Requests' && <TripRequestButton/>}
                 {/* {activeItem === 'Profile' && <TransporterProfileDetails />} */}
                 {activeItem === 'Marketplace' && <MarketPlaceTopButtons />}
                 {/* {activeItem === 'Loads' && <SearchLoads />} */}
