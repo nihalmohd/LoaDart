@@ -21,6 +21,7 @@ import UpgradeMembership from '../UpgradeMembership/UpgradeMembership';
 import Help from '../Help/Help';
 import { IoMdMenu } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa";
+import Feedback from '../Feedback/Feedback';
 
 
 function Sidebar() {
@@ -61,7 +62,7 @@ function Sidebar() {
              </div>                 
             </div>
 
-        <div className={`fixed top-0 left-0 h-full bg-white shadow-lg transform ${isSidebarOpen ? 'translate-x-0 ' : '-translate-x-full'} transition-transform duration-300 w-[260px] md:flex flex-col items-center z-50 md:py-6 border-2 overflow-y-scroll overflow-x-hidden `}
+        <div className={`fixed top-0 left-0 h-full bg-white shadow-lg transform md:${isSidebarOpen ? 'translate-x-0 ' : '-translate-x-full'} transition-transform duration-300 w-[260px] md:flex flex-col items-center z-50 md:py-6 border-2 overflow-y-scroll overflow-x-hidden `}
 
         >
             <div className="md:hidden flex w-full h-10">
@@ -271,6 +272,7 @@ function Sidebar() {
                 {activeItem === 'Your Truck' && <YourTruck />}
                 {activeItem === 'Upgrade Membership' && <UpgradeMembership />}
                 {activeItem === 'Help' && <Help />}
+                {activeItem === 'Feedback' && <Feedback/>}
         </div>
         </div>
     );
