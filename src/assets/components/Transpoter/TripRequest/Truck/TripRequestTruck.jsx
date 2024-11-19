@@ -6,7 +6,7 @@ const TripRequesTruck = () => {
   return (
     <div>
       
-      <div className="w-full h-screen grid grid-cols-1 md:grid-cols-3 relative">
+      <div className="w-full h-auto grid grid-cols-1 md:grid-cols-3 relative">
   <div className="w-full md:w-4/12 h-10 absolute flex justify-end items-center ml-2">
     <div className="w-6 h-6 bg-red-600 rounded-full flex justify-center items-center">
       <h1 className="font-inter text-sm text-white">2</h1>
