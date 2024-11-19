@@ -10,21 +10,7 @@ import { MdOutlineRoute } from "react-icons/md";
 import { IoMdMenu } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa";
 
-import Topbuttons from '../Dashboard/Topbuttons';
-import ScheduleButton from '../Schedule/ScheduleButton';
-import TripRequestButtons from '../TripRequest/TripRequestButtons';
-import TransporterProfileDetails from '../TranspoterProfile/TransporterProfileDetails';
-import MarketPlaceTopButtons from '../Marketplace/MarketPlaceTopButtons';
-import SearchLoads from '../Loads/SearchLoads';
-import YourLoads from '../Loads/YourLoads';
-import SearchTruck from '../Truck/SearchTruck';
-import YourTruck from '../Truck/YourTruck';
-import UpgradeMembership from '../UpgradeMembership/UpgradeMembership';
-import Help from '../Help/Help';
-import Feedback from '../Feedback/Feedback';
-
-
-function Sidebar() {
+const Sidebar = () => {
     const [isTrucksOpen, setIsTrucksOpen] = useState(false);
     const [isProfilesOpen, setIsProfilesOpen] = useState(false);
     const [isTruck, setIsTruck] = useState(false);
@@ -51,9 +37,8 @@ function Sidebar() {
         setIsSidebarOpen(!isSidebarOpen)
     } 
 
-    
-    return (
-        <div className='md:flex'>
+  return (
+    <div className='md:flex'>
             <div className=" md:hidden w-full h-10 flex justify-end items-center ">
             <div className="w-full h-full lg:hidden flex justify-end  items-center pr-2  ">
                           <button className="w-12 h-12 flex justify-center items-center " onClick={()=>{handleSlidbar()}}>
@@ -82,12 +67,12 @@ function Sidebar() {
             </div>
             <div className="flex flex-col items-center mb-8 mt-6">
                 <img
-                    src="\images\e79560b9ae8865c9906e28d4a695c379.png"
+                    src="\images\a65c1d620968b90cdb9521e683536cdc.png"
                     alt="Profile"
                     className="w-20 h-20 object-cover object-[20%] rounded-full mb-2"
                 />
-                <h2 className="text-lg font-semibold">John Newman</h2>
-                <p className="text-sm text-gray-500">Transporter</p>
+                <h2 className="text-lg font-semibold">Stephen Hills</h2>
+                <p className="text-sm text-gray-500">Broker</p>
             </div>
 
             
@@ -259,7 +244,7 @@ function Sidebar() {
          
            
         </div>
-        <div className="flex-grow h-full md:ml-[260px]  overflow-hidden ">
+        {/* <div className="flex-grow h-full md:ml-[260px]  overflow-hidden ">
 
                 {activeItem === 'Dashboard' && <Topbuttons />}
                 {activeItem === 'Schedule' && <ScheduleButton/>}
@@ -273,9 +258,9 @@ function Sidebar() {
                 {activeItem === 'Upgrade Membership' && <UpgradeMembership />}
                 {activeItem === 'Help' && <Help />}
                 {activeItem === 'Feedback' && <Feedback/>}
+        </div> */}
         </div>
-        </div>
-    );
+  )
 }
 
-export default Sidebar;
+export default Sidebar
