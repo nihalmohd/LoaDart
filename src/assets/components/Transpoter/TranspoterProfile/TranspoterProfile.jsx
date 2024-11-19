@@ -58,7 +58,7 @@ const TranspoterProfile = () => {
                             </div>
                             <div className="w-full h-full mt-1 ">
                                 <div className="w-full h-full flex justify-center items-center">
-                                <button className='w-full h-7 bg-[#5B297E]  text-white text-xs font-inter rounded-sm' onClick={()=>{navigate("/Transpoter/Dashboard")}} >Proceed</button>
+                                <button className='w-full h-7 bg-[#5B297E]  text-white text-xs font-inter rounded-sm' onClick={()=>{navigate("/Transpoter")}} >Proceed</button>
                                 </div>
                             </div>
                           </div>
