@@ -24,7 +24,7 @@ const Feedback = () => {
     >
   
       <textarea
-        className="w-full h-56 p-4 border border-black rounded mb-6"
+        className="w-full h-56 p-4 border border-black rounded mb-6 focus:outline-none"
         placeholder="Type your feedback here..."
         style={{
           backgroundColor: "#f9f9f9",
