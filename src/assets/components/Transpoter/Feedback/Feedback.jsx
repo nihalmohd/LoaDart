@@ -34,7 +34,7 @@ const Feedback = () => {
       ></textarea>
 
     
-      <div className="mb-6 w-full text-center  flex justify-start items-center gap-2">
+      <div className="mb-6 w-full text-center  md:flex justify-start items-center gap-2">
         <p className="text-sm text-gray-700  font-medium">
           How much are you satisfied with LoaDart so far?
         </p>
@@ -58,7 +58,7 @@ const Feedback = () => {
         </div>
       </div>
 
-       <div className="w-full h-16">
+       <div className="w-full h-10 md:flex  hidden ">
 
       <button
         className="bg-[#5B297E] text-white font-medium py-2 px-6 rounded"
@@ -71,6 +71,17 @@ const Feedback = () => {
       </button>
 
        </div>
+       
+      <button
+        className="bg-[#5B297E] text-white font-medium py-2 px-6 rounded md:hidden"
+        style={{
+          width: "120px",
+          fontSize: "14px",
+        }}
+      >
+        Submit
+      </button>
+
     </div>    </div>
     </div>
   )
