@@ -12,6 +12,7 @@ import { FaArrowLeft } from "react-icons/fa";
 
 import Topbuttons from '../Dashboard/Topbuttons';
 import MarketPlaceTopButtons from '../MarketPlace/MarketPlaceTopButtons';
+import ScheduleButton from '../Schedule/ScheduleButton';
 
 const Sidebar = () => {
     const [isTrucksOpen, setIsTrucksOpen] = useState(false);
@@ -250,7 +251,7 @@ const Sidebar = () => {
         <div className="flex-grow h-full md:ml-[260px]  overflow-hidden ">
 
                 {activeItem === 'Dashboard' && <Topbuttons />}
-                {/* {activeItem === 'Schedule' && <ScheduleButton/>} */}
+                {activeItem === 'Schedule' && <ScheduleButton/>}
                 {/* {activeItem === 'Trip Requests' && <TripRequestButtons />} */}
                 {/* {activeItem === 'Profile' && <TransporterProfileDetails />} */}
                 {activeItem === 'Marketplace' && <MarketPlaceTopButtons />}
