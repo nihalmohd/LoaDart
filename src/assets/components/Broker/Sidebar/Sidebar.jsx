@@ -10,6 +10,8 @@ import { MdOutlineRoute } from "react-icons/md";
 import { IoMdMenu } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa";
 
+import Topbuttons from '../Dashboard/Topbuttons';
+
 const Sidebar = () => {
     const [isTrucksOpen, setIsTrucksOpen] = useState(false);
     const [isProfilesOpen, setIsProfilesOpen] = useState(false);
@@ -244,10 +246,10 @@ const Sidebar = () => {
          
            
         </div>
-        {/* <div className="flex-grow h-full md:ml-[260px]  overflow-hidden ">
+        <div className="flex-grow h-full md:ml-[260px]  overflow-hidden ">
 
                 {activeItem === 'Dashboard' && <Topbuttons />}
-                {activeItem === 'Schedule' && <ScheduleButton/>}
+                {/* {activeItem === 'Schedule' && <ScheduleButton/>}
                 {activeItem === 'Trip Requests' && <TripRequestButtons />}
                 {activeItem === 'Profile' && <TransporterProfileDetails />}
                 {activeItem === 'Marketplace' && <MarketPlaceTopButtons />}
@@ -257,8 +259,8 @@ const Sidebar = () => {
                 {activeItem === 'Your Truck' && <YourTruck />}
                 {activeItem === 'Upgrade Membership' && <UpgradeMembership />}
                 {activeItem === 'Help' && <Help />}
-                {activeItem === 'Feedback' && <Feedback/>}
-        </div> */}
+                {activeItem === 'Feedback' && <Feedback/>} */}
+        </div>
         </div>
   )
 }
