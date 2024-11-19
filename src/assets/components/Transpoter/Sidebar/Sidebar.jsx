@@ -62,7 +62,7 @@ function Sidebar() {
              </div>                 
             </div>
 
-        <div className={`fixed top-0 left-0 h-full bg-white shadow-lg transform md:${isSidebarOpen ? 'translate-x-0 ' : '-translate-x-full'} transition-transform duration-300 w-[260px] md:flex flex-col items-center z-50 md:py-6 border-2 overflow-y-scroll overflow-x-hidden `}
+        <div className={`fixed top-0 left-0 h-full bg-white shadow-lg transform ${isSidebarOpen ? 'translate-x-0 ' : '-translate-x-full'} md:translate-x-0  transition-transform duration-300 w-[260px] md:flex flex-col items-center z-50 md:py-6 border-2 overflow-y-scroll overflow-x-hidden `}
 
         >
             <div className="md:hidden flex w-full h-10">

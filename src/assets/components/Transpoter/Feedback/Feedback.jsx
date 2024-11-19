@@ -19,12 +19,12 @@ const Feedback = () => {
                 </div>
                 
                 <div
-      className="flex flex-col items-center p-6"
-      style={{ maxWidth: "500px", margin: "0 auto", fontFamily: "Arial, sans-serif" }}
+      className="w-full h-auto flex flex-col items-center p-6"
+    //   
     >
-      {/* Feedback Text Area */}
+  
       <textarea
-        className="w-full h-32 p-4 border border-gray-300 rounded mb-6"
+        className="w-full h-56 p-4 border border-black rounded mb-6"
         placeholder="Type your feedback here..."
         style={{
           backgroundColor: "#f9f9f9",
@@ -33,9 +33,9 @@ const Feedback = () => {
         }}
       ></textarea>
 
-      {/* Rating Section */}
-      <div className="mb-6 w-full text-center">
-        <p className="text-sm text-gray-700 mb-3 font-medium">
+    
+      <div className="mb-6 w-full text-center  flex justify-start items-center gap-2">
+        <p className="text-sm text-gray-700  font-medium">
           How much are you satisfied with LoaDart so far?
         </p>
         <div className="flex justify-center items-center gap-2">
@@ -47,7 +47,7 @@ const Feedback = () => {
                 onClick={() => handleStarClick(index + 1)}
                 style={{
                   fontSize: "24px",
-                  color: rating >= index + 1 ? "#6B46C1" : "#A0AEC0",
+                  color: rating >= index + 1 ? "#5B297E" : "#5B297E",
                   cursor: "pointer",
                   transition: "color 0.3s",
                 }}
@@ -58,9 +58,10 @@ const Feedback = () => {
         </div>
       </div>
 
-      {/* Submit Button */}
+       <div className="w-full h-16">
+
       <button
-        className="bg-purple-600 text-white font-medium py-2 px-6 rounded"
+        className="bg-[#5B297E] text-white font-medium py-2 px-6 rounded"
         style={{
           width: "120px",
           fontSize: "14px",
@@ -68,6 +69,8 @@ const Feedback = () => {
       >
         Submit
       </button>
+
+       </div>
     </div>    </div>
     </div>
   )
