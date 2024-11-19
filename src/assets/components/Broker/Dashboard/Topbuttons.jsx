@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { IoIosNotifications } from "react-icons/io";
 import { FaPlus } from "react-icons/fa6";
 import { IoSearch } from "react-icons/io5";
+import DataTracking from './DataTracking';
 
 
 const Topbuttons = () => {
@@ -29,7 +30,7 @@ const Topbuttons = () => {
                       
                   </div>
               </div>
-    {/* <DataTracking/> */}
+    <DataTracking/>
     </div>
 
     </div>

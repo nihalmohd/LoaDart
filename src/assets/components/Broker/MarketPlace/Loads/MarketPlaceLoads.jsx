@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
 
-
 const MarketPlaceLoads = () => {
     const [numTrucks, setNumTrucks] = useState(2);
     const handleTruckChange = (value) => {
       setNumTrucks((prev) => Math.max(1, prev + value));
     };
-    
   return (
     <div>
       <div className="w-full  p-4 space-y-4 ">

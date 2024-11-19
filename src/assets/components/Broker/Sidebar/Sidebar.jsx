@@ -11,6 +11,7 @@ import { IoMdMenu } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa";
 
 import Topbuttons from '../Dashboard/Topbuttons';
+import MarketPlaceTopButtons from '../MarketPlace/MarketPlaceTopButtons';
 
 const Sidebar = () => {
     const [isTrucksOpen, setIsTrucksOpen] = useState(false);
@@ -249,17 +250,17 @@ const Sidebar = () => {
         <div className="flex-grow h-full md:ml-[260px]  overflow-hidden ">
 
                 {activeItem === 'Dashboard' && <Topbuttons />}
-                {/* {activeItem === 'Schedule' && <ScheduleButton/>}
-                {activeItem === 'Trip Requests' && <TripRequestButtons />}
-                {activeItem === 'Profile' && <TransporterProfileDetails />}
+                {/* {activeItem === 'Schedule' && <ScheduleButton/>} */}
+                {/* {activeItem === 'Trip Requests' && <TripRequestButtons />} */}
+                {/* {activeItem === 'Profile' && <TransporterProfileDetails />} */}
                 {activeItem === 'Marketplace' && <MarketPlaceTopButtons />}
-                {activeItem === 'Loads' && <SearchLoads />}
-                {activeItem === 'Your Loads' && <YourLoads />}
-                {activeItem === 'Trucks' && <SearchTruck />}
-                {activeItem === 'Your Truck' && <YourTruck />}
-                {activeItem === 'Upgrade Membership' && <UpgradeMembership />}
-                {activeItem === 'Help' && <Help />}
-                {activeItem === 'Feedback' && <Feedback/>} */}
+                {/* {activeItem === 'Loads' && <SearchLoads />} */}
+                {/* {activeItem === 'Your Loads' && <YourLoads />} */}
+                {/* {activeItem === 'Trucks' && <SearchTruck />} */}
+                {/* {activeItem === 'Your Truck' && <YourTruck />} */}
+                {/* {activeItem === 'Upgrade Membership' && <UpgradeMembership />} */}
+                {/* {activeItem === 'Help' && <Help />} */}
+                {/* {activeItem === 'Feedback' && <Feedback/>} */}
         </div>
         </div>
   )
