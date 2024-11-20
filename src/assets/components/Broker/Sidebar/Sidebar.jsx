@@ -15,6 +15,7 @@ import MarketPlaceTopButtons from '../MarketPlace/MarketPlaceTopButtons';
 import ScheduleButton from '../Schedule/ScheduleButton';
 import TripRequestButton from '../TripRequest/TripRequestButton';
 import BrokerProfileDetails from '../BrokerProfile/BrokerProfileDetails';
+import SearchLoads from '../Loads/SearchLoads';
 
 const Sidebar = () => {
     const [isTrucksOpen, setIsTrucksOpen] = useState(false);
@@ -158,12 +159,6 @@ const Sidebar = () => {
                             handleMenuItemClick('Loads');
                             }}
                             href="#" className="hover:text-[#5B297E] font-inter text-sm flex justify-start text-start items-center text-gray-700 font-semibold " >Search Loads <span></span></a>
-                            <a
-                            onClick={() => {
-                            
-                            handleMenuItemClick('Your Loads');
-                            }}
-                            href="#" className="hover:text-[#5B297E] font-inter text-sm flex justify-start text-start items-center text-gray-700 font-semibold">Your Loads</a>
                             
                         </div>
                     )}
@@ -186,7 +181,7 @@ const Sidebar = () => {
                     {isTrucksOpen && (
                         <div className="pl-10 text-gray-600 space-y-1">
                             <a href="#" className="hover:text-[#5B297E] font-inter text-sm  flex justify-start text-start items-center text-gray-700 font-semibold" onClick={()=>{handleMenuItemClick('Trucks')} }>Search Truck</a>
-                            <a href="#" className="hover:text-[#5B297E] font-inter text-sm  flex justify-start  text-start items-center  text-gray-700 font-semibold" onClick={()=>{handleMenuItemClick('Your Truck')} }>Your Trucks</a>
+                            
                         </div>
                     )}
                 </div>
@@ -257,7 +252,7 @@ const Sidebar = () => {
                 {activeItem === 'Trip Requests' && <TripRequestButton/>}
                 {activeItem === 'Profile' && <BrokerProfileDetails />}
                 {activeItem === 'Marketplace' && <MarketPlaceTopButtons />}
-                {/* {activeItem === 'Loads' && <SearchLoads />} */}
+                {activeItem === 'Loads' && <SearchLoads/>}
                 {/* {activeItem === 'Your Loads' && <YourLoads />} */}
                 {/* {activeItem === 'Trucks' && <SearchTruck />} */}
                 {/* {activeItem === 'Your Truck' && <YourTruck />} */}
