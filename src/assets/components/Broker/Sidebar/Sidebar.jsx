@@ -14,6 +14,7 @@ import Topbuttons from '../Dashboard/Topbuttons';
 import MarketPlaceTopButtons from '../MarketPlace/MarketPlaceTopButtons';
 import ScheduleButton from '../Schedule/ScheduleButton';
 import TripRequestButton from '../TripRequest/TripRequestButton';
+import BrokerProfileDetails from '../BrokerProfile/BrokerProfileDetails';
 
 const Sidebar = () => {
     const [isTrucksOpen, setIsTrucksOpen] = useState(false);
@@ -254,7 +255,7 @@ const Sidebar = () => {
                 {activeItem === 'Dashboard' && <Topbuttons />}
                 {activeItem === 'Schedule' && <ScheduleButton/>}
                 {activeItem === 'Trip Requests' && <TripRequestButton/>}
-                {/* {activeItem === 'Profile' && <TransporterProfileDetails />} */}
+                {activeItem === 'Profile' && <BrokerProfileDetails />}
                 {activeItem === 'Marketplace' && <MarketPlaceTopButtons />}
                 {/* {activeItem === 'Loads' && <SearchLoads />} */}
                 {/* {activeItem === 'Your Loads' && <YourLoads />} */}
