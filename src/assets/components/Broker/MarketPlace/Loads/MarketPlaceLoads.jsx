@@ -47,7 +47,7 @@ const MarketPlaceLoads = () => {
 
           {/* Material */}
           <div className="flex flex-col">
-            <label className="text-xs font-medium text-gray-600 mb-2">
+            <label className="text-xs font-medium text-gray-400 mb-2">
               Materials<span className="text-red-600">*</span>
             </label>
             <select className="w-full h-10 border-b border-gray-300 text-black focus:outline-none">
@@ -97,7 +97,7 @@ const MarketPlaceLoads = () => {
         <div className="w-full h-16 grid md:grid-cols-3 grid-cols-2  gap-20">
 
           <div className="flex flex-col">
-            <label className="text-xs font-medium text-gray-600 mb-2">
+            <label className="text-xs font-medium text-gray-400 mb-2">
               Weight<span className="text-red-600">*</span>
             </label>
             <select className="w-full h-10 border-b border-gray-300   text-black focus:outline-none">
@@ -120,7 +120,7 @@ const MarketPlaceLoads = () => {
             </select>
           </div>
           <div className="flex flex-col relative">
-            <label className="text-xs font-medium text-gray-600 mb-2">
+            <label className="text-xs font-medium text-gray-400 mb-2">
               Preferred Truck Types<span className="text-red-600">*</span>
             </label>
             <div className="relative">
@@ -173,7 +173,7 @@ const MarketPlaceLoads = () => {
           </div>
 
           <div className="hidden md:flex flex-col mt-5 md:mt-0">
-            <label className="text-xs font-medium text-gray-600 mb-2">No of Trucks<span className='text-red-600'>*</span></label>
+            <label className="text-xs font-medium text-gray-400 mb-2">No of Trucks<span className='text-red-600'>*</span></label>
             <div className="flex items-center gap-2">
               <button
                 onClick={() => handleTruckChange(-1)}
