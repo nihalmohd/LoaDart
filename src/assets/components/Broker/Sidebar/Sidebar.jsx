@@ -17,6 +17,7 @@ import TripRequestButton from '../TripRequest/TripRequestButton';
 import BrokerProfileDetails from '../BrokerProfile/BrokerProfileDetails';
 import SearchLoads from '../Loads/SearchLoads';
 import SearchTruck from '../Trucks/SearchTruck';
+import UpgradeMembership from '../UpgradeMembership/UpgradeMembership';
 
 const Sidebar = () => {
     const [isTrucksOpen, setIsTrucksOpen] = useState(false);
@@ -255,8 +256,7 @@ const Sidebar = () => {
                 {activeItem === 'Marketplace' && <MarketPlaceTopButtons />}
                 {activeItem === 'Loads' && <SearchLoads/>}
                 {activeItem === 'Trucks' && <SearchTruck/>}
-                {/* {activeItem === 'Your Truck' && <YourTruck />} */}
-                {/* {activeItem === 'Upgrade Membership' && <UpgradeMembership />} */}
+                {activeItem === 'Upgrade Membership' && <UpgradeMembership />}
                 {/* {activeItem === 'Help' && <Help />} */}
                 {/* {activeItem === 'Feedback' && <Feedback/>} */}
         </div>
