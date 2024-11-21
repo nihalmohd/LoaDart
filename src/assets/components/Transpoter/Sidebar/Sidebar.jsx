@@ -29,7 +29,7 @@ function Sidebar() {
     const [isProfilesOpen, setIsProfilesOpen] = useState(false);
     const [isTruck, setIsTruck] = useState(false);
     const [isLoad, setIsLoad] = useState(false);
-    const [activeItem, setActiveItem] = useState('Dashboard');
+    const [activeItem, setActiveItem] = useState('');
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
 
@@ -261,18 +261,18 @@ function Sidebar() {
         </div>
         <div className="flex-grow h-full md:ml-[260px]  overflow-hidden ">
 
-                {activeItem === 'Dashboard' && <Topbuttons />}
-                {activeItem === 'Schedule' && <ScheduleButton/>}
-                {activeItem === 'Trip Requests' && <TripRequestButtons />}
-                {activeItem === 'Profile' && <TransporterProfileDetails />}
-                {activeItem === 'Marketplace' && <MarketPlaceTopButtons />}
-                {activeItem === 'Loads' && <SearchLoads />}
-                {activeItem === 'Your Loads' && <YourLoads />}
-                {activeItem === 'Trucks' && <SearchTruck />}
-                {activeItem === 'Your Truck' && <YourTruck />}
-                {activeItem === 'Upgrade Membership' && <UpgradeMembership />}
-                {activeItem === 'Help' && <Help />}
-                {activeItem === 'Feedback' && <Feedback/>}
+                {/* {activeItem === 'Dashboard' && <Topbuttons />} */}
+                {/* {activeItem === 'Schedule' && <ScheduleButton/>} */}
+                {/* {activeItem === 'Trip Requests' && <TripRequestButtons />} */}
+                {/* {activeItem === 'Profile' && <TransporterProfileDetails />} */}
+                {/* {activeItem === 'Marketplace' && <MarketPlaceTopButtons />} */}
+                {/* {activeItem === 'Loads' && <SearchLoads />} */}
+                {/* {activeItem === 'Your Loads' && <YourLoads />} */}
+                {/* {activeItem === 'Trucks' && <SearchTruck />} */}
+                {/* {activeItem === 'Your Truck' && <YourTruck />} */}
+                {/* {activeItem === 'Upgrade Membership' && <UpgradeMembership />} */}
+                {/* {activeItem === 'Help' && <Help />} */}
+                {/* {activeItem === 'Feedback' && <Feedback/>} */}
         </div>
         </div>
     );

@@ -9,7 +9,7 @@ import ScheduleTruckTable from './Trucks/ScheduleTruckTable';
 const ScheduleButton = () => {
   const [selectedDiv, setSelectedDiv] = useState("left");
   return (
-    <div className="w-full h-auto flex justify-center items-center">
+    <div className="w-full  h-auto flex justify-center items-center">
             <div className="w-11/12 h-auto ">
                 <div className="w-full h-10 flex-col items-end">
                     <h1 className="font-inter font-semibold text-[#5B297E] text-lg mt-5">Schedule</h1>

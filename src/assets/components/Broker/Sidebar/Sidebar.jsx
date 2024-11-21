@@ -10,14 +10,8 @@ import { MdOutlineRoute } from "react-icons/md";
 import { IoMdMenu } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa";
 
-import Topbuttons from '../Dashboard/Topbuttons';
-import MarketPlaceTopButtons from '../MarketPlace/MarketPlaceTopButtons';
-import ScheduleButton from '../Schedule/ScheduleButton';
-import TripRequestButton from '../TripRequest/TripRequestButton';
-import BrokerProfileDetails from '../BrokerProfile/BrokerProfileDetails';
-import SearchLoads from '../Loads/SearchLoads';
-import SearchTruck from '../Trucks/SearchTruck';
-import UpgradeMembership from '../UpgradeMembership/UpgradeMembership';
+
+import { useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
     const [isTrucksOpen, setIsTrucksOpen] = useState(false);
@@ -26,8 +20,31 @@ const Sidebar = () => {
     const [isLoad, setIsLoad] = useState(false);
     const [activeItem, setActiveItem] = useState('Dashboard');
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const navigate = useNavigate()
 
 
+    const menuRoutes = {
+        Dashboard: '/Broker',
+        Schedule: '/Broker/Schedule',
+        TripRequests: '/Broker/TripRequests',
+        Profile: '/Broker/Profile',
+        Marketplace: '/Broker/Marketplace',
+        Loads: '/Broker/Loads',
+        Trucks: '/Broker/Trucks',
+        UpgradeMembership: '/Broker/UpgradeMembership',
+        Help: '/Broker/Help',
+        Feedback: '/Broker/Feedback',
+        Logout: '/Broker/Logout',
+    };
+    
+    const handleMenuItemClick = (item) => {
+        setActiveItem(item);
+        const route = menuRoutes[item]; 
+        if (route) {
+            navigate(route);
+        }
+    };
+    
     const toggleTrucks = () => {
         setIsTrucksOpen(!isTrucksOpen);
     };
@@ -37,10 +54,6 @@ const Sidebar = () => {
     };
     const toggleLoads = () => {
         setIsLoad(!isLoad);
-    };
-
-    const handleMenuItemClick = (item) => {
-        setActiveItem(item);
     };
     const handleSlidbar = ()=>{
         setIsSidebarOpen(!isSidebarOpen)
@@ -110,8 +123,8 @@ const Sidebar = () => {
 
                 <a
                     href="#"
-                    onClick={() => handleMenuItemClick('Trip Requests')}
-                    className={`flex items-center space-x-2 ${activeItem === 'Trip Requests' ? 'text-[#5B297E]' : 'text-gray-700'} hover:text-[#5B297E]`}
+                    onClick={() => handleMenuItemClick('TripRequests')}
+                    className={`flex items-center space-x-2 ${activeItem === 'TripRequests' ? 'text-[#5B297E]' : 'text-gray-700'} hover:text-[#5B297E]`}
                 >
                     <div className="p-2">
                         <MdOutlineRoute />
@@ -201,8 +214,8 @@ const Sidebar = () => {
 
                 <a
                     href="#"
-                    onClick={() => handleMenuItemClick('Upgrade Membership')}
-                    className={`flex items-center space-x-2 ${activeItem === 'Upgrade Membership' ? 'text-[#5B297E]' : 'text-gray-700'} hover:text-[#5B297E]`}
+                    onClick={() => handleMenuItemClick('UpgradeMembership')}
+                    className={`flex items-center space-x-2 ${activeItem === 'UpgradeMembership' ? 'text-[#5B297E]' : 'text-gray-700'} hover:text-[#5B297E]`}
                 >
                     <div className="p-2">
                         <RxUpdate />
@@ -247,19 +260,7 @@ const Sidebar = () => {
          
            
         </div>
-        <div className="flex-grow h-full md:ml-[260px]  overflow-hidden ">
 
-                {activeItem === 'Dashboard' && <Topbuttons />}
-                {activeItem === 'Schedule' && <ScheduleButton/>}
-                {activeItem === 'Trip Requests' && <TripRequestButton/>}
-                {activeItem === 'Profile' && <BrokerProfileDetails />}
-                {activeItem === 'Marketplace' && <MarketPlaceTopButtons />}
-                {activeItem === 'Loads' && <SearchLoads/>}
-                {activeItem === 'Trucks' && <SearchTruck/>}
-                {activeItem === 'Upgrade Membership' && <UpgradeMembership />}
-                {/* {activeItem === 'Help' && <Help />} */}
-                {/* {activeItem === 'Feedback' && <Feedback/>} */}
-        </div>
         </div>
   )
 }
