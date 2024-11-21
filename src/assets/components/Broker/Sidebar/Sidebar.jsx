@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AiOutlineHome, AiOutlineClockCircle, AiOutlineUser, AiOutlineQuestionCircle } from 'react-icons/ai';
 import { HiOutlineTruck } from 'react-icons/hi';
 import { IoCubeOutline } from "react-icons/io5";
@@ -11,7 +12,6 @@ import { IoMdMenu } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa";
 
 
-import { useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
     const [isTrucksOpen, setIsTrucksOpen] = useState(false);
@@ -56,14 +56,7 @@ const Sidebar = () => {
         setIsLoad(!isLoad);
     };
 
-    // const handleMenuItemClick = (item) => {
-    //     setActiveItem(item);
-    //     if(item==="Dashboard"){
-    //         navigate('/Broker')
-    //     }else if(item==="Schedule"){
-    //         navigate('/Broker/Schedule')
-    //     }
-    // };
+
     const handleSlidbar = ()=>{
         setIsSidebarOpen(!isSidebarOpen)
     } 
@@ -270,8 +263,6 @@ const Sidebar = () => {
            
         </div>
         <div className=" flex-grow h-full md:ml-[260px]  overflow-hidden ">
-
-              
         </div>
         </div>
   )

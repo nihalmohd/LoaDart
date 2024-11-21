@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AiOutlineHome, AiOutlineClockCircle, AiOutlineUser, AiOutlineQuestionCircle } from 'react-icons/ai';
 import { HiOutlineTruck } from 'react-icons/hi';
 import { IoCubeOutline } from "react-icons/io5";
@@ -10,19 +11,6 @@ import { MdOutlineRoute } from "react-icons/md";
 import { IoMdMenu } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa";
 
-import Topbuttons from '../Dashboard/Topbuttons';
-import ScheduleButton from '../Schedule/ScheduleButton';
-import TripRequestButtons from '../TripRequest/TripRequestButtons';
-import TransporterProfileDetails from '../TranspoterProfile/TransporterProfileDetails';
-import MarketPlaceTopButtons from '../Marketplace/MarketPlaceTopButtons';
-import SearchLoads from '../Loads/SearchLoads';
-import YourLoads from '../Loads/YourLoads';
-import SearchTruck from '../Truck/SearchTruck';
-import YourTruck from '../Truck/YourTruck';
-import UpgradeMembership from '../UpgradeMembership/UpgradeMembership';
-import Help from '../Help/Help';
-import Feedback from '../Feedback/Feedback';
-
 
 function Sidebar() {
     const [isTrucksOpen, setIsTrucksOpen] = useState(false);
@@ -31,8 +19,33 @@ function Sidebar() {
     const [isLoad, setIsLoad] = useState(false);
     const [activeItem, setActiveItem] = useState('');
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const navigate = useNavigate()
 
 
+    const menuRoutes = {
+        Dashboard: '/Transpoter',
+        Schedule: '/Transpoter/Schedule',
+        TripRequests: '/Transpoter/TripRequests',
+        Profile: '/Transpoter/Profile',
+        Marketplace: '/Transpoter/Marketplace',
+        Loads: '/Transpoter/Loads',
+        YourLoads: '/Transpoter/YourLoads',
+        Trucks: '/Transpoter/Trucks',
+        YourTruck: '/Transpoter/YourTruck',
+        UpgradeMembership: '/Transpoter/UpgradeMembership',
+        Help: '/Transpoter/Help',
+        Feedback: '/Transpoter/Feedback',
+        Logout: '/Transpoter/Logout',
+    };
+    
+    const handleMenuItemClick = (item) => {
+        setActiveItem(item);
+        const route = menuRoutes[item]; 
+        if (route) {
+            navigate(route);
+        }
+    };
+    
     const toggleTrucks = () => {
         setIsTrucksOpen(!isTrucksOpen);
     };
@@ -44,9 +57,6 @@ function Sidebar() {
         setIsLoad(!isLoad);
     };
 
-    const handleMenuItemClick = (item) => {
-        setActiveItem(item);
-    };
     const handleSlidbar = ()=>{
         setIsSidebarOpen(!isSidebarOpen)
     } 
@@ -116,8 +126,8 @@ function Sidebar() {
 
                 <a
                     href="#"
-                    onClick={() => handleMenuItemClick('Trip Requests')}
-                    className={`flex items-center space-x-2 ${activeItem === 'Trip Requests' ? 'text-[#5B297E]' : 'text-gray-700'} hover:text-[#5B297E]`}
+                    onClick={() => handleMenuItemClick('TripRequests')}
+                    className={`flex items-center space-x-2 ${activeItem === 'TripRequests' ? 'text-[#5B297E]' : 'text-gray-700'} hover:text-[#5B297E]`}
                 >
                     <div className="p-2">
                         <MdOutlineRoute />
@@ -170,7 +180,7 @@ function Sidebar() {
                             <a
                             onClick={() => {
                             
-                            handleMenuItemClick('Your Loads');
+                            handleMenuItemClick('YourLoads');
                             }}
                             href="#" className="hover:text-[#5B297E] font-inter text-sm flex justify-start text-start items-center text-gray-700 font-semibold">Your Loads</a>
                             
@@ -195,7 +205,7 @@ function Sidebar() {
                     {isTrucksOpen && (
                         <div className="pl-10 text-gray-600 space-y-1">
                             <a href="#" className="hover:text-[#5B297E] font-inter text-sm  flex justify-start text-start items-center text-gray-700 font-semibold" onClick={()=>{handleMenuItemClick('Trucks')} }>Search Truck</a>
-                            <a href="#" className="hover:text-[#5B297E] font-inter text-sm  flex justify-start  text-start items-center  text-gray-700 font-semibold" onClick={()=>{handleMenuItemClick('Your Truck')} }>Your Trucks</a>
+                            <a href="#" className="hover:text-[#5B297E] font-inter text-sm  flex justify-start  text-start items-center  text-gray-700 font-semibold" onClick={()=>{handleMenuItemClick('YourTruck')} }>Your Trucks</a>
                         </div>
                     )}
                 </div>
@@ -213,8 +223,8 @@ function Sidebar() {
 
                 <a
                     href="#"
-                    onClick={() => handleMenuItemClick('Upgrade Membership')}
-                    className={`flex items-center space-x-2 ${activeItem === 'Upgrade Membership' ? 'text-[#5B297E]' : 'text-gray-700'} hover:text-[#5B297E]`}
+                    onClick={() => handleMenuItemClick('UpgradeMembership')}
+                    className={`flex items-center space-x-2 ${activeItem === 'UpgradeMembership' ? 'text-[#5B297E]' : 'text-gray-700'} hover:text-[#5B297E]`}
                 >
                     <div className="p-2">
                         <RxUpdate />
@@ -261,18 +271,7 @@ function Sidebar() {
         </div>
         <div className="flex-grow h-full md:ml-[260px]  overflow-hidden ">
 
-                {/* {activeItem === 'Dashboard' && <Topbuttons />} */}
-                {/* {activeItem === 'Schedule' && <ScheduleButton/>} */}
-                {/* {activeItem === 'Trip Requests' && <TripRequestButtons />} */}
-                {/* {activeItem === 'Profile' && <TransporterProfileDetails />} */}
-                {/* {activeItem === 'Marketplace' && <MarketPlaceTopButtons />} */}
-                {/* {activeItem === 'Loads' && <SearchLoads />} */}
-                {/* {activeItem === 'Your Loads' && <YourLoads />} */}
-                {/* {activeItem === 'Trucks' && <SearchTruck />} */}
-                {/* {activeItem === 'Your Truck' && <YourTruck />} */}
-                {/* {activeItem === 'Upgrade Membership' && <UpgradeMembership />} */}
-                {/* {activeItem === 'Help' && <Help />} */}
-                {/* {activeItem === 'Feedback' && <Feedback/>} */}
+                
         </div>
         </div>
     );
