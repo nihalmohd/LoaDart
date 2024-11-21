@@ -13,7 +13,7 @@ import UpgradeMembership from '../components/Broker/UpgradeMembership/UpgradeMem
 
 const BrokerSide = () => {
   return (
-    <div className="flex">
+    <div className="md:flex ">
       <Sidebar />
       <div className="flex-1" >
         <Routes>

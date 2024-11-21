@@ -55,6 +55,15 @@ const Sidebar = () => {
     const toggleLoads = () => {
         setIsLoad(!isLoad);
     };
+
+    // const handleMenuItemClick = (item) => {
+    //     setActiveItem(item);
+    //     if(item==="Dashboard"){
+    //         navigate('/Broker')
+    //     }else if(item==="Schedule"){
+    //         navigate('/Broker/Schedule')
+    //     }
+    // };
     const handleSlidbar = ()=>{
         setIsSidebarOpen(!isSidebarOpen)
     } 
@@ -260,7 +269,10 @@ const Sidebar = () => {
          
            
         </div>
+        <div className=" flex-grow h-full md:ml-[260px]  overflow-hidden ">
 
+              
+        </div>
         </div>
   )
 }
