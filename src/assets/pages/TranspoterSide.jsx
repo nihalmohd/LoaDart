@@ -19,7 +19,7 @@ import Feedback from '../components/Transpoter/Feedback/Feedback';
 
 const TranspoterSide = () => {
   return (
-    <div className="flex" >
+    <div className="md:flex" >
       <Sidebar />
       <div className="flex-1" >
         <Routes>

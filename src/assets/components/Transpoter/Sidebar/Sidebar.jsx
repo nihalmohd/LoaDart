@@ -269,6 +269,12 @@ function Sidebar() {
          
            
         </div>
+        {isSidebarOpen && (
+  <div
+    className="fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-50 z-40"
+    onClick={() => setIsSidebarOpen(false)} 
+  ></div>
+)}
         <div className="flex-grow h-full md:ml-[260px]  overflow-hidden ">
 
                 
