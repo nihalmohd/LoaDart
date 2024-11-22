@@ -12,6 +12,7 @@ import MarketPlaceTopButtons from '../components/Broker/MarketPlace/MarketPlaceT
 import UpgradeMembership from '../components/Broker/UpgradeMembership/UpgradeMembership';
 import Help from '../components/Broker/Help/Help';
 import Feedback from '../components/Broker/Feedback/Feedback';
+import View from '../components/Broker/Schedule/View';
 
 const BrokerSide = () => {
   return (
@@ -29,6 +30,8 @@ const BrokerSide = () => {
           <Route path="UpgradeMembership" element={<UpgradeMembership />} />
           <Route path="Help" element={<Help />} />
           <Route path="Feedback" element={<Feedback />} />
+        <Route path="View" element={<View/>} />
+
         </Routes>
       </div>
     </div>
