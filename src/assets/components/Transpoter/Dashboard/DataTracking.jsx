@@ -7,7 +7,7 @@ import MarketPlaceTopButtons from '../Marketplace/MarketPlaceTopButtons';
 
 const DataTracking = () => {
   return (
-    <div>
+      <div>
           <div className="w-full h-auto grid md:grid-cols-3 grid-cols-1 gap-5 p-3">
               <div className="w-full h-full bg-[#5B297E] rounded-md">
                   <div className="w-full h-10  flex justify-center items-center">
@@ -55,7 +55,6 @@ const DataTracking = () => {
                           </div>
                       </div>
                   </div>
-
               </div>
               <div className="w-full h-full bg-[#EF845C] rounded-md">
                   <div className="w-full h-9  flex justify-center items-center">
@@ -75,9 +74,9 @@ const DataTracking = () => {
                   </div>
               </div>
           </div>
-         
-          <MarketPlaceTopButtons/>
-    </div>
+
+          <MarketPlaceTopButtons />
+      </div>
   )
 }
 
