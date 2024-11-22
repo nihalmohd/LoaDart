@@ -80,7 +80,7 @@ function Sidebar() {
                     <h1 className=' text-xl font-bold font-inter text-black'><FaArrowLeft /></h1>
                 </div>
             </div>
-            <div className="md:ml-0 ml-10 w-9/12 h-10 flex justify-end items-end " onClick={()=>{navigate("/")}}>
+            <div className="md:ml-0 ml-10 w-9/12 h-10 flex justify-end items-end cursor-pointer " onClick={()=>{navigate("/")}}>
                 <div className="w-[100px] h-[35px] flex justify-end items-end">
                     <img src="/images/ab6aaab828b7c3f0ef708693166c9def.png" className="w-full h-full object-cover" alt="Logo" />
                 </div>

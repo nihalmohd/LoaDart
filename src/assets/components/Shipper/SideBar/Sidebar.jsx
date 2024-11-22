@@ -11,9 +11,8 @@ import { MdOutlineRoute } from "react-icons/md";
 import { IoMdMenu } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa";
 
-
-
 const Sidebar = () => {
+
     const [isTrucksOpen, setIsTrucksOpen] = useState(false);
     const [isProfilesOpen, setIsProfilesOpen] = useState(false);
     const [isTruck, setIsTruck] = useState(false);
@@ -24,19 +23,19 @@ const Sidebar = () => {
 
 
     const menuRoutes = {
-        Dashboard: '/Broker',
-        Schedule: '/Broker/Schedule',
-        TripRequests: '/Broker/TripRequests',
-        Profile: '/Broker/Profile',
-        Marketplace: '/Broker/Marketplace',
-        Loads: '/Broker/Loads',
-        YourLoads: '/Broker/YourLoads',
-        Trucks: '/Broker/Trucks',
-        YourTruck: '/Broker/YourTruck',
-        UpgradeMembership: '/Broker/UpgradeMembership',
-        Help: '/Broker/Help',
-        Feedback: '/Broker/Feedback',
-        Logout: '/Broker/Logout',
+        Dashboard: '/Shipper',
+        Schedule: '/Shipper/Schedule',
+        TripRequests: '/Shipper/TripRequests',
+        Profile: '/Shipper/Profile',
+        Marketplace: '/Shipper/Marketplace',
+        Loads: '/Shipper/Loads',
+        YourLoads: '/Shipper/YourLoads',
+        Trucks: '/Shipper/Trucks',
+        YourTruck: '/Shipper/YourTruck',
+        UpgradeMembership: '/Shipper/UpgradeMembership',
+        Help: '/Shipper/Help',
+        Feedback: '/Shipper/Feedback',
+        Logout: '/Shipper/Logout',
     };
     
     const handleMenuItemClick = (item) => {
@@ -64,7 +63,7 @@ const Sidebar = () => {
     } 
 
   return (
-    <div className='md:flex'>
+     <div className='md:flex'>
             <div className=" md:hidden w-full h-10 flex justify-end items-center ">
             <div className="w-full h-full lg:hidden flex justify-end  items-center pr-2  ">
                           <button className="w-12 h-12 flex justify-center items-center  " onClick={()=>{handleSlidbar()}}>
@@ -93,12 +92,12 @@ const Sidebar = () => {
             </div>
             <div className="flex flex-col items-center mb-8 mt-6">
                 <img
-                    src="\images\a65c1d620968b90cdb9521e683536cdc.png"
+                    src="\images\786849530d99296dec0c9983fffa8e19.png"
                     alt="Profile"
-                    className="w-20 h-20 object-cover object-[20%] rounded-full mb-2"
+                    className="w-20 h-20 object-cover object-[50%] rounded-full mb-2"
                 />
-                <h2 className="text-lg font-semibold">Stephen Hills</h2>
-                <p className="text-sm text-gray-500">Broker</p>
+                <h2 className="text-lg font-semibold">Isacc Fleming</h2>
+                <p className="text-sm text-gray-500">Shipper</p>
             </div>
 
             

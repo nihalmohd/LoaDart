@@ -5,6 +5,8 @@ import TranspoterProfile from './assets/components/Transpoter/TranspoterProfile/
 import BrokerSide from './assets/pages/BrokerSide';
 import TranspoterSide from './assets/pages/TranspoterSide';
 import BrokerProfile from './assets/components/Broker/BrokerProfile/BrokerProfile';
+import ShipperSide from './assets/pages/ShipperSide';
+import ShipperProfile from './assets/components/Shipper/ShipperProfile/ShipperProfile';
 
 const App = () => {
   return (
@@ -15,6 +17,8 @@ const App = () => {
         <Route path="/Transpoter/UpdateProfile" element={<TranspoterProfile />} />
         <Route path="/Broker/*" element={<BrokerSide />} />
         <Route path="/Broker/UpdateProfile" element={<BrokerProfile/>} />
+        <Route path="/Shipper/*" element={<ShipperSide/>} />
+        <Route path="/Shipper/UpdateProfile" element={<ShipperProfile/>} />
       </Routes>
     </Router>
   );
