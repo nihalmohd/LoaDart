@@ -1,11 +1,13 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const ScheduleLoadTable = () => {
+    const navigate = useNavigate()
   return (
       <div>
           <div className="w-full  mx-auto r">
             <div className="w-full h-20  grid grid-cols-4 gap-3">
-                <div className="w-full h-10 border-2 border-[#5B297E] rounded-md mt-5 felx justify-center items-center">
+                <div className="w-full h-10 border-2 border-[#5b297e] rounded-md mt-5 felx justify-center items-center">
                     <select name="" id="" className='bg-transparent w-full h-full flex justify-center items-center focus:outline-none '>
                     <option value="Last Day">Last Day</option>
                     <option value="Last 15 Days">Last 15 Days</option>
@@ -34,7 +36,7 @@ const ScheduleLoadTable = () => {
                               <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Frozen food</td>
                               <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Ernakulam</td>
                               <td className="w-16 h-14 text-center font-inter text-xs font-bold p-2">Kozhikode</td>
-                              <td className="w-10 h-14 text-center font-inter text-xs font-bold p-2"><button className=' text-sm bg-black rounded-sm w-16 text-white h-10 '>View</button></td>
+                              <td className="w-10 h-14 text-center font-inter text-xs font-bold p-2"><button className=' text-sm bg-black rounded-sm w-16 text-white h-10' onClick={()=>{navigate('/Transpoter/View')}}>View</button></td>
 
                           </tr>
                           <tr>

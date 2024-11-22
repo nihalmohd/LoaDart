@@ -15,6 +15,7 @@ import MarketPlaceTopButtons from '../components/Transpoter/Marketplace/MarketPl
 import UpgradeMembership from '../components/Transpoter/UpgradeMembership/UpgradeMembership';
 import Help from '../components/Transpoter/Help/Help';
 import Feedback from '../components/Transpoter/Feedback/Feedback';
+import View from '../components/Transpoter/Schedule/View';
 
 
 const TranspoterSide = () => {
@@ -35,6 +36,7 @@ const TranspoterSide = () => {
         <Route path="UpgradeMembership" element={<UpgradeMembership/>} />
         <Route path="Help" element={<Help/>} />
         <Route path="Feedback" element={<Feedback/>} />
+        <Route path="View" element={<View/>} />
         </Routes>
       </div>
     </div>
