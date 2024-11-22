@@ -41,7 +41,7 @@ const BrokerProfileDetails = () => {
                       <div className="w-full h-10">
                       <h1 className="font-inter font-semibold text-[#5B297E] ml-5 pt-2 ">Basic Details</h1>
                       </div>
-                      <div className="w-full h-4/6 ">
+                      <div className="w-full h-full ">
                           <div className="w-full h-10  mt-2 flex justify-between items-center">
                               <div className="w-5/12 h-8 ">
                               <h1 className='font-inter text-sm ml-3 text-[#6B7280]'>Address line 1</h1>
@@ -104,7 +104,7 @@ const BrokerProfileDetails = () => {
                           </div>
                           <div className="w-full h-10  mt-2 flex justify-between items-center">
                               <div className="w-5/12 h-8 ">
-                              <h1 className='font-inter text-sm ml-3 text-[#6B7280]'>Business Registration</h1>
+                              <h1 className='font-inter text-sm ml-3 text-[#6B7280]'>Aadhar Card</h1>
                               </div>
                               <div className="w-5/12 h-8  flex justify-center ">
                               <div className="w-4/12 h-8  flex  justify-between ">

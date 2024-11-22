@@ -13,6 +13,8 @@ import UpgradeMembership from '../components/Broker/UpgradeMembership/UpgradeMem
 import Help from '../components/Broker/Help/Help';
 import Feedback from '../components/Broker/Feedback/Feedback';
 import View from '../components/Broker/Schedule/View';
+import YourLoads from '../components/Broker/Loads/YourLoads';
+import YourTruck from '../components/Broker/Trucks/YourTruck';
 
 const BrokerSide = () => {
   return (
@@ -25,12 +27,14 @@ const BrokerSide = () => {
           <Route path="TripRequests" element={<TripRequestButton/>} />
           <Route path="Profile" element={<BrokerProfileDetails/>} />
           <Route path="Loads" element={<SearchLoads />} />
+          <Route path="YourLoads" element={<YourLoads />} />
           <Route path="Trucks" element={<SearchTruck />} />
+          <Route path="YourTruck" element={<YourTruck />} />
           <Route path="Marketplace" element={<MarketPlaceTopButtons />} />
           <Route path="UpgradeMembership" element={<UpgradeMembership />} />
           <Route path="Help" element={<Help />} />
           <Route path="Feedback" element={<Feedback />} />
-        <Route path="View" element={<View/>} />
+          <Route path="View" element={<View/>} />
 
         </Routes>
       </div>
