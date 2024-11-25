@@ -172,11 +172,6 @@ const Sidebar = () => {
                     </div>
                     {isLoad && (
                         <div className="pl-10 text-gray-600 space-y-2 ">
-                            <a 
-                            onClick={() => {
-                            handleMenuItemClick('Loads');
-                            }}
-                            href="#" className="hover:text-[#5B297E] font-inter text-sm flex justify-start text-start items-center text-gray-700 font-semibold " >Search Loads <span></span></a>
                             <a
                             onClick={() => {
                             
@@ -205,8 +200,6 @@ const Sidebar = () => {
                     {isTrucksOpen && (
                         <div className="pl-10 text-gray-600 space-y-1">
                             <a href="#" className="hover:text-[#5B297E] font-inter text-sm  flex justify-start text-start items-center text-gray-700 font-semibold" onClick={()=>{handleMenuItemClick('Trucks')} }>Search Truck</a>
-                            <a href="#" className="hover:text-[#5B297E] font-inter text-sm  flex justify-start  text-start items-center  text-gray-700 font-semibold" onClick={()=>{handleMenuItemClick('YourTruck')} }>Your Trucks</a>
-                            
                         </div>
                     )}
                 </div>
