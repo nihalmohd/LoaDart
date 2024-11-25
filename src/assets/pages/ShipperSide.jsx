@@ -6,6 +6,7 @@ import Sidebar from '../components/Shipper/SideBar/Sidebar'
 import TopButtons from '../components/Shipper/Dashboard/TopButtons'
 import MarketPlaceTopButtons from '../components/Shipper/MarketPlace/MarketPlaceTopButtons';
 import Schedule from '../components/Shipper/Schedule/Schedule';
+import TripRequest from '../components/Shipper/TripRequest/TripRequest';
 
 const ShipperSide = () => {
   return (
@@ -15,6 +16,7 @@ const ShipperSide = () => {
      <Routes>
      <Route path="/" element={<TopButtons/>} />
      <Route path="Schedule" element={<Schedule/>} />
+     <Route path="TripRequests" element={<TripRequest/>} />
      <Route path="Marketplace" element={<MarketPlaceTopButtons/>} />
      </Routes>
 
