@@ -4,6 +4,8 @@ import { Routes, Route } from 'react-router-dom';
 
 import Sidebar from '../components/Shipper/SideBar/Sidebar'
 import TopButtons from '../components/Shipper/Dashboard/TopButtons'
+import MarketPlaceTopButtons from '../components/Shipper/MarketPlace/MarketPlaceTopButtons';
+import Schedule from '../components/Shipper/Schedule/Schedule';
 
 const ShipperSide = () => {
   return (
@@ -12,6 +14,8 @@ const ShipperSide = () => {
      <div className="flex-1" >
      <Routes>
      <Route path="/" element={<TopButtons/>} />
+     <Route path="Schedule" element={<Schedule/>} />
+     <Route path="Marketplace" element={<MarketPlaceTopButtons/>} />
      </Routes>
 
      </div>
