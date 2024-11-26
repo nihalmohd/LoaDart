@@ -3,7 +3,7 @@ import { TbEyeFilled } from "react-icons/tb";
 import { FaPlus } from "react-icons/fa6";
 
 
-const YourLoads = () => {
+const Yourloads = () => {
   return (
     <div className='p-3'>
       <div className="w-full h-16  flex items-center ">
@@ -103,4 +103,4 @@ const YourLoads = () => {
   )
 }
 
-export default YourLoads
+export default Yourloads

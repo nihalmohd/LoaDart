@@ -10,7 +10,8 @@ import TripRequest from '../components/Shipper/TripRequest/TripRequest';
 import ShipperProfileDetails from '../components/Shipper/ShipperProfile/ShipperProfileDetails';
 
 import SearchTruck from '../components/Shipper/Trucks/SearchTruck';
-import YourLoads from '../components/Shipper/Loads/Yourloads';
+import Yourloads from '../components/Shipper/Loads/Yourloads';
+
 
 const ShipperSide = () => {
   return (
@@ -23,8 +24,8 @@ const ShipperSide = () => {
      <Route path="TripRequests" element={<TripRequest/>} />
      <Route path="Profile" element={<ShipperProfileDetails/>} />
      <Route path="Marketplace" element={<MarketPlaceTopButtons/>} />
-     <Route path="Loads" element={<YourLoads/>} />
-     <Route path="YourLoads" element={<YourLoads/>} />
+     <Route path="Loads" element={<Yourloads/>} />
+     <Route path="YourLoads" element={<Yourloads/>} />
      <Route path="Trucks" element={<SearchTruck />} />
      <Route path="YourTrucks" element={<SearchTruck />} />
      </Routes>
