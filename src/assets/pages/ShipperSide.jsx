@@ -10,7 +10,7 @@ import TripRequest from '../components/Shipper/TripRequest/TripRequest';
 import ShipperProfileDetails from '../components/Shipper/ShipperProfile/ShipperProfileDetails';
 
 import SearchTruck from '../components/Shipper/Trucks/SearchTruck';
-import Yourloads from '../components/Shipper/Loads/Yourloads';
+import Yourloads from '../components/Shipper/Loads/YourLoads';
 
 
 const ShipperSide = () => {
