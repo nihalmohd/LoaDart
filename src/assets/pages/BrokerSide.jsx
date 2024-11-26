@@ -35,7 +35,6 @@ const BrokerSide = () => {
           <Route path="Help" element={<Help />} />
           <Route path="Feedback" element={<Feedback />} />
           <Route path="View" element={<View/>} />
-
         </Routes>
       </div>
     </div>

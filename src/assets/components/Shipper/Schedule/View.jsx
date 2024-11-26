@@ -3,32 +3,23 @@ import { LuUpload } from "react-icons/lu";
 
 const View = () => {
 
-  const [proofOfDelivery, setProofOfDelivery] = useState(null);
   const [lorryReceipt, setLorryReceipt] = useState(null);
 
-  const proofFileInputRef = useRef(null);
+
   const receiptFileInputRef = useRef(null);
 
-  const handleProofFileChange = (event) => {
-    setProofOfDelivery(event.target.files[0]);
-  };
 
   const handleReceiptFileChange = (event) => {
     setLorryReceipt(event.target.files[0]);
   };
 
-  const handleProofUploadClick = () => {
-    if (proofFileInputRef.current) {
-      proofFileInputRef.current.click();
-    }
-  };
+
 
   const handleReceiptUploadClick = () => {
     if (receiptFileInputRef.current) {
       receiptFileInputRef.current.click();
     }
   };
-
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -44,58 +35,9 @@ const View = () => {
 
   return (
     <div className="w-11/12 h-auto">
+     
 
-      <div className="w-full h-full p-4">
-        <form
-          onSubmit={handleSubmit}
-          className="w-full p-6 rounded-sm border border-black"
-        >
-          <h2 className="text-xl font-bold text-[#5b297e] mb-6 text-start">
-            Upload Proof of Delivery
-          </h2>
-
-          <label
-            htmlFor="proof-of-delivery"
-            className="block text-gray-400 text-sm font-medium ml-1 mb-2"
-          >
-            Proof of Delivery<span className="text-red-500">*</span>
-          </label>
-
-          <div className="flex md:w-8/12 items-center justify-end border-b border-black mb-4">
-            <input
-              type="file"
-              id="proof-of-delivery"
-              ref={proofFileInputRef}
-              onChange={handleProofFileChange}
-              className="hidden"
-            />
-            <input
-              type="text"
-              value={proofOfDelivery ? proofOfDelivery.name : ""}
-              readOnly
-              placeholder="No file chosen"
-              className="flex-1 text-sm rounded-md p-1 focus:outline-none"
-            />
-            <button
-              type="button"
-              className="w-14 h-5 border border-[#5b297e] text-[#5b297e] rounded-sm text-[10px] font-medium mb-2"
-              onClick={handleProofUploadClick}
-            >
-              <h1 className="flex justify-center items-center gap-2">
-                Upload<span className=""><LuUpload /></span>
-              </h1>
-            </button>
-          </div>
-          <button
-            type="submit"
-            className="w-2/12 md:w-1/12 bg-[#5b297e] text-white py-1 rounded-sm shadow-md text-xs font-inter mb-10"
-          >
-            Submit
-          </button>
-        </form>
-      </div>
-
-
+ 
       <div className="w-full h-auto p-4">
         <form
           onSubmit={handleSubmit}

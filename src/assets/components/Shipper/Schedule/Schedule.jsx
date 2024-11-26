@@ -41,7 +41,7 @@ const Schedule = () => {
                               <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Frozen food</td>
                               <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Ernakulam</td>
                               <td className="w-16 h-14 text-center font-inter text-xs font-bold p-2">Kozhikode</td>
-                              <td className="w-10 h-14 text-center font-inter text-xs font-bold p-2"><button className=' text-sm bg-black rounded-sm w-16 text-white h-10' onClick={()=>{navigate('/Transpoter/View')}}>View</button></td>
+                              <td className="w-10 h-14 text-center font-inter text-xs font-bold p-2"><button className=' text-sm bg-black rounded-sm w-16 text-white h-10' onClick={()=>{navigate('/Shipper/View')}}>View</button></td>
 
                           </tr>
                           <tr>

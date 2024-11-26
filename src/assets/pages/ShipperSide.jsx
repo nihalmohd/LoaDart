@@ -11,6 +11,9 @@ import ShipperProfileDetails from '../components/Shipper/ShipperProfile/ShipperP
 import Yourloads from '../components/Shipper/Loads/YourLoads';
 import SearchTruck from '../components/Shipper/Trucks/SearchTruck';
 import UpgradeMembership from '../components/Shipper/UpgradeMembership/UpgradeMembership';
+import Help from '../components/Shipper/Help/Help';
+import Feedback from '../components/Shipper/Feedback/Feedback';
+import View from '../components/Shipper/Schedule/View';
 
 
 const ShipperSide = () => {
@@ -29,7 +32,9 @@ const ShipperSide = () => {
      <Route path="Trucks" element={<SearchTruck />} />
      <Route path="YourTrucks" element={<SearchTruck />} />
      <Route path="UpgradeMembership" element={<UpgradeMembership/>} />
-
+     <Route path="Help" element={<Help/>} />
+     <Route path="Feedback" element={<Feedback/>} />
+     <Route path="View" element={<View/>} />
      </Routes>
 
      </div>
