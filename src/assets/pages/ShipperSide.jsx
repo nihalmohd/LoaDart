@@ -8,9 +8,9 @@ import MarketPlaceTopButtons from '../components/Shipper/MarketPlace/MarketPlace
 import Schedule from '../components/Shipper/Schedule/Schedule';
 import TripRequest from '../components/Shipper/TripRequest/TripRequest';
 import ShipperProfileDetails from '../components/Shipper/ShipperProfile/ShipperProfileDetails';
-
-import SearchTruck from '../components/Shipper/Trucks/SearchTruck';
 import Yourloads from '../components/Shipper/Loads/YourLoads';
+import SearchTruck from '../components/Shipper/Trucks/SearchTruck';
+import UpgradeMembership from '../components/Shipper/UpgradeMembership/UpgradeMembership';
 
 
 const ShipperSide = () => {
@@ -28,6 +28,8 @@ const ShipperSide = () => {
      <Route path="YourLoads" element={<Yourloads/>} />
      <Route path="Trucks" element={<SearchTruck />} />
      <Route path="YourTrucks" element={<SearchTruck />} />
+     <Route path="UpgradeMembership" element={<UpgradeMembership/>} />
+
      </Routes>
 
      </div>
