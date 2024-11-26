@@ -8,8 +8,9 @@ import MarketPlaceTopButtons from '../components/Shipper/MarketPlace/MarketPlace
 import Schedule from '../components/Shipper/Schedule/Schedule';
 import TripRequest from '../components/Shipper/TripRequest/TripRequest';
 import ShipperProfileDetails from '../components/Shipper/ShipperProfile/ShipperProfileDetails';
-import YourLoads from '../components/Shipper/Loads/Yourloads';
+
 import SearchTruck from '../components/Shipper/Trucks/SearchTruck';
+import YourLoads from '../components/Shipper/Loads/Yourloads';
 
 const ShipperSide = () => {
   return (
