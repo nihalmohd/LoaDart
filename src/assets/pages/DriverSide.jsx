@@ -1,10 +1,12 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
+import Sidebar from '../components/Driver/Sidebar/Sidebar';
+
 const DriverSide = () => {
   return (
     <div className='md:flex'>
-     {/* <Sidebar/> */}
+     <Sidebar/>
      <div className="flex-1" >
      <Routes>
      {/* <Route path="/" element={<TopButtons/>} /> */}
