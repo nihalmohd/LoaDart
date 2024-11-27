@@ -38,16 +38,16 @@ const DataTracking = () => {
                   <div className="w-full h-40 p-5 flex-col justify-center items-center">
 
                       <div className="bg-[#437981] h-32 rounded-lg p-2 mb-2 flex justify-center items-center ">
-                        <div className="w-full h-16 ">
+                          <div className="w-full h-16 ">
 
-                          <p className="text-sm font-medium text-white">Loads</p>
-                          <IoCubeOutline className="text-white mr-4 text-xl" />
-                          <div className="w-full">
-                              <div className="w-full bg-gray-300 h-2 rounded-full mt-1">
-                                  <div className="bg-teal-200 h-2 rounded-full w-3/5"></div> 
+                              <p className="text-sm font-medium text-white">Loads</p>
+                              <IoCubeOutline className="text-white mr-4 text-xl" />
+                              <div className="w-full">
+                                  <div className="w-full bg-gray-300 h-2 rounded-full mt-1">
+                                      <div className="bg-teal-200 h-2 rounded-full w-3/5"></div>
+                                  </div>
                               </div>
                           </div>
-                        </div>
                       </div>
                   </div>
               </div>
