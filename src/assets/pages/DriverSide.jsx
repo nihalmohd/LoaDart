@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import Sidebar from '../components/Driver/Sidebar/Sidebar';
 import Topbuttons from '../components/Driver/Dashboard/Topbuttons';
+import MarketPlaceTopButtons from '../components/Driver/MarketPlace/MarketPlaceTopButtons';
 
 const DriverSide = () => {
   return (
@@ -14,7 +15,7 @@ const DriverSide = () => {
      {/* <Route path="Schedule" element={<Schedule/>} /> */}
      {/* <Route path="TripRequests" element={<TripRequest/>} /> */}
      {/* <Route path="Profile" element={<ShipperProfileDetails/>} /> */}
-     {/* <Route path="Marketplace" element={<MarketPlaceTopButtons/>} /> */}
+     <Route path="Marketplace" element={<MarketPlaceTopButtons/>} />
      {/* <Route path="Loads" element={<Yourloads/>} /> */}
      {/* <Route path="YourLoads" element={<Yourloads/>} /> */}
      {/* <Route path="Trucks" element={<SearchTruck />} /> */}

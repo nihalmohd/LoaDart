@@ -1,6 +1,7 @@
 import React from 'react'
 import { HiOutlineTruck } from 'react-icons/hi';
 import { IoCubeOutline } from "react-icons/io5";
+import MarketPlaceTopButtons from '../MarketPlace/MarketPlaceTopButtons';
 // import MarketPlaceTopButtons from '../MarketPlace/MarketPlaceTopButtons';
 
 const DataTracking = () => {
@@ -67,7 +68,7 @@ const DataTracking = () => {
         </div>
     </div>
    
-    {/* <MarketPlaceTopButtons/> */}
+    <MarketPlaceTopButtons/>
 </div>
   )
 }
