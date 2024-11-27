@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import Sidebar from '../components/Driver/Sidebar/Sidebar';
 import Topbuttons from '../components/Driver/Dashboard/Topbuttons';
 import MarketPlaceTopButtons from '../components/Driver/MarketPlace/MarketPlaceTopButtons';
+import Schedule from '../components/Driver/Schedule/Schedule';
 
 const DriverSide = () => {
   return (
@@ -12,7 +13,7 @@ const DriverSide = () => {
      <div className="flex-1" >
      <Routes>
      <Route path="/" element={<Topbuttons/>} />
-     {/* <Route path="Schedule" element={<Schedule/>} /> */}
+     <Route path="Schedule" element={<Schedule/>} />
      {/* <Route path="TripRequests" element={<TripRequest/>} /> */}
      {/* <Route path="Profile" element={<ShipperProfileDetails/>} /> */}
      <Route path="Marketplace" element={<MarketPlaceTopButtons/>} />
