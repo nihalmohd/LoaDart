@@ -2,15 +2,14 @@ import React, { useRef, useState } from "react";
 import { LuUpload } from "react-icons/lu";
 
 const View = () => {
-  // Separate states for Proof of Delivery and Lorry Receipt
+
   const [proofOfDelivery, setProofOfDelivery] = useState(null);
   const [lorryReceipt, setLorryReceipt] = useState(null);
 
-  // Separate refs for both file inputs
+
   const proofFileInputRef = useRef(null);
   const receiptFileInputRef = useRef(null);
 
-  // Handle file changes
   const handleProofFileChange = (event) => {
     setProofOfDelivery(event.target.files[0]);
   };
@@ -19,7 +18,7 @@ const View = () => {
     setLorryReceipt(event.target.files[0]);
   };
 
-  // Handle upload clicks
+
   const handleProofUploadClick = () => {
     if (proofFileInputRef.current) {
       proofFileInputRef.current.click();
@@ -32,7 +31,6 @@ const View = () => {
     }
   };
 
-  // Handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -47,7 +45,7 @@ const View = () => {
 
   return (
     <div className="w-11/12 h-auto">
-      {/* Proof of Delivery Form */}
+
       <div className="w-full h-full p-4">
         <form
           onSubmit={handleSubmit}
@@ -98,7 +96,7 @@ const View = () => {
         </form>
       </div>
 
-      {/* Lorry Receipt Form */}
+
       <div className="w-full h-auto p-4">
         <form
           onSubmit={handleSubmit}
