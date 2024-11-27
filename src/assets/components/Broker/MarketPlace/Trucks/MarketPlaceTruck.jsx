@@ -121,7 +121,7 @@ const MarketPlaceTruck = () => {
           </select>
         </div>
         <div className="flex flex-col relative">
-          <label className="text-xs font-medium text-gray-400 mb-2">
+        <label className="text-xs font-medium text-gray-400 mb-2">
             Preferred Truck Types<span className="text-red-600">*</span>
           </label>
           <div className="relative">
