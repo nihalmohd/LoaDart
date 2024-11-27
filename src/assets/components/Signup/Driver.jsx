@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Driver = () => {
   const [IsProceeded,setIsproceeded]=useState(false)
   const [Mobilenumber,setMobileNumber] = useState()
+  const navigate = useNavigate()
   const [otp, setOtp] = useState(new Array(4).fill(""));
 
 
@@ -59,7 +61,7 @@ const Driver = () => {
                 </div>
                   </div>
                   <div className="w-full h-7  flex justify-center">
-                   <button className='w-11/12 h-7 bg-[#5B297E] mt-4 text-white text-xs font-inter rounded-sm' >Proceed</button>
+                   <button className='w-11/12 h-7 bg-[#5B297E] mt-4 text-white text-xs font-inter rounded-sm'onClick={()=>{navigate('/Driver/UpdateProfile')}} >Proceed</button>
                   </div>
             </div>
             <div className="w-full h-20  flex justify-center items-center">
