@@ -7,6 +7,7 @@ import MarketPlaceTopButtons from '../components/Driver/MarketPlace/MarketPlaceT
 import Schedule from '../components/Driver/Schedule/Schedule';
 import TripRequest from '../components/Driver/TripRequest/TripRequest';
 import DriverProfileDetails from '../components/Driver/DriverProfile/DriverProfileDetails';
+import SearchLoads from '../components/Driver/Loads/SearchLoads';
 
 const DriverSide = () => {
   return (
@@ -19,7 +20,7 @@ const DriverSide = () => {
      <Route path="TripRequests" element={<TripRequest/>} />
      <Route path="Profile" element={<DriverProfileDetails/>} />
      <Route path="Marketplace" element={<MarketPlaceTopButtons/>} />
-     {/* <Route path="Loads" element={<Yourloads/>} /> */}
+     <Route path="Loads" element={<SearchLoads/>} />
      {/* <Route path="YourLoads" element={<Yourloads/>} /> */}
      {/* <Route path="Trucks" element={<SearchTruck />} /> */}
      {/* <Route path="YourTrucks" element={<SearchTruck />} /> */}
