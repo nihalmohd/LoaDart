@@ -6,6 +6,7 @@ import Topbuttons from '../components/Driver/Dashboard/Topbuttons';
 import MarketPlaceTopButtons from '../components/Driver/MarketPlace/MarketPlaceTopButtons';
 import Schedule from '../components/Driver/Schedule/Schedule';
 import TripRequest from '../components/Driver/TripRequest/TripRequest';
+import DriverProfileDetails from '../components/Driver/DriverProfile/DriverProfileDetails';
 
 const DriverSide = () => {
   return (
@@ -16,7 +17,7 @@ const DriverSide = () => {
      <Route path="/" element={<Topbuttons/>} />
      <Route path="Schedule" element={<Schedule/>} />
      <Route path="TripRequests" element={<TripRequest/>} />
-     {/* <Route path="Profile" element={<ShipperProfileDetails/>} /> */}
+     <Route path="Profile" element={<DriverProfileDetails/>} />
      <Route path="Marketplace" element={<MarketPlaceTopButtons/>} />
      {/* <Route path="Loads" element={<Yourloads/>} /> */}
      {/* <Route path="YourLoads" element={<Yourloads/>} /> */}
