@@ -9,6 +9,7 @@ import TripRequest from '../components/Driver/TripRequest/TripRequest';
 import DriverProfileDetails from '../components/Driver/DriverProfile/DriverProfileDetails';
 import SearchLoads from '../components/Driver/Loads/SearchLoads';
 import YourTruck from '../components/Driver/Trucks/YourTruck';
+import UpgradeMembership from '../components/Driver/UpgradeMembership/UpgradeMembership';
 
 const DriverSide = () => {
   return (
@@ -23,8 +24,7 @@ const DriverSide = () => {
      <Route path="Marketplace" element={<MarketPlaceTopButtons/>} />
      <Route path="Loads" element={<SearchLoads/>} />
      <Route path="Trucks" element={<YourTruck />} />
-     {/* <Route path="YourTrucks" element={<SearchTruck />} /> */}
-     {/* <Route path="UpgradeMembership" element={<UpgradeMembership/>} /> */}
+     <Route path="UpgradeMembership" element={<UpgradeMembership/>} />
      {/* <Route path="Help" element={<Help/>} /> */}
      {/* <Route path="Feedback" element={<Feedback/>} /> */}
      {/* <Route path="View" element={<View/>} /> */}
