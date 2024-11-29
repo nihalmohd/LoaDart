@@ -70,7 +70,7 @@ const BrokerProfileDetails = () => {
                               <div className="w-full h-8 ">
                               <h1 className='font-inter text-sm ml-3 text-[#6B7280]'>State</h1>
                               </div>
-                                      <div className="w-full h-10  flex justify-center ">
+                                <div className="w-full h-10  flex justify-center ">
 
 
                                           <div className="relative">
