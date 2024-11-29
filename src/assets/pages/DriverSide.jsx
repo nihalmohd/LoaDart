@@ -12,6 +12,7 @@ import YourTruck from '../components/Driver/Trucks/YourTruck';
 import UpgradeMembership from '../components/Driver/UpgradeMembership/UpgradeMembership';
 import Help from '../components/Driver/Help/Help';
 import Feedback from '../components/Driver/Feedback/Feedback';
+import View from '../components/Driver/Schedule/View';
 
 const DriverSide = () => {
   return (
@@ -29,7 +30,7 @@ const DriverSide = () => {
      <Route path="UpgradeMembership" element={<UpgradeMembership/>} />
      <Route path="Help" element={<Help/>} />
      <Route path="Feedback" element={<Feedback/>} />
-     {/* <Route path="View" element={<View/>} /> */}
+     <Route path="View" element={<View/>} />
      </Routes>
 
      </div>

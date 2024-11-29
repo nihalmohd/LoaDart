@@ -42,7 +42,7 @@ const Schedule = () => {
                               <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">KL 07 AX 1234 5678 90 ABC</td>
                               <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Ernakulam</td>
                               <td className="w-16 h-14 text-center font-inter text-xs font-bold p-2">Kozhikode</td>
-                              <td className="w-10 h-14 text-center font-inter text-xs font-bold p-2"><button className=' text-sm bg-black rounded-sm w-16 text-white h-10 '>View</button></td>
+                              <td className="w-10 h-14 text-center font-inter text-xs font-bold p-2"><button className=' text-sm bg-black rounded-sm w-16 text-white h-10 'onClick={()=>{navigate("/Driver/View")}}>View</button></td>
 
                           </tr>
                           <tr>
