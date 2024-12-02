@@ -16,6 +16,7 @@ import UpgradeMembership from '../components/Transpoter/UpgradeMembership/Upgrad
 import Help from '../components/Transpoter/Help/Help';
 import Feedback from '../components/Transpoter/Feedback/Feedback';
 import View from '../components/Transpoter/Schedule/View';
+import EditProfile from '../components/Transpoter/TranspoterProfile/EditProfile';
 
 
 const TranspoterSide = () => {
@@ -37,6 +38,7 @@ const TranspoterSide = () => {
         <Route path="Help" element={<Help/>} />
         <Route path="Feedback" element={<Feedback/>} />
         <Route path="View" element={<View/>} />
+        <Route path="EditProfile" element={<EditProfile/>} />
         </Routes>
       </div>
     </div>
