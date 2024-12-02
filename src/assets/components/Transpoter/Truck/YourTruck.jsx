@@ -4,16 +4,18 @@ import { FaPlus } from "react-icons/fa6";
 import { MdCalendarToday } from "react-icons/md";
 import { FaMapMarkerAlt, FaStar } from 'react-icons/fa';
 import { FaPhoneAlt } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 
 const YourTruck = () => {
+    const navigate = useNavigate()
   return (
     <div>
           <div className="w-full h-16  flex items-center ">
               <div className="w-11/12  h-10 ">
                   <div className="w-full h-10 flex justify-between items-end ml-4">
                       <h1 className="font-inter font-semibold text-[#5B297E] text-lg mt-5">Your Truck</h1>
-                      <button className="w-28 h-6 bg-[#5B297E] flex justify-center items-center rounded-sm text-white text-xs mb-2"><FaPlus />Add Truck</button>
+                      <button className="w-28 h-6 bg-[#5B297E] flex justify-center items-center rounded-sm text-white text-xs mb-2" onClick={()=>{navigate('/Transpoter/AddTruck')}}><FaPlus />Add Truck</button>
                   </div>
               </div>
           </div>
