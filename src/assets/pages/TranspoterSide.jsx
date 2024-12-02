@@ -17,6 +17,7 @@ import Help from '../components/Transpoter/Help/Help';
 import Feedback from '../components/Transpoter/Feedback/Feedback';
 import View from '../components/Transpoter/Schedule/View';
 import EditProfile from '../components/Transpoter/TranspoterProfile/EditProfile';
+import AddLoad from '../components/Transpoter/Loads/AddLoad';
 
 
 const TranspoterSide = () => {
@@ -39,6 +40,7 @@ const TranspoterSide = () => {
         <Route path="Feedback" element={<Feedback/>} />
         <Route path="View" element={<View/>} />
         <Route path="EditProfile" element={<EditProfile/>} />
+        <Route path="AddLoad" element={<AddLoad/>} />
         </Routes>
       </div>
     </div>
