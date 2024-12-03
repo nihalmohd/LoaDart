@@ -25,14 +25,6 @@ const EditProfile = () => {
                         className="md:w-1/2 h-10 border-b border-gray-300 outline-none placeholder:text-black"
                     />
                 </div>
-                <div className="flex flex-col mt-3">
-                    <label className="text-xs font-medium text-gray-400 ">City<span className='text-red-600'>*</span></label>
-                    <input
-                        type="text"
-                        placeholder="abcd"
-                        className="md:w-1/2 h-10 border-b border-gray-300 outline-none placeholder:text-black"
-                    />
-                </div>
                 <div className="md:w-1/2  mt-3  ">
                     <div className="w-full h-6 ">
                         <h1 className='font-inter text-xs  text-[#6B7280]'>State</h1>
@@ -42,7 +34,7 @@ const EditProfile = () => {
 
                         <div className="relative">
                             <select className="w-full h-5  text-start  text-black focus:outline-none appearance-none">
-                                <option value="" className='mt-1'>Select State</option>
+                            <option value="" className='mt-1'>Select State</option>
                                 <option value="Andhra Pradesh">Andhra Pradesh (AP)</option>
                                 <option value="Assam">Assam (AS)</option>
                                 <option value="Bihar">Bihar (BR)</option>
@@ -76,6 +68,58 @@ const EditProfile = () => {
                                 <option value="Uttar Pradesh">Uttar Pradesh (UP)</option>
                                 <option value="West Bengal">West Bengal (WB)</option>
                                 <option value="Telangana">Telangana (TS)</option>
+
+                            </select>
+                            <div className="absolute inset-y-0 right-0 mt-1  pointer-events-none">
+                                <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="md:w-1/2  mt-3  ">
+                    <div className="w-full h-6 ">
+                        <h1 className='font-inter text-xs  text-[#6B7280]'>District</h1>
+                    </div>
+                    <div className="w-full h-10 border-b border-gray-300 ">
+
+
+                        <div className="relative">
+                            <select className="w-full h-5  text-start  text-black focus:outline-none appearance-none">
+                                <option value="Baksa">Select Disctrict</option>
+                                <option value="Baksa">Baksa</option>
+                                <option value="Barpeta">Barpeta</option>
+                                <option value="Biswanath">Biswanath</option>
+                                <option value="Bongaigaon">Bongaigaon</option>
+                                <option value="Cachar">Cachar</option>
+                                <option value="Charaideo">Charaideo</option>
+                                <option value="Chirang">Chirang</option>
+                                <option value="Darrang">Darrang</option>
+                                <option value="Dhemaji">Dhemaji</option>
+                                <option value="Dhubri">Dhubri</option>
+                                <option value="Dibrugarh">Dibrugarh</option>
+                                <option value="Goalpara">Goalpara</option>
+                                <option value="Golaghat">Golaghat</option>
+                                <option value="Hailakandi">Hailakandi</option>
+                                <option value="Hojai">Hojai</option>
+                                <option value="Jorhat">Jorhat</option>
+                                <option value="Kamrup">Kamrup</option>
+                                <option value="Kamrup Metropolitan">Kamrup Metropolitan</option>
+                                <option value="Karbi Anglong">Karbi Anglong</option>
+                                <option value="Karimganj">Karimganj</option>
+                                <option value="Kokrajhar">Kokrajhar</option>
+                                <option value="Lakhimpur">Lakhimpur</option>
+                                <option value="Majuli">Majuli</option>
+                                <option value="Morigaon">Morigaon</option>
+                                <option value="Nagaon">Nagaon</option>
+                                <option value="Nalbari">Nalbari</option>
+                                <option value="Sivasagar">Sivasagar</option>
+                                <option value="Sonitpur">Sonitpur</option>
+                                <option value="South Salmara-Mankachar">South Salmara-Mankachar</option>
+                                <option value="Tinsukia">Tinsukia</option>
+                                <option value="Udalguri">Udalguri</option>
+                                <option value="West Karbi Anglong">West Karbi Anglong</option>
 
                             </select>
                             <div className="absolute inset-y-0 right-0 mt-1  pointer-events-none">
