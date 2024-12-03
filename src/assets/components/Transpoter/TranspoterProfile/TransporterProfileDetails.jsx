@@ -63,13 +63,20 @@ const TransporterProfileDetails = () => {
                                     </div>
                                     <div className="w-full h-10  mt-2 flex justify-between items-center">
                                         <div className="w-5/12 h-8 ">
-                                            <h1 className='font-inter text-sm ml-3 text-[#6B7280]'>City</h1>
+                                            <h1 className='font-inter text-sm ml-3 text-[#6B7280]'>District</h1>
                                         </div>
                                         <div className="w-5/12 h-8  flex justify-center ">
 
                                             <h1 className='font-inter text-sm ml-3 text-blaci'>Abcd</h1></div>
                                     </div>
-                                    
+                                    <div className="w-full h-10  mt-2 flex justify-between items-center">
+                                        <div className="w-5/12 h-8 ">
+                                            <h1 className='font-inter text-sm ml-3 text-[#6B7280]'>State</h1>
+                                        </div>
+                                        <div className="w-5/12 h-8  flex justify-center ">
+
+                                            <h1 className='font-inter text-sm ml-3 text-blaci'>Abcd</h1></div>
+                                    </div>
                                     
 
 
