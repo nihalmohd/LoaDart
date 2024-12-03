@@ -3,7 +3,7 @@ import React from 'react'
 const EditProfile = () => {
     return (
         <div className="w-11/12 h-auto  flex justify-center">
-            <div className="w-11/12 h-96  mt-3 pt-2 pl-3  border border-black ">
+            <div className="w-11/12 h-96  mt-3 md:pt-2 md:pl-3 p-4   border border-black ">
 
                 <div className="w-full h-10 flex-col items-end">
                     <h1 className="font-inter font-semibold text-[#5B297E] text-lg mt-3  ">Basic Details</h1>
@@ -14,7 +14,7 @@ const EditProfile = () => {
                     <input
                         type="text"
                         placeholder="abcd"
-                        className="w-1/2 h-10 border-b border-gray-300 outline-none placeholder:text-black"
+                        className="md:w-1/2 h-10 border-b border-gray-300 outline-none placeholder:text-black"
                     />
                 </div>
                 <div className="flex flex-col mt-3">
@@ -22,7 +22,7 @@ const EditProfile = () => {
                     <input
                         type="text"
                         placeholder="abcd"
-                        className="w-1/2 h-10 border-b border-gray-300 outline-none placeholder:text-black"
+                        className="md:w-1/2 h-10 border-b border-gray-300 outline-none placeholder:text-black"
                     />
                 </div>
                 <div className="flex flex-col mt-3">
@@ -30,10 +30,10 @@ const EditProfile = () => {
                     <input
                         type="text"
                         placeholder="abcd"
-                        className="w-1/2 h-10 border-b border-gray-300 outline-none placeholder:text-black"
+                        className="md:w-1/2 h-10 border-b border-gray-300 outline-none placeholder:text-black"
                     />
                 </div>
-                <div className="w-1/2  mt-3  ">
+                <div className="md:w-1/2  mt-3  ">
                     <div className="w-full h-6 ">
                         <h1 className='font-inter text-xs  text-[#6B7280]'>State</h1>
                     </div>
