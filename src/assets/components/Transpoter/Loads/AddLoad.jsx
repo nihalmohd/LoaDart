@@ -11,14 +11,14 @@ const AddLoad = () => {
     const navigate = useNavigate()
   return (
     <div className='w-full '>
-       <div className="w-11/12 h-full ">
+       <div className="w-11/12 h-auto ">
         <div className="w-full  h-16 p-3 ">
           <div className="w-full h-10 flex justify-between items-end ml-4">
             <h1 className="font-inter font-semibold text-[#5B297E] text-lg mt-5">Add Load</h1>
             <button className="w-28 h-6 bg-[#5B297E] flex justify-center items-center gap-1 rounded-sm text-white text-xs mb-2"onClick={()=>{navigate('/Transpoter/YourLoads')}}><IoCubeOutline className='font-semibold'/>Your Loads</button>
           </div>
         </div>
-      <div className="w-full h-screen  p-2">
+      <div className="w-full h-auto  pl-8 md:p-2 mb-10">
         <div className="w-full h-full  border border-black rounded-sm">
         <div className="w-full  p-4 space-y-4 ">
         <div className="w-full h-20 grid grid-cols-2 gap-10">
