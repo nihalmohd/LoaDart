@@ -17,7 +17,7 @@ const AddTruck = () => {
             <button className="w-28 h-6 bg-[#5B297E] flex justify-center items-center gap-1 rounded-sm text-white text-xs mb-2" onClick={()=>{navigate('/Transpoter/YourTruck')}}><IoCubeOutline className='font-semibold'/>Your Trucks</button>
           </div>
         </div>
-      <div className="w-full h-screen  p-2">
+      <div className="w-full h-auto  pl-8 md:p-2 mb-10">
         <div className="w-full h-full  border border-black rounded-sm">
         <div className="w-full  p-4 space-y-4 ">
         <div className="w-full h-20 grid grid-cols-2 gap-10">
