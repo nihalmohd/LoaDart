@@ -70,6 +70,7 @@ const TransporterProfileDetails = () => {
                                             <h1 className='font-inter text-sm ml-3 text-blaci'>Abcd</h1></div>
                                     </div>
                                     
+                                    
 
 
                                 </div>
