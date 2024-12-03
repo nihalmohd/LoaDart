@@ -3,6 +3,8 @@ import { IoPencilSharp } from "react-icons/io5";
 import { TbEyeFilled } from "react-icons/tb";
 import { GoDownload } from "react-icons/go";
 import { useNavigate } from 'react-router-dom';
+import { LuPhone } from "react-icons/lu"; 
+import { MdOutlineMailOutline } from "react-icons/md";
 
 const TransporterProfileDetails = () => {
     const navigate  = useNavigate()
@@ -21,12 +23,13 @@ const TransporterProfileDetails = () => {
                                 </div>
                             </div>
                             <div className=" w-5/12 md:w-4/12 h-full  flex justify-center items-center ml-2 md:ml-0">
-                                <div className="w-full h-16 ">
+                                <div className="w-full h-24 ">
                                     <div className="w-full h-8 ">
-                                        <h1 className='font-inter font-semibold text-base text-black'>John Newman</h1>
+                                        <h1 className='font-inter font-semibold text-lg text-black'>John Newman</h1>
                                     </div>
                                     <div className="font-inter text-base   text-[#6B7280]">
-                                        <h1>987654321</h1>
+                                        <h1 className='flex gap-2 items-center'> <LuPhone />987654321</h1>
+                                        <h1 className='flex gap-2 items-center' ><MdOutlineMailOutline />test@123.com</h1>
                                     </div>
                                 </div>
                             </div>
@@ -110,8 +113,8 @@ const TransporterProfileDetails = () => {
                                         <div className="w-5/12 h-8 ">
                                             <h1 className='font-inter text-sm ml-3 text-[#6B7280]'>Business Registration</h1>
                                         </div>
-                                        <div className="w-5/12 h-8  flex justify-center ">
-                                            <div className="w-4/12 h-8  flex  justify-between ">
+                                        <div className="w-5/12 h-8  flex justify-center  ">
+                                            <div className="w-3/12 h-8  flex  justify-between ">
                                                 <div className="w-5 h-5 bg-[#5B297E] mt-2 flex justify-center items-center text-white rounded-sm shadow mr-2 md:mr-0"><TbEyeFilled /></div>
                                                 <div className="w-5 h-5 bg-[#5B297E] mt-2 flex justify-center items-center text-white rounded-sm shadow"><GoDownload /></div>
                                             </div>
@@ -122,7 +125,7 @@ const TransporterProfileDetails = () => {
                                             <h1 className='font-inter text-sm ml-3 text-[#6B7280]'>GST Certificate</h1>
                                         </div>
                                         <div className="w-5/12 h-8  flex justify-center ">
-                                            <div className="w-4/12 h-8 flex justify-between ">
+                                            <div className="w-3/12 h-8 flex justify-between ">
                                                 <div className="w-5 h-5 bg-[#5B297E] mt-2 flex justify-center items-center text-white rounded-sm shadow mr-2 md:mr-0"><TbEyeFilled /></div>
                                                 <div className="w-5 h-5 bg-[#5B297E] mt-2 flex justify-center items-center text-white rounded-sm shadow"><GoDownload /></div>
                                             </div>
