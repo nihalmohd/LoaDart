@@ -15,6 +15,10 @@ import Feedback from '../components/Broker/Feedback/Feedback';
 import View from '../components/Broker/Schedule/View';
 import YourLoads from '../components/Broker/Loads/YourLoads';
 import YourTruck from '../components/Broker/Trucks/YourTruck';
+import EditProfile from '../components/Broker/BrokerProfile/EditProfile';
+import AddLoad from '../components/Broker/Loads/AddLoad';
+import AddTruck from '../components/Broker/Trucks/AddTruck';
+import PostTruck from '../components/Broker/Trucks/PostTruck';
 
 const BrokerSide = () => {
   return (
@@ -35,6 +39,10 @@ const BrokerSide = () => {
           <Route path="Help" element={<Help />} />
           <Route path="Feedback" element={<Feedback />} />
           <Route path="View" element={<View/>} />
+          <Route path="EditProfile" element={<EditProfile/>} />
+          <Route path="AddLoad" element={<AddLoad/>} />
+          <Route path="AddTruck" element={<AddTruck/>} />
+          <Route path="PostTruck" element={<PostTruck/>} />
         </Routes>
       </div>
     </div>

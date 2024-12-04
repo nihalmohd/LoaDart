@@ -45,7 +45,7 @@ const TransporterProfileDetails = () => {
                         <div className="w-full h-full flex">
                             <div className="w-6/12 h-full  ">
                                 <div className="w-full h-10">
-                                    <h1 className="font-inter font-semibold text-[#5B297E] ml-5 pt-2 ">Basic Details</h1>
+                                    <h1 className="font-inter font-semibold text-[#5B297E] p-3 ">Basic Details</h1>
                                 </div>
                                 <div className="w-full h-4/6 ">
                                     <div className="w-full h-10  mt-2 flex justify-between items-center">
@@ -98,7 +98,7 @@ const TransporterProfileDetails = () => {
                         <div className="w-full h-full flex">
                             <div className="w-6/12 h-full  ">
                                 <div className="w-full h-10 ">
-                                    <h1 className="font-inter font-semibold text-[#5B297E] ml-5 pt-2 ">Documents</h1>
+                                    <h1 className="font-inter font-semibold text-[#5B297E] p-3 ">Documents</h1>
                                 </div>
                                 <div className="w-full h-full ">
                                     <div className="w-full h-10  mt-2 flex justify-between items-center">
