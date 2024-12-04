@@ -13,6 +13,9 @@ import UpgradeMembership from '../components/Driver/UpgradeMembership/UpgradeMem
 import Help from '../components/Driver/Help/Help';
 import Feedback from '../components/Driver/Feedback/Feedback';
 import View from '../components/Driver/Schedule/View';
+import PostTruck from '../components/Driver/Trucks/PostTruck';
+import EditProfile from '../components/Driver/DriverProfile/EditProfile';
+import AddTruck from '../components/Driver/Trucks/AddTruck';
 
 const DriverSide = () => {
   return (
@@ -31,6 +34,9 @@ const DriverSide = () => {
      <Route path="Help" element={<Help/>} />
      <Route path="Feedback" element={<Feedback/>} />
      <Route path="View" element={<View/>} />
+     <Route path="EditProfile" element={<EditProfile/>} />
+     <Route path="AddTruck" element={<AddTruck/>} />
+     <Route path="PostTruck" element={<PostTruck/>} />
      </Routes>
 
      </div>

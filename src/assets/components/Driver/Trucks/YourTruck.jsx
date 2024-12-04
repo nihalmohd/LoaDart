@@ -1,19 +1,18 @@
 import React from 'react'
 import { FaPlus } from "react-icons/fa6";
-
-import { MdCalendarToday } from "react-icons/md";
 import { FaMapMarkerAlt, FaStar } from 'react-icons/fa';
-import { FaPhoneAlt } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 
 const YourTruck = () => {
+    const navigate = useNavigate()
   return (
     <div>
         <div className="w-full h-16  flex items-center ">
                   <div className="w-11/12  h-10 ">
                       <div className="w-full h-10 flex justify-between items-end ml-4">
                           <h1 className="font-inter font-semibold text-[#5B297E] text-lg mt-5">Your Truck</h1>
-                          <button className="w-28 h-6 bg-[#5B297E] flex justify-center items-center rounded-sm text-white text-xs mb-2"><FaPlus />Add Truck</button>
+                          <button className="w-28 h-6 bg-[#5B297E] flex justify-center items-center rounded-sm text-white text-xs mb-2" onClick={()=>{navigate('/Driver/AddTruck')}}><FaPlus />Add Truck</button>
                       </div>
                   </div>
           </div>
@@ -64,8 +63,8 @@ const YourTruck = () => {
                   </div>
                   <div className="w-full h-[50px] bg-[#D9D9D9] rounded-b-md  ">
                       <div className="w-full h-full  rounded-b-md flex">
-                      <div className="w-[120px] h-8 bg-white mt-3 ml-4  flex border border-[#5B297E] justify-center items-center font-inter text-sm text-[#5B297E] rounded-sm shadow   "> Post Truck  </div>
-                      <div className="w-[120px] h-8 bg-[#5B297E] mt-3 ml-3 flex  justify-center items-center font-inter text-sm text-white rounded-sm shadow "> Find Load</div>
+                      <div className="w-[120px] h-8 bg-white mt-3 ml-4  flex border border-[#5B297E] justify-center items-center font-inter text-sm text-[#5B297E] rounded-sm shadow hover:cursor-pointer " onClick={()=>{navigate('/Driver/PostTruck')}}> Post Truck  </div>
+                      <div className="w-[120px] h-8 bg-[#5B297E] mt-3 ml-3 flex  justify-center items-center font-inter text-sm text-white rounded-sm shadow hover:cursor-pointer " onClick={()=>{navigate('/Driver/Loads')}}> Find Load</div>
                       </div>
                   </div>
               </div>
