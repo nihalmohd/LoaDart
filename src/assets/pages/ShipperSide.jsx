@@ -14,6 +14,8 @@ import UpgradeMembership from '../components/Shipper/UpgradeMembership/UpgradeMe
 import Help from '../components/Shipper/Help/Help';
 import Feedback from '../components/Shipper/Feedback/Feedback';
 import View from '../components/Shipper/Schedule/View';
+import EditProfile from '../components/Shipper/ShipperProfile/EditProfile';
+import AddLoad from '../components/Shipper/Loads/AddLoad';
 
 
 const ShipperSide = () => {
@@ -35,6 +37,8 @@ const ShipperSide = () => {
      <Route path="Help" element={<Help/>} />
      <Route path="Feedback" element={<Feedback/>} />
      <Route path="View" element={<View/>} />
+     <Route path="EditProfile" element={<EditProfile/>} />
+     <Route path="AddLoad" element={<AddLoad/>} />
      </Routes>
 
      </div>

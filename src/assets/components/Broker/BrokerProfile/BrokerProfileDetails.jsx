@@ -24,7 +24,7 @@ const BrokerProfileDetails = () => {
                       <div className=" w-5/12 md:w-4/12 h-full  flex justify-center items-center ml-2 md:ml-0">
                           <div className="w-full h-20 ">
                               <div className="w-full h-8 ">
-                                  <h1 className='font-inter font-semibold text-base text-black'>John Newman</h1>
+                                  <h1 className='font-inter font-semibold text-base text-black'>Stephen Hills</h1>
                               </div>
                               <div className="font-inter text-base   text-[#6B7280]">
                                         <h1 className='flex gap-2 items-center'> <LuPhone />987654321</h1>
