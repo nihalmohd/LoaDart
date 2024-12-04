@@ -61,7 +61,7 @@ const AddTruck = () => {
       <div className="w-full h-auto  pl-8 md:p-2 mb-10">
         <div className="w-full h-full  border border-black rounded-sm">
         <div className="w-full  p-4 space-y-4 ">
-        <div className="w-8/12 h-28 ">
+        <div className="md:w-8/12 h-28 ">
 
           <div className=" flex flex-col">
             <label className="text-xs font-medium text-gray-400 mb-1">Resgister Number<span className='text-red-600'>*</span></label>
@@ -126,7 +126,7 @@ const AddTruck = () => {
             </div>
           </div>
         </div>
-        <div className="w-8/12 h-32  ">
+        <div className="md:w-8/12 h-32  ">
 
         
 
@@ -226,7 +226,7 @@ const AddTruck = () => {
           
         </div>
         <label className="text-xs font-medium  mb-2">Prefered Locations<span className='text-red-600'>*</span></label>
-          <div className="w-8/12 h-auto  border-b border-gray-300 flex justify-between gap-1 p-1">
+          <div className="md:w-8/12 h-auto  border-b border-gray-300 flex justify-between gap-1 p-1">
             <div className="w-11/12 h-10  overflow-x-auto grid grid-flow-col gap-2">
             <div className="w-auto h-full bg-[#F5F4F4] border border-[#5B297E] rounded-full flex justify-center items-center gap-1">
               <div className="w-auto h-6 flex justify-center items-center ">
@@ -260,7 +260,7 @@ const AddTruck = () => {
           
           </div>
 
-          <button className='w-2/12  h-10 mt-3 md:mt-0  border border-[#5B297E] text-white bg-[#5B297E] rounded-sm font-inter flex justify-center items-center text-sm   shadow-md'>Proceed</button>
+          <button className=' w-4/12 md:w-2/12  h-10 mt-3 md:mt-0  border border-[#5B297E] text-white bg-[#5B297E] rounded-sm font-inter flex justify-center items-center text-sm   shadow-md'>Proceed</button>
 
       </div>
         </div>

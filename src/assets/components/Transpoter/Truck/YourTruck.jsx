@@ -66,7 +66,7 @@ const YourTruck = () => {
                   </div>
                   <div className="w-full h-[50px] bg-[#D9D9D9] rounded-b-md  ">
                       <div className="w-full h-full  rounded-b-md flex">
-                      <div className="w-[120px] h-8 bg-white mt-3 ml-4  flex border border-[#5B297E] justify-center items-center font-inter text-sm text-[#5B297E] rounded-sm shadow   "> Post Truck  </div>
+                      <div className="w-[120px] h-8 bg-white mt-3 ml-4  flex border border-[#5B297E] justify-center items-center font-inter text-sm text-[#5B297E] rounded-sm shadow " onClick={()=>{navigate('/Transpoter/PostTruck')}}> Post Truck  </div>
                       <div className="w-[120px] h-8 bg-[#5B297E] mt-3 ml-3 flex  justify-center items-center font-inter text-sm text-white rounded-sm shadow "> Find Load</div>
                       </div>
                   </div>
