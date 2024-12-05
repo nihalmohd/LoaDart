@@ -16,6 +16,7 @@ import View from '../components/Driver/Schedule/View';
 import PostTruck from '../components/Driver/Trucks/PostTruck';
 import EditProfile from '../components/Driver/DriverProfile/EditProfile';
 import AddTruck from '../components/Driver/Trucks/AddTruck';
+import EditDocuments from '../components/Driver/DriverProfile/EditDocuments';
 
 const DriverSide = () => {
   return (
@@ -37,6 +38,7 @@ const DriverSide = () => {
      <Route path="EditProfile" element={<EditProfile/>} />
      <Route path="AddTruck" element={<AddTruck/>} />
      <Route path="PostTruck" element={<PostTruck/>} />
+     <Route path="EditDocuments" element={<EditDocuments/>} />
      </Routes>
 
      </div>

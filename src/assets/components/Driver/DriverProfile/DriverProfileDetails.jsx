@@ -141,7 +141,7 @@ const DriverProfileDetails = () => {
                             </div>
                             <div className="w-6/12 h-full bg-yellow-5600">
                                 <div className="w-full h-20  flex justify-end items-center">
-                                    <button className='flex justify-center items-center font-inter text-white bg-[#5B297E] w-20 h-8 rounded-sm mr-6'><span className='mr-2'><IoPencilSharp /></span>Edit</button>
+                                    <button className='flex justify-center items-center font-inter text-white bg-[#5B297E] w-20 h-8 rounded-sm mr-6' onClick={()=>{navigate('/Driver/EditDocuments')}}><span className='mr-2'><IoPencilSharp /></span>Edit</button>
                                 </div>
                             </div>
 

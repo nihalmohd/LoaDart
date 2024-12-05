@@ -16,6 +16,7 @@ import Feedback from '../components/Shipper/Feedback/Feedback';
 import View from '../components/Shipper/Schedule/View';
 import EditProfile from '../components/Shipper/ShipperProfile/EditProfile';
 import AddLoad from '../components/Shipper/Loads/AddLoad';
+import EditDocuments from '../components/Shipper/ShipperProfile/EditDocuments';
 
 
 const ShipperSide = () => {
@@ -39,6 +40,7 @@ const ShipperSide = () => {
      <Route path="View" element={<View/>} />
      <Route path="EditProfile" element={<EditProfile/>} />
      <Route path="AddLoad" element={<AddLoad/>} />
+     <Route path="EditDocuments" element={<EditDocuments/>} />
      </Routes>
 
      </div>

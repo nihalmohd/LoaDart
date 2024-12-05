@@ -19,6 +19,7 @@ import EditProfile from '../components/Broker/BrokerProfile/EditProfile';
 import AddLoad from '../components/Broker/Loads/AddLoad';
 import AddTruck from '../components/Broker/Trucks/AddTruck';
 import PostTruck from '../components/Broker/Trucks/PostTruck';
+import EditDocuments from '../components/Broker/BrokerProfile/EditDocuments';
 
 const BrokerSide = () => {
   return (
@@ -43,6 +44,7 @@ const BrokerSide = () => {
           <Route path="AddLoad" element={<AddLoad/>} />
           <Route path="AddTruck" element={<AddTruck/>} />
           <Route path="PostTruck" element={<PostTruck/>} />
+          <Route path="EditDocuments" element={<EditDocuments/>} />
         </Routes>
       </div>
     </div>
