@@ -20,6 +20,7 @@ import EditProfile from '../components/Transpoter/TranspoterProfile/EditProfile'
 import AddLoad from '../components/Transpoter/Loads/AddLoad';
 import AddTruck from '../components/Transpoter/Truck/AddTruck';
 import PostTruck from '../components/Transpoter/Truck/PostTruck';
+import EditDocuments from '../components/Transpoter/TranspoterProfile/EditDocuments';
 
 
 const TranspoterSide = () => {
@@ -45,6 +46,7 @@ const TranspoterSide = () => {
         <Route path="AddLoad" element={<AddLoad/>} />
         <Route path="AddTruck" element={<AddTruck/>} />
         <Route path="PostTruck" element={<PostTruck/>} />
+        <Route path="EditDocuments" element={<EditDocuments/>} />
         </Routes>
       </div>
     </div>

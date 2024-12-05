@@ -221,7 +221,7 @@ const AddTruck = () => {
           </div>
           
         </div>
-        <label className="text-xs font-medium  mb-2">Prefered Locations<span className='text-red-600'>*</span></label>
+        <label className="text-xs text-gray-400 font-medium  mb-2">Prefered Locations<span className='text-red-600'>*</span></label>
           <div className="md:w-8/12 h-auto  border-b border-gray-300 flex justify-between gap-1 p-1">
             <div className="w-11/12 h-10  overflow-x-auto grid grid-flow-col gap-2">
             <div className="w-auto h-full bg-[#F5F4F4] border border-[#5B297E] rounded-full flex justify-center items-center gap-1">
