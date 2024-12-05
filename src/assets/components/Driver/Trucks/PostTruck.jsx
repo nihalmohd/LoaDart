@@ -88,7 +88,7 @@ const PostTruck = () => {
                 </div>
               </div>
 
-              <label className="text-xs font-medium text-gray-400 mb-2">Comments<span className='text-red-600'>*</span></label>
+              <label className="text-xs font-medium text-gray-400 mb-2">Comments</label>
               <textarea name="" id="" className='w-full h-32 rounded-md border border-black bg-[#F5F4F4] text-sm text-gray-600 font-inter px-2 '>Type your comments or instructions here...</textarea>
 
               <button className='w-2/12  h-10 mt-3 md:mt-0  border border-[#5B297E] text-white bg-[#5B297E] rounded-sm font-inter flex justify-center items-center text-sm   shadow-md'>Proceed</button>
