@@ -109,29 +109,29 @@ const SearchTruck = () => {
         </div>
         <div className="w-full h-16 grid md:grid-cols-3 grid-cols-2  gap-20">
 
-          <div className="flex flex-col">
-            <label className="text-xs font-medium text-gray-600 mb-2">
-              Weight<span className="text-red-600">*</span>
-            </label>
-            <select className="w-full h-10 border-b border-gray-300   text-black focus:outline-none">
-              <option value="">Select weight capacity</option>
-              <option value="Above 40 MT">Above 40 MT</option>
-              <option value="Above 30 MT">Above 30 MT</option>
-              <option value="Upto 28 MT">Upto 28 MT</option>
-              <option value="Upto 25 MT">Upto 25 MT</option>
-              <option value="Upto 20 MT">Upto 20 MT</option>
-              <option value="Upto 17 MT">Upto 17 MT</option>
-              <option value="Upto 15 MT">Upto 15 MT</option>
-              <option value="Upto 12 MT">Upto 12 MT</option>
-              <option value="Upto 9 MT">Upto 9 MT</option>
-              <option value="Upto 7 MT">Upto 7 MT</option>
-              <option value="Upto 5 MT">Upto 5 MT</option>
-              <option value="Upto 3 MT">Upto 3 MT</option>
-              <option value="Upto 1 MT">Upto 1 MT</option>
-              <option value="Below 1 MT">Below 1 MT</option>
+                        <div className="flex flex-col">
+                            <label className="text-xs font-medium text-gray-600 mb-2">
+                                Weight<span className="text-red-600">*</span>
+                            </label>
+                            <select className="w-full h-10 border-b border-gray-300   text-black focus:outline-none">
+                                <option value="">Select weight capacity</option>
+                                <option value="Above 40 MT">Above 40 MT</option>
+                                <option value="Above 30 MT">Above 30 MT</option>
+                                <option value="Upto 28 MT">Upto 28 MT</option>
+                                <option value="Upto 25 MT">Upto 25 MT</option>
+                                <option value="Upto 20 MT">Upto 20 MT</option>
+                                <option value="Upto 17 MT">Upto 17 MT</option>
+                                <option value="Upto 15 MT">Upto 15 MT</option>
+                                <option value="Upto 12 MT">Upto 12 MT</option>
+                                <option value="Upto 9 MT">Upto 9 MT</option>
+                                <option value="Upto 7 MT">Upto 7 MT</option>
+                                <option value="Upto 5 MT">Upto 5 MT</option>
+                                <option value="Upto 3 MT">Upto 3 MT</option>
+                                <option value="Upto 1 MT">Upto 1 MT</option>
+                                <option value="Below 1 MT">Below 1 MT</option>
 
-            </select>
-          </div>
+                            </select>
+                        </div>
           <div className="flex flex-col relative">
             <label className="text-xs font-medium text-gray-600 mb-2">
               Preferred Truck Types<span className="text-red-600">*</span>
