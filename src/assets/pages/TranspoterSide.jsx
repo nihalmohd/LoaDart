@@ -47,7 +47,7 @@ const TranspoterSide = () => {
         <Route path="AddTruck" element={<AddTruck/>} />
         <Route path="PostTruck" element={<PostTruck/>} />
         <Route path="EditDocuments" element={<EditDocuments/>} />
-        <Route path="EditDocuments" element={<EditDocuments/>} />
+        {/* <Route path="EditDocuments" element={<EditDocuments/>} /> */}
         </Routes>
       </div>
     </div>
