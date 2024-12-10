@@ -56,7 +56,7 @@ const EditDocuments = () => {
                             <div className="md:w-8/12 h-28 ">
 
                                 <div className=" flex flex-col">
-                                    <label className="text-xs font-medium text-gray-400 mb-1">GSTN<span className='text-red-600'>*</span></label>
+                                    <label className="text-xs font-medium text-gray-400 mb-1">GSTN</label>
                                     <input
                                         type="text"
                                         placeholder="abcd"
@@ -104,7 +104,8 @@ const EditDocuments = () => {
                                     htmlFor="lorry-receipt"
                                     className="block text-gray-400 text-xs font-medium ml-1 mb-2 mt-3"
                                 >
-                                    GST Certificate<span className="text-red-500">*</span>
+                                    GST Certificate
+                                    {/* <span className="text-red-500">*</span> */}
                                 </label>
 
                                 <div className="flex md:w-8/12 items-center justify-end border-b border-gray-300 mb-4">
