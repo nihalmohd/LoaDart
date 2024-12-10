@@ -43,7 +43,7 @@ const DataTracking = () => {
                       </div>
                   </div>
                   <div className="w-full h-12  flex justify-center items-center">
-                      <button className='w-5/12 h-8 bg-white text-sm text-[#EF845C] font-inter font-semibold rounded-full p-2'>Upgrade now</button>
+                      <button className='w-5/12 h-8 bg-white text-sm text-[#EF845C] font-inter font-semibold rounded-full p-2' onClick={()=>{navigate("/Transpoter/UpgradeMembership")}}>Upgrade now</button>
                   </div>
               </div>
           </div>
