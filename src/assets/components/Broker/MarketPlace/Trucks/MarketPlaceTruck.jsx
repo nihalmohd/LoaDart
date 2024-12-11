@@ -22,7 +22,7 @@ const MarketPlaceTruck = () => {
 
         {/* Delivery Location */}
         <div className="flex flex-col">
-          <label className="text-xs font-medium text-gray-400 mb-1">Delivery Location<span className='text-red-600'>*</span></label>
+          <label className="text-xs font-medium text-gray-400 mb-1">Delivery Location<span className='text-red-600'></span></label>
           <input
             type="text"
             placeholder="Kozhikode"

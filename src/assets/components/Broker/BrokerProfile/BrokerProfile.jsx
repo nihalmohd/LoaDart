@@ -49,7 +49,7 @@ const BrokerProfile = () => {
                           </div>
                           <div className="w-full h-full border-b border-[#D9D9D9] ">
                               <div className="  flex items-center ">
-                                  <h1 className='text-[10px] font-inter text-[#6B7280] '>Land Phone Number<span className='text-red-400'>*</span></h1>
+                                  <h1 className='text-[10px] font-inter text-[#6B7280] '>Land Phone Number<span className='text-red-400'></span></h1>
 
                               </div>
                             <div >
