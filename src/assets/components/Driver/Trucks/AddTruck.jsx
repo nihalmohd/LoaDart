@@ -63,7 +63,7 @@ const AddTruck = () => {
             <label className="text-xs font-medium text-gray-400 mb-1">Resgister Number<span className='text-red-600'>*</span></label>
             <input
               type="text"
-              placeholder="Ernakulam"
+              placeholder="KL07AX0000"
               className="w-full h-10 border-b border-gray-300 outline-none placeholder:text-black"
             />
           </div>
