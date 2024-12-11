@@ -3,10 +3,10 @@ import React from 'react'
 const EditProfile = () => {
     return (
         <div className="w-11/12 h-auto  flex justify-center">
-            <div className="w-11/12 h-96  mt-3 md:pt-2 md:pl-3 p-4   border border-black ">
+            <div className="w-11/12 h-auto  mt-3 md:pt-2 md:pl-3 p-4   border border-black ">
 
                 <div className="w-full h-10 flex-col items-end">
-                    <h1 className="font-inter font-semibold text-[#5B297E] text-lg mt-3  ">Basic Details</h1>
+                    <h1 className="font-inter font-semibold text-[#5B297E] text-lg mt-3  ">Basic Adderess Details</h1>
                 </div>
 
                 <div className="flex flex-col mt-2">
