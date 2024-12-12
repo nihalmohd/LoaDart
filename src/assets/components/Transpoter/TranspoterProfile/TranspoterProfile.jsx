@@ -22,7 +22,7 @@ const TranspoterProfile = () => {
                           <div className="w-full h-64  grid grid-row-4 gap-1 mt-4 p-2">
                             <div className="w-full h-full border-b border-[#D9D9D9] ">
                                 <div className="  flex items-center ">
-                                    <h1 className='text-[10px] font-inter text-[#6B7280] '>Name </h1>
+                                    <h1 className='text-[10px] font-inter text-[#6B7280] '>Name <span className='text-red-400'>*</span> </h1>
 
                                 </div>
                                 <div >
