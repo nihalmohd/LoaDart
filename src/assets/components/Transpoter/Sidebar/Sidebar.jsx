@@ -10,6 +10,7 @@ import { RxUpdate } from "react-icons/rx";
 import { MdOutlineRoute } from "react-icons/md";
 import { IoMdMenu } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa";
+import { GiAchievement } from 'react-icons/gi';
 
 
 function Sidebar() {
@@ -33,6 +34,7 @@ function Sidebar() {
         Trucks: '/Transpoter/Trucks',
         YourTruck: '/Transpoter/YourTruck',
         UpgradeMembership: '/Transpoter/UpgradeMembership',
+        Achivments: '/Transpoter/Achievments',
         Help: '/Transpoter/Help',
         Feedback: '/Transpoter/Feedback',
         Logout: '/Transpoter/Logout',
@@ -230,6 +232,16 @@ function Sidebar() {
                         <RxUpdate />
                     </div>
                     <span className=' font-inter font-semibold text-sm'>Upgrade Membership</span>
+                </a>
+                <a
+                    href="#"
+                    onClick={() => handleMenuItemClick('Achivments')}
+                    className={`flex items-center space-x-2 ${activeItem === 'UpgradeMembership' ? 'text-[#5B297E]' : 'text-gray-700'} hover:text-[#5B297E]`}
+                >
+                    <div className="p-2">
+                    <GiAchievement />
+                    </div>
+                    <span className=' font-inter font-semibold text-sm'>Achievments</span>
                 </a>
 
                 <a
