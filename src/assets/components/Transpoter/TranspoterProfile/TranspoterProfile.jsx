@@ -13,7 +13,7 @@ const TranspoterProfile = () => {
 
   const [errors, setErrors] = useState({});
 
-  const namePattern = /^[A-Z][a-zA-Z]{0,9}$/;
+  const namePattern = /^[A-Z][a-zA-Z ]{0,14}$/;
   const companyNamePattern = /^[A-Z][a-zA-Z. ]*$/;
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const phonePattern = /^[0-9]{6,15}$/; 
@@ -29,7 +29,7 @@ const TranspoterProfile = () => {
       } else if (!namePattern.test(value)) {
         setErrors((prev) => ({
           ...prev,
-          name: 'Must start with an uppercase letter and be up to 10 characters',
+          name: 'Must start with an uppercase letter and be up to 15 characters',
         }));
       } else {
         setErrors((prev) => ({ ...prev, name: '' }));
@@ -100,18 +100,18 @@ const TranspoterProfile = () => {
       
       <div className="w-full md:h-screen bg-[#000000BF] flex justify-center items-center">
 
-        <div className=" w-full h-full md:w-[550px] md:h-[320px] md:flex rounded-md">
-          <div className="md:w-1/2 h-full bg-[#5B297E] flex justify-center items-center rounded-s-md ">
-            <div className="md:w-5/6  md:h-36 flex justify-center items-center ">
+        <div className=" w-full h-full md:w-[550px] md:h-auto md:flex rounded-md">
+          <div className="md:w-1/2 h-auto bg-[#5B297E] flex justify-center items-center rounded-s-md ">
+            <div className="md:w-5/6  md:h-full flex justify-center items-center ">
               <img src="\images\76821fd48380d92216f8bb5fbebfc5c6.gif" className='w-full h-full object-cover' alt="" />
             </div>
           </div>
-          <div className="md:w-1/2 md:h-full bg-white rounded-e-md  p-3" >
+          <div className="md:w-1/2 md:h-auto bg-white rounded-e-md  p-3" >
             <div className="w-full h-full ">
               <div className="w-full h-6  border-b-2 border-[#5B297E]   pl-1 ">
                 <h1 className='font-inter text-[15px] font-semibold text-[purple]'>Let’s finish setting up your profile</h1>
               </div>
-              <div className="w-full h-64 grid grid-row-4 gap-1 mt-4 p-2">
+              <div className="w-full h-auto grid grid-row-4 gap-1 mt-4 p-2">
                 <div className="w-full h-full border-b border-[#D9D9D9]">
                   <div className="flex items-center">
                     <h1 className="text-[10px] font-inter text-[#6B7280]">
