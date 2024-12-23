@@ -131,7 +131,7 @@ const EditProfile = () => {
                     </div>
                 </div>
 
-
+                <button className=' w-4/12 md:w-2/12  h-10  md:mt-3  border border-[#5B297E] text-white bg-[#5B297E] rounded-sm font-inter flex justify-center items-center text-sm   shadow-md'>Proceed</button>
             </div>
 
         </div>
