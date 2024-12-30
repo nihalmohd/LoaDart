@@ -9,7 +9,7 @@ AxiosInstance.interceptors.response.use(
     async error => {
         if (error.response.status === 403) {
             try {
-                await axios.post(`${import.meta.env.VITE_BASE_URL}Transpoter/Refresh`);
+                await axios.get(`${import.meta.env.VITE_BASE_URL}Transpoter/Refresh`);
                 return axios(error.config);
             } catch (refreshError) {
                 console.error('Token refresh failed:', refreshError.response.data);
