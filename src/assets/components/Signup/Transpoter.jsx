@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const Transpoter = () => {
      const navigate = useNavigate()
@@ -8,20 +9,33 @@ const Transpoter = () => {
     const [otp, setOtp] = useState(new Array(4).fill(""));
     const [error, setError] = useState('');
 
-    const receivedOTP="1234"
+    
 
-    const handleSubmit = () => {
-        setError('');
+    const handleSubmit = async () => {
+        setError(''); 
+      
         if (!/^\d{10}$/.test(Mobilenumber)) {
           setError('Please enter a valid 10-digit mobile number.');
-        } else {
-            setIsproceeded(!IsProceeded);
+          return;
+        }
+      
+        try {  
+          const sendOTP = await axios.post("http://localhost:5000/Transpoter/send-otp", {transporters_mob: Mobilenumber});
+          console.log("OTP sent successfully:", sendOTP.data);
+           if(sendOTP.data){
+               setIsproceeded(!IsProceeded);
+           }
+        } catch (error) {
+
+          console.error("Error sending OTP:", error);
+          setError("Failed to send OTP. Please try again.",error);
         }
       };
-    const hanndleChangeMobilen = (e)=>{
-       setMobileNumber(e.target.value)
-       setError("")
-    }
+      const hanndleChangeMobilen = (e) => {
+        setMobileNumber(e.target.value);
+        setError(""); 
+      };
+      
 
     const handleChange = (element, index) => {
         const value = element.value.replace(/[^0-9]/g, '');
@@ -36,26 +50,32 @@ const Transpoter = () => {
             element.nextSibling.focus();
         }
     };
-    const handleProceed = () => {
+    const handleProceed = async()=> {
         if (otp.some((digit) => digit === "")) {
             setError("All fields are required.");
             return;
           }
         const enteredOTP = otp.join("");
         console.log(enteredOTP,"this is entered otp" );
-        console.log(receivedOTP,"this is recieved otp");
         
+        try { 
+            const receivedOTP= await axios.post("http://localhost:5000/Transpoter/Verify-otp",{transporters_mob:Mobilenumber,otp:enteredOTP})
+            if (receivedOTP.data) {
+                setError("");
+                navigate(`/Transpoter/UpdateProfile/${Mobilenumber}`);
+            } else {
+                
+                setError("OTP does not match. Please try again.");
+            } 
+        } catch (error) {
+            console.error("Error Verify OTP:", error);
+            setError("Failed to Verify OTP. Please try again.",error);
+        }
         
 
-        if (enteredOTP === receivedOTP) {
-            setError("");
-            navigate("/Transpoter/UpdateProfile");
-        } else {
-            
-            setError("OTP does not match. Please try again.");
-        }
+
     };
-    console.log(otp);
+    
 
     return (
         <div>

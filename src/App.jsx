@@ -16,13 +16,13 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Transpoter/*" element={<TranspoterSide />} />
-        <Route path="/Transpoter/UpdateProfile" element={<TranspoterProfile />} />
+        <Route path="/Transpoter/UpdateProfile/:mobileNumber" element={<TranspoterProfile />} />
         <Route path="/Broker/*" element={<BrokerSide />} />
-        <Route path="/Broker/UpdateProfile" element={<BrokerProfile/>} />
+        <Route path="/Broker/UpdateProfile/:mobileNumber" element={<BrokerProfile/>} />
         <Route path="/Shipper/*" element={<ShipperSide/>} />
-        <Route path="/Shipper/UpdateProfile" element={<ShipperProfile/>} />
+        <Route path="/Shipper/UpdateProfile/:mobileNumber" element={<ShipperProfile/>} />
         <Route path="/Driver/*" element={<DriverSide/>} />
-        <Route path="/Driver/UpdateProfile" element={<DriverProfile/>} />
+        <Route path="/Driver/UpdateProfile/:mobileNumber" element={<DriverProfile/>} />
       </Routes>
     </Router>
   );

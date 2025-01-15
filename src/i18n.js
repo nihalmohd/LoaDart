@@ -8,8 +8,7 @@ i18n
   .use(LanguageDetector) 
   .use(initReactI18next) 
   .init({
-    fallbackLng: 'en', 
-    debug: true, 
+    fallbackLng: 'en',  
     supportedLngs: ['en', 'hi', 'kn', 'te', 'ta', 'ml', 'bn'], 
     backend: {
       loadPath: '/locales/{{lng}}/translation.json', 

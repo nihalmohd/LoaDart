@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom';
+
 
 const TranspoterProfile = () => {
   const navigate = useNavigate();
+  const { mobileNumber } = useParams();
 
   const [formData, setFormData] = useState({
     name: "",
