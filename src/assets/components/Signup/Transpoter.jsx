@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { meta } from '@eslint/js'
 
 const Transpoter = () => {
      const navigate = useNavigate()
@@ -20,7 +21,7 @@ const Transpoter = () => {
         }
       
         try {  
-          const sendOTP = await axios.post("http://localhost:5000/Transpoter/send-otp", {transporters_mob: Mobilenumber});
+          const sendOTP = await axios.post(`${import.meta.env.VITE_BASE_URL}/Transpoter/send-otp`, {transporters_mob: Mobilenumber});
           console.log("OTP sent successfully:", sendOTP.data);
            if(sendOTP.data){
                setIsproceeded(!IsProceeded);
@@ -59,7 +60,7 @@ const Transpoter = () => {
         console.log(enteredOTP,"this is entered otp" );
         
         try { 
-            const receivedOTP= await axios.post("http://localhost:5000/Transpoter/Verify-otp",{transporters_mob:Mobilenumber,otp:enteredOTP})
+            const receivedOTP= await axios.post(`${import.meta.env.VITE_BASE_URL}/Transpoter/Verify-otp`,{transporters_mob:Mobilenumber,otp:enteredOTP})
             if (receivedOTP.data) {
                 setError("");
                 navigate(`/Transpoter/UpdateProfile/${Mobilenumber}`);
