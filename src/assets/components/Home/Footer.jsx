@@ -4,8 +4,8 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
 import { AiOutlineFacebook } from "react-icons/ai";
 import { AiOutlineInstagram } from "react-icons/ai";
-import { CiLinkedin } from "react-icons/ci";
-import { CiTwitter } from "react-icons/ci";
+import { CiLinkedin } from "react-icons/ci";  
+import { CiTwitter } from "react-icons/ci";  
 
 
 
