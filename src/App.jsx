@@ -9,12 +9,17 @@ import ShipperSide from './assets/pages/ShipperSide';
 import ShipperProfile from './assets/components/Shipper/ShipperProfile/ShipperProfile';
 import DriverProfile from './assets/components/Driver/DriverProfile/DriverProfile';
 import DriverSide from './assets/pages/DriverSide';
+import Transpoter from './assets/components/Signup/Transpoter';
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        {/* <Route path="/TransporterSignUp" element={<Transpoter/>} />
+        <Route path="/BrokerSignUp" element={<Home />} />
+        <Route path="/ShipperSignUp" element={<Home />} />
+        <Route path="/DriverSignUp" element={<Home />} /> */}
         <Route path="/Transpoter/*" element={<TranspoterSide />} />
         <Route path="/Transpoter/UpdateProfile/:mobileNumber" element={<TranspoterProfile />} />
         <Route path="/Broker/*" element={<BrokerSide />} />

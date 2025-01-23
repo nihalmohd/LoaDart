@@ -11,6 +11,8 @@ import { MdOutlineRoute } from "react-icons/md";
 import { IoMdMenu } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa";
 import { GiAchievement } from 'react-icons/gi';
+import { useDispatch } from 'react-redux';
+import { clearTransporterData } from '../../../Redux/TransporterSlice/TranporterSlice';
 
 
 function Sidebar() {
@@ -18,9 +20,10 @@ function Sidebar() {
     const [isProfilesOpen, setIsProfilesOpen] = useState(false);
     const [isTruck, setIsTruck] = useState(false);
     const [isLoad, setIsLoad] = useState(false);
-    const [activeItem, setActiveItem] = useState('');
+    const [activeItem, setActiveItem] = useState("Dashboard");
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const navigate = useNavigate()
+    const dispatch = useDispatch();
 
 
     const menuRoutes = {
@@ -44,6 +47,11 @@ function Sidebar() {
         setActiveItem(item);
         const route = menuRoutes[item]; 
         if (route) {
+            if(route =='/Transpoter/Logout'){
+               dispatch(clearTransporterData())
+               navigate("/")
+               return
+            }
             navigate(route);
         }
     };

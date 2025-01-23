@@ -1,18 +1,44 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import axios from 'axios';
+import React, { useState, useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { setTransporterData } from '../../../Redux/TransporterSlice/TranporterSlice';
 
 
 const TranspoterProfile = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { mobileNumber } = useParams();
+  const location = useLocation();
 
+  const transporterData = useSelector((state) => state.transporterData);
+  const { company, transporters_name, transporters_email, transporters_phone } = location.state || {};
+
+  useEffect(() => {
+    if (
+      transporterData.transporters_id &&
+      transporterData.transporters_name &&
+      transporterData.company &&
+      transporterData.transporters_email &&
+      transporterData.transporters_phone &&
+      transporterData.users_id &&
+      transporterData.users_name &&
+      transporterData.users_mobile &&
+      transporterData.user_types_id
+    ) {
+      navigate('/Transpoter'); 
+    }
+  }, [transporterData, navigate]);
+  
   const [formData, setFormData] = useState({
-    name: "",
-    companyName: "",
-    email: "",
-    landPhone: "",
+    name: transporters_name || "",
+    companyName: company || "",
+    email: transporters_email || "",
+    landPhone: transporters_phone || "",
   });
+
 
   const [errors, setErrors] = useState({});
 
@@ -65,7 +91,7 @@ const TranspoterProfile = () => {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit =async () => {
     const newErrors = {};
 
  
@@ -92,10 +118,44 @@ const TranspoterProfile = () => {
       newErrors.landPhone = 'Invalid phone number';
     }
 
-    setErrors(newErrors);
+      (newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      navigate('/Transpoter');
+      try {
+        const User = await axios.post(`${import.meta.env.VITE_BASE_URL}/Transpoter/Register`,
+           {
+            transporters_mob: mobileNumber,
+            transporters_name:formData.name,
+            company:formData.companyName,
+            transporters_email:formData.email,
+            transporters_phone:formData.landPhone
+          });
+          if (User.data) {
+            console.log(User.data,'is loging the User.data');
+            console.log(User.data.data,"is user.data.data is loging ");
+            
+            
+            alert("registraion complete",User.data.data.message)
+            dispatch(
+              setTransporterData({
+                transporters_id: User.data.data.transporters_id,
+                transporters_name: User.data.data.transporters_name,
+                company: User.data.data.company,
+                transporters_email: User.data.data.transporters_email,
+                transporters_phone: User.data.data.transporters_phone,
+                users_id: User.data.User.users_id,
+                users_name: User.data.User.users_name,
+                users_mobile: User.data.User.users_mobile,
+                user_types_id: User.data.User.user_types_id,
+              })
+            );
+            navigate('/Transpoter');
+          }
+      } catch (error) {
+        console.error("Registration failed:", error);
+        alert("Failed to send OTP. Please try again.",error);
+      }
+  
     }
   };
   return (

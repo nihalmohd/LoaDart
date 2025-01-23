@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { useSelector } from 'react-redux';
 import { meta } from '@eslint/js'
 
 const Transpoter = () => {
@@ -10,8 +11,24 @@ const Transpoter = () => {
     const [otp, setOtp] = useState(new Array(4).fill(""));
     const [error, setError] = useState('');
 
-    
+  const transporterData = useSelector((state) => state.transporterData);
 
+  useEffect(() => {
+    if (
+      transporterData.transporters_id &&
+      transporterData.transporters_name &&
+      transporterData.company &&
+      transporterData.transporters_email &&
+      transporterData.transporters_phone &&
+      transporterData.users_id &&
+      transporterData.users_name &&
+      transporterData.users_mobile &&
+      transporterData.user_types_id
+    ) {
+      navigate('/Transpoter'); 
+    }
+  }, [transporterData, navigate]);
+  
     const handleSubmit = async () => {
         setError(''); 
       
@@ -51,34 +68,46 @@ const Transpoter = () => {
             element.nextSibling.focus();
         }
     };
-    const handleProceed = async()=> {
+    const handleProceed = async () => {
         if (otp.some((digit) => digit === "")) {
-            setError("All fields are required.");
-            return;
-          }
-        const enteredOTP = otp.join("");
-        console.log(enteredOTP,"this is entered otp" );
-        
-        try { 
-            const receivedOTP= await axios.post(`${import.meta.env.VITE_BASE_URL}/Transpoter/Verify-otp`,{transporters_mob:Mobilenumber,otp:enteredOTP})
-            if (receivedOTP.data) {
-                setError("");
-                navigate(`/Transpoter/UpdateProfile/${Mobilenumber}`);
-            } else {
-                
-                setError("OTP does not match. Please try again.");
-            } 
-        } catch (error) {
-            console.error("Error Verify OTP:", error);
-            setError("Failed to Verify OTP. Please try again.",error);
+          setError("All fields are required.");
+          return;
         }
-        
-
-
-    };
+      
+        const enteredOTP = otp.join("");
+        console.log(enteredOTP, "this is entered otp");
+      
+        try {
+          const receivedOTP = await axios.post(
+            `${import.meta.env.VITE_BASE_URL}/Transpoter/Verify-otp`,
+            { transporters_mob: Mobilenumber, otp: enteredOTP }
+          );
+      
+          if (receivedOTP.data) {
+            console.log(receivedOTP.data.data);
+      
+            
+            const { company, transporters_name, transporters_email, transporters_phone } = receivedOTP.data.data;
+      
+            setError("");
+      
+            
+            navigate(`/Transpoter/UpdateProfile/${Mobilenumber}`, {
+              state: { company, transporters_name, transporters_email, transporters_phone },
+            });
+          } else {
+            setError("OTP does not match. Please try again.");
+          }
+        } catch (error) {
+          console.error("Error Verify OTP:", error);
+          setError("Failed to Verify OTP. Please try again.", error);
+        }
+      };
+      
     
 
     return (
+        
         <div>
             <div className="md:w-[520px] md:h-[320px] bg-white rounded-md md:flex relative z-50 overflow-hidden">
                 <div className="w-[272px] h-full rounded-s-md overflow-y-hidden">
