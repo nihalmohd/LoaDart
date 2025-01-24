@@ -1,11 +1,41 @@
-import React, { useState } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
 
 const MarketPlaceLoads = () => {
     const [numTrucks, setNumTrucks] = useState(2);
+    const [LoadData,setLoadData] = useState([])
+    const [message, setMessage] = useState('');
     const handleTruckChange = (value) => {
       setNumTrucks((prev) => Math.max(1, prev + value));
     };
+
+    useEffect(()=>{
+      BasicLoad()
+    },[])
+
+    const BasicLoad = async() =>{
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_BASE_URL}/Transpoter/getAllLoads?page=1&limit=10`
+        );
+    
+        
+        if (response.data?.data && response.data.data.length > 0) {
+          setLoadData(response.data.data); 
+          setMessage(''); 
+        } else {
+          setLoadData([]); 
+          setMessage('No load found'); 
+        }
+      } catch (error) {
+        console.error('Error fetching loads:', error);
+        setMessage('Failed to load data. Please try again.'); 
+      }
+      
+    }
+    console.log(LoadData);
+    
     
   return (
     <div>
@@ -224,333 +254,70 @@ const MarketPlaceLoads = () => {
 
       </div>
        <div className="w-full h-full  md:grid grid-cols-3 gap-4 relative pl-4 pt-2 mt-2 mb-10"  >
-      
-       <div className="w-full h-44 border border-black mt-5 rounded-lg shadow-md ">
-         <div className="w-full h-14  border-b border-[##BC89E0] ">
-           <div className="w-full h-full  flex">
 
-           <div className="w-1/2 h-full  ">
-               <div className="w-full h-7 flex items-end">
-              <h1 className='text-xs font-inter font-semibold ml-2'>Frozen Food</h1>
-
-               </div>
-               <div className="w-full h-5  flex items-center">
-              <h1 className='text-[10px] font-inter ml-2 font-bold'><span className='text-[#6B7280] font-normal'>wt</span >:4T</h1>
-
-               </div>
-           </div>
-               <div className="w-1/2 h-full flex justify-center items-end">
-               
-              <h1 className='text-[10px] font-inter ml-2'><span className='text-[#6B7280]'>Date :</span>18-10-2024</h1>
-
-              
-               </div>
-           </div>
-           <div className="w-full h-16  flex ">
-             <div className="w-1/12 h-full  flex justify-center items-center">
-               <div className="w-5 h-full  ">
-                 <div className="w-2 h-2 bg-green-400 rounded-full ml-2 mt-4"></div>
-                 <div className="w-1 h-5 border-dashed border-e ml-2"></div>
-                 <div className="w-2 h-2 bg-red-400 rounded-full ml-2"></div>
-               </div>
-             </div>
-             <div className="w-11/12 h-full ">
-                 <div className="w-full h-1/2  flex items-end">
-                   <h1 className='font-inter text-sm '>Ernakulam, Kerala</h1>
-                 </div>
-                 <div className="w-full h-1/2  flex items-center">
-                 <h1 className='font-inter text-sm '>Kozhikode, Kerala</h1>
-                 </div>
-             </div>
-           </div>
-           <div className="w-full h-[55px] bg-[#D9D9D9] rounded-b-md  ">
-             <div className="w-full h-full  rounded-b-md flex">
-             <div className="w-2/3 h-full     font-inter text-sm text-black rounded-sm   ">
-                 <div className="w-full h-1/2  flex  items-end">
-                       <h1 className='font-inter ml-3 font-semibold text-sm '>Owner Name</h1>
-                 </div>
-                 <div className="w-full h-1/2 ">
-                       <h1 className='font-inter ml-3  text-xs text-[#6B7280] '>Location</h1>
-                   </div>
+       {LoadData && LoadData.length > 0 ? (
+  <>
+    {LoadData.map((item, index) => (
+      <div key={index} className="w-full h-44 border border-black mt-5 rounded-lg shadow-md">
+        <div className="w-full h-[55px]  border-b border-[##BC89E0]">
+          <div className="w-full h-full flex ">
+            <div className="w-2/3 h-full">
+              <div className="w-full h-8 flex items-end">
+                <h1 className="text-xs font-inter font-semibold ml-2">{item.materials_name || "no data founded "}</h1>
               </div>
-             <div className="w-1/3 h-8 bg-[#5B297E] mt-3 ml-3 flex  justify-center items-center font-inter text-sm text-white   rounded-full mr-5 ">Bid Now</div>        
-             </div>
-           </div>
-           
-         </div>
-       </div>
-       <div className="w-full h-44 border border-black mt-5 rounded-lg shadow-md ">
-         <div className="w-full h-14  border-b border-[##BC89E0] ">
-           <div className="w-full h-full  flex">
-
-           <div className="w-1/2 h-full  ">
-               <div className="w-full h-7 flex items-end">
-              <h1 className='text-xs font-inter font-semibold ml-2'>Frozen Food</h1>
-
-               </div>
-               <div className="w-full h-5  flex items-center">
-              <h1 className='text-[10px] font-inter ml-2 font-bold'><span className='text-[#6B7280] font-normal'>wt</span>:4T</h1>
-
-               </div>
-           </div>
-               <div className="w-1/2 h-full flex justify-center items-end">
-               
-              <h1 className='text-[10px] font-inter ml-2'><span className='text-[#6B7280] '>Date :</span>18-10-2024</h1>
-
-              
-               </div>
-           </div>
-           <div className="w-full h-16  flex ">
-             <div className="w-1/12 h-full  flex justify-center items-center">
-               <div className="w-5 h-full  ">
-                 <div className="w-2 h-2 bg-green-400 rounded-full ml-2 mt-4"></div>
-                 <div className="w-1 h-5 border-dashed border-e ml-2"></div>
-                 <div className="w-2 h-2 bg-red-400 rounded-full ml-2"></div>
-               </div>
-             </div>
-             <div className="w-11/12 h-full ">
-                 <div className="w-full h-1/2  flex items-end">
-                   <h1 className='font-inter text-sm '>Ernakulam, Kerala</h1>
-                 </div>
-                 <div className="w-full h-1/2  flex items-center">
-                 <h1 className='font-inter text-sm '>Kozhikode, Kerala</h1>
-                 </div>
-             </div>
-           </div>
-           <div className="w-full h-[55px] bg-[#D9D9D9] rounded-b-md  ">
-             <div className="w-full h-full  rounded-b-md flex">
-             <div className="w-2/3 h-full     font-inter text-sm text-black rounded-sm   ">
-                 <div className="w-full h-1/2  flex  items-end">
-                       <h1 className='font-inter ml-3 font-semibold text-sm '>Owner Name</h1>
-                 </div>
-                 <div className="w-full h-1/2 ">
-                       <h1 className='font-inter ml-3  text-xs text-[#6B7280] '>Location</h1>
-                   </div>
+              <div className="w-full h-5 flex items-center">
+                <h1 className="text-[10px] font-inter ml-2 font-bold">
+                  <span className="text-[#6B7280] font-normal">wt</span>: {item.truck_capacities_name || "no data founded "}
+                </h1>
               </div>
-             <div className="w-1/3 h-8 bg-[#5B297E] mt-3 ml-3 flex  justify-center items-center font-inter text-sm text-white   rounded-full mr-5 ">Bid Now</div>        
-             </div>
-           </div>
-           
-         </div>
-       </div>
-       <div className="w-full h-44 border border-black mt-5 rounded-lg shadow-md ">
-         <div className="w-full h-14  border-b border-[##BC89E0] ">
-           <div className="w-full h-full  flex">
-
-           <div className="w-1/2 h-full  ">
-               <div className="w-full h-7 flex items-end">
-              <h1 className='text-xs font-inter font-semibold ml-2'>Frozen Food</h1>
-
-               </div>
-               <div className="w-full h-5  flex items-center">
-              <h1 className='text-[10px] font-inter ml-2 font-bold'><span className='text-[#6B7280] font-normal'>wt</span>:4T</h1>
-
-               </div>
-           </div>
-               <div className="w-1/2 h-full flex justify-center items-end">
-               
-              <h1 className='text-[10px] font-inter ml-2'><span className='text-[#6B7280]'>Date :</span>18-10-2024</h1>
-
-              
-               </div>
-           </div>
-           <div className="w-full h-16  flex ">
-             <div className="w-1/12 h-full  flex justify-center items-center">
-               <div className="w-5 h-full  ">
-                 <div className="w-2 h-2 bg-green-400 rounded-full ml-2 mt-4"></div>
-                 <div className="w-1 h-5 border-dashed border-e ml-2"></div>
-                 <div className="w-2 h-2 bg-red-400 rounded-full ml-2"></div>
-               </div>
-             </div>
-             <div className="w-11/12 h-full ">
-                 <div className="w-full h-1/2  flex items-end">
-                   <h1 className='font-inter text-sm '>Ernakulam, Kerala</h1>
-                 </div>
-                 <div className="w-full h-1/2  flex items-center">
-                 <h1 className='font-inter text-sm '>Kozhikode, Kerala</h1>
-                 </div>
-             </div>
-           </div>
-           <div className="w-full h-[55px] bg-[#D9D9D9] rounded-b-md  ">
-             <div className="w-full h-full  rounded-b-md flex">
-             <div className="w-2/3 h-full     font-inter text-sm text-black rounded-sm   ">
-                 <div className="w-full h-1/2  flex  items-end">
-                       <h1 className='font-inter ml-3 font-semibold text-sm '>Owner Name</h1>
-                 </div>
-                 <div className="w-full h-1/2 ">
-                       <h1 className='font-inter ml-3  text-xs text-[#6B7280] '>Location</h1>
-                   </div>
+            </div>
+            <div className="w-1/2 h-full flex justify-center items-end">
+              <h1 className="text-[10px] font-inter ml-2">
+                <span className="text-[#6B7280]">Date :</span> {new Date(item.createdAt).toISOString().split("T")[0] || "no data founded "}
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div className="w-full h-16 flex">
+          <div className="w-1/12 h-full flex justify-center items-center">
+            <div className="w-5 h-full">
+              <div className="w-2 h-2 bg-green-400 rounded-full ml-2 mt-4"></div>
+              <div className="w-1 h-5 border-dashed border-e ml-2"></div>
+              <div className="w-2 h-2 bg-red-400 rounded-full ml-2"></div>
+            </div>
+          </div>
+          <div className="w-11/12 h-full">
+            <div className="w-full h-1/2 flex items-end">
+              <h1 className="font-inter text-sm">{item.pickupLoc || "no data founded "}</h1>
+            </div>
+            <div className="w-full h-1/2 flex items-center">
+              <h1 className="font-inter text-sm">{item.deliveryLoc || "no data founded"}</h1>
+            </div>
+          </div>
+        </div>
+        <div className="w-full h-[55px] bg-[#D9D9D9] rounded-b-md">
+          <div className="w-full h-full rounded-b-md flex">
+            <div className="w-2/3 h-full font-inter text-sm text-black rounded-sm">
+              <div className="w-full h-1/2 flex items-end">
+                <h1 className="font-inter ml-3 font-semibold text-sm">{item.users_name || "no data founded"}</h1>
               </div>
-             <div className="w-1/3 h-8 bg-[#5B297E] mt-3 ml-3 flex  justify-center items-center font-inter text-sm text-white   rounded-full mr-5 ">Bid Now</div>        
-             </div>
-           </div>
-           
-         </div>
-       </div>
-       <div className="w-full h-44 border border-black mt-5 rounded-lg shadow-md ">
-         <div className="w-full h-14  border-b border-[##BC89E0] ">
-           <div className="w-full h-full  flex">
-
-           <div className="w-1/2 h-full  ">
-               <div className="w-full h-7 flex items-end">
-              <h1 className='text-xs font-inter font-semibold ml-2'>Frozen Food</h1>
-
-               </div>
-               <div className="w-full h-5  flex items-center">
-              <h1 className='text-[10px] font-inter ml-2 font-bold'><span className='text-[#6B7280] font-normal'>wt</span>:4T</h1>
-
-               </div>
-           </div>
-               <div className="w-1/2 h-full flex justify-center items-end">
-               
-              <h1 className='text-[10px] font-inter ml-2'><span className='text-[#6B7280]'>Date :</span>18-10-2024</h1>
-
-              
-               </div>
-           </div>
-           <div className="w-full h-16  flex ">
-             <div className="w-1/12 h-full  flex justify-center items-center">
-               <div className="w-5 h-full  ">
-                 <div className="w-2 h-2 bg-green-400 rounded-full ml-2 mt-4"></div>
-                 <div className="w-1 h-5 border-dashed border-e ml-2"></div>
-                 <div className="w-2 h-2 bg-red-400 rounded-full ml-2"></div>
-               </div>
-             </div>
-             <div className="w-11/12 h-full ">
-                 <div className="w-full h-1/2  flex items-end">
-                   <h1 className='font-inter text-sm '>Ernakulam, Kerala</h1>
-                 </div>
-                 <div className="w-full h-1/2  flex items-center">
-                 <h1 className='font-inter text-sm '>Kozhikode, Kerala</h1>
-                 </div>
-             </div>
-           </div>
-           <div className="w-full h-[55px] bg-[#D9D9D9] rounded-b-md  ">
-             <div className="w-full h-full  rounded-b-md flex">
-             <div className="w-2/3 h-full     font-inter text-sm text-black rounded-sm   ">
-                 <div className="w-full h-1/2  flex  items-end">
-                       <h1 className='font-inter ml-3 font-semibold text-sm '>Owner Name</h1>
-                 </div>
-                 <div className="w-full h-1/2 ">
-                       <h1 className='font-inter ml-3  text-xs text-[#6B7280] '>Location</h1>
-                   </div>
+              <div className="w-full h-1/2">
+                <h1 className="font-inter ml-3 text-xs text-[#6B7280]">{item.user_types_name || "no data founded"}</h1>
               </div>
-             <div className="w-1/3 h-8 bg-[#5B297E] mt-3 ml-3 flex  justify-center items-center font-inter text-sm text-white   rounded-full mr-5 ">Bid Now</div>        
-             </div>
-           </div>
-           
-         </div>
-       </div>
-       <div className="w-full h-44 border border-black mt-5 rounded-lg shadow-md ">
-         <div className="w-full h-14  border-b border-[##BC89E0] ">
-           <div className="w-full h-full  flex">
-
-           <div className="w-1/2 h-full  ">
-               <div className="w-full h-7 flex items-end">
-              <h1 className='text-xs font-inter font-semibold ml-2'>Frozen Food</h1>
-
-               </div>
-               <div className="w-full h-5  flex items-center">
-              <h1 className='text-[10px] font-inter ml-2 font-bold'><span className='text-[#6B7280] font-normal'>wt</span>:4T</h1>
-
-               </div>
-           </div>
-               <div className="w-1/2 h-full flex justify-center items-end">
-               
-              <h1 className='text-[10px] font-inter ml-2'><span className='text-[#6B7280]'>Date :</span>18-10-2024</h1>
-
-              
-               </div>
-           </div>
-           <div className="w-full h-16  flex ">
-             <div className="w-1/12 h-full  flex justify-center items-center">
-               <div className="w-5 h-full  ">
-                 <div className="w-2 h-2 bg-green-400 rounded-full ml-2 mt-4"></div>
-                 <div className="w-1 h-5 border-dashed border-e ml-2"></div>
-                 <div className="w-2 h-2 bg-red-400 rounded-full ml-2"></div>
-               </div>
-             </div>
-             <div className="w-11/12 h-full ">
-                 <div className="w-full h-1/2  flex items-end">
-                   <h1 className='font-inter text-sm '>Ernakulam, Kerala</h1>
-                 </div>
-                 <div className="w-full h-1/2  flex items-center">
-                 <h1 className='font-inter text-sm '>Kozhikode, Kerala</h1>
-                 </div>
-             </div>
-           </div>
-           <div className="w-full h-[55px] bg-[#D9D9D9] rounded-b-md  ">
-             <div className="w-full h-full  rounded-b-md flex">
-             <div className="w-2/3 h-full     font-inter text-sm text-black rounded-sm   ">
-                 <div className="w-full h-1/2  flex  items-end">
-                       <h1 className='font-inter ml-3 font-semibold text-sm '>Owner Name</h1>
-                 </div>
-                 <div className="w-full h-1/2 ">
-                       <h1 className='font-inter ml-3  text-xs text-[#6B7280] '>Location</h1>
-                   </div>
-              </div>
-             <div className="w-1/3 h-8 bg-[#5B297E] mt-3 ml-3 flex  justify-center items-center font-inter text-sm text-white   rounded-full mr-5 ">Bid Now</div>        
-             </div>
-           </div>
-           
-         </div>
-       </div>
-       <div className="w-full h-44 border border-black mt-5 rounded-lg shadow-md ">
-         <div className="w-full h-14  border-b border-[##BC89E0] ">
-           <div className="w-full h-full  flex">
-
-           <div className="w-1/2 h-full  ">
-               <div className="w-full h-7 flex items-end">
-              <h1 className='text-xs font-inter font-semibold ml-2'>Frozen Food</h1>
-
-               </div>
-               <div className="w-full h-5  flex items-center">
-              <h1 className='text-[10px] font-inter ml-2 font-bold'><span className='text-[#6B7280] font-normal'>wt</span>:4T</h1>
-
-               </div>
-           </div>
-               <div className="w-1/2 h-full flex justify-center items-end">
-               
-              <h1 className='text-[10px] font-inter ml-2'><span className='text-[#6B7280]'>Date :</span>18-10-2024</h1>
-
-              
-               </div>
-           </div>
-           <div className="w-full h-16  flex ">
-             <div className="w-1/12 h-full  flex justify-center items-center">
-               <div className="w-5 h-full  ">
-                 <div className="w-2 h-2 bg-green-400 rounded-full ml-2 mt-4"></div>
-                 <div className="w-1 h-5 border-dashed border-e ml-2"></div>
-                 <div className="w-2 h-2 bg-red-400 rounded-full ml-2"></div>
-               </div>
-             </div>
-             <div className="w-11/12 h-full ">
-                 <div className="w-full h-1/2  flex items-end">
-                   <h1 className='font-inter text-sm '>Ernakulam, Kerala</h1>
-                 </div>
-                 <div className="w-full h-1/2  flex items-center">
-                 <h1 className='font-inter text-sm '>Kozhikode, Kerala</h1>
-                 </div>
-             </div>
-           </div>
-           <div className="w-full h-[55px] bg-[#D9D9D9] rounded-b-md  ">
-             <div className="w-full h-full  rounded-b-md flex">
-             <div className="w-2/3 h-full     font-inter text-sm text-black rounded-sm   ">
-                 <div className="w-full h-1/2  flex  items-end">
-                       <h1 className='font-inter ml-3 font-semibold text-sm '>Owner Name</h1>
-                 </div>
-                 <div className="w-full h-1/2 ">
-                       <h1 className='font-inter ml-3  text-xs text-[#6B7280] '>Location</h1>
-                   </div>
-              </div>
-             <div className="w-1/3 h-8 bg-[#5B297E] mt-3 ml-3 flex  justify-center items-center font-inter text-sm text-white   rounded-full mr-5 ">Bid Now</div>        
-             </div>
-           </div>
-           
-         </div>
-       </div>
-       
-       
+            </div>
+            <div className="w-1/3 h-8 bg-[#5B297E] mt-3 ml-3 flex justify-center items-center font-inter text-sm text-white rounded-full mr-5">
+              Bid Now
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </>
+) : (
+  <>
+    <h1>No data found</h1>
+  </>
+)}
      </div>
 
     </div>

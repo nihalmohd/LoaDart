@@ -13,7 +13,7 @@ const TranspoterProfile = () => {
   const { mobileNumber } = useParams();
   const location = useLocation();
 
-  const transporterData = useSelector((state) => state.transporterData);
+  const transporterData = useSelector((state) => state.transporter);
   const { company, transporters_name, transporters_email, transporters_phone } = location.state || {};
 
   useEffect(() => {
@@ -162,7 +162,6 @@ const TranspoterProfile = () => {
     <div>
       
       <div className="w-full md:h-screen bg-[#000000BF] flex justify-center items-center">
-
         <div className=" w-full h-full md:w-[550px] md:h-auto md:flex rounded-md">
           <div className="md:w-1/2 h-auto bg-[#5B297E] flex justify-center items-center rounded-s-md ">
             <div className="md:w-5/6  md:h-full flex justify-center items-center ">

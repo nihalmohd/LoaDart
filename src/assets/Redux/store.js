@@ -1,10 +1,27 @@
-import { configureStore } from '@reduxjs/toolkit';
-import transporterReducer from "./TransporterSlice/TranporterSlice.js"
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { persistReducer, persistStore } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // Default localStorage
+import transporterReducer from './TransporterSlice/TranporterSlice';
 
-export const store = configureStore({
-  reducer: {
-    transporterData: transporterReducer,
-  },
+// Combine reducers
+const rootReducer = combineReducers({
+  transporter: transporterReducer, // Include your slice
+  // Add other slices here if needed
 });
 
-export default store;
+// Persist configuration
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['transporter'], 
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+// Configure store
+export const store = configureStore({
+  reducer: persistedReducer,
+});
+
+// Export persistor
+export const persistor = persistStore(store);

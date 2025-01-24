@@ -6,9 +6,10 @@ import { FaGlobe } from 'react-icons/fa';
 import { FiCheck } from 'react-icons/fi';
 import { HiOutlineGlobe } from 'react-icons/hi';
 
+
 const Nav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { i18n, t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const [selectedLanguage, setSelectedLanguage] = useState('en');
@@ -25,6 +26,7 @@ const Nav = () => {
   ];
 
   const toggleDropdown = () => {
+    
     setIsDropdownOpen((prev) => !prev);
   };
 
@@ -58,7 +60,7 @@ const Nav = () => {
           <div className="hidden w-9/12 h-full lg:flex justify-end items-center ml-3 ">
             <div className="w-10/12 h-6 flex gap-2 justify-end items-center">
               <div className="w-1/12 h-10 flex justify-start items-center">
-                <h1 className="text-xs font-inter font-semibold text-black">{t('About')}</h1>
+                <h1 className="text-xs font-inter font-semibold text-black">{ t('About')}</h1>
               </div>
               <div className="w-2/12 h-10 flex justify-center items-center">
                 <h1 className="text-xs font-inter font-semibold text-black">{t('Marketplace')}</h1>
@@ -142,7 +144,7 @@ const Nav = () => {
           className="absolute top-0 right-0 w-64 h-full bg-white shadow-lg p-5"
           onClick={(e) => e.stopPropagation()}
         >
-          <h2 className="text-xl font-semibold mb-4">{t('Menu')}</h2>
+          <h2 className="text-xl font-semibold mb-4">{('Menu')}</h2>
           <ul>
             <li className="mb-3 text-gray-700">{t('About')}</li>
             <li className="mb-3 text-gray-700">{t('Marketplace')}</li>

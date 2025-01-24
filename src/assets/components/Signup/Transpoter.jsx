@@ -11,7 +11,7 @@ const Transpoter = () => {
     const [otp, setOtp] = useState(new Array(4).fill(""));
     const [error, setError] = useState('');
 
-  const transporterData = useSelector((state) => state.transporterData);
+  const transporterData = useSelector((state) => state.transporter);
 
   useEffect(() => {
     if (

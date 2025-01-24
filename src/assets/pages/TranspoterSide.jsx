@@ -23,6 +23,7 @@ import PostTruck from '../components/Transpoter/Truck/PostTruck';
 import EditDocuments from '../components/Transpoter/TranspoterProfile/EditDocuments';
 import EditBasicDetails from '../components/Transpoter/TranspoterProfile/EditBasicDetails';
 import Achievments from '../components/Transpoter/Achievments/Achievments';
+import TransporterProtectedRoute from '../components/ProtectedRoutes/TransporterProtectedRoute';
 
 
 const TranspoterSide = () => {
@@ -31,26 +32,26 @@ const TranspoterSide = () => {
       <Sidebar />
       <div className="flex-1" >
         <Routes>
-        <Route path="/" element={<Topbuttons/>} />
-        <Route path="Schedule" element={<ScheduleButton/>} />
-        <Route path="TripRequests" element={<TripRequestButtons/>} />
-        <Route path="Profile" element={<TransporterProfileDetails/>} />
-        <Route path="Loads" element={<SearchLoads/>} />
-        <Route path="YourLoads" element={<YourLoads/>} />
-        <Route path="Trucks" element={<SearchTruck/>} />
-        <Route path="YourTruck" element={<YourTruck/>} />
-        <Route path="Marketplace" element={<MarketPlaceTopButtons/>} />
-        <Route path="UpgradeMembership" element={<UpgradeMembership/>} />
-        <Route path="Help" element={<Help/>} />
-        <Route path="Feedback" element={<Feedback/>} />
-        <Route path="View" element={<View/>} />
-        <Route path="EditProfile" element={<EditProfile/>} />
-        <Route path="AddLoad" element={<AddLoad/>} />
-        <Route path="AddTruck" element={<AddTruck/>} />
-        <Route path="PostTruck" element={<PostTruck/>} />
-        <Route path="EditDocuments" element={<EditDocuments/>} />
-        <Route path="EditBasicDetails" element={<EditBasicDetails/>} />
-        <Route path="Achievments" element={<Achievments/>} />
+        <Route path="/" element={<TransporterProtectedRoute><Topbuttons/></TransporterProtectedRoute>} />
+        <Route path="Schedule" element={<TransporterProtectedRoute><ScheduleButton/></TransporterProtectedRoute>} />
+        <Route path="TripRequests" element={<TransporterProtectedRoute><TripRequestButtons/></TransporterProtectedRoute>} />
+        <Route path="Profile" element={<TransporterProtectedRoute><TransporterProfileDetails/></TransporterProtectedRoute>} />
+        <Route path="Loads" element={<TransporterProtectedRoute><SearchLoads/></TransporterProtectedRoute>} />
+        <Route path="YourLoads" element={<TransporterProtectedRoute><YourLoads/></TransporterProtectedRoute>} />
+        <Route path="Trucks" element={<TransporterProtectedRoute><SearchTruck/></TransporterProtectedRoute>} />
+        <Route path="YourTruck" element={<TransporterProtectedRoute><YourTruck/></TransporterProtectedRoute>} />
+        <Route path="Marketplace" element={<TransporterProtectedRoute><MarketPlaceTopButtons/></TransporterProtectedRoute>} />
+        <Route path="UpgradeMembership" element={<TransporterProtectedRoute><UpgradeMembership/></TransporterProtectedRoute>} />
+        <Route path="Help" element={<TransporterProtectedRoute><Help/></TransporterProtectedRoute>} />
+        <Route path="Feedback" element={<TransporterProtectedRoute><Feedback/></TransporterProtectedRoute>} />
+        <Route path="View" element={<TransporterProtectedRoute><View/></TransporterProtectedRoute>} />
+        <Route path="EditProfile" element={<TransporterProtectedRoute><EditProfile/></TransporterProtectedRoute>} />
+        <Route path="AddLoad" element={<TransporterProtectedRoute><AddLoad/></TransporterProtectedRoute>} />
+        <Route path="AddTruck" element={<TransporterProtectedRoute><AddTruck/></TransporterProtectedRoute>} />
+        <Route path="PostTruck" element={<TransporterProtectedRoute><PostTruck/></TransporterProtectedRoute>} />
+        <Route path="EditDocuments" element={<TransporterProtectedRoute><EditDocuments/></TransporterProtectedRoute>} />
+        <Route path="EditBasicDetails" element={<TransporterProtectedRoute><EditBasicDetails/></TransporterProtectedRoute>} />
+        <Route path="Achievments" element={<TransporterProtectedRoute><Achievments/></TransporterProtectedRoute>} />
         </Routes>
       </div>
     </div>
