@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { AxiosInstance } from '../../../../Api/axios';
 
 
 const MarketPlaceLoads = () => {
@@ -16,8 +17,8 @@ const MarketPlaceLoads = () => {
 
     const BasicLoad = async() =>{
       try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_BASE_URL}/Transpoter/getAllLoads?page=1&limit=10`
+        const response = await AxiosInstance.get(
+          `${import.meta.env.VITE_BASE_URL}/Transpoter/getAllLoads?page=1&limit=12`
         );
     
         
@@ -315,7 +316,7 @@ const MarketPlaceLoads = () => {
   </>
 ) : (
   <>
-    <h1>No data found</h1>
+    <h1><span className="loading loading-infinity loading-lg"></span></h1>
   </>
 )}
      </div>

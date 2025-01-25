@@ -6,6 +6,7 @@ import MarketPlaceLoads from './Loads/MarketPlaceLoads';
 
 const MarketPlaceTopButtons = () => {
     const [selectedDiv, setSelectedDiv] = useState("left");
+        
     return (
       <div>
          <div className="w-full h-auto flex justify-center items-center">
