@@ -38,7 +38,9 @@ const Transpoter = () => {
         }
       
         try {  
-          const sendOTP = await axios.post(`${import.meta.env.VITE_BASE_URL}/Transpoter/send-otp`, {transporters_mob: Mobilenumber});
+          const sendOTP = await axios.post(`${import.meta.env.VITE_BASE_URL}/Transpoter/send-otp`, {transporters_mob: Mobilenumber},{
+            httpsAgent: new (require('https').Agent)({ rejectUnauthorized: false }),
+          });
           console.log("OTP sent successfully:", sendOTP.data);
            if(sendOTP.data){
                setIsproceeded(!IsProceeded);
