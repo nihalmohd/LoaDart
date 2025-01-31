@@ -4,10 +4,14 @@ import { IoIosSearch } from 'react-icons/io';
 import { IoClose } from 'react-icons/io5';
 import { LuUpload } from 'react-icons/lu';
 import { useNavigate } from 'react-router-dom';
+import { uploadFileToS3 } from '../../../../../s3Config';
+import { AxiosInstance } from '../../../Api/axios';
 
 const EditDocuments = () => {
     const [BusssinesRegistration, setBusssinesRegistration] = useState(null);
     const [GSTCertificate, setGSTCertificate] = useState(null);
+    const [BusssinesUrl,setBusssinesUrl] = useState("")
+    const [GSTCertificateUrl,seGSTCertificateUrl] = useState("")
 
     const BussinessRegistrationRef = useRef(null);
     const GSTCertificateRef = useRef(null);
@@ -33,17 +37,46 @@ const EditDocuments = () => {
     };
 
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
 
+
+    const handleSubmit = async () => {
         if (!BusssinesRegistration || !GSTCertificate) {
             alert("Please select files for both Proof of Delivery and Lorry Receipt before submitting!");
             return;
         }
-
-        console.log("Proof of Delivery File:", BusssinesRegistration.name);
-        console.log("Lorry Receipt File:", GSTCertificate.name);
+    
+        try {
+            // Upload files to S3
+            const Businessurl = await uploadFileToS3(BusssinesRegistration, BusssinesRegistration.name);
+            const GSTCertificateurl = await uploadFileToS3(GSTCertificate, GSTCertificate.name);
+    
+            // Store uploaded URLs in state
+            setBusssinesUrl(Businessurl);
+            seGSTCertificateUrl(GSTCertificateurl);
+    
+            // Prepare payload for backend API
+            const payload = {
+                transporters_id: 21,
+                transporter_docs: [
+                    { name: "Business Registration", type_id: 20, image: Businessurl },
+                    { name: "GST Certificate", type_id: 22, image: GSTCertificateurl }
+                ]
+            };
+    
+            // Send data to backend API
+            const response = await AxiosInstance.post('/Transpoter/updateTransporterDocumentsDetails', payload,);
+    
+            console.log('Documents saved successfully:', response.data);
+            alert('Documents uploaded and saved successfully!');
+            navigate("/Transpoter/Profile")
+    
+        } catch (error) {
+            console.error('Upload failed:', error);
+            alert('Failed to upload documents. Please try again.');
+        }
     };
+    
+    
     const navigate = useNavigate()
     return (
         <div className='w-full '>
@@ -58,14 +91,14 @@ const EditDocuments = () => {
                         <div className="w-full  p-4 space-y-4 ">
                             <div className="md:w-8/12 h-28 ">
 
-                                <div className=" flex flex-col">
+                                {/* <div className=" flex flex-col">
                                     <label className="text-xs font-medium text-gray-400 mb-1">GSTN<span className='text-red-600'>*</span></label>
                                     <input
                                         type="text"
                                         placeholder="abcd"
                                         className="w-full h-10 border-b border-gray-300 outline-none placeholder:text-black"
                                     />
-                                </div>
+                                </div> */}
                                 <label
                                     htmlFor="proof-of-delivery"
                                     className="block text-gray-400 text-xs font-medium ml-1 mb-2 mt-3"
@@ -137,7 +170,7 @@ const EditDocuments = () => {
                                 </div>
 
                             </div>
-                            <button className=' w-4/12 md:w-2/12  h-10 mt-3 md:mt-0  border border-[#5B297E] text-white bg-[#5B297E] rounded-sm font-inter flex justify-center items-center text-sm   shadow-md'>Proceed</button>
+                            <button onClick={handleSubmit} className=' w-4/12 md:w-2/12  h-10 mt-3 md:mt-0  border border-[#5B297E] text-white bg-[#5B297E] rounded-sm font-inter flex justify-center items-center text-sm   shadow-md'>Proceed</button>
 
                         </div>
                     </div>

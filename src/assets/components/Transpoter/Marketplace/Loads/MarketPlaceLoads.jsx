@@ -262,8 +262,7 @@ const MarketPlaceLoads = () => {
       </div>
        <div className="w-full h-full  md:grid grid-cols-3 gap-4 relative pl-4 pt-2 mt-2 mb-10"  >
 
-       {LoadData ? (
-    LoadData.length > 0 ? (
+       {LoadData ? (LoadData.length > 0 ? (
       <>
         {LoadData.map((item, index) => (
           <div key={index} className="w-full h-44 border border-black mt-5 rounded-lg shadow-md">
