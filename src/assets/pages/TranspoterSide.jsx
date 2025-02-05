@@ -24,6 +24,8 @@ import EditDocuments from '../components/Transpoter/TranspoterProfile/EditDocume
 import EditBasicDetails from '../components/Transpoter/TranspoterProfile/EditBasicDetails';
 import Achievments from '../components/Transpoter/Achievments/Achievments';
 import TransporterProtectedRoute from '../components/ProtectedRoutes/TransporterProtectedRoute';
+import ViewBidsLoad from '../components/Transpoter/Bids/Loads/ViewBidsLoad';
+import ViewBidsTruck from '../components/Transpoter/Bids/Trucks/ViewBidsTruck';
 
 
 const TranspoterSide = () => {
@@ -48,10 +50,12 @@ const TranspoterSide = () => {
         <Route path="EditProfile" element={<TransporterProtectedRoute><EditProfile/></TransporterProtectedRoute>} />
         <Route path="AddLoad" element={<TransporterProtectedRoute><AddLoad/></TransporterProtectedRoute>} />
         <Route path="AddTruck" element={<TransporterProtectedRoute><AddTruck/></TransporterProtectedRoute>} />
-        <Route path="PostTruck" element={<TransporterProtectedRoute><PostTruck/></TransporterProtectedRoute>} />
+        <Route path="PostTruck/:truck_id" element={<TransporterProtectedRoute><PostTruck/></TransporterProtectedRoute>} />
         <Route path="EditDocuments" element={<TransporterProtectedRoute><EditDocuments/></TransporterProtectedRoute>} />
         <Route path="EditBasicDetails" element={<TransporterProtectedRoute><EditBasicDetails/></TransporterProtectedRoute>} />
         <Route path="Achievments" element={<TransporterProtectedRoute><Achievments/></TransporterProtectedRoute>} />
+        <Route path="ViewBidsLoad/:loads_id" element={<TransporterProtectedRoute><ViewBidsLoad/></TransporterProtectedRoute>} />
+        <Route path="ViewBidsTruck/:truck_id" element={<TransporterProtectedRoute><ViewBidsTruck/></TransporterProtectedRoute>} />
         </Routes>
       </div>
     </div>

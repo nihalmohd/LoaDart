@@ -1,23 +1,42 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { HiOutlineTruck } from 'react-icons/hi';
 import { IoIosSearch } from 'react-icons/io';
 import { IoClose } from 'react-icons/io5';
 import { LuUpload } from 'react-icons/lu';
 import { useNavigate } from 'react-router-dom';
+import { getCapacity, getTruckTypes } from '../../../../common/common';
+import { uploadFileToS3 } from '../../../../../s3Config';
+import { useSelector } from 'react-redux';
+import { AxiosInstance } from '../../../Api/axios';
 
 const AddTruck = () => {
-    const [VehicleInsurance, setVehicleInsurance] = useState(null);
-    const [RCbook, setRCbook] = useState(null);
+  const navigate = useNavigate()
+  const transporterData = useSelector((state) => state.transporter);
+    const [VehicleInsurance, setVehicleInsurance] = useState();
+    const [VehicleInsuranceUrl, setVehicleInsuranceUrl] = useState();
+    const [RCbook, setRCbook] = useState();
+    const [RCbookUrl, setRCbookUrl] = useState();
+    const [weight, setWeight] = useState([]);
+    const [truckType, setTruckType] = useState([]);
+    const [RegisterNum,setRegisterNum] = useState("")
+    const [capacity_id, setCapacityId] = useState("");
+    const [truck_type_id, setTruckTypeId] = useState("");
+    const [Location,setLocation] = useState("")
+    const [errors, setErrors] = useState({});
   
     const InsuranceRef = useRef(null);
     const RCbookRef = useRef(null);
   
-    const handleProofFileChange = (event) => {
-      setVehicleInsurance(event.target.files[0]);
+    const handleProofFileChange = async (event) => {
+       setVehicleInsurance(event.target.files[0])
+      const InsureURL =await uploadFileToS3(event.target.files[0],event.target.files[0].name)
+      setVehicleInsuranceUrl(InsureURL);
     };
   
-    const handleReceiptFileChange = (event) => {
-      setRCbook(event.target.files[0]);
+    const handleReceiptFileChange = async(event) => {
+      setRCbook(event.target.files[0])
+      const RcBookURL =await uploadFileToS3(event.target.files[0],event.target.files[0].name)
+      setRCbookUrl(RcBookURL);
     };
   
     const handleProofUploadClick = () => {
@@ -31,20 +50,67 @@ const AddTruck = () => {
         RCbookRef.current.click();
       }
     };
+
+    const validateForm = () => {
+      let errors = {};
+      if (!RegisterNum) errors.RegisterNum = "Register number is required";
+      if (!truck_type_id) errors.truck_type_id = "Truck type is required";
+      if (!capacity_id) errors.capacity_id = "Weight capacity is required";
+      // if (!Location) errors.Location = "Location is required";
+      if (!VehicleInsurance) errors.VehicleInsurance = "Vehicle insurance is required";
+      if (!RCbook) errors.RCbook = "RC Book is required";
+
+      setErrors(errors);
+      return Object.keys(errors).length === 0;
+  };
   
   
-    const handleSubmit = (event) => {
-      event.preventDefault();
-  
-      if (!VehicleInsurance || !RCbook) {
-        alert("Please select files for both Proof of Delivery and Lorry Receipt before submitting!");
-        return;
-      }
-  
-      console.log("Proof of Delivery File:", VehicleInsurance.name);
-      console.log("Lorry Receipt File:", RCbook.name);
+  const handleSubmit = async () => {
+      console.log("hello");
+      
+    if (!validateForm()) return;
+
+    const formData = {
+        regNumber: RegisterNum,
+        trucks_type_id: truck_type_id,
+        capacity_id: capacity_id,
+        insurance: VehicleInsuranceUrl,
+        rc: RCbookUrl, 
+        user_id:transporterData.users_id,
+        location: Location
     };
-    const navigate = useNavigate()
+   console.log(formData);
+   
+    try {
+        const response = await AxiosInstance.post('/Transpoter/insertTruck', formData);
+        console.log(response);
+        if(response.status === 201){
+          alert("Truck added successfully!");
+          navigate('/Transpoter/YourTruck');
+        }     
+    } catch (error) {
+        console.error("Error submitting data:", error);
+        alert("Failed to add truck.");
+    }
+};
+
+
+      useEffect(()=>{
+            fetchData();
+          },[])
+      
+          const fetchData = async () => {
+            try {
+              const truckTypeData = await getTruckTypes();
+              setTruckType(truckTypeData);
+      
+              const weightData = await getCapacity();
+              setWeight(weightData);
+            } catch (error) {
+              console.error("Error fetching data:", error.message);
+            }
+          };
+     
   return (
     <div className='w-full '>
        <div className="w-11/12 h-full ">
@@ -63,9 +129,11 @@ const AddTruck = () => {
             <label className="text-xs font-medium text-gray-400 mb-1">Resgister Number<span className='text-red-600'>*</span></label>
             <input
               type="text"
-              placeholder="Ernakulam"
+              onChange={(e)=>{setRegisterNum(e.target.value)}}
+              placeholder="eg:-KL00A1122"
               className="w-full h-10 border-b border-gray-300 outline-none placeholder:text-black"
             />
+            {errors.RegisterNum && <p className="text-red-500 text-xs">{errors.RegisterNum}</p>}
           </div>
 
          
@@ -74,46 +142,15 @@ const AddTruck = () => {
               Preferred Truck Types<span className="text-red-600">*</span>
             </label>
             <div className="relative">
-              <select className="w-full h-10 border-b border-gray-300 text-black focus:outline-none appearance-none">
+            <select onChange={(e)=>setTruckTypeId(e.target.value)} className="w-full h-10 border-b border-gray-300 text-black focus:outline-none appearance-none">
                 <option value="">Select a truck type</option>
-                <option value="Canter Jumbo">Canter Jumbo</option>
-                <option value="Canters 17feet / 4 Wheel">Canters 17feet / 4 Wheel</option>
-                <option value="Canters 17feet / 6 Wheel">Canters 17feet / 6 Wheel</option>
-                <option value="Canters 3MT / 4 Wheel">Canters 3MT / 4 Wheel</option>
-                <option value="Car Carrier (Close Body)">Car Carrier (Close Body)</option>
-                <option value="Car Carrier (Open Body)">Car Carrier (Open Body)</option>
-                <option value="Container Close Body 40 Feet">Container Close Body 40 Feet</option>
-                <option value="Container Close Body 32 Feet">Container Close Body 32 Feet</option>
-                <option value="Container Close Body 20 Feet">Container Close Body 20 Feet</option>
-                <option value="Container Trucks">Container Trucks</option>
-                <option value="Container Close Body 24 Feet">Container Close Body 24 Feet</option>
-                <option value="Flat Bed Trailers 32 Feet">Flat Bed Trailers 32 Feet</option>
-                <option value="Flat Bed Trailers 40 Feet">Flat Bed Trailers 40 Feet</option>
-                <option value="Hydraulic Trailers">Hydraulic Trailers</option>
-                <option value="LCV (Light Commercial Vehicle)">LCV (Light Commercial Vehicle)</option>
-                <option value="Low Bed Trailer">Low Bed Trailer</option>
-                <option value="Multi Axle Trailer">Multi Axle Trailer</option>
-                <option value="Over Dimensional Cargo Truck">Over Dimensional Cargo Truck</option>
-                <option value="Pick Up">Pick Up</option>
-                <option value="Refrigerated / AC Containers">Refrigerated / AC Containers</option>
-                <option value="Scooter Body Trucks">Scooter Body Trucks</option>
-                <option value="Semi Low Bed Trailer">Semi Low Bed Trailer</option>
-                <option value="Tanker Truck (12 Wheel)">Tanker Truck (12 Wheel)</option>
-                <option value="Tanker Truck (14 Wheel)">Tanker Truck (14 Wheel)</option>
-                <option value="Tanker Truck 10 Wheel">Tanker Truck 10 Wheel</option>
-                <option value="Tanker Truck 6 Wheel">Tanker Truck 6 Wheel</option>
-                <option value="Tata 407 2.5MT / 4 Wheel">Tata 407 2.5MT / 4 Wheel</option>
-                <option value="Trailer 28MT 18 Wheel">Trailer 28MT 18 Wheel</option>
-                <option value="Trailer 4923">Trailer 4923</option>
-                <option value="Truck 32MT / 16 wheel">Truck 32MT / 16 wheel</option>
-                <option value="Truck 25MT / 14 Wheel">Truck 25MT / 14 Wheel</option>
-                <option value="Truck 21MT / 12 wheel">Truck 21MT / 12 wheel</option>
-                <option value="Truck 20MT / 12 Wheel">Truck 20MT / 12 Wheel</option>
-                <option value="Truck 16MT / 10 Wheel">Truck 16MT / 10 Wheel</option>
-                <option value="Truck 15MT / 10 Wheel">Truck 15MT / 10 Wheel</option>
-                <option value="Truck 9MT / 6 Wheel">Truck 9MT / 6 Wheel</option>
-                <option value="Vehicle/ Car Carrier">Vehicle/ Car Carrier</option>
+                {truckType&&truckType.length>0?(<>
+                {
+                  truckType.map((item,index)=>( <option key={item.truck_types_id} value={item.truck_types_id}>{item.truck_types_name}</option>))
+                }
+              </>):(<>no data founed</>)}
               </select>
+              {errors.truck_type_id && <p className="text-red-500 text-xs">{errors.truck_type_id}</p>}
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                 <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -130,27 +167,17 @@ const AddTruck = () => {
             <label className="text-xs font-medium text-gray-400 mb-2 mt-3">
               Weight<span className="text-red-600">*</span>
             </label>
-            <select className="w-full h-10 border-b border-gray-300   text-black focus:outline-none">
+            <select onChange={(e)=>setCapacityId(e.target.value)} className="w-full h-10 border-b border-gray-300   text-black focus:outline-none">
               <option value="">Select weight capacity</option>
-              <option value="Above 40 MT">Above 40 MT</option>
-              <option value="Above 30 MT">Above 30 MT</option>
-              <option value="Upto 28 MT">Upto 28 MT</option>
-              <option value="Upto 25 MT">Upto 25 MT</option>
-              <option value="Upto 20 MT">Upto 20 MT</option>
-              <option value="Upto 17 MT">Upto 17 MT</option>
-              <option value="Upto 15 MT">Upto 15 MT</option>
-              <option value="Upto 12 MT">Upto 12 MT</option>
-              <option value="Upto 9 MT">Upto 9 MT</option>
-              <option value="Upto 7 MT">Upto 7 MT</option>
-              <option value="Upto 5 MT">Upto 5 MT</option>
-              <option value="Upto 3 MT">Upto 3 MT</option>
-              <option value="Upto 1 MT">Upto 1 MT</option>
-              <option value="Below 1 MT">Below 1 MT</option>
 
+              {weight&&weight.length>0?(<>
+                {
+                  weight.map((item,index)=>( <option key={item.truck_capacities_id} value={item.truck_capacities_id}>{item.truck_capacities_name}</option>))
+                }
+              </>):(<>no data founed</>)}
             </select>
-          </div>
-
-         
+            {errors.capacity_id && <p className="text-red-500 text-xs">{errors.capacity_id}</p>}
+          </div> 
           <label
             htmlFor="proof-of-delivery"
             className="block text-gray-400 text-xs font-medium ml-1 mb-2 mt-3"
@@ -166,6 +193,7 @@ const AddTruck = () => {
               onChange={handleProofFileChange}
               className="hidden"
             />
+            
             <input
               type="text"
               value={VehicleInsurance ? VehicleInsurance.name : ""}
@@ -173,6 +201,7 @@ const AddTruck = () => {
               placeholder="No file chosen"
               className="flex-1 text-sm rounded-md p-1 focus:outline-none"
             />
+            
             <button
               type="button"
               className="w-14 h-5 border border-[#5b297e] text-[#5b297e] rounded-sm text-[10px] font-medium mb-2"
@@ -183,6 +212,7 @@ const AddTruck = () => {
               </h1>
             </button>
           </div>
+            {errors.VehicleInsurance && <p className="text-red-500 text-xs">{errors.VehicleInsurance}</p>} 
         </div>
 
 
@@ -219,13 +249,14 @@ const AddTruck = () => {
               </h1>
             </button>
           </div>
+          {errors.RCbook && <p className="text-red-500 text-xs">{errors.RCbook}</p>}
           
         </div>
         <div className=" flex flex-col">
                             <label className="text-xs font-medium text-gray-400 mb-2">
                                 Prefered Location<span className="text-red-600">*</span>
                             </label>
-                            <select className="md:w-8/12  h-10 border-b border-gray-300   text-black focus:outline-none">
+                            <select onChange={(e)=>{setLocation(e.target.value)}} className="md:w-8/12  h-10 border-b border-gray-300   text-black focus:outline-none">
                             <option value="Baksa">Select Location</option>
                                 <option value="Baksa">Baksa</option>
                                 <option value="Barpeta">Barpeta</option>
@@ -261,8 +292,10 @@ const AddTruck = () => {
                                 <option value="West Karbi Anglong">West Karbi Anglong</option>
                             </select>
                         </div>
+          {errors.Location && <p className="text-red-500 text-xs">{errors.Location}</p>}
 
-          <button className=' w-4/12 md:w-2/12  h-10 mt-3 md:mt-0  border border-[#5B297E] text-white bg-[#5B297E] rounded-sm font-inter flex justify-center items-center text-sm   shadow-md'>Proceed</button>
+
+          <button onClick={()=>{handleSubmit()}} className=' w-4/12 md:w-2/12  h-10 mt-3 md:mt-0  border border-[#5B297E] text-white bg-[#5B297E] rounded-sm font-inter flex justify-center items-center text-sm   shadow-md'>Proceed</button>
 
       </div>
         </div>
