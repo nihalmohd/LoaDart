@@ -1,8 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
+import { AxiosInstance } from '../../../../Api/axios';
 
 const ScheduleLoadTable = () => {
     const navigate = useNavigate()
+
+    const transporterData = useSelector((state) => state.transporter);
+    const [loadSchedules, setLoadSchedules] = useState([]);
+
+    useEffect(() => {
+        if (transporterData?.users_id) {
+            fetchLoadSchedules(transporterData.users_id);
+        }
+    }, []);
+
+    const fetchLoadSchedules = async (user_id) => {
+        try {
+            const response = await AxiosInstance.get(
+                `${import.meta.env.VITE_BASE_URL}/Transpoter/loadschedules?users_id=${user_id}`
+            );
+
+            if (response.status === 200) {
+                setLoadSchedules(response.data.data || []);
+            } else {
+                console.error('Failed to fetch load schedules:', response.data);
+            }
+        } catch (error) {
+            console.error('Error fetching load schedules:', error);
+        }
+    };
+    console.log(loadSchedules);
+    
+
   return (
       <div>
           <div className="w-full  mx-auto r">
@@ -30,63 +60,28 @@ const ScheduleLoadTable = () => {
                               <th className="w-20 h-5 text-center text-sm font-extralight px-2"></th>
                           </tr>
                       </thead>
-                      <tbody className="bg-gray-100 text-gray-700">
+                      <tbody className="bg-gray-100 text-gray-700 border-b border-black">
+
+                        {
+                            loadSchedules.length > 0 ? (
+                                loadSchedules.map((item,index)=>(
+
                           <tr className="bg-[#D9D9D9]">
-                              <td className="w-24 h-14 text-center font-inter text-xs font-bold p-2">18 Sep, 2024</td>
-                              <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Frozen food</td>
-                              <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Ernakulam</td>
-                              <td className="w-16 h-14 text-center font-inter text-xs font-bold p-2">Kozhikode</td>
+                              <td className="w-24 h-14 text-center font-inter text-xs font-bold p-2">{new Date(item.schedules_date).toISOString().split("T")[0]}</td>
+                              <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">{item.materials_name}</td>
+                              <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">{item.pickup_loc}</td>
+                              <td className="w-16 h-14 text-center font-inter text-xs font-bold p-2">{item.delivery_loc}</td>
                               <td className="w-10 h-14 text-center font-inter text-xs font-bold p-2"><button className=' text-sm bg-black rounded-sm w-16 text-white h-10' onClick={()=>{navigate('/Transpoter/View')}}>View</button></td>
 
                           </tr>
-                          <tr>
-                          <td className="w-24 h-14 text-center font-inter text-xs font-bold p-2">18 Sep, 2024</td>
-                          <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Frozen food</td>
-                              <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Ernakulam</td>
-                              <td className="w-16 h-14 text-center font-inter text-xs font-bold p-2">Kozhikode</td>
-                              <td className="w-10 h-14 text-center font-inter text-xs font-bold p-2"><button className=' text-sm bg-black rounded-sm w-16 text-white h-10 '>View</button></td>
 
-                          </tr>
-                          <tr className="bg-[#D9D9D9]">
-                          <td className="w-24 h-14 text-center font-inter text-xs font-bold p-2">18 Sep, 2024</td>
-                          <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Frozen food</td>
-                              <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Ernakulam</td>
-                              <td className="w-16 h-14 text-center font-inter text-xs font-bold p-2">Kozhikode</td>
-                              <td className="w-10 h-14 text-center font-inter text-xs font-bold p-2"><button className=' text-sm bg-black rounded-sm w-16 text-white h-10 '>View</button></td>
+                                ))
 
-                          </tr>
-                          <tr>
-                          <td className="w-24 h-14 text-center font-inter text-xs font-bold p-2">18 Sep, 2024</td>
-                          <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Frozen food</td>
-                              <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Ernakulam</td>
-                              <td className="w-16 h-14 text-center font-inter text-xs font-bold p-2">Kozhikode</td>
-                              <td className="w-10 h-14 text-center font-inter text-xs font-bold p-2"><button className=' text-sm bg-black rounded-sm w-16 text-white h-10 '>View</button></td>
-
-                          </tr>
-                          <tr className="bg-[#D9D9D9]">
-                          <td className="w-24 h-14 text-center font-inter text-xs font-bold p-2">18 Sep, 2024</td>
-                          <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Frozen food</td>
-                              <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Ernakulam</td>
-                              <td className="w-16 h-14 text-center font-inter text-xs font-bold p-2">Kozhikode</td>
-                              <td className="w-10 h-14 text-center font-inter text-xs font-bold p-2"><button className=' text-sm bg-black rounded-sm w-16 text-white h-10 '>View</button></td>
-
-                          </tr>
-                          <tr>
-                          <td className="w-24 h-14 text-center font-inter text-xs font-bold p-2">18 Sep, 2024</td>
-                          <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Frozen food</td>
-                              <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Ernakulam</td>
-                              <td className="w-16 h-14 text-center font-inter text-xs font-bold p-2">Kozhikode</td>
-                              <td className="w-10 h-14 text-center font-inter text-xs font-bold p-2"><button className=' text-sm bg-black rounded-sm w-16 text-white h-10 '>View</button></td>
-
-                          </tr>
-                          <tr className="bg-[#D9D9D9]">
-                          <td className="w-24 h-14 text-center font-inter text-xs font-bold p-2">18 Sep, 2024</td>
-                          <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Frozen food</td>
-                              <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Ernakulam</td>
-                              <td className="w-16 h-14 text-center font-inter text-xs font-bold p-2">Kozhikode</td>
-                              <td className="w-10 h-14 text-center font-inter text-xs font-bold p-2"><button className=' text-sm bg-black rounded-sm w-16 text-white h-10 '>View</button></td>
-
-                          </tr>
+                            ):(
+                                <p>No load schedules found.</p>
+                            )
+                        }
+                         
                       </tbody>
                   </table>
               </div>

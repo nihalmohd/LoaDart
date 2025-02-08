@@ -1,8 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
+import { AxiosInstance } from '../../../../Api/axios';
 
 const ScheduleTruckTable = () => {
     const navigate = useNavigate()
+
+    const transporterData = useSelector((state) => state.transporter);
+    const [TruckSchedules, setTruckSchedules] = useState([]);
+
+    useEffect(() => {
+        if (transporterData?.users_id) {
+            fetchTruckSchedules(transporterData.users_id);
+        }
+    }, []);
+
+    const fetchTruckSchedules = async (user_id) => {
+        try {
+            const response = await AxiosInstance.get(
+                `${import.meta.env.VITE_BASE_URL}/Transpoter/truckschedules?user_id=${user_id}`
+            );
+               
+               
+            if (response.status === 200) {
+                setTruckSchedules(response.data.schedules || []);
+            } else {
+                console.error('Failed to fetch load schedules:', response.data);
+            }
+        } catch (error) {
+            console.error('Error fetching load schedules:', error);
+        }
+    };
+    console.log(TruckSchedules);
+    
   return (
     <div>
         <div className="w-full  mx-auto r">
@@ -21,7 +51,7 @@ const ScheduleTruckTable = () => {
               <div className="w-full h-full flex justify-center items-center">
 
                   <table className="min-w-full border border-gray-200 rounded-sm overflow-hidden ">
-                      <thead className="bg-[#5B297E] text-white">
+                      <thead className="bg-[#5B297E] text-white ">
                           <tr>
                               <th className="w-20 h-5 text-center text-sm font-extralight px-2">Date</th>
                               <th className="w-24 h-5 text-center text-sm font-extralight px-2">Vehicle Registration</th>
@@ -31,62 +61,26 @@ const ScheduleTruckTable = () => {
                           </tr>
                       </thead>
                       <tbody className="bg-gray-100 text-gray-700">
-                          <tr className="bg-[#D9D9D9]">
-                              <td className="w-24 h-14 text-center font-inter text-xs font-bold p-2">18 Sep, 2024</td>
-                              <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">KL 07 AX 1234 5678 90 ABC</td>
-                              <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Ernakulam</td>
-                              <td className="w-16 h-14 text-center font-inter text-xs font-bold p-2">Kozhikode</td>
+                        {
+                            TruckSchedules.length>0?(
+                                TruckSchedules.map((item,index)=>(
+
+                          <tr className="bg-[#D9D9D9] border-b border-black">
+                              <td className="w-24 h-14 text-center font-inter text-xs font-bold p-2">{item.truckSchedules_date}</td>
+                              <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">{item.vehicle_reg}</td>
+                              <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">{item.pickup_loc}</td>
+                              <td className="w-16 h-14 text-center font-inter text-xs font-bold p-2">{item.delivery_loc}</td>
                               <td className="w-10 h-14 text-center font-inter text-xs font-bold p-2"><button className=' text-sm bg-black rounded-sm w-16 text-white h-10 ' onClick={()=>{navigate('/Transpoter/View')}}>View</button></td>
 
                           </tr>
-                          <tr>
-                          <td className="w-24 h-14 text-center font-inter text-xs font-bold p-2">18 Sep, 2024</td>
-                          <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">KL 07 AX 1234 5678 90 ABC</td>
-                          <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Ernakulam</td>
-                              <td className="w-16 h-14 text-center font-inter text-xs font-bold p-2">Kozhikode</td>
-                              <td className="w-10 h-14 text-center font-inter text-xs font-bold p-2"><button className=' text-sm bg-black rounded-sm w-16 text-white h-10 '>View</button></td>
+                                ))
 
-                          </tr>
-                          <tr className="bg-[#D9D9D9]">
-                          <td className="w-24 h-14 text-center font-inter text-xs font-bold p-2">18 Sep, 2024</td>
-                          <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">KL 07 AX 1234 5678 90 ABC</td>
-                          <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Ernakulam</td>
-                              <td className="w-16 h-14 text-center font-inter text-xs font-bold p-2">Kozhikode</td>
-                              <td className="w-10 h-14 text-center font-inter text-xs font-bold p-2"><button className=' text-sm bg-black rounded-sm w-16 text-white h-10 '>View</button></td>
 
-                          </tr>
-                          <tr>
-                          <td className="w-24 h-14 text-center font-inter text-xs font-bold p-2">18 Sep, 2024</td>
-                          <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">KL 07 AX 1234 5678 90 ABC</td>
-                          <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Ernakulam</td>
-                              <td className="w-16 h-14 text-center font-inter text-xs font-bold p-2">Kozhikode</td>
-                              <td className="w-10 h-14 text-center font-inter text-xs font-bold p-2"><button className=' text-sm bg-black rounded-sm w-16 text-white h-10 '>View</button></td>
-
-                          </tr>
-                          <tr className="bg-[#D9D9D9]">
-                          <td className="w-24 h-14 text-center font-inter text-xs font-bold p-2">18 Sep, 2024</td>
-                          <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">KL 07 AX 1234 5678 90 ABC</td>
-                          <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Ernakulam</td>
-                              <td className="w-16 h-14 text-center font-inter text-xs font-bold p-2">Kozhikode</td>
-                              <td className="w-10 h-14 text-center font-inter text-xs font-bold p-2"><button className=' text-sm bg-black rounded-sm w-16 text-white h-10 '>View</button></td>
-
-                          </tr>
-                          <tr>
-                          <td className="w-24 h-14 text-center font-inter text-xs font-bold p-2">18 Sep, 2024</td>
-                          <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">KL 07 AX 1234 5678 90 ABC</td>
-                          <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Ernakulam</td>
-                              <td className="w-16 h-14 text-center font-inter text-xs font-bold p-2">Kozhikode</td>
-                              <td className="w-10 h-14 text-center font-inter text-xs font-bold p-2"><button className=' text-sm bg-black rounded-sm w-16 text-white h-10 '>View</button></td>
-
-                          </tr>
-                          <tr className="bg-[#D9D9D9]">
-                          <td className="w-24 h-14 text-center font-inter text-xs font-bold p-2">18 Sep, 2024</td>
-                          <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">KL 07 AX 1234 5678 90 ABC</td>
-                          <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">Ernakulam</td>
-                              <td className="w-16 h-14 text-center font-inter text-xs font-bold p-2">Kozhikode</td>
-                              <td className="w-10 h-14 text-center font-inter text-xs font-bold p-2"><button className=' text-sm bg-black rounded-sm w-16 text-white h-10 '>View</button></td>
-
-                          </tr>
+                            ):(
+                                <p>No load schedules found.</p>
+                            )
+                        }
+                         
                       </tbody>
                   </table>
               </div>
