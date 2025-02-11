@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaCheck, FaTimes } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { AxiosInstance } from '../../../../Api/axios';
 import { useNavigate } from 'react-router-dom';
+import Modal from '../../../Modal/Modal';
+import TruckNegotiation from './TruckNegotiation';
 
 const TruckBiddingComponent = ({ bidderName, bidAmount, itemName, weight, origin, destination, date,vehicle_reg,user_id,trucks_id,loads_id,materials_id,bidsLoad_id }) => {
 
 
     const transporterData = useSelector((state) => state.transporter);
+    const [isOpen, setIsOpen] = useState(false)
     const navigate  = useNavigate()
 
  
@@ -45,6 +48,14 @@ const TruckBiddingComponent = ({ bidderName, bidAmount, itemName, weight, origin
         users_id: transporterData.users_id,
         materials_id: materials_id,
       };
+
+      const openModal = () => {
+        setIsOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsOpen(false);
+    };
     
       const rejectBid = async (bidsLoad_id) => {
         try {
@@ -68,7 +79,14 @@ const TruckBiddingComponent = ({ bidderName, bidAmount, itemName, weight, origin
     };
   
     return (
-        <div className="bg-white rounded-lg shadow-md w-96  "> {/* Adjust width as needed */}
+        <div className="bg-white rounded-lg shadow-md w-96  "> 
+         <Modal isOpen={isOpen} closeModal={closeModal}>
+                    <TruckNegotiation
+                        bid_id={bidsLoad_id}
+                        bidderName={bidderName}
+                        bidAmount={bidAmount}
+                    />
+                </Modal>
             <div className="flex justify-center items-center mb-2">
                 <div className="w-auto h-10 flex gap-4">
                     <div>
@@ -104,7 +122,7 @@ const TruckBiddingComponent = ({ bidderName, bidAmount, itemName, weight, origin
                     Decline
                     <FaTimes className="mr-2 mt-1 font-thin" /> {/* Icon before text */}
                 </button>
-                <button className="border border-[#008000] hover:border-[#008000] text-[#008000] hover:text-[#008000] bg-white font-semibold  h-8 w-1/3  flex items-center justify-center">
+                <button onClick={()=>{ openModal()}} className="border border-[#008000] hover:border-[#008000] text-[#008000] hover:text-[#008000] bg-white font-semibold  h-8 w-1/3  flex items-center justify-center">
 
                     Negotiate
                 </button>

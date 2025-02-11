@@ -3,10 +3,12 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { AxiosInstance } from '../../../../Api/axios';
 
-const LoadNegotiation = ({bid_id, bidderName, bidAmount}) => {
+const TruckNegotiation = ({bid_id, bidderName, bidAmount}) => {
+
   const transporterData = useSelector((state) => state.transporter);
-  const [negotiatedValue,setNegotiatedValue] = useState("")
-  const navigate = useNavigate()
+    const [negotiatedValue,setNegotiatedValue] = useState("")
+  
+    const navigate = useNavigate()
 
   const negotiateBid = async (bidId, userId, amount) => {
     try {
@@ -15,7 +17,7 @@ const LoadNegotiation = ({bid_id, bidderName, bidAmount}) => {
         return 
       }
         const response = await AxiosInstance.post(
-            "/Transpoter/insertTruckNegotiation",
+            "/Transpoter/negotiations",
             {
                 bid_id: bidId,
                 user_id: userId,
@@ -39,9 +41,9 @@ const LoadNegotiation = ({bid_id, bidderName, bidAmount}) => {
     }
 };
 
-  return (
 
-      <div className="bg-white w-96 rounded-lg shadow-lg ">
+  return (
+    <div className="bg-white w-96 rounded-lg shadow-lg ">
         {/* Header */}
         <div className="flex items-center justify-center ">
 
@@ -85,8 +87,7 @@ const LoadNegotiation = ({bid_id, bidderName, bidAmount}) => {
         </div>
         </div>
       </div>
-
   )
 }
 
-export default LoadNegotiation
+export default TruckNegotiation

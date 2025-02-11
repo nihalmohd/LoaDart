@@ -65,7 +65,7 @@ const ViewBidsLoad = () => {
     const fetchLoadNegotiationData = async (bid_id, user_id) => {
         try {
             const response = await AxiosInstance.get(
-                `${import.meta.env.VITE_BASE_URL}/Transpoter/getNegotiationByUserAndBid?user_id=${user_id}&bid_id=${bid_id}`
+                `${import.meta.env.VITE_BASE_URL}/Transpoter/getTruckNegotiationByUserAndBid?user_id=${user_id}&bid_id=${bid_id}`
             );
             console.log(response);
 
@@ -85,6 +85,7 @@ const ViewBidsLoad = () => {
 
 
 
+  
 
     return (
         <div>

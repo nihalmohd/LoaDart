@@ -11,10 +11,11 @@ const ViewBidsTruck = () => {
     const { truck_id } = useParams();
     const transporterData = useSelector((state) => state.transporter);
     const [TruckData, setTruckData] = useState([]);
+    const [negotiatedAmount, setnegotiatedAmount] = useState([]);
     const [message, setMessage] = useState('');
     const [expandedRow, setExpandedRow] = useState(null);
     const [isOpen, setIsOpen] = useState(false)
-    const [index,setIndex] = useState(0)
+    const [index, setIndex] = useState(0)
     const navigate = useNavigate();
 
     const openModal = () => {
@@ -57,6 +58,33 @@ const ViewBidsTruck = () => {
 
     console.log(index, "Truck data");
 
+    const fetchLoadNegotiationData = async (bid_id, user_id) => {
+        try {
+            const response = await AxiosInstance.get(
+                `${import.meta.env.VITE_BASE_URL}/Transpoter/getNegotiationByUserAndBid?user_id=${user_id}&bid_id=${bid_id}`
+            );
+            console.log(response);
+
+            if (response.status === 200) {
+                setnegotiatedAmount(response.data.negotiation); // Update loadData state
+                setMessage('');
+            } else {
+                setnegotiatedAmount([]);
+                setMessage('No loads found.');
+            }
+        } catch (error) {
+            console.error('Error fetching loads:', error);
+            setMessage('Failed to load data. Please try again.');
+        }
+
+    }
+
+    console.log(negotiatedAmount);
+
+
+
+
+
 
     return (
         <div>
@@ -64,19 +92,19 @@ const ViewBidsTruck = () => {
             <div className="w-full h-16  flex items-center ">
                 <Modal isOpen={isOpen} closeModal={closeModal}>
                     <TruckBiddingComponent
-                        bidderName={TruckData && TruckData.length > 0 ?TruckData[index].users_name:""}
-                        bidAmount={TruckData && TruckData.length > 0 ?TruckData[index].bidsLoad_amount:""}
-                        itemName={TruckData && TruckData.length > 0 ?TruckData[index].materials_name:""}
-                        weight={TruckData && TruckData.length > 0 ?TruckData[index].truck_capacities_name:""}
-                        origin={TruckData && TruckData.length > 0 ?TruckData[index].postTrucks_from:""}
-                        destination={TruckData && TruckData.length > 0 ?TruckData[index].postTrucks_to:""}
-                        date={TruckData && TruckData.length > 0 ?new Date(TruckData[index].pickupDate).toISOString().split("T")[0]:""}
-                        vehicle_reg={TruckData && TruckData.length > 0 ?TruckData[index].regNumber:""}
-                        user_id={TruckData && TruckData.length > 0 ?TruckData[index].users_id:""}
-                        trucks_id={TruckData && TruckData.length > 0 ?TruckData[index].truck_id:""}
-                        loads_id={TruckData && TruckData.length > 0 ?TruckData[index].loads_id:""}
-                        materials_id={TruckData && TruckData.length > 0 ?TruckData[index].materials_id:""}
-                        bidsLoad_id={TruckData && TruckData.length > 0 ?TruckData[index].bidsLoad_id:""}
+                        bidderName={TruckData && TruckData.length > 0 ? TruckData[index].users_name : ""}
+                        bidAmount={TruckData && TruckData.length > 0 ? TruckData[index].bidsLoad_amount : ""}
+                        itemName={TruckData && TruckData.length > 0 ? TruckData[index].materials_name : ""}
+                        weight={TruckData && TruckData.length > 0 ? TruckData[index].truck_capacities_name : ""}
+                        origin={TruckData && TruckData.length > 0 ? TruckData[index].postTrucks_from : ""}
+                        destination={TruckData && TruckData.length > 0 ? TruckData[index].postTrucks_to : ""}
+                        date={TruckData && TruckData.length > 0 ? new Date(TruckData[index].pickupDate).toISOString().split("T")[0] : ""}
+                        vehicle_reg={TruckData && TruckData.length > 0 ? TruckData[index].regNumber : ""}
+                        user_id={TruckData && TruckData.length > 0 ? TruckData[index].users_id : ""}
+                        trucks_id={TruckData && TruckData.length > 0 ? TruckData[index].truck_id : ""}
+                        loads_id={TruckData && TruckData.length > 0 ? TruckData[index].loads_id : ""}
+                        materials_id={TruckData && TruckData.length > 0 ? TruckData[index].materials_id : ""}
+                        bidsLoad_id={TruckData && TruckData.length > 0 ? TruckData[index].bidsLoad_id : ""}
                     />
                 </Modal>
                 <div className="w-11/12  h-10 ">
@@ -141,7 +169,7 @@ const ViewBidsTruck = () => {
                                                 <tr
                                                     key={index}
                                                     className="border-b border-[#6B7280] cursor-pointer"
-                                                    onClick={() => toggleRow(index)}
+                                                    onClick={() =>{fetchLoadNegotiationData(item.bidsLoad_id,transporterData.users_id),toggleRow(index )}}
                                                 >
                                                     <td className="w-24 h-14 text-center font-inter text-xs font-bold p-2">
                                                         {new Date(item.pickupDate).toISOString().split("T")[0]}
@@ -170,12 +198,29 @@ const ViewBidsTruck = () => {
                                                     <tr>
                                                         <td colSpan="7" className="p-4 bg-gray-100">
                                                             <div>
-                                                                <p className="text-green-600">
-                                                                    ● <strong>{item.users_name}</strong> bidded <span className="text-purple-700">₹{item.bidsLoad_amount}</span>
+                                                                <p className="text-green-500 text-md">
+                                                                    ● <span className="font-semibold text-black text-sm">{item.users_name}</span>
+                                                                    <span className="text-[#6B7280]"> bidded </span>
+                                                                    <span className="text-[#5b297e] text-sm">₹{item.bidsTruck_amount}</span>
                                                                 </p>
+
                                                                 <p className="text-red-600">
-                                                                    ● You rejected <strong>{item.users_name}</strong>'s bid of <span className="text-purple-700">₹{item.bidsLoad_amount}</span> and resubmitted bid of <span className="text-purple-700">₹{item.counterOffer}</span>
+                                                                    {negotiatedAmount && Array.isArray(negotiatedAmount) && negotiatedAmount.length > 0 ? (
+                                                                        negotiatedAmount.map((negotiated, index) => (
+                                                                            <React.Fragment key={index}>
+                                                                                ● <span className="text-[#6B7280] text-sm">You rejected</span>
+                                                                                <span className="text-sm font-semibold text-black"> {item?.users_name} </span>
+                                                                                <span className="text-sm text-black"> bid of </span>
+                                                                                <span className="text-[#5b297e]">₹{item?.bidsTruck_amount}</span>
+                                                                                <span className="text-sm font-semibold text-black"> and resubmitted bid of </span>
+                                                                                <span className="text-[#5b297e] text-sm">₹{negotiated?.amount}</span>
+                                                                            </React.Fragment>
+                                                                        ))
+                                                                    ) : (
+                                                                        <p>Negotiation not found</p>
+                                                                    )}
                                                                 </p>
+
                                                             </div>
                                                         </td>
                                                     </tr>
