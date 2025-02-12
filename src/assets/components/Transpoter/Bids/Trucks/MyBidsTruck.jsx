@@ -7,97 +7,97 @@ import { AxiosInstance } from '../../../../Api/axios';
 import Modal from '../../../Modal/Modal';
 import TruckBiddingComponent from './TruckBiddingComponent';
 
-const ViewBidsTruck = () => {
-    const { truck_id } = useParams();
-    const transporterData = useSelector((state) => state.transporter);
-    const [TruckData, setTruckData] = useState([]);
-    const [negotiatedAmount, setnegotiatedAmount] = useState([]);
-    const [message, setMessage] = useState('');
-    const [expandedRow, setExpandedRow] = useState(null);
-    const [isOpen, setIsOpen] = useState(false)
-    const [index, setIndex] = useState(0)
-    const navigate = useNavigate();
-    const [selected, setSelected] = useState("Bids for truck");
+const MyBidsTruck = () => {
 
-    const openModal = () => {
-        setIsOpen(true);
-    };
-
-    const closeModal = () => {
-        setIsOpen(false);
-    };
-
-
-    const toggleRow = (index) => {
-        setExpandedRow(expandedRow === index ? null : index);
-    };
-
-    useEffect(() => {
-        fetchData(truck_id, transporterData.users_id)
-    }, [])
-
-    const fetchData = async (truck_id, user_id) => {
-        try {
-            const response = await AxiosInstance.get(
-                `${import.meta.env.VITE_BASE_URL}/Transpoter/viewAllBidsTruck?trucks_id=${truck_id}&user_id=${user_id}`
-            );
-            console.log(response, "response");
-
-            if (response.status === 200) {
-                setTruckData(response.data.data);
-                setMessage('');
-            } else {
-                setTruckData([]);
-                setMessage('No Trucks found.');
-            }
-        } catch (error) {
-            console.error('Error fetching Trucks:', error);
-            setMessage('Failed to Truck data. Please try again.');
-        }
-
-    }
-
-    console.log(index, "Truck data");
-
-    const fetchLoadNegotiationData = async (bid_id, user_id) => {
-        try {
-            const response = await AxiosInstance.get(
-                `${import.meta.env.VITE_BASE_URL}/Transpoter/getNegotiationByUserAndBid?user_id=${user_id}&bid_id=${bid_id}`
-            );
-            console.log(response);
-
-            if (response.status === 200) {
-                setnegotiatedAmount(response.data.negotiation); // Update loadData state
-                setMessage('');
-            } else {
-                setnegotiatedAmount([]);
-                setMessage('No loads found.');
-            }
-        } catch (error) {
-            console.error('Error fetching loads:', error);
-            setMessage('Failed to load data. Please try again.');
-        }
-
-    }
-
+      const { truck_id } = useParams();
+        const transporterData = useSelector((state) => state.transporter);
+        const [TruckData, setTruckData] = useState([]);
+        const [negotiatedAmount, setnegotiatedAmount] = useState([]);
+        const [message, setMessage] = useState('');
+        const [expandedRow, setExpandedRow] = useState(null);
+        const [isOpen, setIsOpen] = useState(false)
+        const [index, setIndex] = useState(0)
+        const navigate = useNavigate();
+            const [selected, setSelected] = useState("My truck bids");
+        
     
-
-    console.log(TruckData);
-    const selectButton = (item) => {
-        setSelected(item)
-        if (item === "My truck bids") {
-            navigate(`/Transpoter/ViewAllMyTruckBids/${truck_id}`);
-        } 
-    }
-
-
-
-
-
-
-
-    return (
-        <div>
+        const openModal = () => {
+            setIsOpen(true);
+        };
+    
+        const closeModal = () => {
+            setIsOpen(false);
+        };
+    
+    
+        const toggleRow = (index) => {
+            setExpandedRow(expandedRow === index ? null : index);
+        };
+    
+        useEffect(() => {
+            fetchData(truck_id, transporterData.users_id)
+        }, [])
+    
+        const fetchData = async (truck_id, user_id) => {
+            try {
+                const response = await AxiosInstance.get(
+                    `${import.meta.env.VITE_BASE_URL}/Transpoter/getBidsByUserAndTruck?trucks_id=${truck_id}&user_id=${transporterData.users_id}`
+                );
+                console.log(response, "response");
+    
+                if (response.status === 200) {
+                    setTruckData(response.data.data);
+                    setMessage('');
+                } else {
+                    setTruckData([]);
+                    setMessage('No Trucks found.');
+                }
+            } catch (error) {
+                console.error('Error fetching Trucks:', error);
+                setMessage('Failed to Truck data. Please try again.');
+            }
+    
+        }
+    
+        console.log(TruckData, "Truck data");
+    
+        const fetchLoadNegotiationData = async (bid_id, user_id) => {
+            try {
+                const response = await AxiosInstance.get(
+                    `${import.meta.env.VITE_BASE_URL}/Transpoter/getNegotiationByUserAndBid?user_id=${user_id}&bid_id=${bid_id}`
+                );
+                console.log(response);
+    
+                if (response.status === 200) {
+                    setnegotiatedAmount(response.data.negotiation); // Update loadData state
+                    setMessage('');
+                } else {
+                    setnegotiatedAmount([]);
+                    setMessage('No loads found.');
+                }
+            } catch (error) {
+                console.error('Error fetching loads:', error);
+                setMessage('Failed to load data. Please try again.');
+            }
+    
+        }
+    
+        console.log(negotiatedAmount);
+    
+    
+        const selectButton = (item) => {
+            setSelected(item)
+            if (item === "Bids for truck"){
+               navigate(-1)
+            }
+        }
+    
+    
+    
+    
+    
+  return (
+    <div>
             <Sidebar />
             <div className="w-full h-16  flex items-center ">
                 <Modal isOpen={isOpen} closeModal={closeModal}>
@@ -106,8 +106,8 @@ const ViewBidsTruck = () => {
                         bidAmount={TruckData && TruckData.length > 0 ? TruckData[index].bidsLoad_amount : ""}
                         itemName={TruckData && TruckData.length > 0 ? TruckData[index].materials_name : ""}
                         weight={TruckData && TruckData.length > 0 ? TruckData[index].truck_capacities_name : ""}
-                        origin={TruckData && TruckData.length > 0 ? TruckData[index].postTrucks_from : ""}
-                        destination={TruckData && TruckData.length > 0 ? TruckData[index].postTrucks_to : ""}
+                        origin={TruckData && TruckData.length > 0 ? TruckData[index].pickupLoc : ""}
+                        destination={TruckData && TruckData.length > 0 ? TruckData[index].deliveryLoc : ""}
                         date={TruckData && TruckData.length > 0 ? new Date(TruckData[index].pickupDate).toISOString().split("T")[0] : ""}
                         vehicle_reg={TruckData && TruckData.length > 0 ? TruckData[index].regNumber : ""}
                         user_id={TruckData && TruckData.length > 0 ? TruckData[index].users_id : ""}
@@ -148,11 +148,11 @@ const ViewBidsTruck = () => {
                                 <div className="mt-2">
                                     <div className="flex items-center gap-2">
                                         <span className="w-3 h-3 bg-green-500 rounded-full"></span>
-                                        <p className="text-gray-700">{TruckData[0].postTrucks_from}</p>
+                                        <p className="text-gray-700">{TruckData[0].pickupLoc}</p>
                                     </div>
                                     <div className="flex items-center gap-2 mt-1">
                                         <span className="w-3 h-3 bg-red-500 rounded-full"></span>
-                                        <p className="text-gray-700">{TruckData[0].postTrucks_to}</p>
+                                        <p className="text-gray-700">{TruckData[0].deliveryLoc}</p>
                                     </div>
                                 </div>
                             </div>
@@ -205,8 +205,8 @@ const ViewBidsTruck = () => {
                                                     </td>
                                                     <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">{item.users_name}</td>
                                                     <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">{item.materials_name}</td>
-                                                    <td className="w-16 h-14 text-center font-inter text-xs font-bold p-2">{item.postTrucks_from}</td>
-                                                    <td className="w-16 h-14 text-center font-inter text-xs font-bold p-2">{item.postTrucks_to}</td>
+                                                    <td className="w-16 h-14 text-center font-inter text-xs font-bold p-2">{item.pickupLoc}</td>
+                                                    <td className="w-16 h-14 text-center font-inter text-xs font-bold p-2">{item.deliveryLoc}</td>
                                                     <td className="w-16 h-14 text-center font-inter text-xs font-bold p-2">₹{item.bidsLoad_amount}</td>
                                                     <td className="w-10 h-14 text-center font-inter text-xs font-bold p-2">
                                                         <button
@@ -271,7 +271,7 @@ const ViewBidsTruck = () => {
                 )
             }
         </div>
-    )
+  )
 }
 
-export default ViewBidsTruck
+export default MyBidsTruck

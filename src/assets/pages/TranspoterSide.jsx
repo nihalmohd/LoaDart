@@ -27,6 +27,7 @@ import TransporterProtectedRoute from '../components/ProtectedRoutes/Transporter
 import ViewBidsLoad from '../components/Transpoter/Bids/Loads/ViewBidsLoad';
 import ViewBidsTruck from '../components/Transpoter/Bids/Trucks/ViewBidsTruck';
 import Mybids from '../components/Transpoter/Bids/Loads/Mybids';
+import MyBidsTruck from '../components/Transpoter/Bids/Trucks/MyBidsTruck';
 
 
 const TranspoterSide = () => {
@@ -58,6 +59,7 @@ const TranspoterSide = () => {
         <Route path="ViewBidsLoad/:loads_id" element={<TransporterProtectedRoute><ViewBidsLoad/></TransporterProtectedRoute>} />
         <Route path="ViewBidsTruck/:truck_id" element={<TransporterProtectedRoute><ViewBidsTruck/></TransporterProtectedRoute>} />
         <Route path="ViewAllMyLoadBids/:loads_id" element={<TransporterProtectedRoute><Mybids/></TransporterProtectedRoute>} />
+        <Route path="ViewAllMyTruckBids/:truck_id" element={<TransporterProtectedRoute><MyBidsTruck/></TransporterProtectedRoute>} />
         </Routes>
       </div>
     </div>

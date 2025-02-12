@@ -156,22 +156,22 @@ const ViewBidsLoad = () => {
                         </div>
 
                         <div className="w-full h-12  flex justify-center items-center mt-1">
-                          <div className="w-11/12 h-10 ">
-                          <div className="w-full h-10 flex items-center gap-2">
-                {["Bids for load", "My load bids"].map((item) => (
-                    <button
-                        key={item}
-                        onClick={() => selectButton(item)}
-                        className={`border-2 border-[#5B297E] text-sm font-bold px-4 py-1 rounded w-auto h-8 text-center ${selected === item
-                                ? "bg-[#5B297E] text-white"
-                                : "text-[#5B297E]"
-                            }`}
-                    >
-                        {item}
-                    </button>
-                ))}
-            </div>
-                          </div>
+                            <div className="w-11/12 h-10 ">
+                                <div className="w-full h-10 flex items-center gap-2">
+                                    {["Bids for load", "My load bids"].map((item) => (
+                                        <button
+                                            key={item}
+                                            onClick={() => selectButton(item)}
+                                            className={`border-2 border-[#5B297E] text-sm font-bold px-4 py-1 rounded w-auto h-8 text-center ${selected === item
+                                                ? "bg-[#5B297E] text-white"
+                                                : "text-[#5B297E]"
+                                                }`}
+                                        >
+                                            {item}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
 
                         <div className="w-full h-auto flex justify-center ">
