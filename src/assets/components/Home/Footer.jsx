@@ -72,8 +72,8 @@ const Footer = () => {
       <div className="w-full border-t border-gray-700 pt-5 flex justify-between items-center mt-5 text-xs md:mr-16 md:ml-20 ">
         <p>© 2024 LeoDart. All Rights Reserved.</p>
         <div className="flex space-x-2">
-          <p onClick={navigate("/Terms&policy")} className="underline hover:cursor-pointer">Privacy Policy</p>
-          <p onClick={navigate("/Terms&policy")} className="underline hover:cursor-pointer">Terms & Conditions</p>
+          <p onClick={()=>navigate("/Terms&policy")} className="underline hover:cursor-pointer">Privacy Policy</p>
+          <p onClick={()=>navigate("/Terms&policy")} className="underline hover:cursor-pointer">Terms & Conditions</p>
         </div>
       </div>
     </footer>
