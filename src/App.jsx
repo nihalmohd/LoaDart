@@ -10,12 +10,14 @@ import ShipperProfile from './assets/components/Shipper/ShipperProfile/ShipperPr
 import DriverProfile from './assets/components/Driver/DriverProfile/DriverProfile';
 import DriverSide from './assets/pages/DriverSide';
 import Transpoter from './assets/components/Signup/Transpoter';
+import TermsAndPolicy from './assets/pages/TermsAndPolicy';
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/Terms&policy" element={<TermsAndPolicy />} />
         {/* <Route path="/TransporterSignUp" element={<Transpoter/>} />
         <Route path="/BrokerSignUp" element={<Home />} />
         <Route path="/ShipperSignUp" element={<Home />} />

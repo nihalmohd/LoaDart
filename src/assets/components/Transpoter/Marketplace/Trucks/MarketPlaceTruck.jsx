@@ -3,7 +3,6 @@ import { FaPhone, FaPhoneAlt, FaStar } from 'react-icons/fa';
 import { AxiosInstance } from '../../../../Api/axios';
 import { getCapacity, getTruckTypes } from '../../../../../common/common';
 import Modal from '../../../Modal/Modal';
-import TruckBiddingComponent from '../../Bids/Trucks/TruckBiddingComponent';
 import TruckBiddingModal from './TruckBiddingModal';
 
 
@@ -64,11 +63,11 @@ const MarketPlaceTruck = () => {
       );
 
       if (response.data?.data && response.data.data.length > 0) {
-        setTruckData(response.data.data); // Update load data
-        setMessage(""); // Clear previous messages
+        setTruckData(response.data.data); 
+        setMessage(""); 
       } else if (response.data?.message) {
-        setTruckData([]); // Clear load data
-        setMessage(response.data.message); // Show message from backend
+        setTruckData([]); 
+        setMessage(response.data.message); 
       } else {
         setTruckData([]);
         setMessage("No load found.");

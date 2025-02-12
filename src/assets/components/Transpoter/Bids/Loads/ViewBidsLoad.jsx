@@ -19,6 +19,8 @@ const ViewBidsLoad = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [index, setIndex] = useState(0)
     const navigate = useNavigate();
+    const [selected, setSelected] = useState("Bids for load");
+    
 
     const openModal = () => {
         setIsOpen(true);
@@ -81,6 +83,13 @@ const ViewBidsLoad = () => {
             setMessage('Failed to load data. Please try again.');
         }
 
+    }
+
+    const selectButton = (item) => {
+        setSelected(item)
+        if (item === "My load bids") {
+            navigate(`/Transpoter/ViewAllMyLoadBids/${loads_id}`);
+        } 
     }
 
 
@@ -146,7 +155,26 @@ const ViewBidsLoad = () => {
                             </div>
                         </div>
 
-                        <div className="w-full h-auto flex justify-center mt-5">
+                        <div className="w-full h-12  flex justify-center items-center mt-1">
+                          <div className="w-11/12 h-10 ">
+                          <div className="w-full h-10 flex items-center gap-2">
+                {["Bids for load", "My load bids"].map((item) => (
+                    <button
+                        key={item}
+                        onClick={() => selectButton(item)}
+                        className={`border-2 border-[#5B297E] text-sm font-bold px-4 py-1 rounded w-auto h-8 text-center ${selected === item
+                                ? "bg-[#5B297E] text-white"
+                                : "text-[#5B297E]"
+                            }`}
+                    >
+                        {item}
+                    </button>
+                ))}
+            </div>
+                          </div>
+                        </div>
+
+                        <div className="w-full h-auto flex justify-center ">
                             <div className="w-11/12 h-full flex justify-center items-center">
                                 <table className="min-w-full border border-gray-200 rounded-sm overflow-hidden">
                                     <thead className="bg-[#5B297E] text-white">

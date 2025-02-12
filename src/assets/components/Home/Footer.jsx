@@ -6,11 +6,13 @@ import { AiOutlineFacebook } from "react-icons/ai";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { CiLinkedin } from "react-icons/ci";  
 import { CiTwitter } from "react-icons/ci";  
+import { useNavigate } from "react-router-dom";
 
 
 
 
 const Footer = () => {
+ const navigate = useNavigate()
   return (
     
     <footer
@@ -67,11 +69,11 @@ const Footer = () => {
       
 
       {/* Bottom Section */}
-      <div className="w-full border-t border-gray-700 pt-5 flex justify-between items-center mt-5 text-xs md:mr-16 md:ml-20">
+      <div className="w-full border-t border-gray-700 pt-5 flex justify-between items-center mt-5 text-xs md:mr-16 md:ml-20 ">
         <p>© 2024 LeoDart. All Rights Reserved.</p>
         <div className="flex space-x-2">
-          <p>Privacy Policy</p>
-          <p>Terms & Conditions</p>
+          <p onClick={navigate("/Terms&policy")} className="underline hover:cursor-pointer">Privacy Policy</p>
+          <p onClick={navigate("/Terms&policy")} className="underline hover:cursor-pointer">Terms & Conditions</p>
         </div>
       </div>
     </footer>
