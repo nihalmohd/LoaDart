@@ -1,25 +1,88 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const Shipper = () => {
   const [IsProceeded,setIsproceeded]=useState(false)
   const [Mobilenumber,setMobileNumber] = useState()
-  const navigate = useNavigate()
   const [otp, setOtp] = useState(new Array(4).fill(""));
+  const [error, setError] = useState('');
+  
+  const navigate = useNavigate()
 
+  const handleSubmit = async () => {
+    setError('');
 
-  const handleChange = (element, index) => {
-      const value = element.value.replace(/[^0-9]/g, ''); 
-      if (value.length > 1) return;
+    if (!/^\d{10}$/.test(Mobilenumber)) {
+      setError('Please enter a valid 10-digit mobile number.');
+      return;
+    }
 
-      const newOtp = [...otp];
-      newOtp[index] = value;
-      setOtp(newOtp);
-
-      if (value && element.nextSibling) {
-          element.nextSibling.focus();
+    try {
+      const sendOTP = await axios.post(`${import.meta.env.VITE_BASE_URL}/Broker/send-otp`, { transporters_mob: Mobilenumber });
+      console.log("OTP sent successfully:", sendOTP.data);
+      if (sendOTP.data) {
+        setIsproceeded(!IsProceeded);
       }
+    } catch (error) {
+
+      console.error("Error sending OTP:", error);
+      setError("Failed to send OTP. Please try again.", error);
+    }
   };
+  const hanndleChangeMobilen = (e) => {
+    setMobileNumber(e.target.value);
+    setError("");
+  };
+  //OTP SECTION//
+const handleChange = (element, index) => {
+  const value = element.value.replace(/[^0-9]/g, '');
+  setError("")
+  if (value.length > 1) return;
+
+  const newOtp = [...otp];
+  newOtp[index] = value;
+  setOtp(newOtp);
+
+  if (value && element.nextSibling) {
+      element.nextSibling.focus();
+  }
+};
+
+const handleProceed = async () => {
+  if (otp.some((digit) => digit === "")) {
+    setError("All fields are required.");
+    return;
+  }
+
+  const enteredOTP = otp.join("");
+  console.log(enteredOTP, "this is entered otp");
+
+  try {
+    const receivedOTP = await axios.post(
+      `${import.meta.env.VITE_BASE_URL}/Shipper/Verify-otp`,
+      { shippers_mob: Mobilenumber, otp: enteredOTP }
+    );
+
+    if (!receivedOTP.data.data) {
+      navigate(`/Shipper/UpdateProfile/${Mobilenumber}`)
+    } else {
+      console.log(receivedOTP.data.data);
+
+      
+      const { company, shippers_name, shippers_email, shippers_phone } = receivedOTP.data.data;
+      setError("");
+      navigate(`/Shipper/UpdateProfile/${Mobilenumber}`, {
+        state: { company, shippers_name, shippers_email, shippers_phone },
+      });
+      // setError("OTP does not match. Please try again.");
+    }
+  } catch (error) {
+    console.error("Error Verify OTP:", error);
+    setError("Failed to Verify OTP. Please try again.", error);
+  }
+};
+
   return (
     <div>
       <div className="md:w-[520px] md:h-[320px] bg-white rounded-md md:flex relative z-50 overflow-hidden ">
@@ -61,7 +124,7 @@ const Shipper = () => {
                 </div>
                   </div>
                   <div className="w-full h-7  flex justify-center">
-                   <button className='w-11/12 h-7 bg-[#5B297E] mt-4 text-white text-xs font-inter rounded-sm'onClick={()=>{navigate('/Shipper/UpdateProfile')}} >Proceed</button>
+                   <button className='w-11/12 h-7 bg-[#5B297E] mt-4 text-white text-xs font-inter rounded-sm'onClick={()=>{handleProceed()}} >Proceed</button>
                   </div>
             </div>
             <div className="w-full h-20  flex justify-center items-center">
@@ -85,10 +148,19 @@ const Shipper = () => {
                   <h1 className='text-[10px] font-inter text-[#6B7280] '>Mobile Number <span className='text-red-400'>*</span></h1>
                   <div className="w-full h-14  ">
                    <div className='w-11/12 h-8  border-b border-[#D9D9D9] text-base'>
-                  <input type="number" className='border-white focus:outline-none active:outline-none' onChange={(e)=>{setMobileNumber(e.target.value)}} />
+                  <input type="number" className='border-white focus:outline-none active:outline-none' onChange={(e)=>{hanndleChangeMobilen(e)}} />
                    </div>
-                  <button className='w-11/12 h-7 bg-[#5B297E] mt-4 text-white text-xs font-inter rounded-sm' onClick={()=>{setIsproceeded(!IsProceeded)}}>Proceed</button>
-                  </div>
+                   {error && (
+                          <p className="text-xs text-red-500 mt-2">
+                            {error}
+                          </p>
+                        )}
+                        <button
+                          className="w-11/12 h-7 bg-[#5B297E] mt-4 text-white text-xs font-inter rounded-sm"
+                          onClick={handleSubmit}
+                        >
+                          Proceed
+                        </button>                  </div>
                 </div>
               </div>
           </div>

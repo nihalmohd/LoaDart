@@ -82,11 +82,15 @@ const Transpoter = () => {
             `${import.meta.env.VITE_BASE_URL}/Transpoter/Verify-otp`,
             { transporters_mob: Mobilenumber, otp: enteredOTP }
           );
+          console.log(receivedOTP);
       
-          if (receivedOTP.data) {
+          if (!receivedOTP.data.data) {
+           
+            navigate(`/Transpoter/UpdateProfile/${Mobilenumber}`)
+          } else {
             console.log(receivedOTP.data.data);
       
-            
+             
             const { company, transporters_name, transporters_email, transporters_phone } = receivedOTP.data.data;
       
             setError("");
@@ -95,8 +99,7 @@ const Transpoter = () => {
             navigate(`/Transpoter/UpdateProfile/${Mobilenumber}`, {
               state: { company, transporters_name, transporters_email, transporters_phone },
             });
-          } else {
-            setError("OTP does not match. Please try again.");
+            // setError("OTP does not match. Please try again.");
           }
         } catch (error) {
           console.error("Error Verify OTP:", error);
