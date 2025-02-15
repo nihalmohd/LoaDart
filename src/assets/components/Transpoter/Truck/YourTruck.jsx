@@ -140,12 +140,12 @@ const YourTruck = () => {
                                                             <>
                                                                 <div
                                                                     className="w-[120px] h-8 bg-white mt-3 ml-4 flex border border-[#5B297E] justify-center items-center font-inter text-sm text-[#5B297E] rounded-sm shadow cursor-pointer"
-                                                                    onClick={() => navigate(`/Transpoter/PostTruck/${item.truck_id}`)}
+                                                                    onClick={() => navigate(`/c/PostTruck/${item.truck_id}`)}
                                                                 >
                                                                     Post Truck
                                                                 </div>
                                                                 <div className="w-[120px] h-8 bg-[#5B297E] mt-3 ml-3 flex justify-center items-center font-inter text-sm text-white rounded-sm shadow cursor-pointer"
-                                                                onClick={() => navigate(`/Transpoter/Marketplace`)}
+                                                                onClick={() => navigate(`/c/Marketplace`)}
                                                                 >
                                                                     Find Load
                                                                 </div>
@@ -154,12 +154,12 @@ const YourTruck = () => {
                                                             <>
                                                                 <div
                                                                     className="w-[120px] h-8 bg-white mt-3 ml-4 flex border border-[#5B297E] justify-center items-center font-inter text-sm text-[#5B297E] rounded-sm shadow cursor-pointer"
-                                                                    onClick={() => navigate(`/Transpoter/ViewBidsTruck/${item.truck_id}`)}
+                                                                    onClick={() => navigate(`/c/ViewBidsTruck/${item.truck_id}`)}
                                                                 >
                                                                     View Bids
                                                                 </div>
                                                                 <div className="w-[120px] h-8 bg-[#5B297E] mt-3 ml-3 flex justify-center items-center font-inter text-sm text-white rounded-sm shadow cursor-pointer"
-                                                                onClick={() => navigate(`/Transpoter/Marketplace`)}
+                                                                onClick={() => navigate(`/c/Marketplace`)}
                                                                 >
                                                                 Find Load
                                                                 </div>

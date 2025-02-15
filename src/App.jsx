@@ -11,12 +11,14 @@ import DriverProfile from './assets/components/Driver/DriverProfile/DriverProfil
 import DriverSide from './assets/pages/DriverSide';
 import Transpoter from './assets/components/Signup/Transpoter';
 import TermsAndPolicy from './assets/pages/TermsAndPolicy';
+import Commons from './assets/pages/Commons';
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/c/*" element={<Commons />} />
         <Route path="/Terms&policy" element={<TermsAndPolicy />} />
         {/* <Route path="/TransporterSignUp" element={<Transpoter/>} /> */}
         <Route path="/Transpoter/*" element={<TranspoterSide />} />

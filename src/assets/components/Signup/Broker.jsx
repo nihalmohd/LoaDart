@@ -1,5 +1,6 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 const Broker = () => {
@@ -8,6 +9,24 @@ const Broker = () => {
   const [otp, setOtp] = useState(new Array(4).fill(""));
   const [error, setError] = useState('');
   const navigate = useNavigate()
+
+  const transporterData = useSelector((state) => state.transporter);
+
+   useEffect(() => {
+        if (
+          transporterData.brokers_id &&
+          transporterData.brokers_name &&
+          transporterData.company &&
+          transporterData.brokers_email &&
+          transporterData.brokers_phone &&
+          transporterData.users_id &&
+          transporterData.users_name &&
+          transporterData.users_mobile &&
+          transporterData.user_types_id
+        ) {
+          navigate('/Broker'); 
+        }
+      }, [transporterData, navigate]);
 
   const handleSubmit = async () => {
     setError('');
@@ -63,13 +82,20 @@ const handleProceed = async () => {
       `${import.meta.env.VITE_BASE_URL}/Broker/Verify-otp`,
       { brokers_mob: Mobilenumber, otp: enteredOTP }
     );
+    console.log(receivedOTP);
 
     if (!receivedOTP.data.data) {
+     
       navigate(`/Broker/UpdateProfile/${Mobilenumber}`)
     } else {
       console.log(receivedOTP.data.data);
+
+       
       const { company, brokers_name, brokers_email, brokers_phone } = receivedOTP.data.data;
+
       setError("");
+
+      
       navigate(`/Broker/UpdateProfile/${Mobilenumber}`, {
         state: { company, brokers_name, brokers_email, brokers_phone },
       });
@@ -80,6 +106,7 @@ const handleProceed = async () => {
     setError("Failed to Verify OTP. Please try again.", error);
   }
 };
+
 
 
   return (

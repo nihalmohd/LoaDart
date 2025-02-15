@@ -12,7 +12,7 @@ import { IoMdMenu } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa";
 import { GiAchievement } from 'react-icons/gi';
 import { useDispatch } from 'react-redux';
-import { clearTransporterData } from '../../../Redux/TransporterSlice/TranporterSlice';
+import { clearAllData } from '../../../Redux/Slice/TranporterSlice';
 
 
 function Sidebar() {
@@ -28,18 +28,18 @@ function Sidebar() {
 
     const menuRoutes = {
         Dashboard: '/Transpoter',
-        Schedule: '/Transpoter/Schedule',
-        TripRequests: '/Transpoter/TripRequests',
+        Schedule: '/c/Schedule',
+        TripRequests: '/c/TripRequests',
         Profile: '/Transpoter/Profile',
-        Marketplace: '/Transpoter/Marketplace',
-        Loads: '/Transpoter/Loads',
-        YourLoads: '/Transpoter/YourLoads',
-        Trucks: '/Transpoter/Trucks',
-        YourTruck: '/Transpoter/YourTruck',
-        UpgradeMembership: '/Transpoter/UpgradeMembership',
-        Achivments: '/Transpoter/Achievments',
-        Help: '/Transpoter/Help',
-        Feedback: '/Transpoter/Feedback',
+        Marketplace: '/c/Marketplace',
+        Loads: '/c/Loads',
+        YourLoads: '/c/YourLoads',
+        Trucks: '/c/Trucks',
+        YourTruck: '/c/YourTruck',
+        UpgradeMembership: '/c/UpgradeMembership',
+        Achivments: '/c/Achievments',
+        Help: '/c/Help',
+        Feedback: '/c/Feedback',
         Logout: '/Transpoter/Logout',
     };
     
@@ -48,7 +48,7 @@ function Sidebar() {
         const route = menuRoutes[item]; 
         if (route) {
             if(route =='/Transpoter/Logout'){
-               dispatch(clearTransporterData())
+               dispatch(clearAllData())
                navigate("/")
                return
             }

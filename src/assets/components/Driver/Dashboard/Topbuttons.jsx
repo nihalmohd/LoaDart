@@ -22,8 +22,8 @@ const Topbuttons = () => {
 
       </div>
       <div className="w-[270px] h-10 hidden md:grid grid-cols-2 gap-2 pt-3 ">
-                <button className="w-32 h-7  border border-[#5B297E] flex justify-center items-center rounded-sm text-[#5B297E] text-xs mb-2 " onClick={()=>{navigate('/Driver/Loads')}} ><IoSearch className='mr-2 font-semibold' /> Serach Load</button>
-                <button className="w-32 h-7 bg-[#5B297E] flex justify-center items-center rounded-sm text-white text-xs mb-2" onClick={()=>{navigate('/Driver/AddTruck')}}><FaPlus className='mr-2 font-semibold' />Add Truck</button>
+                <button className="w-32 h-7  border border-[#5B297E] flex justify-center items-center rounded-sm text-[#5B297E] text-xs mb-2 " onClick={()=>{navigate('/c/Loads')}} ><IoSearch className='mr-2 font-semibold' /> Serach Load</button>
+                <button className="w-32 h-7 bg-[#5B297E] flex justify-center items-center rounded-sm text-white text-xs mb-2" onClick={()=>{navigate('/c/AddTruck')}}><FaPlus className='mr-2 font-semibold' />Add Truck</button>
             </div>
         </div>
               <div className="w-11/12 h-20  ml-4 md:hidden flex justify-center items-center">

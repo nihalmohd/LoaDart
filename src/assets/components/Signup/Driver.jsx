@@ -1,5 +1,6 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 const Driver = () => {
@@ -9,6 +10,22 @@ const Driver = () => {
   const [error, setError] = useState('');
   
   const navigate = useNavigate()
+  const transporterData = useSelector((state) => state.transporter);
+
+  useEffect(() => {
+    if (
+      transporterData.drivers_id &&
+      transporterData.drivers_name &&
+      transporterData.drivers_email &&
+      transporterData.drivers_phone &&
+      transporterData.users_id &&
+      transporterData.users_name &&
+      transporterData.users_mobile &&
+      transporterData.user_types_id
+    ) {
+      navigate('/Driver');
+    }
+  }, [transporterData, navigate]);
 
   const handleSubmit = async () => {
     setError('');
@@ -63,13 +80,20 @@ const handleProceed = async () => {
       `${import.meta.env.VITE_BASE_URL}/Driver/Verify-otp`,
       { drivers_mob: Mobilenumber, otp: enteredOTP }
     );
+    console.log(receivedOTP);
 
     if (!receivedOTP.data.data) {
+     
       navigate(`/Driver/UpdateProfile/${Mobilenumber}`)
     } else {
       console.log(receivedOTP.data.data);
+
+       
       const { company, drivers_name, drivers_email, drivers_phone } = receivedOTP.data.data;
+
       setError("");
+
+      
       navigate(`/Driver/UpdateProfile/${Mobilenumber}`, {
         state: { company, drivers_name, drivers_email, drivers_phone },
       });
@@ -80,6 +104,8 @@ const handleProceed = async () => {
     setError("Failed to Verify OTP. Please try again.", error);
   }
 };
+
+
 
   return (
     <div>

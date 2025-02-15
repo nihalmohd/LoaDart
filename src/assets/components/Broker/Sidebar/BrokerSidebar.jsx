@@ -10,10 +10,12 @@ import { RxUpdate } from "react-icons/rx";
 import { MdOutlineRoute } from "react-icons/md";
 import { IoMdMenu } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa";
+import { clearAllData } from '../../../Redux/Slice/TranporterSlice';
+import { useDispatch } from 'react-redux';
 
 
 
-const Sidebar = () => {
+const BrokerSidebar = () => {
     const [isTrucksOpen, setIsTrucksOpen] = useState(false);
     const [isProfilesOpen, setIsProfilesOpen] = useState(false);
     const [isTruck, setIsTruck] = useState(false);
@@ -21,21 +23,23 @@ const Sidebar = () => {
     const [activeItem, setActiveItem] = useState('Dashboard');
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
 
     const menuRoutes = {
         Dashboard: '/Broker',
-        Schedule: '/Broker/Schedule',
-        TripRequests: '/Broker/TripRequests',
+        Schedule: '/c/Schedule',
+        TripRequests: '/c/TripRequests',
         Profile: '/Broker/Profile',
-        Marketplace: '/Broker/Marketplace',
-        Loads: '/Broker/Loads',
-        YourLoads: '/Broker/YourLoads',
-        Trucks: '/Broker/Trucks',
-        YourTruck: '/Broker/YourTruck',
-        UpgradeMembership: '/Broker/UpgradeMembership',
-        Help: '/Broker/Help',
-        Feedback: '/Broker/Feedback',
+        Marketplace: '/c/Marketplace',
+        Loads: '/c/Loads',
+        YourLoads: '/c/YourLoads',
+        Trucks: '/c/Trucks',
+        YourTruck: '/c/YourTruck',
+        UpgradeMembership: '/c/UpgradeMembership',
+        Achivments: '/c/Achievments',
+        Help: '/c/Help',
+        Feedback: '/c/Feedback',
         Logout: '/Broker/Logout',
     };
     
@@ -43,9 +47,15 @@ const Sidebar = () => {
         setActiveItem(item);
         const route = menuRoutes[item]; 
         if (route) {
+            if(route =='/Broker/Logout'){
+                dispatch(clearAllData())
+                navigate("/")
+                return
+             }
             navigate(route);
         }
     };
+
     
     const toggleTrucks = () => {
         setIsTrucksOpen(!isTrucksOpen);
@@ -233,6 +243,16 @@ const Sidebar = () => {
                     </div>
                     <span className=' font-inter font-semibold text-sm'>Upgrade Membership</span>
                 </a>
+                  <a
+                                    href="#"
+                                    onClick={() => handleMenuItemClick('Achivments')}
+                                    className={`flex items-center space-x-2 ${activeItem === 'UpgradeMembership' ? 'text-[#5B297E]' : 'text-gray-700'} hover:text-[#5B297E]`}
+                                >
+                                    <div className="p-2">
+                                    <GiAchievement />
+                                    </div>
+                                    <span className=' font-inter font-semibold text-sm'>Achievments</span>
+                                </a>
 
                 <a
                     href="#"
@@ -283,4 +303,4 @@ const Sidebar = () => {
   )
 }
 
-export default Sidebar
+export default BrokerSidebar

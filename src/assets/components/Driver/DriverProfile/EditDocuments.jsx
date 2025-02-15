@@ -1,20 +1,32 @@
 import React, { useRef, useState } from 'react'
+import { HiOutlineTruck } from 'react-icons/hi';
+import { IoIosSearch } from 'react-icons/io';
+import { IoClose } from 'react-icons/io5';
 import { LuUpload } from 'react-icons/lu';
 import { useNavigate } from 'react-router-dom';
+import { uploadFileToS3 } from '../../../../../s3Config';
+import { AxiosInstance } from '../../../Api/axios';
+import { useSelector } from 'react-redux';
+
 
 const EditDocuments = () => {
-    const [BusssinesRegistration, setBusssinesRegistration] = useState(null);
-    const [GSTCertificate, setGSTCertificate] = useState(null);
+    const [Lisence, setLisence] = useState(null);
+    const [Insurance, setInsurance] = useState(null);
+        const [LisenceUrl,setLisenceUrl] = useState("")
+        const [InsuranceUrl,setInsuranceUrl] = useState("")
+    
+        const transporterData = useSelector((state) => state.transporter);
+    
 
     const BussinessRegistrationRef = useRef(null);
-    const GSTCertificateRef = useRef(null);
+    const InsuranceRef = useRef(null);
 
     const handleProofFileChange = (event) => {
-        setBusssinesRegistration(event.target.files[0]);
+        setLisence(event.target.files[0]);
     };
 
     const handleReceiptFileChange = (event) => {
-        setGSTCertificate(event.target.files[0]);
+        setInsurance(event.target.files[0]);
     };
 
     const handleProofUploadClick = () => {
@@ -24,23 +36,52 @@ const EditDocuments = () => {
     };
 
     const handleReceiptUploadClick = () => {
-        if (GSTCertificateRef.current) {
-            GSTCertificateRef.current.click();
+        if (InsuranceRef.current) {
+            InsuranceRef.current.click();
         }
     };
 
 
-    const handleSubmit = (event) => {
+    const handleSubmit =async (event) => {
         event.preventDefault();
 
-        if (!BusssinesRegistration || !GSTCertificate) {
+        if (!Lisence || !Insurance) {
             alert("Please select files for both Proof of Delivery and Lorry Receipt before submitting!");
             return;
         }
 
-        console.log("Proof of Delivery File:", BusssinesRegistration.name);
-        console.log("Lorry Receipt File:", GSTCertificate.name);
-    };
+        console.log("Proof of Delivery File:", Lisence.name);
+        console.log("Lorry Receipt File:", Insurance.name);
+      try {
+                // Upload files to S3
+                const Lisenceurl = await uploadFileToS3(Lisence, Lisence.name);
+                const Insuranceurl = await uploadFileToS3(Insurance, Insurance.name);
+        
+                // Store uploaded URLs in state
+                setLisenceUrl(Lisenceurl);
+                setInsuranceUrl(Insuranceurl);
+        
+                // Prepare payload for backend API
+                const payload = {
+                    drivers_id: transporterData.drivers_id,
+                    drivers_doc: [
+                        { name: "Business Registration", type_id: 20, image: LisenceUrl },
+                        { name: "GST Certificate", type_id: 22, image: InsuranceUrl }
+                    ]
+                };
+        
+                // Send data to backend API
+                const response = await AxiosInstance.post('/Driver/InsertDriverDocs', payload,);
+        
+                console.log('Documents saved successfully:', response.data);
+                alert('Documents uploaded and saved successfully!');
+                navigate("/Driver/Profile")
+        
+            } catch (error) {
+                console.error('Upload failed:', error);
+                alert('Failed to upload documents. Please try again.');
+            }
+        };
     const navigate = useNavigate()
     return (
         <div className='w-full '>
@@ -53,21 +94,12 @@ const EditDocuments = () => {
                 <div className="w-full h-auto  pl-8 md:p-2 mb-10">
                     <div className="w-full h-full  border border-black rounded-sm">
                         <div className="w-full  p-4 space-y-4 ">
-                            <div className="md:w-8/12 h-28 ">
-
-                                <div className=" flex flex-col">
-                                    <label className="text-xs font-medium text-gray-400 mb-1">GSTN<span className='text-red-600'>*</span></label>
-                                    <input
-                                        type="text"
-                                        placeholder="abcd"
-                                        className="w-full h-10 border-b border-gray-300 outline-none placeholder:text-black"
-                                    />
-                                </div>
+                            <div className="md:w-8/12 h-22 ">
                                 <label
                                     htmlFor="proof-of-delivery"
                                     className="block text-gray-400 text-xs font-medium ml-1 mb-2 mt-3"
                                 >
-                                    Bussiness Registration<span className="text-red-500">*</span>
+                                    Lisence<span className="text-red-500">*</span>
                                 </label>
 
                                 <div className="flex md:w-full items-center justify-end border-b border-gray-300 mb-4">
@@ -80,7 +112,7 @@ const EditDocuments = () => {
                                     />
                                     <input
                                         type="text"
-                                        value={BusssinesRegistration ? BusssinesRegistration.name : ""}
+                                        value={Lisence ? Lisence.name : ""}
                                         readOnly
                                         placeholder="No file chosen"
                                         className="flex-1 text-sm rounded-md p-1 focus:outline-none"
@@ -104,20 +136,20 @@ const EditDocuments = () => {
                                     htmlFor="lorry-receipt"
                                     className="block text-gray-400 text-xs font-medium ml-1 mb-2 mt-3"
                                 >
-                                    GST Certificate<span className="text-red-500">*</span>
+                                    Insurance<span className="text-red-500">*</span>
                                 </label>
 
                                 <div className="flex md:w-8/12 items-center justify-end border-b border-gray-300 mb-4">
                                     <input
                                         type="file"
                                         id="lorry-receipt"
-                                        ref={GSTCertificateRef}
+                                        ref={InsuranceRef}
                                         onChange={handleReceiptFileChange}
                                         className="hidden"
                                     />
                                     <input
                                         type="text"
-                                        value={GSTCertificate ? GSTCertificate.name : ""}
+                                        value={Insurance ? Insurance.name : ""}
                                         readOnly
                                         placeholder="No file chosen"
                                         className="flex-1 text-sm rounded-md p-1 focus:outline-none"
@@ -134,7 +166,7 @@ const EditDocuments = () => {
                                 </div>
 
                             </div>
-                            <button className=' w-4/12 md:w-2/12  h-10 mt-3 md:mt-0  border border-[#5B297E] text-white bg-[#5B297E] rounded-sm font-inter flex justify-center items-center text-sm   shadow-md'>Proceed</button>
+                            <button onClick={handleSubmit} className=' w-4/12 md:w-2/12  h-10 mt-3 md:mt-0  border border-[#5B297E] text-white bg-[#5B297E] rounded-sm font-inter flex justify-center items-center text-sm   shadow-md'>Proceed</button>
 
                         </div>
                     </div>

@@ -3,11 +3,13 @@ import { HiOutlineTruck } from 'react-icons/hi';
 import { IoCubeOutline } from "react-icons/io5";
 import ScheduleLoadTable from './Load/ScheduleLoadTable';
 import ScheduleTruckTable from './Truck/ScheduleTruckTable';
+import Sidebar from '../Sidebar/Sidebar';
 
 const ScheduleButton = () => {
     const [selectedDiv, setSelectedDiv] = useState("left");
 
     return (
+        <>
         <div className="w-full h-auto flex justify-center items-center">
             <div className="w-11/12 h-auto ">
                 <div className="w-full h-10 flex-col items-end">
@@ -76,6 +78,7 @@ const ScheduleButton = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

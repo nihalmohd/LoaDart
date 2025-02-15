@@ -72,7 +72,7 @@ const PostTruck = () => {
                     console.log(response);
                     if (response.status === 201) {
                         alert("Truck posted successfully!");
-                        navigate('/Transpoter/YourTruck');
+                        navigate('/c/YourTruck');
                     }
                 } catch (error) {
                     console.error("Error submitting data:", error);

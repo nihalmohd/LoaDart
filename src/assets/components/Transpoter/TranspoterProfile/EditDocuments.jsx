@@ -13,6 +13,9 @@ const EditDocuments = () => {
     const [BusssinesUrl,setBusssinesUrl] = useState("")
     const [GSTCertificateUrl,seGSTCertificateUrl] = useState("")
 
+    const transporterData = useSelector((state) => state.transporter);
+
+
     const BussinessRegistrationRef = useRef(null);
     const GSTCertificateRef = useRef(null);
 
@@ -56,8 +59,8 @@ const EditDocuments = () => {
     
             // Prepare payload for backend API
             const payload = {
-                transporters_id: 21,
-                transporter_docs: [
+                shippers_id: transporterData.shippers_id,
+                shippers_docs: [
                     { name: "Business Registration", type_id: 20, image: Businessurl },
                     { name: "GST Certificate", type_id: 22, image: GSTCertificateurl }
                 ]

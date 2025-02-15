@@ -1,17 +1,89 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { getDistricts, getState } from '../../../../common/common';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { AxiosInstance } from '../../../Api/axios';
+
 
 const EditProfile = () => {
+
+    const navigate = useNavigate()
+    const [District, setDistrict] = useState([])
+    const [state, setState] = useState([])
+    const [stateId, setStateId] = useState("")
+    const [DistrictId, setDistrictId] = useState("")
+    const [Addressline1,setAddressline1] = useState("")
+    const [Addressline2,setAddressline2] = useState("")
+    const [GSTIN,setGSTIN] = useState("")
+    const [message, setMessage] = useState("");
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+    
+    const transporterData = useSelector((state) => state.transporter);
+    const fetchData = async () => {
+        try {
+            const state = await getState();
+            setState(state);
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    const fetchDistrictData = async () => {
+        try {
+            const Distric = await getDistricts(stateId);
+            setDistrict(Distric);
+        } catch (error) {
+            console.error("Error fetching data:", error.message);
+        }
+    };
+
+    const updateUserDetails = async () => {
+        try {
+          const requestBody = {
+            addressline1: Addressline1,
+            addressline2: Addressline2,
+            state_id: parseInt(stateId), // Ensure this is a number
+            district_id: parseInt(DistrictId), // Ensure this is a number
+            transporter_id: transporterData.transporters_id, // Replace this with the actual transporter ID
+            gstin: GSTIN,
+          };
+    
+          const response = await AxiosInstance.patch(
+            `${import.meta.env.VITE_BASE_URL}/Broker/UpdateBrokerProfile`,
+            requestBody
+          );
+    
+          if (response.status === 200) {
+            setMessage("User details updated successfully!");
+            alert("User details updated successfully!")
+            navigate("/Broker/Profile")
+          } else {
+            setMessage("Failed to update user details. Please try again.");
+          }
+        } catch (error) {
+          console.error("Error updating user details:", error);
+          setMessage("An error occurred while updating user details.");
+        }
+      };
+
+
+
     return (
         <div className="w-11/12 h-auto  flex justify-center">
-            <div className="w-11/12 h-96  mt-3 md:pt-2 md:pl-3 p-4   border border-black ">
+            <div className="w-11/12 h-auto  mt-3 md:pt-2 md:pl-3 p-4   border border-black ">
 
                 <div className="w-full h-10 flex-col items-end">
-                    <h1 className="font-inter font-semibold text-[#5B297E] text-lg mt-3  ">Basic Details</h1>
+                    <h1 className="font-inter font-semibold text-[#5B297E] text-lg mt-3  ">Basic Adderess Details</h1>
                 </div>
+
 
                 <div className="flex flex-col mt-2">
                     <label className="text-xs font-medium text-gray-400 ">Address line 1<span className='text-red-600'>*</span></label>
                     <input
+                    onChange={(e) => setAddressline1(e.target.value)}
                         type="text"
                         placeholder="abcd"
                         className="md:w-1/2 h-10 border-b border-gray-300 outline-none placeholder:text-black"
@@ -20,6 +92,7 @@ const EditProfile = () => {
                 <div className="flex flex-col mt-3">
                     <label className="text-xs font-medium text-gray-400 ">Address line 2<span className='text-red-600'>*</span></label>
                     <input
+                    onChange={(e) => setAddressline2(e.target.value)}
                         type="text"
                         placeholder="abcd"
                         className="md:w-1/2 h-10 border-b border-gray-300 outline-none placeholder:text-black"
@@ -33,42 +106,13 @@ const EditProfile = () => {
 
 
                         <div className="relative">
-                            <select className="w-full h-5  text-start  text-black focus:outline-none appearance-none">
-                            <option value="" className='mt-1'>Select State</option>
-                                <option value="Andhra Pradesh">Andhra Pradesh (AP)</option>
-                                <option value="Assam">Assam (AS)</option>
-                                <option value="Bihar">Bihar (BR)</option>
-                                <option value="Chandigarh">Chandigarh (CH)</option>
-                                <option value="Arunachal Pradesh">Arunachal Pradesh (AR)</option>
-                                <option value="Andaman and Nicobar">Andaman and Nicobar (AN)</option>
-                                <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli (DN)</option>
-                                <option value="Daman and Diu">Daman and Diu (DD)</option>
-                                <option value="Delhi">Delhi (DL)</option>
-                                <option value="Goa">Goa (GA)</option>
-                                <option value="Gujarat">Gujarat (GJ)</option>
-                                <option value="Haryana">Haryana (HR)</option>
-                                <option value="Himachal Pradesh">Himachal Pradesh (HP)</option>
-                                <option value="Jammu and Kashmir">Jammu and Kashmir (JK)</option>
-                                <option value="Karnataka">Karnataka (KA)</option>
-                                <option value="Kerala">Kerala (KL)</option>
-                                <option value="Lakshadweep">Lakshadweep (LD)</option>
-                                <option value="Madhya Pradesh">Madhya Pradesh (MP)</option>
-                                <option value="Maharashtra">Maharashtra (MH)</option>
-                                <option value="Manipur">Manipur (MN)</option>
-                                <option value="Meghalaya">Meghalaya (ML)</option>
-                                <option value="Mizoram">Mizoram (MZ)</option>
-                                <option value="Nagaland">Nagaland (NL)</option>
-                                <option value="Odisha">Odisha (OR)</option>
-                                <option value="Puducherry">Puducherry (PY)</option>
-                                <option value="Punjab">Punjab (PN)</option>
-                                <option value="Rajasthan">Rajasthan (RJ)</option>
-                                <option value="Sikkim">Sikkim (SK)</option>
-                                <option value="Tamil Nadu">Tamil Nadu (TN)</option>
-                                <option value="Tripura">Tripura (TR)</option>
-                                <option value="Uttar Pradesh">Uttar Pradesh (UP)</option>
-                                <option value="West Bengal">West Bengal (WB)</option>
-                                <option value="Telangana">Telangana (TS)</option>
-
+                            <select onChange={(e) => setStateId(e.target.value)} className="w-full h-10 border-b border-gray-300 text-black focus:outline-none appearance-none">
+                                <option value="">Select a state</option>
+                                {state && state.length > 0 ? (<>
+                                    {
+                                        state.map((item, index) => (<option key={item.states_id} value={item.states_id}>{item.states_name}</option>))
+                                    }
+                                </>) : (<>no data founed</>)}
                             </select>
                             <div className="absolute inset-y-0 right-0 mt-1  pointer-events-none">
                                 <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
@@ -86,52 +130,44 @@ const EditProfile = () => {
 
 
                         <div className="relative">
-                            <select className="w-full h-5  text-start  text-black focus:outline-none appearance-none">
-                                <option value="Baksa">Select Disctrict</option>
-                                <option value="Baksa">Baksa</option>
-                                <option value="Barpeta">Barpeta</option>
-                                <option value="Biswanath">Biswanath</option>
-                                <option value="Bongaigaon">Bongaigaon</option>
-                                <option value="Cachar">Cachar</option>
-                                <option value="Charaideo">Charaideo</option>
-                                <option value="Chirang">Chirang</option>
-                                <option value="Darrang">Darrang</option>
-                                <option value="Dhemaji">Dhemaji</option>
-                                <option value="Dhubri">Dhubri</option>
-                                <option value="Dibrugarh">Dibrugarh</option>
-                                <option value="Goalpara">Goalpara</option>
-                                <option value="Golaghat">Golaghat</option>
-                                <option value="Hailakandi">Hailakandi</option>
-                                <option value="Hojai">Hojai</option>
-                                <option value="Jorhat">Jorhat</option>
-                                <option value="Kamrup">Kamrup</option>
-                                <option value="Kamrup Metropolitan">Kamrup Metropolitan</option>
-                                <option value="Karbi Anglong">Karbi Anglong</option>
-                                <option value="Karimganj">Karimganj</option>
-                                <option value="Kokrajhar">Kokrajhar</option>
-                                <option value="Lakhimpur">Lakhimpur</option>
-                                <option value="Majuli">Majuli</option>
-                                <option value="Morigaon">Morigaon</option>
-                                <option value="Nagaon">Nagaon</option>
-                                <option value="Nalbari">Nalbari</option>
-                                <option value="Sivasagar">Sivasagar</option>
-                                <option value="Sonitpur">Sonitpur</option>
-                                <option value="South Salmara-Mankachar">South Salmara-Mankachar</option>
-                                <option value="Tinsukia">Tinsukia</option>
-                                <option value="Udalguri">Udalguri</option>
-                                <option value="West Karbi Anglong">West Karbi Anglong</option>
-
+                            <select
+                                onClick={fetchDistrictData}
+                                onChange={(e) => setDistrictId(e.target.value)}
+                                className="w-full h-10 border-b border-gray-300 text-black focus:outline-none appearance-none"
+                            >
+                                <option value="">Select a District</option>
+                                {Array.isArray(District) && District.length > 0 ? (
+                                    District.map((item) => (
+                                        <option key={item.districts_id} value={item.districts_id}>
+                                            {item.districts_name}
+                                        </option>
+                                    ))
+                                ) : (
+                                    <option disabled>No data found</option>
+                                )}
                             </select>
+
+
                             <div className="absolute inset-y-0 right-0 mt-1  pointer-events-none">
                                 <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                                 </svg>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
+                <div className="flex flex-col mt-3">
+                    <label className="text-xs font-medium text-gray-400 ">GSTIN<span className='text-red-600'>*</span></label>
+                    <input
+                    onChange={(e) => setGSTIN(e.target.value)}
+                        type="text"
+                        placeholder="abcd"
+                        className="md:w-1/2 h-10 border-b border-gray-300 outline-none placeholder:text-black"
+                    />
+                </div>
 
-
+                <button onClick={updateUserDetails} className=' w-4/12 md:w-2/12  h-10  md:mt-3  border border-[#5B297E] text-white bg-[#5B297E] rounded-sm font-inter flex justify-center items-center text-sm   shadow-md'>Proceed</button>
             </div>
 
         </div>

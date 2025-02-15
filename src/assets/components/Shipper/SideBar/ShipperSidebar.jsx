@@ -10,8 +10,10 @@ import { RxUpdate } from "react-icons/rx";
 import { MdOutlineRoute } from "react-icons/md";
 import { IoMdMenu } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa";
+import { clearAllData } from '../../../Redux/Slice/TranporterSlice';
+import { useDispatch } from 'react-redux';
 
-const Sidebar = () => {
+const ShipperSidebar = () => {
 
     const [isTrucksOpen, setIsTrucksOpen] = useState(false);
     const [isProfilesOpen, setIsProfilesOpen] = useState(false);
@@ -20,21 +22,22 @@ const Sidebar = () => {
     const [activeItem, setActiveItem] = useState('Dashboard');
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
 
     const menuRoutes = {
         Dashboard: '/Shipper',
-        Schedule: '/Shipper/Schedule',
-        TripRequests: '/Shipper/TripRequests',
+        Schedule: '/c/Schedule',
+        TripRequests: '/c/TripRequests',
         Profile: '/Shipper/Profile',
-        Marketplace: '/Shipper/Marketplace',
-        Loads: '/Shipper/Loads',
-        YourLoads: '/Shipper/YourLoads',
-        Trucks: '/Shipper/Trucks',
-        YourTruck: '/Shipper/YourTruck',
-        UpgradeMembership: '/Shipper/UpgradeMembership',
-        Help: '/Shipper/Help',
-        Feedback: '/Shipper/Feedback',
+        Marketplace: '/c/Marketplace',
+        Loads: '/c/Loads',
+        YourLoads: '/c/YourLoads',
+        Trucks: '/c/Trucks',
+        YourTruck: '/c/YourTruck',
+        UpgradeMembership: '/c/UpgradeMembership',
+        Help: '/c/Help',
+        Feedback: '/c/Feedback',
         Logout: '/Shipper/Logout',
     };
     
@@ -42,6 +45,11 @@ const Sidebar = () => {
         setActiveItem(item);
         const route = menuRoutes[item]; 
         if (route) {
+             if(route =='/Shipper/Logout'){
+                            dispatch(clearAllData())
+                            navigate("/")
+                            return
+                         }
             navigate(route);
         }
     };
@@ -275,4 +283,4 @@ const Sidebar = () => {
   )
 }
 
-export default Sidebar
+export default ShipperSidebar

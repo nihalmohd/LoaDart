@@ -104,7 +104,7 @@ const BiddingModal = ({ materialname, capacity, pickupDate, pickuploc, deliveryL
           className="w-full border h-10 border-gray-300 rounded mt-1 text-sm focus:outline-none"
         >
           <option value="" disabled>Select a truck</option>
-          {TruckData.length > 0 ? (
+          {TruckData && TruckData.length > 0 ? (
             TruckData.map((item) => (
               <option key={item.truck_id} value={item.truck_id}>
                 {item.truck_types_name}, {item.regNumber}

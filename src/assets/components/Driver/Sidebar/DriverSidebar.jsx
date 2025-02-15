@@ -10,9 +10,11 @@ import { RxUpdate } from "react-icons/rx";
 import { MdOutlineRoute } from "react-icons/md";
 import { IoMdMenu } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa";
+import { clearAllData } from '../../../Redux/Slice/TranporterSlice';
+import { useDispatch } from 'react-redux';
 
 
-function Sidebar() {
+function DriverSidebar() {
     const [isTrucksOpen, setIsTrucksOpen] = useState(false);
     const [isProfilesOpen, setIsProfilesOpen] = useState(false);
     const [isTruck, setIsTruck] = useState(false);
@@ -20,21 +22,22 @@ function Sidebar() {
     const [activeItem, setActiveItem] = useState('');
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
 
     const menuRoutes = {
         Dashboard: '/Driver',
-        Schedule: '/Driver/Schedule',
-        TripRequests: '/Driver/TripRequests',
+        Schedule: '/c/Schedule',
+        TripRequests: '/c/TripRequests',
         Profile: '/Driver/Profile',
-        Marketplace: '/Driver/Marketplace',
-        Loads: '/Driver/Loads',
-        YourLoads: '/Driver/YourLoads',
-        Trucks: '/Driver/Trucks',
-        YourTruck: '/Driver/YourTruck',
-        UpgradeMembership: '/Driver/UpgradeMembership',
-        Help: '/Driver/Help',
-        Feedback: '/Driver/Feedback',
+        Marketplace: '/c/Marketplace',
+        Loads: '/c/Loads',
+        YourLoads: '/c/YourLoads',
+        Trucks: '/c/Trucks',
+        YourTruck: '/c/YourTruck',
+        UpgradeMembership: '/c/UpgradeMembership',
+        Help: '/c/Help',
+        Feedback: '/c/Feedback',
         Logout: '/Driver/Logout',
     };
 
@@ -42,6 +45,11 @@ function Sidebar() {
         setActiveItem(item);
         const route = menuRoutes[item];
         if (route) {
+            if (route == '/Driver/Logout') {
+                dispatch(clearAllData())
+                navigate("/")
+                return
+            }
             navigate(route);
         }
     };
@@ -278,4 +286,4 @@ function Sidebar() {
     );
 }
 
-export default Sidebar;
+export default DriverSidebar;

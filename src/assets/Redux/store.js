@@ -1,27 +1,30 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { persistReducer, persistStore } from 'redux-persist';
-import storage from 'redux-persist/lib/storage'; // Default localStorage
-import transporterReducer from './TransporterSlice/TranporterSlice';
+import storage from 'redux-persist/lib/storage';
+import transporterReducer from './Slice/TranporterSlice';
 
-// Combine reducers
+// ✅ Combine reducers correctly
 const rootReducer = combineReducers({
-  transporter: transporterReducer, // Include your slice
-  // Add other slices here if needed
+  transporter: transporterReducer, // Ensure it's inside an object
 });
 
-// Persist configuration
+// ✅ Persist configuration
 const persistConfig = {
-  key: 'root',
+  key: 'root', // Must match how Redux Persist stores data
   storage,
-  whitelist: ['transporter'], 
 };
 
+// ✅ Wrap the whole reducer in persistReducer
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-// Configure store
+// ✅ Configure store (Fix Redux Persist Error)
 export const store = configureStore({
   reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false, // ✅ Prevent Redux Persist serialization error
+    }),
 });
 
-// Export persistor
+// ✅ Persistor
 export const persistor = persistStore(store);

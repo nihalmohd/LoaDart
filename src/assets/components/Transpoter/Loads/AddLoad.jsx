@@ -85,7 +85,7 @@ const AddLoad = () => {
             if (response.status === 201) {
               console.log("Load added successfully:", response.data);
               alert("Load added successfully")
-              navigate("/Transpoter/YourLoads")
+              navigate("/c/YourLoads")
             } else {
               console.error("Failed to add load:", response.data);
             }

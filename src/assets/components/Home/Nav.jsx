@@ -38,7 +38,7 @@ const Nav = () => {
   return (
     <div>
       {/* Top Navigation */}
-      <div className="w-full h-14 shadow-md md:flex justify-center items-center">
+      <div className=" container m-auto w-full h-14 shadow-md md:flex justify-center items-center">
         <div className="w-full lg:w-10/12 h-12 flex md:justify-between md:items-center gap-1">
           {/* Logo Section */}
           <div className="w-3/12 h-full flex justify-end items-end">

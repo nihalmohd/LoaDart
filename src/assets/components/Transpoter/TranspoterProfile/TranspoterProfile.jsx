@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { setTransporterData } from '../../../Redux/TransporterSlice/TranporterSlice';
+import { clearAllData, setTransporterData } from '../../../Redux/Slice/TranporterSlice';
 
 
 const TranspoterProfile = () => {
@@ -90,45 +90,46 @@ const TranspoterProfile = () => {
       setErrors((prev) => ({ ...prev, landPhone: '' }));
     }
   };
-
+  
   const handleSubmit =async () => {
     const newErrors = {};
-
- 
+    
+    
     if (!formData.name) {
       newErrors.name = 'Field is required';
     } else if (!namePattern.test(formData.name)) {
       newErrors.name =
-        'Must start with an uppercase letter and be up to 10 characters';
+      'Must start with an uppercase letter and be up to 10 characters';
     }
-
+    
     if (!formData.companyName) {
       newErrors.companyName = 'Field is required';
     } else if (!companyNamePattern.test(formData.companyName)) {
       newErrors.companyName =
-        'Must start with an uppercase letter and have exactly 10 letters';
+      'Must start with an uppercase letter and have exactly 10 letters';
     }
-
- 
+    
+    
     if (formData.email && !emailPattern.test(formData.email)) {
       newErrors.email = 'Invalid email format';
     }
-
+    
     if (formData.landPhone && !phonePattern.test(formData.landPhone)) {
       newErrors.landPhone = 'Invalid phone number';
     }
+    
+    (newErrors);
 
-      (newErrors);
-
+    
     if (Object.keys(newErrors).length === 0) {
       try {
         const User = await axios.post(`${import.meta.env.VITE_BASE_URL}/Transpoter/Register`,
-           {
+          {
             transporters_mob: mobileNumber,
             transporters_name:formData.name,
             company:formData.companyName,
             transporters_email:formData.email,
-            transporters_phone:formData.landPhone
+            transporters_phone:formData.landPhone 
           });
           if (User.data) {
             console.log(User.data,'is loging the User.data');
@@ -136,6 +137,7 @@ const TranspoterProfile = () => {
             
             
             alert("registraion complete",User.data.data.message)
+            dispatch(clearAllData())
             dispatch(
               setTransporterData({
                 transporters_id: User.data.data.transporters_id,
@@ -149,6 +151,8 @@ const TranspoterProfile = () => {
                 user_types_id: User.data.User.user_types_id,
               })
             );
+            console.log(User);
+            
             navigate('/Transpoter');
           }
       } catch (error) {

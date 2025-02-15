@@ -86,7 +86,7 @@ const AddTruck = () => {
         console.log(response);
         if(response.status === 201){
           alert("Truck added successfully!");
-          navigate('/Transpoter/YourTruck');
+          navigate('/c/YourTruck');
         }     
     } catch (error) {
         console.error("Error submitting data:", error);
@@ -117,7 +117,7 @@ const AddTruck = () => {
         <div className="w-full  h-16 p-3 ">
           <div className="w-full h-10 flex justify-between items-end ml-4">
             <h1 className="font-inter font-semibold text-[#5B297E] text-lg mt-5">Add Truck</h1>
-            <button className="w-28 h-6 bg-[#5B297E] flex justify-center items-center gap-1 rounded-sm text-white text-xs mb-2" onClick={()=>{navigate('/Transpoter/YourTruck')}}><HiOutlineTruck className='font-semibold text-base'/>Your Trucks</button>
+            <button className="w-28 h-6 bg-[#5B297E] flex justify-center items-center gap-1 rounded-sm text-white text-xs mb-2" onClick={()=>{navigate('/c/YourTruck')}}><HiOutlineTruck className='font-semibold text-base'/>Your Trucks</button>
           </div>
         </div>
       <div className="w-full h-auto  pl-8 md:p-2 mb-10">
