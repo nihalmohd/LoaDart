@@ -6,12 +6,15 @@ import { LuUpload } from 'react-icons/lu';
 import { useNavigate } from 'react-router-dom';
 import { uploadFileToS3 } from '../../../../../s3Config';
 import { AxiosInstance } from '../../../Api/axios';
+import { useSelector } from 'react-redux';
 
 const EditDocuments = () => {
     const [BusssinesRegistration, setBusssinesRegistration] = useState(null);
        const [GSTCertificate, setGSTCertificate] = useState(null);
        const [BusssinesUrl,setBusssinesUrl] = useState("")
        const [GSTCertificateUrl,seGSTCertificateUrl] = useState("")
+
+       const transporterData = useSelector((state) => state.transporter);
    
        const BussinessRegistrationRef = useRef(null);
        const GSTCertificateRef = useRef(null);
@@ -56,8 +59,8 @@ const EditDocuments = () => {
        
                // Prepare payload for backend API
                const payload = {
-                   transporters_id: 21,
-                   transporter_docs: [
+                shippers_id: transporterData.shippers_id,
+                shippers_doc: [
                        { name: "Business Registration", type_id: 20, image: Businessurl },
                        { name: "GST Certificate", type_id: 22, image: GSTCertificateurl }
                    ]

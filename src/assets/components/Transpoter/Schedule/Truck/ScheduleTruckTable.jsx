@@ -8,17 +8,19 @@ const ScheduleTruckTable = () => {
 
     const transporterData = useSelector((state) => state.transporter);
     const [TruckSchedules, setTruckSchedules] = useState([]);
+    const [selectedDate,setSelectedDate] = useState("")
+    
 
     useEffect(() => {
         if (transporterData?.users_id) {
             fetchTruckSchedules(transporterData.users_id);
         }
-    }, []);
+    }, [selectedDate]);
 
     const fetchTruckSchedules = async (user_id) => {
         try {
             const response = await AxiosInstance.get(
-                `${import.meta.env.VITE_BASE_URL}/Transpoter/truckschedules?user_id=${user_id}`
+                `${import.meta.env.VITE_BASE_URL}/Transpoter/truckschedules?user_id=${user_id}&date_filter=${selectedDate}`
             );
                
                
@@ -37,13 +39,13 @@ const ScheduleTruckTable = () => {
     <div>
         <div className="w-full  mx-auto r">
         <div className="w-full h-20  grid grid-cols-4 gap-3">
-                <div className="w-full h-10 border-2 border-[#5B297E] rounded-md mt-5 felx justify-center items-center">
-                    <select name="" id="" className='bg-transparent w-full h-full flex justify-center items-center focus:outline-none '>
-                    <option value="Last Day">Last Day</option>
-                    <option value="Last 15 Days">Last 15 Days</option>
-                    <option value="Last 30 Days">Last 30 Days</option>
-                    <option value="Last Quater">Last Quater</option>
-                    <option value="Last Year">Last Year</option>
+        <div className="w-full h-10 border-2 border-[#5b297e] rounded-md mt-5 felx justify-center items-center">
+                    <select onChange={(e)=>{setSelectedDate(e.target.value)}} name="" id="" className='bg-transparent w-full h-full flex justify-center items-center focus:outline-none '>
+                    <option value="">All</option>
+                    <option value="last_day">Last Day</option>
+                    <option value="last_30_days">Last 30 Days</option>
+                    <option value="last_6_months">Last 6 month</option>
+                    <option value="last_year">Last Year</option>
                     </select>
                 </div>
                
@@ -66,7 +68,7 @@ const ScheduleTruckTable = () => {
                                 TruckSchedules.map((item,index)=>(
 
                           <tr className="bg-[#D9D9D9] border-b border-black">
-                              <td className="w-24 h-14 text-center font-inter text-xs font-bold p-2">{item.truckSchedules_date}</td>
+                              <td className="w-24 h-14 text-center font-inter text-xs font-bold p-2">{new Date(item.truckSchedules_date).toISOString().split("T")[0]}</td>
                               <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">{item.vehicle_reg}</td>
                               <td className="w-20 h-14 text-center font-inter text-xs font-bold p-2">{item.pickup_loc}</td>
                               <td className="w-16 h-14 text-center font-inter text-xs font-bold p-2">{item.delivery_loc}</td>

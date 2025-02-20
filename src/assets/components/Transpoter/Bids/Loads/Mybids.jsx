@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import Sidebar from '../../Sidebar/Sidebar'
 import { FaPlus } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
@@ -10,6 +10,8 @@ import Modal from '../../../Modal/Modal';
 const Mybids = () => {
 
     const { loads_id } = useParams();
+    const location = useLocation();
+    const { material, weight, pickupLocation, deliveryLocation } = location.state || {};
 
     const transporterData = useSelector((state) => state.transporter);
     const [loadData, setLoadData] = useState([]);
@@ -46,7 +48,7 @@ const Mybids = () => {
             const response = await AxiosInstance.get(
                 `${import.meta.env.VITE_BASE_URL}/Transpoter/getBidsByUserAndLoadId?user_id=${user_id}&load_id=${loads_id}`
             );
-            console.log(response);
+            console.log(response,"basic fetch");
 
             if (response.status === 200) {
                 setLoadData(response.data.data); // Update loadData state
@@ -120,25 +122,23 @@ const Mybids = () => {
         </Modal>
         <div className="w-11/12  h-10 ">
             <div className="w-full h-10 flex justify_start items-end ml-4">
-                <h1 className="font-inter font-semibold text-[#5B297E] text-lg mt-5">{`Your Load > ${loadData && loadData.length > 0 ? (loadData[0].materials_name) : ("")} > `} </h1>
-                <h1 className="font-inter font-semibold text-[#5B297E] text-lg">{` ${loadData && loadData.length > 0 ? (loadData[0].loads_id) : ("")}`} </h1>
+                <h1 className="font-inter font-semibold text-[#5B297E] text-lg mt-5">{`Your Load  bids> ${material} > `} </h1>
+                <h1 className="font-inter font-semibold text-[#5B297E] text-lg">{` ${loads_id}`} </h1>
             </div>
         </div>
     </div>
-    {
-        loadData && loadData.length > 0 ? (
-            <>
-                <div className="w-full h-auto flex justify-center items-center">
+   
+                <div  className="w-full h-auto flex justify-center items-center">
                     <div className="w-11/12 bg-white border border-gray-300 p-4">
                         {/* Top Section */}
                         <div className="flex justify-between items-start border-b border-gray-200 pb-2">
                             <div>
-                                <h2 className="text-lg font-semibold">{loadData[0].materials_name}</h2>
-                                <p className="text-gray-600 text-sm">Wt: {loadData[0].truck_capacities_name}</p>
+                                <h2 className="text-lg font-semibold">{material}</h2>
+                                <p className="text-gray-600 text-sm">Wt: {weight}</p>
                             </div>
                             <div>
                                 <p className="text-gray-700 text-sm font-medium">
-                                    Load ID: <span className="font-bold">#{loadData[0].loads_id}</span>
+                                    Load ID: <span className="font-bold">#{loads_id}</span>
                                 </p>
                             </div>
                         </div>
@@ -146,11 +146,11 @@ const Mybids = () => {
                         <div className="mt-2">
                             <div className="flex items-center gap-2">
                                 <span className="w-3 h-3 bg-green-500 rounded-full"></span>
-                                <p className="text-gray-700">{loadData[0].pickupLoc}</p>
+                                <p className="text-gray-700">{pickupLocation}</p>
                             </div>
                             <div className="flex items-center gap-2 mt-1">
                                 <span className="w-3 h-3 bg-red-500 rounded-full"></span>
-                                <p className="text-gray-700">{loadData[0].deliveryLoc}</p>
+                                <p className="text-gray-700">{deliveryLocation}</p>
                             </div>
                         </div>
                     </div>
@@ -174,6 +174,10 @@ const Mybids = () => {
     </div>
                   </div>
                 </div>
+
+                {
+        loadData && loadData.length > 0 ? (
+            <>
 
                 <div className="w-full h-auto flex justify-center ">
                     <div className="w-11/12 h-full flex justify-center items-center">
@@ -202,7 +206,7 @@ const Mybids = () => {
                                             <td className="w-20 h-14 text-center text-xs font-bold p-2">{load.users_name}</td>
                                             <td className="w-20 h-14 text-center text-xs font-bold p-2">{load.truck_types_name}</td>
                                             <td className="w-16 h-14 text-center text-xs font-bold p-2">{load.regNumber}</td>
-                                            <td className="w-16 h-14 text-center text-xs font-bold p-2">₹{load.bidsTruck_amount}</td>
+                                            <td className="w-16 h-14 text-center text-xs font-bold p-2">₹{load.bidsLoad_amount}</td>
                                             <td className="w-10 h-14 text-center text-xs font-bold p-2">
                                                 <button
                                                     className="bg-[#5B297E] rounded-sm p-2 text-xs w-auto text-white h-8"

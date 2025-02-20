@@ -9,6 +9,18 @@ const TruckBiddingModal = ({ TruckTypename, capacity, regnumber, pickuploc, deli
   const [loadData, setloadData] = useState([]); // Fix: Ensure it's an array
   const [amount, setAmount] = useState("");
   const [loading, setLoading] = useState(false);
+  const [selectedLoadDetails, setSelectedLoadDetails] = useState(null);
+
+  const handleLoadChange = (e) => {
+    const selectedId = e.target.value;
+    setselectloadData(selectedId);
+  
+    // Find the selected load details from loadData
+    const selectedLoad = loadData.find((item) => item.loads_id === selectedId);
+    
+    setSelectedLoadDetails(selectedLoad); // Store the full details in state
+  };
+  
 
   const navigate = useNavigate();
   const transporterData = useSelector((state) => state.transporter);
@@ -38,7 +50,7 @@ const TruckBiddingModal = ({ TruckTypename, capacity, regnumber, pickuploc, deli
   }, []);
 
   // Submit bid
-  const handleConfirmBidding = async () => {
+  const handleConfirmBidding = async (loads_id ,material, weight, pickupLocation, deliveryLocation) => {
     if (!amount || !selectLoad) {
       alert("Please enter an amount and select a load.");
       return;
@@ -47,8 +59,8 @@ const TruckBiddingModal = ({ TruckTypename, capacity, regnumber, pickuploc, deli
     setLoading(true);
 
     const bidData = {
-      bidsTruck_amount: Number(amount),
-      loads_id: selectLoad,
+      bidsLoad_amount: Number(amount),
+      load_id: selectLoad,
       user_id: transporterData.users_id,
       trucks_id: trucks_id
     };
@@ -61,6 +73,9 @@ const TruckBiddingModal = ({ TruckTypename, capacity, regnumber, pickuploc, deli
         alert("Bid submitted successfully!");
         setAmount("");
         setselectloadData(""); // Fix: Correct reset
+        navigate(`/c/ViewAllMyLoadBids/${loads_id}`, {
+          state: { material, weight, pickupLocation, deliveryLocation },
+        });
       } else {
         alert("Failed to submit bid. Please try again.");
       }
@@ -71,6 +86,9 @@ const TruckBiddingModal = ({ TruckTypename, capacity, regnumber, pickuploc, deli
       setLoading(false);
     }
   };
+
+  console.log(selectedLoadDetails,"selected load");
+  
 
   return (
     <div className="bg-white rounded-xl shadow-lg w-[380px]">
@@ -106,7 +124,7 @@ const TruckBiddingModal = ({ TruckTypename, capacity, regnumber, pickuploc, deli
         <label className="block text-sm font-medium text-gray-700">Select Load</label>
         <select
           value={selectLoad}
-          onChange={(e) => setselectloadData(e.target.value)} // Fix: Correct state setter
+          onChange={(e) => handleLoadChange(e)} // Fix: Correct state setter
           className="w-full border h-10 border-gray-300 rounded mt-1 text-sm focus:outline-none"
         >
           <option value="" disabled>Select a load</option>
@@ -140,7 +158,7 @@ const TruckBiddingModal = ({ TruckTypename, capacity, regnumber, pickuploc, deli
           className={`w-1/2 mt-2 mb-2 h-10 ${
             loading ? "bg-gray-400 cursor-not-allowed" : "bg-[#5B297E] hover:bg-[#4f276b]"
           } text-white font-inter text-sm rounded`}
-          onClick={handleConfirmBidding}
+          onClick={()=>{handleConfirmBidding(selectedLoadDetails.loads_id,selectedLoadDetails.materials_name,selectedLoadDetails.truck_capacities_name,selectedLoadDetails.pickupLoc,selectedLoadDetails.deliveryLoc)}}
           disabled={loading}
         >
           {loading ? "Submitting..." : "Confirm Bidding"}

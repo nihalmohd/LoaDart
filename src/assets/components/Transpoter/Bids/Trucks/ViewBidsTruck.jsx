@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import Sidebar from '../../Sidebar/Sidebar'
 import { FaPlus } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
@@ -9,6 +9,8 @@ import TruckBiddingComponent from './TruckBiddingComponent';
 
 const ViewBidsTruck = () => {
     const { truck_id } = useParams();
+    const location = useLocation();
+    const { regNum, weight, pickupLocation, deliveryLocation, truck_type } = location.state || {};
     const transporterData = useSelector((state) => state.transporter);
     const [TruckData, setTruckData] = useState([]);
     const [negotiatedAmount, setnegotiatedAmount] = useState([]);
@@ -18,6 +20,7 @@ const ViewBidsTruck = () => {
     const [index, setIndex] = useState(0)
     const navigate = useNavigate();
     const [selected, setSelected] = useState("Bids for truck");
+
 
     const openModal = () => {
         setIsOpen(true);
@@ -86,7 +89,9 @@ const ViewBidsTruck = () => {
     const selectButton = (item) => {
         setSelected(item)
         if (item === "My truck bids") {
-            navigate(`/Transpoter/ViewAllMyTruckBids/${truck_id}`);
+            navigate(`/c/ViewAllMyTruckBids/${truck_id}`,{
+                    state: {regNum, weight, pickupLocation, deliveryLocation, truck_type},
+            });
         } 
     }
 
@@ -98,7 +103,7 @@ const ViewBidsTruck = () => {
 
     return (
         <div>
-            <Sidebar />
+            
             <div className="w-full h-16  flex items-center ">
                 <Modal isOpen={isOpen} closeModal={closeModal}>
                     <TruckBiddingComponent
@@ -119,27 +124,25 @@ const ViewBidsTruck = () => {
                 </Modal>
                 <div className="w-11/12  h-10 ">
                     <div className="w-full h-10 flex  items-end ml-4">
-                        <h1 className="font-inter font-semibold text-[#5B297E] text-lg mt-5">{`Your truck > ${TruckData && TruckData.length > 0 ? (TruckData[0].truck_types_name) : ("")} >  `} </h1>
-                        <h1 className="font-inter font-semibold text-[#5B297E] text-lg">{`  ${TruckData && TruckData.length > 0 ? (TruckData[0].regNumber) : ("")}`} </h1>
+                        <h1 className="font-inter font-semibold text-[#5B297E] text-lg mt-5">{`Your truck > ${truck_type} >  `} </h1>
+                        <h1 className="font-inter font-semibold text-[#5B297E] text-lg">{`  ${regNum}`} </h1>
                     </div>
                 </div>
             </div>
 
-            {
-                TruckData && TruckData.length > 0 ? (
-                    <>
+          
 
                         <div className="w-full h-auto flex justify-center items-center">
                             <div className="w-11/12 bg-white  border border-gray-300 p-4">
                                 {/* Top Section */}
                                 <div className="flex justify-between items-start border-b border-gray-200 pb-2">
                                     <div>
-                                        <h2 className="text-lg font-semibold">{TruckData[0].truck_types_name}, {TruckData[0].regNumber}</h2>
-                                        <p className="text-gray-600 text-sm">Wt: {TruckData[0].truck_capacities_name}</p>
+                                        <h2 className="text-lg font-semibold">{`${truck_type}, ${regNum}`}</h2>
+                                        <p className="text-gray-600 text-sm">Wt: {weight}</p>
                                     </div>
                                     <div>
                                         <p className="text-gray-700 text-sm font-medium">
-                                            Truck ID: <span className="font-bold">#{TruckData[0].truck_id}</span>
+                                            Truck ID: <span className="font-bold">#{truck_id}</span>
                                         </p>
                                     </div>
                                 </div>
@@ -148,11 +151,11 @@ const ViewBidsTruck = () => {
                                 <div className="mt-2">
                                     <div className="flex items-center gap-2">
                                         <span className="w-3 h-3 bg-green-500 rounded-full"></span>
-                                        <p className="text-gray-700">{TruckData[0].postTrucks_from}</p>
+                                        <p className="text-gray-700">{pickupLocation}</p>
                                     </div>
                                     <div className="flex items-center gap-2 mt-1">
                                         <span className="w-3 h-3 bg-red-500 rounded-full"></span>
-                                        <p className="text-gray-700">{TruckData[0].postTrucks_to}</p>
+                                        <p className="text-gray-700">{deliveryLocation}</p>
                                     </div>
                                 </div>
                             </div>
@@ -176,6 +179,9 @@ const ViewBidsTruck = () => {
                                 </div>
                             </div>
                         </div>
+                        {
+                TruckData && TruckData.length > 0 ? (
+                    <>
 
                         <div className="w-full h-auto  flex justify-center mt-5">
                             <div className="w-11/12 h-full flex justify-center items-center">

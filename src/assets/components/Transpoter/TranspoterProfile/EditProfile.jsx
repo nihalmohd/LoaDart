@@ -11,15 +11,15 @@ const EditProfile = () => {
     const [state, setState] = useState([])
     const [stateId, setStateId] = useState("")
     const [DistrictId, setDistrictId] = useState("")
-    const [Addressline1,setAddressline1] = useState("")
-    const [Addressline2,setAddressline2] = useState("")
-    const [GSTIN,setGSTIN] = useState("")
+    const [Addressline1, setAddressline1] = useState("")
+    const [Addressline2, setAddressline2] = useState("")
+    const [GSTIN, setGSTIN] = useState("")
     const [message, setMessage] = useState("");
 
     useEffect(() => {
         fetchData()
     }, [])
-    
+
     const transporterData = useSelector((state) => state.transporter);
     const fetchData = async () => {
         try {
@@ -41,32 +41,32 @@ const EditProfile = () => {
 
     const updateUserDetails = async () => {
         try {
-          const requestBody = {
-            addressline1: Addressline1,
-            addressline2: Addressline2,
-            state_id: parseInt(stateId), // Ensure this is a number
-            district_id: parseInt(DistrictId), // Ensure this is a number
-            transporter_id: transporterData.transporters_id, // Replace this with the actual transporter ID
-            gstin: GSTIN,
-          };
-    
-          const response = await AxiosInstance.post(
-            `${import.meta.env.VITE_BASE_URL}/Transpoter/updateTransporterBasicDetails`,
-            requestBody
-          );
-    
-          if (response.status === 200) {
-            setMessage("User details updated successfully!");
-            alert("User details updated successfully!")
-            navigate("/Transpoter/Profile")
-          } else {
-            setMessage("Failed to update user details. Please try again.");
-          }
+            const requestBody = {
+                addressline1: Addressline1,
+                addressline2: Addressline2,
+                state_id: parseInt(stateId), // Ensure this is a number
+                district_id: parseInt(DistrictId), // Ensure this is a number
+                transporter_id: transporterData.transporters_id, // Replace this with the actual transporter ID
+                gstin: GSTIN,
+            };
+
+            const response = await AxiosInstance.post(
+                `${import.meta.env.VITE_BASE_URL}/Transpoter/updateTransporterBasicDetails`,
+                requestBody
+            );
+
+            if (response.status === 200) {
+                setMessage("User details updated successfully!");
+                alert("User details updated successfully!")
+                navigate("/Transpoter/Profile")
+            } else {
+                setMessage("Failed to update user details. Please try again.");
+            }
         } catch (error) {
-          console.error("Error updating user details:", error);
-          setMessage("An error occurred while updating user details.");
+            console.error("Error updating user details:", error);
+            setMessage("An error occurred while updating user details.");
         }
-      };
+    };
 
 
 
@@ -82,7 +82,7 @@ const EditProfile = () => {
                 <div className="flex flex-col mt-2">
                     <label className="text-xs font-medium text-gray-400 ">Address line 1<span className='text-red-600'>*</span></label>
                     <input
-                    onChange={(e) => setAddressline1(e.target.value)}
+                        onChange={(e) => setAddressline1(e.target.value)}
                         type="text"
                         placeholder="abcd"
                         className="md:w-1/2 h-10 border-b border-gray-300 outline-none placeholder:text-black"
@@ -91,7 +91,7 @@ const EditProfile = () => {
                 <div className="flex flex-col mt-3">
                     <label className="text-xs font-medium text-gray-400 ">Address line 2<span className='text-red-600'>*</span></label>
                     <input
-                    onChange={(e) => setAddressline2(e.target.value)}
+                        onChange={(e) => setAddressline2(e.target.value)}
                         type="text"
                         placeholder="abcd"
                         className="md:w-1/2 h-10 border-b border-gray-300 outline-none placeholder:text-black"
@@ -129,14 +129,21 @@ const EditProfile = () => {
 
 
                         <div className="relative">
-                            <select onClick={fetchDistrictData} onChange={(e) => setDistrictId(e.target.value)} className="w-full h-10 border-b border-gray-300 text-black focus:outline-none appearance-none">
+                            <select
+                                onClick={fetchDistrictData}
+                                onChange={(e) => setDistrictId(e.target.value)}
+                                className="w-full h-10 border-b border-gray-300 text-black focus:outline-none appearance-none"
+                            >
                                 <option value="">Select a District</option>
-                                {District && District.length > 0 ? (<>
-                                    {
-                                        District.map((item, index) => (<option key={item.districts_id} value={item.districts_id}>{item.districts_name}</option>))
-                                    }
-                                </>) : (<>no data founed</>)}
-
+                                {Array.isArray(District) && District.length > 0 ? (
+                                    District.map((item) => (
+                                        <option key={item.districts_id} value={item.districts_id}>
+                                            {item.districts_name}
+                                        </option>
+                                    ))
+                                ) : (
+                                    <option disabled>No data found</option>
+                                )}
                             </select>
 
 
@@ -146,13 +153,13 @@ const EditProfile = () => {
                                 </svg>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
                 <div className="flex flex-col mt-3">
                     <label className="text-xs font-medium text-gray-400 ">GSTIN<span className='text-red-600'>*</span></label>
                     <input
-                    onChange={(e) => setGSTIN(e.target.value)}
+                        onChange={(e) => setGSTIN(e.target.value)}
                         type="text"
                         placeholder="abcd"
                         className="md:w-1/2 h-10 border-b border-gray-300 outline-none placeholder:text-black"

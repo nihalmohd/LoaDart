@@ -38,6 +38,12 @@ const YourLoads = () => {
     getLoads()
   }, [])
 
+  const ViewAllBids = (load_id,material,weight,pickupLocation,deliveryLocation)=>{
+    navigate(`/c/ViewBidsLoad/${load_id}`, {
+      state: { material, weight, pickupLocation, deliveryLocation },
+    });
+  }
+
 
   return (
     <div className='p-3'>
@@ -45,7 +51,7 @@ const YourLoads = () => {
         <div className="w-11/12  h-10 ">
           <div className="w-full h-10 flex justify-between items-end ml-4">
             <h1 className="font-inter font-semibold text-[#5B297E] text-lg mt-5">Your Loads</h1>
-            <button className="w-28 h-6 bg-[#5B297E] flex justify-center items-center rounded-sm text-white text-xs mb-2" onClick={() => { navigate("/Transpoter/AddLoad") }}><FaPlus />Add Load</button>
+            <button className="w-28 h-6 bg-[#5B297E] flex justify-center items-center rounded-sm text-white text-xs mb-2" onClick={() => { navigate("/c/AddLoad") }}><FaPlus />Add Load</button>
           </div>
         </div>
       </div>
@@ -93,7 +99,7 @@ const YourLoads = () => {
                       </div>
                       <div className="w-full h-[55px] bg-[#D9D9D9] rounded-b-md  ">
                         <div className="w-full h-full  rounded-b-md flex">
-                          <div onClick={() => { navigate(`/c/ViewBidsLoad/${item.loads_id}`) }} className="w-[120px] h-8 bg-white mt-3 ml-2  flex  justify-center items-center font-inter text-sm text-black rounded-sm shadow hover:cursor-pointer" >View Bids  <span className='ml-2 mt-1 text-lg'><TbEyeFilled /></span> </div>
+                          <div onClick={() => ViewAllBids(item.loads_id,item.materials_name,item.truck_capacities_name,item.pickupLoc,item.deliveryLoc) } className="w-[120px] h-8 bg-white mt-3 ml-2  flex  justify-center items-center font-inter text-sm text-black rounded-sm shadow hover:cursor-pointer" >View Bids  <span className='ml-2 mt-1 text-lg'><TbEyeFilled /></span> </div>
                           <div className="w-[140px] h-8 bg-[#5B297E] mt-3 ml-3 flex  justify-center items-center font-inter text-sm text-white rounded-sm shadow ">Suggusted Truck</div>
                         </div>
                       </div>

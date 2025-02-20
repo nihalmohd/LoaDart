@@ -9,9 +9,20 @@ const BiddingModal = ({ materialname, capacity, pickupDate, pickuploc, deliveryL
   const [message, setMessage] = useState("");
   const [TruckData, setTruckData] = useState([]);
   const [loading, setLoading] = useState(false); // For button loading state
-
+  const [selectedTruckDetails, setSelectedTruckDetails] = useState(null); // Store full truck details
   const transporterData = useSelector((state) => state.transporter);
   const navigate = useNavigate()
+
+const handleTruckChange = (e) => {
+  const selectedId = e.target.value;
+  setSelectedTruck(selectedId);
+
+  // Find the selected truck details from TruckData
+  const selectedTruckData = TruckData.find((item) => item.truck_id === selectedId);
+  
+  setSelectedTruckDetails(selectedTruckData); // Store full truck details in state
+};
+
 
   // Fetch trucks list for dropdown
   const getTrucks = async () => {
@@ -37,7 +48,7 @@ const BiddingModal = ({ materialname, capacity, pickupDate, pickuploc, deliveryL
   }, []);
 
   // Function to submit the bid
-  const handleConfirmBidding = async () => {
+  const handleConfirmBidding = async (truck_id,regNum, weight, pickupLocation, deliveryLocation, truck_type) => {
     if (!amount || !selectedTruck) {
       alert("Please enter amount and select a truck.");
       return;
@@ -46,8 +57,8 @@ const BiddingModal = ({ materialname, capacity, pickupDate, pickuploc, deliveryL
     setLoading(true); // Show loading state
 
     const bidData = {
-      bidsLoad_amount: Number(amount),
-      load_id: load_id,
+      bidsTruck_amount: Number(amount),
+      loads_id: load_id,
       user_id: transporterData.users_id,
       trucks_id: selectedTruck
     };
@@ -59,6 +70,9 @@ const BiddingModal = ({ materialname, capacity, pickupDate, pickuploc, deliveryL
         alert("Bid submitted successfully!");
         setAmount(""); // Reset amount
         setSelectedTruck(""); // Reset truck selection
+        navigate(`/c/ViewAllMyTruckBids/${truck_id}`,{
+          state: {regNum, weight, pickupLocation, deliveryLocation, truck_type},     
+      });
       } else {
         alert("Failed to submit bid. Please try again.");
       }
@@ -69,6 +83,10 @@ const BiddingModal = ({ materialname, capacity, pickupDate, pickuploc, deliveryL
       setLoading(false); // Hide loading state
     }
   };
+
+
+  console.log(selectedTruckDetails,"selected truck details");
+  
 
   return (
     <div className="bg-white rounded-xl shadow-lg w-[380px]">
@@ -100,7 +118,7 @@ const BiddingModal = ({ materialname, capacity, pickupDate, pickuploc, deliveryL
         <label className="block text-sm font-medium text-gray-700">Select Truck</label>
         <select
           value={selectedTruck}
-          onChange={(e) => setSelectedTruck(e.target.value)}
+          onChange={(e) => handleTruckChange(e)}
           className="w-full border h-10 border-gray-300 rounded mt-1 text-sm focus:outline-none"
         >
           <option value="" disabled>Select a truck</option>
@@ -134,7 +152,7 @@ const BiddingModal = ({ materialname, capacity, pickupDate, pickuploc, deliveryL
           className={`w-1/2 mt-2 mb-2 h-10 ${
             loading ? "bg-gray-400 cursor-not-allowed" : "bg-[#5B297E] hover:bg-[#4f276b]"
           } text-white font-inter text-sm rounded`}
-          onClick={handleConfirmBidding}
+          onClick={()=>{handleConfirmBidding(selectedTruckDetails.truck_id,selectedTruckDetails.regNumber,selectedTruckDetails.truck_capacities_name,selectedTruckDetails.postTrucks_from,selectedTruckDetails.postTrucks_to,selectedTruckDetails.truck_types_name)}}
           disabled={loading}
         >
           {loading ? "Submitting..." : "Confirm Bidding"}
@@ -145,3 +163,4 @@ const BiddingModal = ({ materialname, capacity, pickupDate, pickuploc, deliveryL
 };
 
 export default BiddingModal;
+ 

@@ -56,13 +56,20 @@ const YourTruck = () => {
         }
     }
 
+   const ViewALLBidsTruck = (trucks_id,regNum,weight, pickupLocation, deliveryLocation,truck_type) =>{
+    navigate(`/c/ViewBidsTruck/${trucks_id}`,{
+        state: { regNum, weight, pickupLocation, deliveryLocation, truck_type },
+
+    })
+   }
+
     return (
         <div>
             <div className="w-full h-16  flex items-center ">
                 <div className="w-11/12  h-10 ">
                     <div className="w-full h-10 flex justify-between items-end ml-4">
                         <h1 className="font-inter font-semibold text-[#5B297E] text-lg mt-5">Your Truck</h1>
-                        <button className="w-28 h-6 bg-[#5B297E] flex justify-center items-center rounded-sm text-white text-xs mb-2" onClick={() => { navigate('/Transpoter/AddTruck') }}><FaPlus />Add Truck</button>
+                        <button className="w-28 h-6 bg-[#5B297E] flex justify-center items-center rounded-sm text-white text-xs mb-2" onClick={() => { navigate('/c/AddTruck') }}><FaPlus />Add Truck</button>
                     </div>
                 </div>
             </div>
@@ -154,7 +161,7 @@ const YourTruck = () => {
                                                             <>
                                                                 <div
                                                                     className="w-[120px] h-8 bg-white mt-3 ml-4 flex border border-[#5B297E] justify-center items-center font-inter text-sm text-[#5B297E] rounded-sm shadow cursor-pointer"
-                                                                    onClick={() => navigate(`/c/ViewBidsTruck/${item.truck_id}`)}
+                                                                    onClick={() => ViewALLBidsTruck(item.truck_id,item.regNumber,item.truck_capacities_name,item.postTrucks_from,item.postTrucks_to,item.truck_types_name)}
                                                                 >
                                                                     View Bids
                                                                 </div>

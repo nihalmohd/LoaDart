@@ -23,7 +23,7 @@ const LoadBiddingComponent = ({ bidderName, bidAmount, itemName, weight, origin,
 
           if(response.status === 201){
             alert("Truck scheduled sucessfull")
-            navigate("/Transpoter/Schedule")
+            navigate("/c/Schedule")
           }
       
           console.log("Truck schedule created:", response.data);

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import Sidebar from '../../Sidebar/Sidebar'
 import { FaPlus } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
@@ -7,8 +7,10 @@ import { AxiosInstance } from '../../../../Api/axios';
 import LoadBiddingComponent from './LoadBiddingComponent';
 import Modal from '../../../Modal/Modal';
 
-const ViewBidsLoad = () => {
+const   ViewBidsLoad = () => {
     const { loads_id } = useParams();
+    const location = useLocation();
+    const { material, weight, pickupLocation, deliveryLocation } = location.state || {};
 
     const transporterData = useSelector((state) => state.transporter);
     const [loadData, setLoadData] = useState([]);
@@ -88,7 +90,9 @@ const ViewBidsLoad = () => {
     const selectButton = (item) => {
         setSelected(item)
         if (item === "My load bids") {
-            navigate(`/Transpoter/ViewAllMyLoadBids/${loads_id}`);
+            navigate(`/c/ViewAllMyLoadBids/${loads_id}`,{
+                state: { material, weight, pickupLocation, deliveryLocation },
+            });
         } 
     }
 
@@ -119,25 +123,23 @@ const ViewBidsLoad = () => {
                 </Modal>
                 <div className="w-11/12  h-10 ">
                     <div className="w-full h-10 flex justify_start items-end ml-4">
-                        <h1 className="font-inter font-semibold text-[#5B297E] text-lg mt-5">{`Your Load > ${loadData && loadData.length > 0 ? (loadData[0].materials_name) : ("")} > `} </h1>
-                        <h1 className="font-inter font-semibold text-[#5B297E] text-lg">{` ${loadData && loadData.length > 0 ? (loadData[0].loads_id) : ("")}`} </h1>
+                        <h1 className="font-inter font-semibold text-[#5B297E] text-lg mt-5">{`Your Load > ${material}> `} </h1>
+                        <h1 className="font-inter font-semibold text-[#5B297E] text-lg">{` ${loads_id}`} </h1>
                     </div>
                 </div>
             </div>
-            {
-                loadData && loadData.length > 0 ? (
-                    <>
+                    
                         <div className="w-full h-auto flex justify-center items-center">
                             <div className="w-11/12 bg-white border border-gray-300 p-4">
                                 {/* Top Section */}
                                 <div className="flex justify-between items-start border-b border-gray-200 pb-2">
                                     <div>
-                                        <h2 className="text-lg font-semibold">{loadData[0].materials_name}</h2>
-                                        <p className="text-gray-600 text-sm">Wt: {loadData[0].truck_capacities_name}</p>
+                                        <h2 className="text-lg font-semibold">{material}</h2>
+                                        <p className="text-gray-600 text-sm">Wt: {weight}</p>
                                     </div>
                                     <div>
                                         <p className="text-gray-700 text-sm font-medium">
-                                            Load ID: <span className="font-bold">#{loadData[0].loads_id}</span>
+                                            Load ID: <span className="font-bold">#{loads_id}</span>
                                         </p>
                                     </div>
                                 </div>
@@ -145,35 +147,38 @@ const ViewBidsLoad = () => {
                                 <div className="mt-2">
                                     <div className="flex items-center gap-2">
                                         <span className="w-3 h-3 bg-green-500 rounded-full"></span>
-                                        <p className="text-gray-700">{loadData[0].pickupLoc}</p>
-                                    </div>
-                                    <div className="flex items-center gap-2 mt-1">
-                                        <span className="w-3 h-3 bg-red-500 rounded-full"></span>
-                                        <p className="text-gray-700">{loadData[0].deliveryLoc}</p>
-                                    </div>
-                                </div>
+                                        <p className="text-gray-700">{pickupLocation}</p>
+                            </div>
+                            <div className="flex items-center gap-2 mt-1">
+                                <span className="w-3 h-3 bg-red-500 rounded-full"></span>
+                                <p className="text-gray-700">{deliveryLocation}</p>
                             </div>
                         </div>
+                    </div>
+                </div>
 
-                        <div className="w-full h-12  flex justify-center items-center mt-1">
-                            <div className="w-11/12 h-10 ">
-                                <div className="w-full h-10 flex items-center gap-2">
-                                    {["Bids for load", "My load bids"].map((item) => (
-                                        <button
-                                            key={item}
-                                            onClick={() => selectButton(item)}
-                                            className={`border-2 border-[#5B297E] text-sm font-bold px-4 py-1 rounded w-auto h-8 text-center ${selected === item
-                                                ? "bg-[#5B297E] text-white"
-                                                : "text-[#5B297E]"
-                                                }`}
-                                        >
-                                            {item}
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
+                <div className="w-full h-12  flex justify-center items-center mt-1">
+                    <div className="w-11/12 h-10 ">
+                        <div className="w-full h-10 flex items-center gap-2">
+                            {["Bids for load", "My load bids"].map((item) => (
+                                <button
+                                    key={item}
+                                    onClick={() => selectButton(item)}
+                                    className={`border-2 border-[#5B297E] text-sm font-bold px-4 py-1 rounded w-auto h-8 text-center ${selected === item
+                                        ? "bg-[#5B297E] text-white"
+                                        : "text-[#5B297E]"
+                                        }`}
+                                >
+                                    {item}
+                                </button>
+                            ))}
                         </div>
+                    </div>
+                </div>
 
+                {
+                    loadData && loadData.length > 0 ? (
+                        <>
                         <div className="w-full h-auto flex justify-center ">
                             <div className="w-11/12 h-full flex justify-center items-center">
                                 <table className="min-w-full border border-gray-200 rounded-sm overflow-hidden">

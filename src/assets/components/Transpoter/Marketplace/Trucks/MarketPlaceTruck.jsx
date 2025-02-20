@@ -20,6 +20,9 @@ const MarketPlaceTruck = () => {
   const [weight, setWeight] = useState([]);
   const [index,setIndex] = useState(0)
   const [isOpen, setIsOpen] = useState(false)
+  const [currentPage, setCurrentPage] = useState(1);
+const [totalPages, setTotalPages] = useState(1);
+
   
   
 
@@ -29,7 +32,7 @@ const MarketPlaceTruck = () => {
   useEffect(() => {
     fetchData()
     BasicTruck()
-  }, [])
+  }, [currentPage])
 
   
   const openModal = () => {
@@ -61,7 +64,8 @@ const MarketPlaceTruck = () => {
         `${import.meta.env.VITE_BASE_URL}/Transpoter/getMatchingPostTrucks`,
         requestBody
       );
-
+          console.log(response);
+          
       if (response.data?.data && response.data.data.length > 0) {
         setTruckData(response.data.data); 
         setMessage(""); 
@@ -90,26 +94,23 @@ const MarketPlaceTruck = () => {
   const BasicTruck = async () => {
     try {
       const response = await AxiosInstance.get(
-        `${import.meta.env.VITE_BASE_URL}/Transpoter/getPaginatedTrucks?page=1&limit=12`
+        `${import.meta.env.VITE_BASE_URL}/Transpoter/getPaginatedTrucks?page=${currentPage}&limit=12`
       );
-
-      console.log(response);
-
+  
       if (response.data?.data && response.data.data.length > 0) {
-        console.log(response.data.data);
-
         setTruckData(response.data.data);
+        setTotalPages(response.data.totalPages); // Assuming totalPages is part of the response
         setMessage('');
       } else {
-        setLoadData([]);
+        setTruckData([]);
         setMessage('No load found');
       }
     } catch (error) {
       console.error('Error fetching loads:', error);
       setMessage('Failed to load data. Please try again.');
     }
-
-  }
+  };
+  
 
   const fetchData = async () => {
     try {
@@ -124,6 +125,11 @@ const MarketPlaceTruck = () => {
   };
 
   console.log(TruckData, "truck data");
+
+  const handlePagination = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+  
 
   return (
     <div>
@@ -263,7 +269,7 @@ const MarketPlaceTruck = () => {
 
 
       </div>
-      <div className="w-full h-screen grid grid-cols-1 md:grid-cols-3 gap-4 relative">
+      <div className="w-full h-auto grid grid-cols-1 md:grid-cols-3 gap-4 relative">
         {TruckData && TruckData.length > 0 ? (
           <>
             {TruckData.map((item, index) => (
@@ -338,8 +344,30 @@ const MarketPlaceTruck = () => {
           <h1 className="text-center text-gray-500"><span className="loading loading-infinity loading-lg"></span></h1>
         )}
       </div>
-
-
+      <div className="mt-5 flex justify-center mb-3">
+  <button 
+    onClick={() => handlePagination(currentPage - 1)} 
+    disabled={currentPage === 1} 
+    className="mr-2 px-4 py-2 border rounded text-white bg-[#5B297E]">
+    Previous
+  </button>
+  {[...Array(totalPages)].map((_, i) => (
+    <button
+      key={i}
+      onClick={() => handlePagination(i + 1)}
+      className={`px-4 py-2 border rounded text-white ${currentPage === i + 1 ? 'bg-[#5B297E]' : 'bg-gray-300'}`}
+    >
+      {i + currentPage}
+    </button>
+  ))}
+  <button 
+    onClick={() => handlePagination(currentPage + 1)} 
+    disabled={currentPage === totalPages} 
+    className="ml-2 px-4 py-2 border rounded text-white bg-[#5B297E]">
+    Next
+  </button>
+</div>
+    
     </div>
   )
 }

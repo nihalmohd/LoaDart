@@ -6,6 +6,7 @@ import { LuUpload } from 'react-icons/lu';
 import { useNavigate } from 'react-router-dom';
 import { uploadFileToS3 } from '../../../../../s3Config';
 import { AxiosInstance } from '../../../Api/axios';
+import { useSelector } from 'react-redux';
 
 const EditDocuments = () => {
     const [BusssinesRegistration, setBusssinesRegistration] = useState(null);
@@ -59,8 +60,8 @@ const EditDocuments = () => {
     
             // Prepare payload for backend API
             const payload = {
-                shippers_id: transporterData.shippers_id,
-                shippers_docs: [
+                transporters_id: transporterData.transporters_id,
+                transporter_docs: [
                     { name: "Business Registration", type_id: 20, image: Businessurl },
                     { name: "GST Certificate", type_id: 22, image: GSTCertificateurl }
                 ]
