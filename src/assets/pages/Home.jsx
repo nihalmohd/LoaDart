@@ -3,7 +3,7 @@ import Nav from '../components/Home/Nav'
 
 const Home = () => {
   return (
-    <div className=' container m-auto'>
+    <div className=' container max-w-[1745px] m-auto'>
       <Nav/>
     </div>
   )
